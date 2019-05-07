@@ -1,48 +1,23 @@
-## Table of Contents
-- 1. [문서 개요](#1)
-     - [1.1. 목적](#2)
-     - [1.2. 범위](#3)
-     - [1.3. 시스템 구성도](#4)
-     - [1.4. 참고자료](#5)
-- 2. [설치전 준비사항](#6)
-     - [2.1. 기본설치 항목](#7)
-     - [2.2. 사용자의 조직 생성 Flag 활성화](#23)
-     - [2.3. 조직 및 공간 생성](#8)
-     - [2.4. Redis 서비스 브로커 등록 및 활성화](#9)
-     - [2.5. Redis 서비스 인스턴스 생성](#10)
-     - [2.6. 사용자 제공 서비스 생성](#11)
-     - [2.7. Portal Object Storage 설치 및 설정 변경](#12)
-     - [2.8. Postgresql 기본 데이터 베이스 생성](#13)
-- 3. [PaaS-TA 배포](#14)
-     - [3.1. 포탈 Registration 배포](#15)
-     - [3.2. 포탈 API 배포](#16)
-     - [3.3. 포탈 APIV2 배포](#17)
-     - [3.4. 사용자 포탈 배포](#18)
-     - [3.5. 운영자 포탈 배포](#19)
-     - [3.6. 앱 오토스케일러 배포](#19-1)
-     - [3.7. 카탈로그 이미지 파일 업로드](#20)
-- 4. [테스트 케이스 구동 가이드](#21)
-     - [4.1. 테스트시 절차](#22)
+## PaaS-TA Portal 배포 가이드
+
+
+#  1. 문서 개요
 
 
 
-# <div id='1'> 1. 문서 개요
-
-
-
-### <div id='2'> 1.1. 목적
+###  1.1. 목적
       
 본 문서(Paas-TA Potal 배포 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA 에서 배포 되는 Potal을 PaaS-TA를 이용하여 설치 하는 방법을 기술하였다.
 
 
 
-### <div id='3'> 1.2. 범위 
+###  1.2. 범위 
 
 배포 범위는 PaaS-TA Potal을 검증하기 위한 기본 설치 및 배포를 기준으로 작성하였다. 
 
 
 
-### <div id='4'> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. 사용자 포탈 1, 운영자 포탈 1, 포탈 API 1, 포탈 APIV2 1, 포탈 Registration 1, 포탈 오토스케일 1 로 최소사항을 구성하였다.
 
 ![portal_deploy_image_01]
@@ -94,17 +69,17 @@
 
 
 
-### <div id='5'> 1.4. 참고자료
+###  1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
 
 
-# <div id='6'> 2. 설치전 준비사항
+#  2. 설치전 준비사항
 
 
 
-### <div id='7'> 2.1. 기본설치 항목
+###  2.1. 기본설치 항목
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다. 서비스팩 설치를 위해서는 먼저 BOSH CLI 가 설치 되어 있어야 하고 BOSH에 로그인 및 target 설정이 되어 있어야 한다. BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문서를 참고 하여 BOSH CLI를 설치 해야 한다.
 PaaSTA-Portal 폴더에서 설치에 필요한 파일을 확인한다.
@@ -117,7 +92,7 @@ PaaSTA-Portal 폴더에서 설치에 필요한 파일을 확인한다.
 
 
 
-### <div id='23'>  2.2. 사용자의 조직 생성 Flag 활성화
+###   2.2. 사용자의 조직 생성 Flag 활성화
 PaaS-TA는 기본적으로 일반 사용자는 조직을 생성할 수 없도록 설정되어 있다. 포털 배포를 위해 조직 및 공간을 생성해야 하고 또 테스트를 구동하기 위해서도 필요하므로 사용자가 조직을 생성할 수 있도록 user_org_creation FLAG를 활성화 한다. FLAG 활성화를 위해서는 PaaS-TA 운영자 계정으로 로그인이 필요하다.
 
 ```
@@ -131,7 +106,7 @@ Feature user_org_creation Enabled.
 ```
 
 
-### <div id='8'> 2.3. 조직 및 공간 생성
+###  2.3. 조직 및 공간 생성
 
 - PaaS-TA 어드민 계정으로 포탈을 배포할 조직 및 공간을 생성하거나 배포할 공간으로 target 설정을 한다.
 ```
@@ -146,7 +121,7 @@ $ cf target –o <조직명> -s <공간명>
 
 
 
-### <div id='9'> 2.4. Redis 서비스 브로커 등록 및 활성화
+###  2.4. Redis 서비스 브로커 등록 및 활성화
 
 
 - Redis 서비스 브로커를 확인한다.
@@ -179,7 +154,7 @@ TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans o
 
 
 
-###  <div id='10'> 2.5. Redis 서비스 인스턴스 생성
+###   2.5. Redis 서비스 인스턴스 생성
 
 - Redis 서비스가 활성화 되면 서비스 인스턴스를 생성할 수 있다. 포털이 사용할 Redis 서비스의 서비스 인스턴스를 생성한다.
 ```
@@ -192,7 +167,7 @@ OK
 
 
 
-### <div id='11'>  2.6. 유레카 사용자 제공 서비스 생성
+###   2.6. 유레카 사용자 제공 서비스 생성
 
 - 사용자 서비스 eureka user provide service 등록
 
@@ -225,7 +200,7 @@ portal-eureka-service  user-provided
 
 
 
-### <div id='12'>  2.7. Portal Object Storage 설치 및 설정 변경
+###   2.7. Portal Object Storage 설치 및 설정 변경
 
 포털은 파일 관리를 위해 Object Storage를 사용하기 때문에 PaaSTA 포털 Object Storage를 설치 하여야 한다.  [[**PaaS-TA 포탈 Obejct Storage 설치 가이드**](https://github.com/OpenPaaSRnD/Documents-PaaSTA-2.0/blob/master/Use-Guide/PaaS-TA%20%ED%8F%AC%ED%83%88%20Object%20Storage%20%EC%84%A4%EC%B9%98%20%EA%B0%80%EC%9D%B4%EB%93%9C.md)]를 참고하여 Object Storage를 설치한다.
 Object Storage 설치가 완료되었다면, Portal API manifest.yml 파일에 설정된 값을 수정해야 한다. Object Storage 설치 시 입력한 값을 바탕으로 다음 항목의 값을 수정한다.
@@ -241,7 +216,7 @@ Object Storage 설치가 완료되었다면, Portal API manifest.yml 파일에 �
 
 
 
-###  <div id='13'> 2.8.  Postgresql 기본 데이터 베이스 생성
+###   2.8.  Postgresql 기본 데이터 베이스 생성
 PaaS-TA-Portal 서비스를 하기 위해 배포 파일이 있는 PaaSTA-Portal/postgresql/의 portal-postgresql-init.sh, postgresql.sql을 실행하여야 한다.
 
 
@@ -443,11 +418,11 @@ portaldb-> \l
 
 
 
-# <div id='14'> 3.  PaaS-TA 배포
+#  3.  PaaS-TA 배포
 
 
 
-### <div id='15'>  3.1.  포탈 Registration 배포
+###   3.1.  포탈 Registration 배포
 
 
 - PaaS-TA-Portal 서비스를 하기위해 배포 파일이 있는 PaaSTA-Portal\registraion\에서 파일을 배포할 서버에 복사한다.
@@ -574,7 +549,7 @@ portal-registration   started           1/1         512M     1G     portal-regis
 
 
 
-### <div id='16'> 3.2. 포탈 API 배포
+###  3.2. 포탈 API 배포
 
 
 - portal-api 의 manifest.yml확인
@@ -770,7 +745,7 @@ portal-registration  started           1/1         512M     1G     portal-regist
 
 
 
-### <div id='17'> 3.3. 포탈 APIV2 배포
+###  3.3. 포탈 APIV2 배포
 
 배포 어플리케이션은 potal-api 어플리케이션과는 다른 cloudfoundry version의 api 서비스를 통한 기능개발을 위해 배포 되어야 하는 어플리케이션이다.
 
@@ -929,7 +904,7 @@ portal-api-v2        started           1/1         1G       1G     portal-api-v2
 ```
 
 
-### <div id='18'> 3.4. 사용자 포탈 배포
+###  3.4. 사용자 포탈 배포
 
 
 - manifest.yml확인
@@ -1080,7 +1055,7 @@ portal-api-v2        started           1/1         1G       1G     portal-api-v2
 
 
 
-### <div id='19'> 3.5. 운영자 포탈 배포
+###  3.5. 운영자 포탈 배포
 
 
 - manifest.yml 확인
@@ -1237,7 +1212,7 @@ portal-api-v2        started           1/1         1G       1G     portal-api-v2
 
 
 
-### <div id='19-1'> 3.6. 앱 오토스케일러 배포
+###  3.6. 앱 오토스케일러 배포
 
 portal-auto-scaler 배포는 cloudfoundry에 배포되어 있는 앱의 자동 스케일 업 서비스를 하기 위한 배포 어플리케이션이다.
 
@@ -1391,18 +1366,18 @@ portal-api-v2        started           1/1         1G       1G     portal-api-v2
 
 
 
-### <div id='20'> 3.6. 카탈로그 이미지 파일 업로드
+###  3.6. 카탈로그 이미지 파일 업로드
 
 PaaS-TA 포털에 기본 생성되는 카탈로그에 대한 이미지를 업로드 한다. 카탈로그 이미지 업로드는 운영자 포털을 통해서 진행하고 사용자 포털의 카탈로그 화면에서 이미지를 확인할 수 있다. 업로드할 이미지 파일은 '카탈로그 이미지' 폴더에서 확인할 수 있다. [[**PaaSTA 운영자 포털 가이드**](https://github.com/OpenPaaSRnD/Documents-PaaSTA-2.0/blob/master/Use-Guide/PaaS-TA%20%EC%9A%B4%EC%98%81%EC%9E%90%20%ED%8F%AC%ED%83%88%20%EA%B0%80%EC%9D%B4%EB%93%9C_v1.0.md)]의 [[**5.4 카탈로그 관리 서비스**](https://github.com/OpenPaaSRnD/Documents-PaaSTA-2.0/blob/master/Use-Guide/PaaS-TA%20%EC%9A%B4%EC%98%81%EC%9E%90%20%ED%8F%AC%ED%83%88%20%EA%B0%80%EC%9D%B4%EB%93%9C_v1.0.md#5.4)] 항목을 참고하여 각 카탈로그에 맞는 이미지를 업로드한다.
 
 
 
 
-# <div id='21'>  4. 테스트 케이스 구동 가이드
+#   4. 테스트 케이스 구동 가이드
 
 
 
-### <div id='22'> 4.1.  테스트시 절차
+###  4.1.  테스트시 절차
 
 PaaSTA Potal  JUnit 테스트 Class를 구동하기 위해 다음과 같은 작업이 필요하다.
 

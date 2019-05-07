@@ -1,26 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1--문서-개요)
-     * [목적](#11--목적)
-     * [범위](#12--범위)
-     * [참고자료](#13--참고자료)
-2. [BOSH Lite 설치](#2--bosh-lite-설치)
-     * [설치전 준비사항](#21--설치전-준비사항)
-     * [OpenPaaS 설치패키지 다운로드](#22--openpaas-설치패키지-다운로드)
-     * [RUBY 설치](#23--ruby-설치)
-     * [가상 환경 구성](#24--가상-환경-구성)
-     * [BOSH CLI 설치](#25--bosh-cli-설치)
-     * [BOSH Lite 설치](#26--bosh-lite-설치)
-     * [로컬 가상 머신의 IP 변경](#27--로컬-가상-머신의-ip-변경)
-     * [BOSH Lite 설치 Troubleshooting](#28---bosh-lite-설치-troubleshooting)
-3. [OpenPaaS Container 설치, 배포 및 설정](#3--openpaas-container-설치-배포-및-설정)
-     * [Release 업로드](#31--release-업로드)
-     * [BOSH Stemcell 업로드](#32--bosh-stemcell-업로드)
-     * [OpenPaaS Controller 배포](#33--openpaas-controller-배포)
-     * [OpenPaaS Container 배포](#34--openpaas-container-배포)
-4. [OpenPaaS Container 설정](#4--openpaas-container-설정)
-     * [Container 배포 확인](#41--container-배포-확인)
-     * [OpenPaaS Container 설정 Troubleshooting](#42--openpaas-container-설정-troubleshooting)
-
+## OpenPaaS PaaSTA BOSH Lite install guide
 
 #1.  문서 개요
 

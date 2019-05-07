@@ -1,38 +1,25 @@
-## Table of Contents
-1. [문서 개요](#1)
-  -  [1.1. 목적](#2)
-  -  [1.2. 범위](#3)
-  -  [1.3. 시스템 구성도](#4)
-  -  [1.4. 참고 자료](#5)
-2. [형상관리 서비스팩 설치](#6)
-  -  [2.1. 설치 전 준비사항](#7)
-  -  [2.2. 형상관리 서비스 릴리즈 업로드](#8)
-  -  [2.3. 형상관리 서비스 Deployment 파일 수정 및 배포](#9)
-  -  [2.4. 형상관리 서비스 브로커 등록](#10)
-  -  [2.5. 형상관리 UAA Client Id 등록](#11)
+## PaaS-TA 형상관리 서비스팩 설치 가이드_v1.0
 
+#  1. 문서 개요
 
-
-# <div id='1'/> 1. 문서 개요
-
-### <div id='2'/> 1.1 목적
+###  1.1 목적
 본 문서(형상관리 서비스팩 설치 가이드)는 개방형 PaaS 플랫폼 고도화 및 개발자 지원 환경 기반의 Open PaaS에서 제공되는 서비스팩인 형상관리 서비스를 Bosh를 이용하여 설치하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='3'/> 1.2 범위
+###  1.2 범위
 설치 범위는 형상관리 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='4'/> 1.3 시스템 구성도
+###  1.3 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. 형상관리 Server, 형상관리 서비스 브로커로 최소 사항을 구성하였다.
 ![source_controller_Service_Guide01]
 
-### <div id='5'/> 1.4 참고 자료
+###  1.4 참고 자료
 > http://bosh.io/docs <br>
 > http://docs.cloudfoundry.org/ 
 
-# <div id='6'/> 2. 형상관리 서비스팩 설치
+#  2. 형상관리 서비스팩 설치
 
-### <div id='7'/> 2.1. 설치 전 준비사항
+###  2.1. 설치 전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
 BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이드 문서를 참고 하여 BOSH CLI v2를 설치를 하고 사용법을 숙지 해야 한다.<br>
@@ -45,11 +32,10 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 - PaaS-TA에서 제공하는 압축된 릴리즈 파일들을 다운받는다. (PaaSTA-Deployment.zip, PaaSTA-Sample-Apps.zip, PaaSTA-Services.zip)
 
 - 다운로드 위치
->PaaSTA-Deployment : **<https://paas-ta.kr/data/packages/3.5/deployment.zip>**  
->PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
+>Download : **<https://paas-ta.kr/download/package>**
 
 
-### <div id='8'/> 2.2. 형상관리 서비스 릴리즈 업로드
+###  2.2. 형상관리 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -207,7 +193,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (형상관리는 stemcell 3445.2 버전을 사용)
 
 
-### <div id='9'/> 2.3. 형상관리 서비스 Deployment 파일 수정 및 배포
+###  2.3. 형상관리 서비스 Deployment 파일 수정 및 배포
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
 
@@ -966,7 +952,7 @@ bosh -e micro-bosh -d paasta-sourcecontrol-service deploy paasta_sourcecontrol_b
 		Succeeded
 
 
-### <div id='10'/> 2.4. 형상관리 서비스 브로커 등록
+###  2.4. 형상관리 서비스 브로커 등록
 형상관리 서비스팩 배포가 완료되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 형상관리 서비스 브로커를 등록해 주어야 한다.
 서비스 브로커 등록 시 개방형 클라우드 플랫폼에서 서비스 브로커를 등록할 수 있는 사용자로 로그인이 되어있어야 한다.
 
@@ -1025,7 +1011,7 @@ p-paasta-sourcecontrol          Default           all
 
 - 서비스 브로커 등록 시 최초에는 접근을 허용하지 않는다. 따라서 access는 none으로 설정된다.
 
-### <div id='11'/> 2.5. 형상관리 UAA Client Id 등록
+###  2.5. 형상관리 UAA Client Id 등록
 UAA 포털 계정 등록 절차에 대한 순서를 확인한다.
 
 **haproxy IPs**:8080 입력 후 루트 도메인을 입력한다.**haproxy IPs**의 주소는 **실제 대시보드 URL**이다. URL 정보 다중 입력 시 ","(comma)를 사용하여 추가한다.
@@ -1086,4 +1072,4 @@ Context : admin, from client admin
     --authorities="uaa.resource" \
     --autoapprove="openid , cloud_controller_service_permissions.read
 ```
-[source_controller_Service_Guide01]:/Service-Guide/images/source_control/source_controller_Service_Guide01.PNG
+[source_controller_Service_Guide01]:./../images/source_control/source_controller_Service_Guide01.PNG

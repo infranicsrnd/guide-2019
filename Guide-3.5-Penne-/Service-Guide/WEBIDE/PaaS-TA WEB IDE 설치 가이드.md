@@ -1,37 +1,16 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - 1.1. [목적](#2)
-  - 1.2. [범위](#3)
-  - 1.3. [시스템 구성도](#4)
-  - 1.4. [참고자료](#5)
-2. [WEB IDE 설치](#6)
-  - 2.1. [설치전 준비사항](#7)
-  - 2.2. [WEB-IDE 릴리즈 업로드](#8)
-  - 2.3. [WEB-IDE Deployment 파일 수정 및 배포](#9)
-3. [WEB IDE 브로커 설치](#10)
-  - 3.1. [설치전 준비사항](#11)
-  - 3.2. [WEB-IDE 브로커 릴리즈 업로드](#12)
-  - 3.3. [WEB-IDE 브로커 Deployment 파일 수정 및 배포](#13)
-  - 3.4. [WEB-IDE 브로커 서비스 등록](#14)
-4. [WEB-IDE의 PaaS-TA 포털사이트 연동](#15)
-  - 4.1. [WEB-IDE 대시보드 화면](#16)
-5. [WEB-IDE 에서 CF CLI 사용법](#17)
-  - 5.1. [WEB-IDE New Project 화면](#18)
-  - 5.2. [WEB-IDE Workspace 화면](#19)
-  - 5.3. [WEB-IDE Teminal에서의 CF CLI 실행](#20)
-
+## PaaS-TA WEB IDE 설치 가이드
 
 # 1. 문서 개요
 
-### <div id='2'/>1.1. 목적
+### 1.1. 목적
 
 본 문서(WEB-IDE 설치 가이드)는 PaaS-TA에서 사용할 수 있는 WEB-IDE의 설치를 Bosh를 이용하여 설치 하는 방법과 PaaS-TA 포털에서 WEB-IDE 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='3'/> 1.2. 범위
+###  1.2. 범위
 설치 범위는 WEB-IDE 사용을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='4'/> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. Browser(paasta Portal), WEB IDE
 Server, Workspace, Desktop IDE로 최소사항을 구성하였다.
 
@@ -43,16 +22,16 @@ Server, Workspace, Desktop IDE로 최소사항을 구성하였다.
 | paasta-web-ide2 | resource\_pools | 1vCPU / 2GB RAM / 10GB Disk |
 
 
-### <div id='5'/>1.4. 참고자료
+### 1.4. 참고자료
 
 > [**http://bosh.io/docs**](http://bosh.io/docs) <br>
 > [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/) <br>
 > [**https://www.eclipse.org/che/technology/**](https://www.eclipse.org/che/technology/) <br>
 
 
-# <div id='6'/> 2.WEB IDE 설치
+#  2.WEB IDE 설치
 
-### <div id='7'/> 2.1. 설치전 준비사항
+###  2.1. 설치전 준비사항
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
@@ -69,7 +48,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >PaaSTA-Deployment : **<https://paas-ta.kr/data/packages/3.5/deployment.zip>**  
 >PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
 
-### <div id='8'/> 2.2. WEB-IDE 릴리즈 업로드
+###  2.2. WEB-IDE 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -216,7 +195,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (WEB-IDE 은 stemcell 3309 버전을 사용)
 		 
 
-### <div id='9'/> 2.3.WEB-IDE Deployment 파일 수정 및 배포
+###  2.3.WEB-IDE Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1050,9 +1029,9 @@ bosh -e micro-bosh -d paasta-web-ide-service deploy paasta_web_ide_bosh2.0.yml \
 
 		Succeeded
 
-# <div id='10'/> 3.WEB IDE 브로커 설치
+#  3.WEB IDE 브로커 설치
 
-### <div id='11'/> 3.1. 설치전 준비사항
+###  3.1. 설치전 준비사항
 
 - PaaS-TA WEB IDE 브로커에서 제공하는 압축된 릴리즈 파일들을 다운받는다. (webide-broker-release.zip)
 
@@ -1060,7 +1039,7 @@ bosh -e micro-bosh -d paasta-web-ide-service deploy paasta_web_ide_bosh2.0.yml \
 >WEBIDE-BROKER-RELEASE : **<http://45.248.73.44/index.php/s/yHWRW44Zdk9CxEH/download>**  
 
 
-### <div id='12'/> 3.2. WEB-IDE 브로커 릴리즈 업로드
+###  3.2. WEB-IDE 브로커 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -1208,7 +1187,7 @@ bosh -e micro-bosh -d paasta-web-ide-service deploy paasta_web_ide_bosh2.0.yml \
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (WEB-IDE 브로커는 stemcell 3445.2 버전을 사용)
 		 
 
-### <div id='13'/> 3.3.WEB-IDE Deployment 파일 수정 및 배포
+###  3.3.WEB-IDE Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1690,7 +1669,7 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
 
 		Succeeded
 
-### <div id='14'/> 3.4.WEB-IDE 브로커 서비스 등록
+###  3.4.WEB-IDE 브로커 서비스 등록
 
 -	CF 로그인을 한다.
 
@@ -1797,9 +1776,9 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
         * 해당 서비스 플랜에 연관된 비용이 있습니다. 서비스 인스턴스를 작성하면 이 비용이 발생합니다.
  <br>
 
-# <div id='15'/> 4. WEB-IDE 브로커 PaaS-TA 포털사이트 연동
+#  4. WEB-IDE 브로커 PaaS-TA 포털사이트 연동
 
-### <div id='16'/> 4.1. WEB-IDE 브로커 대시보드 화면
+###  4.1. WEB-IDE 브로커 대시보드 화면
 
 -   카탈로그 서비스 목록의 [ 앱 서비스 ]를 클릭한다.
 > ① 앱 서비스에 등록 할 이름을 입력한다.<br>
@@ -1820,9 +1799,9 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
 -   참고 : https://github.com/PaaS-TA/Guide-3.0-Penne-/blob/v3.5/Use-Guide/portal/PaaS-TA%20%EC%9A%B4%EC%98%81%EC%9E%90%20%ED%8F%AC%ED%83%88%20%EA%B0%80%EC%9D%B4%EB%93%9C_v1.1.md#--433-%EC%B9%B4%ED%83%88%EB%A1%9C%EA%B7%B8-%EA%B4%80%EB%A6%AC-%EC%84%9C%EB%B9%84%EC%8A%A4
 <br>
 
-# <div id='17'/> 5. WEB-IDE 에서 CF CLI 사용법
+#  5. WEB-IDE 에서 CF CLI 사용법
 
-### <div id='18'/> 5.1. WEB-IDE New Project 화면
+###  5.1. WEB-IDE New Project 화면
 
 - 서비스 생성에 필요한 항목을 입력 후, "생성" 버튼을 클릭하여 서비스를 생성한다.
 > ① 조직 목록에서 조직을 선택한다.<br>
@@ -1845,7 +1824,7 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
 
 <br>
 
-### <div id='19'/> 5.2. WEB-IDE Workspace 화면
+###  5.2. WEB-IDE Workspace 화면
 
 - Open Project를 누르면 Workspace 화면이 열린다.
 
@@ -1857,7 +1836,7 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
 
 <br>
 
-### <div id='20'/> 5.3. WEB-IDE Teminal에서의 CF CLI 실행
+###  5.3. WEB-IDE Teminal에서의 CF CLI 실행
 
 ##### -cf api 명령을 이용해 endpoint를 지정한다.
 

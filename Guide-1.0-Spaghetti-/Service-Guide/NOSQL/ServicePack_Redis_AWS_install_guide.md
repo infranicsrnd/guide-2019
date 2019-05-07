@@ -1,35 +1,18 @@
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 시스템 구성도](#4)
-     * [1.4. 참고자료](#5)
-2. [Redis 서비스팩 설치](#6)
-     * [2.1. 설치전 준비사항](#7)
-     * [2.2. Redis 서비스 릴리즈 업로드](#8)
-     * [2.3. Redis 서비스 Deployment 파일 수정 및 배포](#9)
-     * [2.4. Redis 서비스 브로커 등록](#10)
-3. [Redis 연동 Sample App 설명](#11)
-     * [3.1. Sample App 구조](#12)
-     * [3.2. 개방형 클라우드 플랫폼에서 서비스 신청](#13)
-     * [3.3. Sample App에 서비스 바인드 신청 및 App 확인](#14)
-4. [Redis Client 툴 접속](#15)
-     * [4.1. Redis Desktop Manager 설치 및 연결](#16)
+## ServicePack Redis AWS install guide
 
-<div id='1'></div>
 # 1. 문서 개요
 
-<div id='2'></div>
+
 ### 1.1. 목적
       
 본 문서(Redis 서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 Open PaaS에서 제공되는 서비스팩인 Redis 서비스팩을 Bosh를 이용하여 설치 하는 방법과 Open PaaS의 SaaS 형태로 제공하는 Application에서 Redis 서비스를 사용하는 방법을 기술하였다.
 
-<div id='3'></div>
+
 ### 1.2. 범위 
 
 설치 범위는 Redis 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다. 
 
-<div id='4'></div>
+
 ### 1.3. 시스템 구성도
 
 본 문서의 설치된 시스템 구성도입니다. Redis dedicated-node(2대), Redis 서비스 브로커로 최소사항을 구성하였다.
@@ -59,16 +42,16 @@
   </tr>
 </table>
 
-<div id='5'></div>
+
 ### 1.4. 참고자료
 
 [**http://bosh.io/docs**](http://bosh.io/docs)
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
-<div id='6'></div>
+
 #   2. Redis서비스팩설치
 
-<div id='7'></div>
+
 ### 2.1. 설치전 준비사항
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
@@ -82,7 +65,7 @@ BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문
 >OpenPaaS-Deployment : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0YWXQzq>**  
 >OpenPaaS-Sample-Apps : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW>**
 
-<div id='8'></div>
+
 ###   2.2. Redis 서비스 릴리즈 업로드
 
 - OpenPaaS-Services 폴더 안에 있는 redis 서비스 릴리즈 파일 openpaas-redis-release-1.0.tgz 을 다운로드 한다.
@@ -121,7 +104,7 @@ BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문
 
 
 
-<div id='9'></div>
+
 ###   2.3. Redis 서비스 Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML  파일이다.
@@ -352,7 +335,7 @@ Deploy 할 deployment manifest 파일을 BOSH 에 지정한다.
 ><div>$bosh vms</div>
 >![redis_aws18]
 
-<div id='10'></div>
+
 ### 2.4. Redis 서비스 브로커 등록
 
 Redis서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 Redis 서비스 브로커를 등록해 주어야 한다.
@@ -389,12 +372,12 @@ Redis서비스팩 배포가 완료 되었으면 Application에서 서비스 팩�
 ><div>$ cf service-access</div>
 >![redis_aws23]
 
-<div id='11'></div>
+
 #   3. Redis연동 Sample App 설명
 
 본 Sample App은 개발형클라우드 플랫폼에 배포되며 Redis의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
 
-<div id='12'></div>
+
 ### 3.1. Sample App 구조
 
 Sample App은 개방형 클라우드 플랫폼에 App으로 배포가 된다. 배포 완료 후 정상적으로 App 이 구동되면 curl 명령어로 배포된 도메인 정보를 이용하여 Redis에 특정 key 에 값을 저장/조회/삭제를 한다.
@@ -428,7 +411,7 @@ Sample App 구조는 다음과 같다.
 ><div>$ls -all</div>
 >![redis_aws24]
 
-<div id='13'></div>
+
 ### 3.2. 개방형 클라우드 플랫폼에서 서비스 신청
 
 Sample App에서 Redis 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
@@ -454,7 +437,7 @@ Sample App에서 Redis 서비스를 사용하기 위해서는 서비스 신청(P
 ><div>$cf services</div>
 >![redis_aws27]
 
-<div id='14'></div>
+
 ### 3.3. Sample App에 서비스 바인드 신청 및 App 확인
 
 서비스 신청이 완료되었으면 Sample App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 Redis 서비스를 이용한다.
@@ -515,12 +498,12 @@ $ curl -X DELETE $APP/foo<br>
 ></div>
 >![redis_aws35]
 
-<div id='15'></div>
+
 # 4. Redis Client 툴 접속
 
 Application에 바인딩된 Redis 서비스 연결정보는 Private IP로 구성되어 있기 때문에 Redis Client 툴에서 직접 연결할수 없다. 따라서 Redis Client 툴에서 SSH 터널, Proxy 터널 등을 제공하는 툴을 사용해서 연결하여야 한다. 본 가이드는 SSH 터널을 이용하여 연결 하는 방법을 제공하며 Redis Client 툴로써는 오픈 소스인 Redis Desktop Manager로 가이드한다. Redis Desktop Manager 에서 접속하기 위해서 먼저 SSH 터널링 할수 있는 VM 인스턴스를 생성해야한다. 이 인스턴스는 SSH로 접속이 가능해야 하고 접속 후 Open PaaS 에 설치한 서비스팩에 Private IP 와 해당 포트로 접근이 가능하도록 시큐리티 그룹을 구성해야 한다. 이 부분은 AWS 관리자 및 OpenPaaS 운영자에게 문의하여 구성한다. 
 
-<div id='16'></div>
+
 ### 4.1. Redis Desktop Manager 설치 및 연결
 Redis Desktop Manager 프로그램은 무료로 사용할 수 있는 오픈소스 소프트웨어이다.
 
@@ -571,51 +554,51 @@ Redis Desktop Manager 프로그램은 무료로 사용할 수 있는 오픈소�
 
 
 
-[redis_aws1]:/images/openpaas-service/redis/redis_aws/redis_aws1.png
-[redis_aws2]:/images/openpaas-service/redis/redis_aws/redis_aws2.png
-[redis_aws3]:/images/openpaas-service/redis/redis_aws/redis_aws3.png
-[redis_aws4]:/images/openpaas-service/redis/redis_aws/redis_aws4.png
-[redis_aws5]:/images/openpaas-service/redis/redis_aws/redis_aws5.png
-[redis_aws6]:/images/openpaas-service/redis/redis_aws/redis_aws6.png
-[redis_aws7]:/images/openpaas-service/redis/redis_aws/redis_aws7.png
-[redis_aws8]:/images/openpaas-service/redis/redis_aws/redis_aws8.png
-[redis_aws9]:/images/openpaas-service/redis/redis_aws/redis_aws9.png
-[redis_aws10]:/images/openpaas-service/redis/redis_aws/redis_aws10.png
-[redis_aws11]:/images/openpaas-service/redis/redis_aws/redis_aws11.png
-[redis_aws12]:/images/openpaas-service/redis/redis_aws/redis_aws12.png
-[redis_aws13]:/images/openpaas-service/redis/redis_aws/redis_aws13.png
-[redis_aws14]:/images/openpaas-service/redis/redis_aws/redis_aws14.png
-[redis_aws15]:/images/openpaas-service/redis/redis_aws/redis_aws15.png
-[redis_aws16]:/images/openpaas-service/redis/redis_aws/redis_aws16.png
-[redis_aws17]:/images/openpaas-service/redis/redis_aws/redis_aws17.png
-[redis_aws18]:/images/openpaas-service/redis/redis_aws/redis_aws18.png
-[redis_aws19]:/images/openpaas-service/redis/redis_aws/redis_aws19.png
-[redis_aws20]:/images/openpaas-service/redis/redis_aws/redis_aws20.png
-[redis_aws21]:/images/openpaas-service/redis/redis_aws/redis_aws21.png
-[redis_aws22]:/images/openpaas-service/redis/redis_aws/redis_aws22.png
-[redis_aws23]:/images/openpaas-service/redis/redis_aws/redis_aws23.png
-[redis_aws24]:/images/openpaas-service/redis/redis_aws/redis_aws24.png
-[redis_aws25]:/images/openpaas-service/redis/redis_aws/redis_aws25.png
-[redis_aws26]:/images/openpaas-service/redis/redis_aws/redis_aws26.png
-[redis_aws27]:/images/openpaas-service/redis/redis_aws/redis_aws27.png
-[redis_aws28]:/images/openpaas-service/redis/redis_aws/redis_aws28.png
-[redis_aws29]:/images/openpaas-service/redis/redis_aws/redis_aws29.png
-[redis_aws30]:/images/openpaas-service/redis/redis_aws/redis_aws30.png
-[redis_aws31]:/images/openpaas-service/redis/redis_aws/redis_aws31.png
-[redis_aws32]:/images/openpaas-service/redis/redis_aws/redis_aws32.png
-[redis_aws33]:/images/openpaas-service/redis/redis_aws/redis_aws33.png
-[redis_aws34]:/images/openpaas-service/redis/redis_aws/redis_aws34.png
-[redis_aws35]:/images/openpaas-service/redis/redis_aws/redis_aws35.png
-[redis_aws36]:/images/openpaas-service/redis/redis_aws/redis_aws36.png
-[redis_aws37]:/images/openpaas-service/redis/redis_aws/redis_aws37.png
-[redis_aws38]:/images/openpaas-service/redis/redis_aws/redis_aws38.png
-[redis_aws39]:/images/openpaas-service/redis/redis_aws/redis_aws39.png
-[redis_aws40]:/images/openpaas-service/redis/redis_aws/redis_aws40.png
-[redis_aws41]:/images/openpaas-service/redis/redis_aws/redis_aws41.png
-[redis_aws42]:/images/openpaas-service/redis/redis_aws/redis_aws42.png
-[redis_aws43]:/images/openpaas-service/redis/redis_aws/redis_aws43.png
-[redis_aws44]:/images/openpaas-service/redis/redis_aws/redis_aws44.png
-[redis_aws45]:/images/openpaas-service/redis/redis_aws/redis_aws45.png
-[redis_aws46]:/images/openpaas-service/redis/redis_aws/redis_aws46.png
-[redis_aws47]:/images/openpaas-service/redis/redis_aws/redis_aws47.png
-[redis_aws48]:/images/openpaas-service/redis/redis_aws/redis_aws48.png
+[redis_aws1]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws1.png
+[redis_aws2]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws2.png
+[redis_aws3]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws3.png
+[redis_aws4]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws4.png
+[redis_aws5]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws5.png
+[redis_aws6]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws6.png
+[redis_aws7]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws7.png
+[redis_aws8]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws8.png
+[redis_aws9]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws9.png
+[redis_aws10]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws10.png
+[redis_aws11]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws11.png
+[redis_aws12]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws12.png
+[redis_aws13]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws13.png
+[redis_aws14]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws14.png
+[redis_aws15]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws15.png
+[redis_aws16]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws16.png
+[redis_aws17]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws17.png
+[redis_aws18]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws18.png
+[redis_aws19]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws19.png
+[redis_aws20]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws20.png
+[redis_aws21]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws21.png
+[redis_aws22]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws22.png
+[redis_aws23]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws23.png
+[redis_aws24]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws24.png
+[redis_aws25]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws25.png
+[redis_aws26]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws26.png
+[redis_aws27]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws27.png
+[redis_aws28]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws28.png
+[redis_aws29]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws29.png
+[redis_aws30]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws30.png
+[redis_aws31]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws31.png
+[redis_aws32]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws32.png
+[redis_aws33]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws33.png
+[redis_aws34]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws34.png
+[redis_aws35]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws35.png
+[redis_aws36]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws36.png
+[redis_aws37]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws37.png
+[redis_aws38]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws38.png
+[redis_aws39]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws39.png
+[redis_aws40]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws40.png
+[redis_aws41]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws41.png
+[redis_aws42]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws42.png
+[redis_aws43]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws43.png
+[redis_aws44]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws44.png
+[redis_aws45]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws45.png
+[redis_aws46]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws46.png
+[redis_aws47]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws47.png
+[redis_aws48]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_aws/redis_aws48.png

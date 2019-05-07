@@ -1,3 +1,4 @@
+## PaaS-TA_인프라_관리_대시보드_사용가이드_v1.0
 ## Table of Contents
 
 1. [개요](#1)
@@ -48,17 +49,17 @@
 	* [Openstack Floating IP 관리](#46)
 	* [Openstack Key Pair 관리](#47)
 
-# <div id='1'/>1.  문서 개요 
+# 1.  문서 개요 
 
-## <div id='2'/>1.1.  목적
+## 1.1.  목적
 
 본 문서는 인프라 관리 대시보드 시스템의 사용 절차에 대해 기술하였다.
 
-## <div id='3'/>1.2.  범위
+## 1.2.  범위
 
 본 문서에서는 Linux 환경(Ubuntu 14.04)을 기준으로 인프라 관리 대시보드를 사용하는 방법에 대해 작성되었다
 
-# <div id='4'/>2.  인프라 관리 대시보드  매뉴얼
+# 2.  인프라 관리 대시보드  매뉴얼
 
 인프라 관리 대시보드는 인프라 환경의 계정 등록 정보를 관리하는 계정 관리와 등록 한 인프라 계정의 리소스 사용량 조회 및 플랫폼 설치 자동화에서 PaaS-TA를 설치 하는 인프라의 리소스를 생성 할 수 있는 부분으로 구성 되어 있다. 
 
@@ -140,11 +141,11 @@
     </tr>
 </table>
 
-## <div id='5'/>2.1.  인프라 관리 대시보드 화면 설명
+## 2.1.  인프라 관리 대시보드 화면 설명
 
 본 장에서는 플랫폼 설치 자동화를 구성하는 18개의 메뉴에 대한 설명을 기술한다.
 
-## <div id='6'/> 2.2.	계정 관리 -> 전체 인프라 계정 관리
+##  2.2.	계정 관리 - 전체 인프라 계정 관리
 
 “계정 관리” 화면은 등록 한 전체 인프라 계정 목록을 조회하고 각 각의 인프라 환경 별 계정 관리 화면으로 이동 할 수 있는 화면이다.
 
@@ -165,7 +166,7 @@
 #### 5. vSphere 계정 관리 화면 이동
 -	vSphere 계정 관리 화면으로 이동 하는 기능을 수행 한다.
 
-## <div id='7'/> 2.3.	계정 관리 -> AWS 계정 관리
+##  2.3.	계정 관리 - AWS 계정 관리
 
 등록 한 AWS 계정을 조회 하고 AWS 계정을 등록 및 삭제 할 수 있는 화면이다.
 
@@ -181,7 +182,7 @@
 -	선택 한 인프라 환경의 계정 관리 화면으로 이동 하는 기능을 수행 한다.
 
 
-## <div id='8'/> 2.4.	계정 관리 -> Openstack 계정 관리
+##  2.4.	계정 관리 - Openstack 계정 관리
 
 등록 한 Openstack 계정을 조회 하고 Openstack 계정을 등록, 수정 및 삭제 할 수 있는 화면이다.
 
@@ -198,7 +199,7 @@
 ####	5.	계정 관리 화면 이동
 -	선택 한 인프라 환경의 계정 관리 화면으로 이동 하는 기능을 수행 한다.
 
-## <div id='9'/> 2.5.	계정 관리 -> Google 계정 관리
+##  2.5.	계정 관리 - Google 계정 관리
 
 등록 한 Google계정을 조회 하고 Google 계정을 등록, 수정 및 삭제 할 수 있는 화면이다.
 
@@ -215,7 +216,7 @@
 ####	5.	계정 관리 화면 이동
 -	선택 한 인프라 환경의 계정 관리 화면으로 이동 하는 기능을 수행 한다.
 
-## <div id='10'/> 2.6.	계정 관리 -> vSphere 계정 관리
+##  2.6.	계정 관리 - vSphere 계정 관리
 
 등록 한 vSphere계정을 조회 하고 vSphere계정을 등록, 수정 및 삭제 할 수 있는 화면이다.
 
@@ -232,7 +233,7 @@
 ####	5.	계정 관리 화면 이동
 -	선택 한 인프라 환경의 계정 관리 화면으로 이동 하는 기능을 수행 한다.
 
-## <div id='11'/> 2.7.	인프라 전체 리소스 사용량 조회
+##  2.7.	인프라 전체 리소스 사용량 조회
 
 등록 한 모든 인프라 계정의 전체 리소스 사용량을 조회 할 수 있는 화면 이다.
 
@@ -245,7 +246,7 @@
 ####	3.	Openstack 리소스 사용량
 -	등록 한 Openstack 계정의 전체 리소스 사용량을 보여 주고 Openstack 리소스 사용량 상세 조회 화면 이동 기능을 수행 한다.
 
-## <div id='12'/> 2.8.	AWS 리소스 사용량 조회
+##  2.8.	AWS 리소스 사용량 조회
 
 등록 한 AWS 계정의 전체 리소스 사용량을 조회 할 수 있는 화면 이다.
 
@@ -264,7 +265,7 @@
 ####	6.	AWS 과금 사용량
 -	등록 한 전체 AWS 계정의 과금 사용량을 보여 준다.
 
-## <div id='13'/> 2.9.	대시보드 -> Openstack 리소스 사용량
+##  2.9.	대시보드 - Openstack 리소스 사용량
 
 등록 한 Openstack 계정의 전체 리소스 사용량을 조회 할 수 있는 화면 이다.
 
@@ -279,7 +280,7 @@
 ####	4.	Openstack 볼륨 사용량
 -	등록 한 전체 Openstack 계정의 볼륨 사용량을 보여 준다.
 
-## <div id='14'/> 2.10.	인프라 관리 -> AWS 관리
+##  2.10.	인프라 관리 - AWS 관리
 
 기본 AWS 계정의 VPC, Subnet, Internet Gateway, Elastic IP, Security Group, Key Pair 관리 화면으로 이동 할 수 있는 화면이다.
 
@@ -300,7 +301,7 @@
 ####	7.	AWS Elastic IPs 관리
 -	AWS Elastic IP 관리 화면으로 이동 하는 기능을 수행 한다.
 
-## <div id='15'/> 2.11.	인프라 관리 -> AWS 관리 -> VPC 관리
+##  2.11.	인프라 관리 - AWS 관리 - VPC 관리
 
 설정 한 AWS 계정의 VPC를 생성/삭제 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -321,7 +322,7 @@
 ####	7.	AWS VPC 상세 목록
 -	선택 한 AWS VPC에 대한 상세 목록을 보여 준다.
 
-## <div id='16'/> 2.12.	인프라 관리 -> AWS 관리 -> Subnet 관리
+##  2.12.	인프라 관리 - AWS 관리 - Subnet 관리
 
 설정 한 AWS 계정의 Subnet을 생성/삭제 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -342,7 +343,7 @@
 ####	7.	AWS Subnet 상세 목록
 -	선택 한 AWS Subnet에 대한 상세 목록을 보여 준다.
 
-## <div id='17'/> 2.13.	인프라 관리 -> AWS 관리 -> Internet Gateway 관리
+##  2.13.	인프라 관리 - AWS 관리 - Internet Gateway 관리
 
 설정 한 AWS 계정의 Internet Gateway를 생성/삭제, VPC를 연결/연결 해제 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -365,7 +366,7 @@
 ####	8.	삭제
 -	AWS Internet Gateway를 삭제 할 수 있는 기능을 제공 한다.
 
-## <div id='18'/> 2.14.	인프라 관리 -> AWS 관리 -> Securty Group 관리
+##  2.14.	인프라 관리 - AWS 관리 - Securty Group 관리
 
 설정 한 AWS 계정의 Security Group를 생성/삭제 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -386,7 +387,7 @@
 ####	7.	Inbound Rule 상세 보기
 -	선택 한 Security Group에 생성 한 Inbound Rule목록을 보여 준다.
 
-## <div id='19'/> 2.15.	인프라 관리 -> AWS 관리 -> Elastic IPs 관리
+##  2.15.	인프라 관리 - AWS 관리 - Elastic IPs 관리
 
 설정 한 AWS 계정의 Elastic IP를 할당 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -405,7 +406,7 @@
 ####	6.	Elastic IP 상세 보기
 -	선택 한 Elastic IP 상세 정보를 보여 준다.
 
-## <div id='20'/> 2.16.	인프라 관리 -> AWS 관리 -> Key Pair 관리
+##  2.16.	인프라 관리 - AWS 관리 - Key Pair 관리
 
 설정 한 AWS 계정의 Key Pair를 생성 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -422,7 +423,7 @@
 ####	5.	생성
 -	AWS Key Pair를 생성 할 수 있는 기능을 제공 한다.
 
-## <div id='21'/> 2.17.	인프라 관리 -> Openstack 관리
+##  2.17.	인프라 관리 - Openstack 관리
 
 기본 Openstack 계정의 Network, Router, Key Pair, Floating IP, Security Group관리 화면으로 이동 할 수 있는 화면이다.
 
@@ -441,7 +442,7 @@
 ####	6.	Openstack Security Group 관리
 -	Openstack Security Group 관리 화면으로 이동 하는 기능을 수행 한다.
 
-## <div id='22'/> 2.18.	인프라 관리 -> Openstack 관리 -> Network 관리
+##  2.18.	인프라 관리 - Openstack 관리 - Network 관리
 
 설정 한 Openstack 계정의 Network 및 Subnet을 생성/삭제를 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -462,7 +463,7 @@
 ####	7.	Network 상세 보기
 -	선택 한 Openstack Network의 상세 정보를 보여 준다.
 	
-## <div id='23'/> 2.19.	인프라 관리 -> Openstack 관리 -> Router 관리
+##  2.19.	인프라 관리 - Openstack 관리 - Router 관리
 
 설정 한 Openstack 계정의 Router를 생성/삭제, 인터페이스 및 게이트웨이를 연결/연결 해제 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -483,7 +484,7 @@
 ####	7.	삭제
 -   선택 한 Openstack Router를 삭제 하는 기능을 제공 한다.
 
-## <div id='24'/> 2.20.	인프라 관리 -> Openstack 관리 -> Security Group 관리
+##  2.20.	인프라 관리 - Openstack 관리 - Security Group 관리
 
 설정 한 Openstack 계정의 Security Group를 생성/삭제 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -502,7 +503,7 @@
 ####	6.	Inbound Rule 정보
 -	선택한 Openstack Security Group의 Inbound Rule정보를 보여 준다.
 
-## <div id='25'/> 2.21.	인프라 관리 -> Openstack 관리 -> Floating Ips 관리
+##  2.21.	인프라 관리 - Openstack 관리 - Floating Ips 관리
 
 설정 한 Openstack 계정의 Floating IP를 할당 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -517,7 +518,7 @@
 ####	4.	Openstack Floating IP 할당
 -	Openstack Floating IP를 할당 할 수 있는 기능을 제공 한다.
 	
-## <div id='26'/> 2.22.	인프라 관리 -> Openstack 관리 -> Key Pair 관리
+##  2.22.	인프라 관리 - Openstack 관리 - Key Pair 관리
 
 설정 한 Openstack 계정의 Floating IP를 할당 할 수 있는 기능을 제공 하는 화면 이다.
 
@@ -532,25 +533,25 @@
 ####	4.	Openstack Key Pair 생성
 -	Openstack Key Pair를 할당 할 수 있는 기능을 제공 한다.
 
-# <div id='27'/>3.  인프라 관리 대시보드 활용
+# 3.  인프라 관리 대시보드 활용
 
 플랫폼 설치 자동화를 이용해서 PaaS-TA를 설치 하기 위해서는 설치 할 인프라에 최소한의 환경 설정이 필요하다. 인프라 관리 대시보드는 설치 할 인프라 환경에 PaaS-TA 설치를 하기 위해 환경 설정을 할 수 있는 대시보드이다.
 
 다음 그림은 PaaS-TA를 설치 하기 위해 인프라 대시보드를 이용하여 AWS, Openstack 인프라 환경 설정을 구성하는 절차이다.
 
-## <div id='28'/> 3.1.	AWS 환경 설정 절차
+##  3.1.	AWS 환경 설정 절차
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image22]
 
-## <div id='29'/> 3.2.	Openstack 환경 설정 절차
+##  3.2.	Openstack 환경 설정 절차
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image23]
 
-## <div id='30'/> 3.3.	계정 관리
+##  3.3.	계정 관리
 
 인프라 관리 대시보드 웹 화면에서 “계정 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “계정 관리” 메뉴에서 등록 한 전체 인프라 환경의 계정 정보와 각 각의 인프라 계정 관리 화면 이동을 제공 한다. (계정 관리 화면 설명은 [2.2](#7) 참고)
 
-## <div id='31'/> 3.4.	AWS 계정 관리
+##  3.4.	AWS 계정 관리
 
 인프라 관리 대시보드 웹 화면에서 “계정 관리” -> “AWS 계정 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “AWS 계정 관리” 메뉴에서 AWS 계정을 등록/삭제 할 수 있는 기능을 제공 한다. (AWS 계정 관리 화면 설명은 [2.3](#8) 참고)
 
@@ -560,7 +561,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image24]
 
-## <div id='32'/> 3.5.	Openstack 계정 관리
+##  3.5.	Openstack 계정 관리
 
 인프라 관리 대시보드 웹 화면에서 “계정 관리” -> “Openstack 계정 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Openstack 계정” 메뉴에서 Openstack 계정 정보를 등록/수정/삭제 할 수 있는 기능을 제공 한다. (Openstack 계정 관리 화면 설명은 [2.4](#9) 참고)
 
@@ -576,7 +577,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image26]
 
-## <div id='33'/> 3.6.	Google 계정 관리
+##  3.6.	Google 계정 관리
 
 인프라 관리 대시보드 웹 화면에서 “계정 관리” -> “Google 계정 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Google 계정” 메뉴에서 Google 계정 정보를 등록/수정/삭제 할 수 있는 기능을 제공 한다. (Google 계정 관리 화면 설명은 [2.5](#10) 참고)
 
@@ -592,7 +593,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image28]
 
-## <div id='34'/> 3.7.	vSphere 계정 관리
+##  3.7.	vSphere 계정 관리
 
 인프라 관리 대시보드 웹 화면에서 “계정 관리” -> “vSphere 계정 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “vSphere 계정” 메뉴에서 vSphere 계정 정보를 등록/수정/삭제 할 수 있는 기능을 제공 한다. (vSphere 계정 관리 화면 설명은 [2.6](#10) 참고)
 
@@ -607,11 +608,11 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image30]
 
-## <div id='35'/> 3.8.	AWS 관리
+##  3.8.	AWS 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “AWS 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “AWS 관리” 메뉴에서 PaaS-TA 설치를 위한 AWS 환경 정보를 생성 할 수 있는 화면으로 이동할 수 있는 기능을 제공 한다. (AWS 관리 화면 설명은 [2.10](#15) 참고)
 
-## <div id='36'/> 3.9.	AWS VPC 관리
+##  3.9.	AWS VPC 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “AWS 관리” -> “VPC 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “VPC 관리” 메뉴에서 VPC를 생성/삭제 할 수 있는 기능을 제공 한다. (VPC관리 화면 설명은 [2.11](#16) 참고)
 
@@ -620,7 +621,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image31]
 
-## <div id='37'/> 3.10.	AWS Subent 관리
+##  3.10.	AWS Subent 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “AWS 관리” -> “Subnet 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Subnet 관리” 메뉴에서 Subnet를 생성/삭제 할 수 있는 기능을 제공 한다. (Subnet 관리 화면 설명은 [2.12](#17) 참고)
 
@@ -629,7 +630,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image32]
 
-## <div id='38'/> 3.11.	AWS Internet Gateway 관리
+##  3.11.	AWS Internet Gateway 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “AWS 관리” -> “Internet Gateway 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Internet Gateway 관리” 메뉴에서 Internet Gateway를 생성/삭제 및 VPC 연결/연결 해제 할 수 있는 기능을 제공 한다. (Internet Gateway 관리 화면 설명 [2.13](#18) 참고)
 
@@ -644,7 +645,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image34]
 
-## <div id='39'/> 3.12.	AWS Security Group 관리
+##  3.12.	AWS Security Group 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “AWS 관리” -> “Security Group 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Security Group 관리” 메뉴에서 Security Group를 생성/삭제 할 수 있는 기능을 제공 한다. (Security Group 관리 화면 설명 [2.14](#19) 참고)
 
@@ -654,7 +655,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image35]
 
-## <div id='40'/> 3.13.	AWS Elastic Ips 관리
+##  3.13.	AWS Elastic Ips 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “AWS 관리” -> “Elastic IPs 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Elastic IPs 관리” 메뉴에서 Elastic IP를 할당 할 수 있는 기능을 제공 한다. (Elastic IP 관리 화면 설명 [2.15](#20) 참고)
 
@@ -663,7 +664,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image36]
 
-## <div id='41'/> 3.14.	AWS Key Pair 관리
+##  3.14.	AWS Key Pair 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “AWS 관리” -> “Key Pair 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Key Pair 관리” 메뉴에서 Key Pair를 생성 할 수 있는 기능을 제공 한다. (Key Pair 관리 화면 설명은 [2.16](#21) 참고)
 
@@ -672,11 +673,11 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image37]
 
-## <div id='42'/> 3.15.	Openstack 관리
+##  3.15.	Openstack 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “Openstack 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Openstack 관리” 메뉴에서 PaaS-TA 설치를 위한 Openstack 환경 정보를 생성 할 수 있는 화면으로 이동할 수 있는 기능을 제공 한다. (Openstack 관리 화면 설명은 [2.17](#22) 참고)
 
-## <div id='43'/> 3.16.	Openstack Network 관리
+##  3.16.	Openstack Network 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “Openstack 관리” -> “Network 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Network 관리” 메뉴에서 Network와 Subnet을 생성/삭제 할 수 있는 기능을 제공 한다. (Network관리 화면 설명은 [2.18](#23) 참고)
 
@@ -691,7 +692,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image39]
 
-## <div id='44'/> 3.17.	Openstack Router 관리
+##  3.17.	Openstack Router 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “Openstack 관리” -> “Router 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Router 관리” 메뉴에서 Router를 생성/삭제, 인터페이스, 게이트웨이를 연결/연결 해제 할 수 있는 기능을 제공 한다. (Router 관리 화면 설명은 [2.19](#24) 참고)
 
@@ -712,7 +713,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image42]
 
-## <div id='45'/> 3.18.	Openstack Security Group 관리
+##  3.18.	Openstack Security Group 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “Openstack 관리” -> “Security Group 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Security Group 관리” 메뉴에서 Security Group를 생성/삭제 할 수 있는 기능을 제공 한다. (Security Group 관리 화면 설명은 [2.20](#25) 참고)
 
@@ -722,7 +723,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image43]
 
-## <div id='46'/> 3.19.	Openstack Floating IPs 관리
+##  3.19.	Openstack Floating IPs 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “Openstack 관리” -> “Floating IPs 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Floating IPs 관리” 메뉴에서 Floating IP를 할당 할 수 있는 기능을 제공 한다. (Floating IPs 관리 화면 설명은 [2.21](#26) 참고)
 
@@ -731,7 +732,7 @@
 
 ![PaaSTa_Infra_Dashboard_Use_Guide_Image44]
 
-## <div id='47'/> 3.20.	Openstack Key Pair 관리
+##  3.20.	Openstack Key Pair 관리
 
 인프라 관리 대시보드 웹 화면에서 “인프라 관리” -> “Openstack 관리” -> “Key Pair 관리” 메뉴로 이동한다. 인프라 관리 대시보드는 “Key Pair 관리” 메뉴에서 Key Pair를 생성 할 수 있는 기능을 제공 한다. (Key Pair관리 화면 설명은 [2.22](#27) 참고)
 

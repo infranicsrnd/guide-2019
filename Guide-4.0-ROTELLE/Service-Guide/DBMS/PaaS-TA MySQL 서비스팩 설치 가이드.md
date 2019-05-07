@@ -1,31 +1,15 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - 1.1. [목적](#11)
-  - 1.2. [범위](#12)
-  - 1.3. [시스템 구성도](#13)
-  - 1.4. [참고자료](#14)
-2. [MySQL 서비스팩 설치](#2)
-  - 2.1. [설치전 준비사항](#21)
-  - 2.2. [MySQL 서비스 릴리즈 업로드](#22)
-  - 2.3. [MySQL 서비스 Deployment 파일 수정 및 배포](#23)
-  - 2.4. [MySQL 서비스 브로커 등록](#24)
-3. [MySQL 연동 Sample Web App 설명](#3)
-  - 3.1. [Sample Web App 구조](#31)
-  - 3.2. [PaaS-TA에서 서비스 신청](#32)
-  - 3.3. [Sample Web App에 서비스 바인드 신청 및 App 확인](#33)
-4. [MySQL Client 툴 접속](#4)
-  - 4.1. [HeidiSQL 설치 및 연결](#41)
+## PaaS-TA MySQL 서비스팩 설치 가이드
 
-# <div id='1'> 1. 문서 개요
-### <div id='11'> 1.1. 목적
+#  1. 문서 개요
+###  1.1. 목적
 
 본 문서(MySQL 서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 MySQL 서비스팩을 Bosh2.0을 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application 에서 MySQL 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='12'> 1.2. 범위
+###  1.2. 범위
 설치 범위는 MySQL 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='13'> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도이다. MySQL Server, MySQL 서비스 브로커, Proxy로 최소사항을 구성하였다.
 
 ![시스템구성도][mysql_vsphere_1.3.01]
@@ -43,13 +27,13 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
 | proxy | minimal | 1vCPU / 1GB RAM / 8GB Disk |
 | mysql | minimal | 1vCPU / 1GB RAM / 8GB Disk +8GB(영구적 Disk) |
 
-### <div id='14'> 1.4. 참고자료
+###  1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)  
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
-# <div id='2'> 2. MySQL 서비스팩 설치
+#  2. MySQL 서비스팩 설치
 
-### <div id='21'> 2.1. 설치전 준비사항
+###  2.1. 설치전 준비사항
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
@@ -63,11 +47,10 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 - PaaS-TA에서 제공하는 압축된 릴리즈 파일들을 다운받는다. (PaaSTA-Deployment.zip, PaaSTA-Sample-Apps.zip, PaaSTA-Services.zip)
 
 - 다운로드 위치
->PaaSTA-Deployment : **<https://paas-ta.kr/data/packages/3.5/deployment.zip>**  
->PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
+>Download : **<https://paas-ta.kr/download/package>**
 
 
-### <div id='22'> 2.2. MySQL 서비스 릴리즈 업로드
+###  2.2. MySQL 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -239,7 +222,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 		
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (mysql 은 stemcell 3309 버전을 사용)
 
-### <div id='23'> 2.3. MySQL 서비스 Deployment 파일 및 deploy-mysql-bosh2.0.sh 수정 및 배포
+###  2.3. MySQL 서비스 Deployment 파일 및 deploy-mysql-bosh2.0.sh 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1223,7 +1206,7 @@ bosh -e micro-bosh -d paasta-mysql-service deploy paasta_mysql_bosh2.0.yml \
 
 		Succeeded
 
-### <div id='24'> 2.4. MySQL 서비스 브로커 등록
+###  2.4. MySQL 서비스 브로커 등록
 Mysql 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 MySQL 서비스 브로커를 등록해 주어야 한다.  
 서비스 브로커 등록시 PaaS-TA에서 서비스브로커를 등록할 수 있는 사용자로 로그인이 되어 있어야 한다.
 
@@ -1275,10 +1258,10 @@ Mysql 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩
 
 >![update_mysql_vsphere_20]
 
-# <div id='3'> 3. MySQL 연동 Sample Web App 설명
+#  3. MySQL 연동 Sample Web App 설명
 본 Sample Web App은 PaaS-TA에 배포되며 MySQL의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
 
-### <div id='31'> 3.1. Sample Web App 구조
+###  3.1. Sample Web App 구조
 
 Sample Web App은 PaaS-TA에 App으로 배포가 된다. App을 배포하여 구동시 Bind 된 MySQL 서비스 연결정보로 접속하여 초기 데이터를 생성하게 된다. 배포 완료 후 정상적으로 App 이 구동되면 브라우져나 curl로 해당 App에 접속 하여 MySQL 환경정보(서비스 연결 정보)와 초기 적재된 데이터를 보여준다.
 
@@ -1299,7 +1282,7 @@ Sample Web App 구조는 다음과 같다.
 
 <br>
 
-### <div id='32'> 3.2. PaaS-TA에서 서비스 신청
+###  3.2. PaaS-TA에서 서비스 신청
 Sample Web App에서 MySQL 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
 
 *참고: 서비스 신청시 PaaS-TA에서 서비스를 신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
@@ -1335,7 +1318,7 @@ Sample Web App에서 MySQL 서비스를 사용하기 위해서는 서비스 신�
 
 <br>
 
-### <div id='33'> 3.3. Sample Web App에 서비스 바인드 신청 및 App 확인
+###  3.3. Sample Web App에 서비스 바인드 신청 및 App 확인
 서비스 신청이 완료되었으면 Sample Web App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 MySQL 서비스를 이용한다. 
 *참고: 서비스 Bind 신청시 PaaS-TA에서 서비스 Bind신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
 
@@ -1450,11 +1433,11 @@ path: target/hello-spring-mysql-1.0.0-BUILD-SNAPSHOT.war      #배포하는 App 
 > 브라우져에서 확인
 >![update_mysql_vsphere_34]
 
-# <div id='4'> 4. MySQL Client 툴 접속
+#  4. MySQL Client 툴 접속
 
 Application에 바인딩 된 MySQL 서비스 연결정보는 Private IP로 구성되어 있기 때문에 MySQL Client 툴에서 직접 연결할수 없다. 따라서 MySQL Client 툴에서 SSH 터널, Proxy 터널 등을 제공하는 툴을 사용해서 연결하여야 한다. 본 가이드는 SSH 터널을 이용하여 연결 하는 방법을 제공하며 MySQL Client 툴로써는 오픈 소스인 HeidiSQL로 가이드한다. HeidiSQL 에서 접속하기 위해서 먼저 SSH 터널링 할수 있는 VM 인스턴스를 생성해야한다. 이 인스턴스는 SSH로 접속이 가능해야 하고 접속 후 Open PaaS 에 설치한 서비스팩에 Private IP 와 해당 포트로 접근이 가능하도록 시큐리티 그룹을 구성해야 한다. 이 부분은 vSphere관리자 및 OpenPaaS 운영자에게 문의하여 구성한다.
 
-### <div id='41'> 4.1. HeidiSQL 설치 및 연결
+###  4.1. HeidiSQL 설치 및 연결
 
 HeidiSQL 프로그램은 무료로 사용할 수 있는 오픈소스 소프트웨어이다.
 
@@ -1575,109 +1558,109 @@ HeidiSQL 프로그램은 무료로 사용할 수 있는 오픈소스 소프트�
 >![mysql_vsphere_4.1.17]
 
 
-[mysql_vsphere_1.3.01]:/Service-Guide/images/mysql/mysql_vsphere_1.3.01.png
-[mysql_vsphere_2.2.01]:/Service-Guide/images/mysql/mysql_vsphere_2.2.01.png
-[mysql_vsphere_2.2.02]:/Service-Guide/images/mysql/mysql_vsphere_2.2.02.png
-[mysql_vsphere_2.2.03]:/Service-Guide/images/mysql/mysql_vsphere_2.2.03.png
-[mysql_vsphere_2.2.04]:/Service-Guide/images/mysql/mysql_vsphere_2.2.04.png
-[mysql_vsphere_2.2.05]:/Service-Guide/images/mysql/mysql_vsphere_2.2.05.png
-[mysql_vsphere_2.2.06]:/Service-Guide/images/mysql/mysql_vsphere_2.2.06.png
-[mysql_vsphere_2.2.07]:/Service-Guide/images/mysql/mysql_vsphere_2.2.07.png
-[mysql_vsphere_2.2.08]:/Service-Guide/images/mysql/mysql_vsphere_2.2.08.png
-[mysql_vsphere_2.3.01]:/Service-Guide/images/mysql/mysql_vsphere_2.3.01.png
-[mysql_vsphere_2.3.02]:/Service-Guide/images/mysql/mysql_vsphere_2.3.02.png
-[mysql_vsphere_2.3.03]:/Service-Guide/images/mysql/mysql_vsphere_2.3.03.png
-[mysql_vsphere_2.3.04]:/Service-Guide/images/mysql/mysql_vsphere_2.3.04.png
-[mysql_vsphere_2.3.05]:/Service-Guide/images/mysql/mysql_vsphere_2.3.05.png
-[mysql_vsphere_2.3.06]:/Service-Guide/images/mysql/mysql_vsphere_2.3.06.png
-[mysql_vsphere_2.3.07]:/Service-Guide/images/mysql/mysql_vsphere_2.3.07.png
+[mysql_vsphere_1.3.01]:./../images/mysql/mysql_vsphere_1.3.01.png
+[mysql_vsphere_2.2.01]:./../images/mysql/mysql_vsphere_2.2.01.png
+[mysql_vsphere_2.2.02]:./../images/mysql/mysql_vsphere_2.2.02.png
+[mysql_vsphere_2.2.03]:./../images/mysql/mysql_vsphere_2.2.03.png
+[mysql_vsphere_2.2.04]:./../images/mysql/mysql_vsphere_2.2.04.png
+[mysql_vsphere_2.2.05]:./../images/mysql/mysql_vsphere_2.2.05.png
+[mysql_vsphere_2.2.06]:./../images/mysql/mysql_vsphere_2.2.06.png
+[mysql_vsphere_2.2.07]:./../images/mysql/mysql_vsphere_2.2.07.png
+[mysql_vsphere_2.2.08]:./../images/mysql/mysql_vsphere_2.2.08.png
+[mysql_vsphere_2.3.01]:./../images/mysql/mysql_vsphere_2.3.01.png
+[mysql_vsphere_2.3.02]:./../images/mysql/mysql_vsphere_2.3.02.png
+[mysql_vsphere_2.3.03]:./../images/mysql/mysql_vsphere_2.3.03.png
+[mysql_vsphere_2.3.04]:./../images/mysql/mysql_vsphere_2.3.04.png
+[mysql_vsphere_2.3.05]:./../images/mysql/mysql_vsphere_2.3.05.png
+[mysql_vsphere_2.3.06]:./../images/mysql/mysql_vsphere_2.3.06.png
+[mysql_vsphere_2.3.07]:./../images/mysql/mysql_vsphere_2.3.07.png
 
-[mysql_vsphere_2.4.01]:/Service-Guide/images/mysql/mysql_vsphere_2.4.01.png
-[mysql_vsphere_2.4.02]:/Service-Guide/images/mysql/mysql_vsphere_2.4.02.png
-[mysql_vsphere_2.4.03]:/Service-Guide/images/mysql/mysql_vsphere_2.4.03.png
-[mysql_vsphere_2.4.04]:/Service-Guide/images/mysql/mysql_vsphere_2.4.04.png
-[mysql_vsphere_2.4.05]:/Service-Guide/images/mysql/mysql_vsphere_2.4.05.png
-[mysql_vsphere_3.1.01]:/Service-Guide/images/mysql/mysql_vsphere_3.1.01.png
-[mysql_vsphere_3.2.01]:/Service-Guide/images/mysql/mysql_vsphere_3.2.01.png
-[mysql_vsphere_3.2.02]:/Service-Guide/images/mysql/mysql_vsphere_3.2.02.png
-[mysql_vsphere_3.2.03]:/Service-Guide/images/mysql/mysql_vsphere_3.2.03.png
-[mysql_vsphere_3.3.01]:/Service-Guide/images/mysql/mysql_vsphere_3.3.01.png
-[mysql_vsphere_3.3.02]:/Service-Guide/images/mysql/mysql_vsphere_3.3.02.png
-[mysql_vsphere_3.3.03]:/Service-Guide/images/mysql/mysql_vsphere_3.3.03.png
-[mysql_vsphere_3.3.04]:/Service-Guide/images/mysql/mysql_vsphere_3.3.04.png
-[mysql_vsphere_3.3.05]:/Service-Guide/images/mysql/mysql_vsphere_3.3.05.png
-[mysql_vsphere_3.3.06]:/Service-Guide/images/mysql/mysql_vsphere_3.3.06.png
-[mysql_vsphere_3.3.07]:/Service-Guide/images/mysql/mysql_vsphere_3.3.07.png
-[mysql_vsphere_3.3.08]:/Service-Guide/images/mysql/mysql_vsphere_3.3.08.png
-[mysql_vsphere_3.3.09]:/Service-Guide/images/mysql/mysql_vsphere_3.3.09.png
-[mysql_vsphere_4.1.01]:/Service-Guide/images/mysql/mysql_vsphere_4.1.01.png
-[mysql_vsphere_4.1.02]:/Service-Guide/images/mysql/mysql_vsphere_4.1.02.png
-[mysql_vsphere_4.1.03]:/Service-Guide/images/mysql/mysql_vsphere_4.1.03.png
-[mysql_vsphere_4.1.04]:/Service-Guide/images/mysql/mysql_vsphere_4.1.04.png
-[mysql_vsphere_4.1.05]:/Service-Guide/images/mysql/mysql_vsphere_4.1.05.png
-[mysql_vsphere_4.1.06]:/Service-Guide/images/mysql/mysql_vsphere_4.1.06.png
-[mysql_vsphere_4.1.07]:/Service-Guide/images/mysql/mysql_vsphere_4.1.07.png
-[mysql_vsphere_4.1.08]:/Service-Guide/images/mysql/mysql_vsphere_4.1.08.png
-[mysql_vsphere_4.1.09]:/Service-Guide/images/mysql/mysql_vsphere_4.1.09.png
-[mysql_vsphere_4.1.10]:/Service-Guide/images/mysql/mysql_vsphere_4.1.10.png
-[mysql_vsphere_4.1.11]:/Service-Guide/images/mysql/mysql_vsphere_4.1.11.png
-[mysql_vsphere_4.1.12]:/Service-Guide/images/mysql/mysql_vsphere_4.1.12.png
-[mysql_vsphere_4.1.13]:/Service-Guide/images/mysql/mysql_vsphere_4.1.13.png
-[mysql_vsphere_4.1.14]:/Service-Guide/images/mysql/mysql_vsphere_4.1.14.png
-[mysql_vsphere_4.1.15]:/Service-Guide/images/mysql/mysql_vsphere_4.1.15.png
-[mysql_vsphere_4.1.16]:/Service-Guide/images/mysql/mysql_vsphere_4.1.16.png
-[mysql_vsphere_4.1.17]:/Service-Guide/images/mysql/mysql_vsphere_4.1.17.png
+[mysql_vsphere_2.4.01]:./../images/mysql/mysql_vsphere_2.4.01.png
+[mysql_vsphere_2.4.02]:./../images/mysql/mysql_vsphere_2.4.02.png
+[mysql_vsphere_2.4.03]:./../images/mysql/mysql_vsphere_2.4.03.png
+[mysql_vsphere_2.4.04]:./../images/mysql/mysql_vsphere_2.4.04.png
+[mysql_vsphere_2.4.05]:./../images/mysql/mysql_vsphere_2.4.05.png
+[mysql_vsphere_3.1.01]:./../images/mysql/mysql_vsphere_3.1.01.png
+[mysql_vsphere_3.2.01]:./../images/mysql/mysql_vsphere_3.2.01.png
+[mysql_vsphere_3.2.02]:./../images/mysql/mysql_vsphere_3.2.02.png
+[mysql_vsphere_3.2.03]:./../images/mysql/mysql_vsphere_3.2.03.png
+[mysql_vsphere_3.3.01]:./../images/mysql/mysql_vsphere_3.3.01.png
+[mysql_vsphere_3.3.02]:./../images/mysql/mysql_vsphere_3.3.02.png
+[mysql_vsphere_3.3.03]:./../images/mysql/mysql_vsphere_3.3.03.png
+[mysql_vsphere_3.3.04]:./../images/mysql/mysql_vsphere_3.3.04.png
+[mysql_vsphere_3.3.05]:./../images/mysql/mysql_vsphere_3.3.05.png
+[mysql_vsphere_3.3.06]:./../images/mysql/mysql_vsphere_3.3.06.png
+[mysql_vsphere_3.3.07]:./../images/mysql/mysql_vsphere_3.3.07.png
+[mysql_vsphere_3.3.08]:./../images/mysql/mysql_vsphere_3.3.08.png
+[mysql_vsphere_3.3.09]:./../images/mysql/mysql_vsphere_3.3.09.png
+[mysql_vsphere_4.1.01]:./../images/mysql/mysql_vsphere_4.1.01.png
+[mysql_vsphere_4.1.02]:./../images/mysql/mysql_vsphere_4.1.02.png
+[mysql_vsphere_4.1.03]:./../images/mysql/mysql_vsphere_4.1.03.png
+[mysql_vsphere_4.1.04]:./../images/mysql/mysql_vsphere_4.1.04.png
+[mysql_vsphere_4.1.05]:./../images/mysql/mysql_vsphere_4.1.05.png
+[mysql_vsphere_4.1.06]:./../images/mysql/mysql_vsphere_4.1.06.png
+[mysql_vsphere_4.1.07]:./../images/mysql/mysql_vsphere_4.1.07.png
+[mysql_vsphere_4.1.08]:./../images/mysql/mysql_vsphere_4.1.08.png
+[mysql_vsphere_4.1.09]:./../images/mysql/mysql_vsphere_4.1.09.png
+[mysql_vsphere_4.1.10]:./../images/mysql/mysql_vsphere_4.1.10.png
+[mysql_vsphere_4.1.11]:./../images/mysql/mysql_vsphere_4.1.11.png
+[mysql_vsphere_4.1.12]:./../images/mysql/mysql_vsphere_4.1.12.png
+[mysql_vsphere_4.1.13]:./../images/mysql/mysql_vsphere_4.1.13.png
+[mysql_vsphere_4.1.14]:./../images/mysql/mysql_vsphere_4.1.14.png
+[mysql_vsphere_4.1.15]:./../images/mysql/mysql_vsphere_4.1.15.png
+[mysql_vsphere_4.1.16]:./../images/mysql/mysql_vsphere_4.1.16.png
+[mysql_vsphere_4.1.17]:./../images/mysql/mysql_vsphere_4.1.17.png
 
 
 
-[update_mysql_vsphere_01]:/Service-Guide/images/mysql/update_mysql_vsphere_01.png
-[update_mysql_vsphere_02]:/Service-Guide/images/mysql/update_mysql_vsphere_02.png
-[update_mysql_vsphere_03]:/Service-Guide/images/mysql/update_mysql_vsphere_03.png
-[update_mysql_vsphere_04]:/Service-Guide/images/mysql/update_mysql_vsphere_04.png
-[update_mysql_vsphere_05]:/Service-Guide/images/mysql/update_mysql_vsphere_05.png
-[update_mysql_vsphere_06]:/Service-Guide/images/mysql/update_mysql_vsphere_06.png
-[update_mysql_vsphere_07]:/Service-Guide/images/mysql/update_mysql_vsphere_07.png
-[update_mysql_vsphere_08]:/Service-Guide/images/mysql/update_mysql_vsphere_08.png
-[update_mysql_vsphere_09]:/Service-Guide/images/mysql/update_mysql_vsphere_09.png
-[update_mysql_vsphere_10]:/Service-Guide/images/mysql/update_mysql_vsphere_10.png
-[update_mysql_vsphere_11]:/Service-Guide/images/mysql/update_mysql_vsphere_11.png
-[update_mysql_vsphere_12]:/Service-Guide/images/mysql/update_mysql_vsphere_12.png
-[update_mysql_vsphere_13]:/Service-Guide/images/mysql/update_mysql_vsphere_13.png
-[update_mysql_vsphere_14]:/Service-Guide/images/mysql/update_mysql_vsphere_14.png
-[update_mysql_vsphere_15]:/Service-Guide/images/mysql/update_mysql_vsphere_15.png
-[update_mysql_vsphere_16]:/Service-Guide/images/mysql/update_mysql_vsphere_16.png
-[update_mysql_vsphere_17]:/Service-Guide/images/mysql/update_mysql_vsphere_17.png
-[update_mysql_vsphere_18]:/Service-Guide/images/mysql/update_mysql_vsphere_18.png
-[update_mysql_vsphere_19]:/Service-Guide/images/mysql/update_mysql_vsphere_19.png
-[update_mysql_vsphere_20]:/Service-Guide/images/mysql/update_mysql_vsphere_20.png
-[update_mysql_vsphere_21]:/Service-Guide/images/mysql/update_mysql_vsphere_21.png
-[update_mysql_vsphere_22]:/Service-Guide/images/mysql/update_mysql_vsphere_22.png
-[update_mysql_vsphere_23]:/Service-Guide/images/mysql/update_mysql_vsphere_23.png
-[update_mysql_vsphere_24]:/Service-Guide/images/mysql/update_mysql_vsphere_24.png
-[update_mysql_vsphere_25]:/Service-Guide/images/mysql/update_mysql_vsphere_25.png
-[update_mysql_vsphere_26]:/Service-Guide/images/mysql/update_mysql_vsphere_26.png
-[update_mysql_vsphere_27]:/Service-Guide/images/mysql/update_mysql_vsphere_27.png
-[update_mysql_vsphere_28]:/Service-Guide/images/mysql/update_mysql_vsphere_28.png
-[update_mysql_vsphere_29]:/Service-Guide/images/mysql/update_mysql_vsphere_29.png
-[update_mysql_vsphere_30]:/Service-Guide/images/mysql/update_mysql_vsphere_30.png
-[update_mysql_vsphere_31]:/Service-Guide/images/mysql/update_mysql_vsphere_31.png
-[update_mysql_vsphere_32]:/Service-Guide/images/mysql/update_mysql_vsphere_32.png
-[update_mysql_vsphere_33]:/Service-Guide/images/mysql/update_mysql_vsphere_33.png
-[update_mysql_vsphere_34]:/Service-Guide/images/mysql/update_mysql_vsphere_34.png
+[update_mysql_vsphere_01]:./../images/mysql/update_mysql_vsphere_01.png
+[update_mysql_vsphere_02]:./../images/mysql/update_mysql_vsphere_02.png
+[update_mysql_vsphere_03]:./../images/mysql/update_mysql_vsphere_03.png
+[update_mysql_vsphere_04]:./../images/mysql/update_mysql_vsphere_04.png
+[update_mysql_vsphere_05]:./../images/mysql/update_mysql_vsphere_05.png
+[update_mysql_vsphere_06]:./../images/mysql/update_mysql_vsphere_06.png
+[update_mysql_vsphere_07]:./../images/mysql/update_mysql_vsphere_07.png
+[update_mysql_vsphere_08]:./../images/mysql/update_mysql_vsphere_08.png
+[update_mysql_vsphere_09]:./../images/mysql/update_mysql_vsphere_09.png
+[update_mysql_vsphere_10]:./../images/mysql/update_mysql_vsphere_10.png
+[update_mysql_vsphere_11]:./../images/mysql/update_mysql_vsphere_11.png
+[update_mysql_vsphere_12]:./../images/mysql/update_mysql_vsphere_12.png
+[update_mysql_vsphere_13]:./../images/mysql/update_mysql_vsphere_13.png
+[update_mysql_vsphere_14]:./../images/mysql/update_mysql_vsphere_14.png
+[update_mysql_vsphere_15]:./../images/mysql/update_mysql_vsphere_15.png
+[update_mysql_vsphere_16]:./../images/mysql/update_mysql_vsphere_16.png
+[update_mysql_vsphere_17]:./../images/mysql/update_mysql_vsphere_17.png
+[update_mysql_vsphere_18]:./../images/mysql/update_mysql_vsphere_18.png
+[update_mysql_vsphere_19]:./../images/mysql/update_mysql_vsphere_19.png
+[update_mysql_vsphere_20]:./../images/mysql/update_mysql_vsphere_20.png
+[update_mysql_vsphere_21]:./../images/mysql/update_mysql_vsphere_21.png
+[update_mysql_vsphere_22]:./../images/mysql/update_mysql_vsphere_22.png
+[update_mysql_vsphere_23]:./../images/mysql/update_mysql_vsphere_23.png
+[update_mysql_vsphere_24]:./../images/mysql/update_mysql_vsphere_24.png
+[update_mysql_vsphere_25]:./../images/mysql/update_mysql_vsphere_25.png
+[update_mysql_vsphere_26]:./../images/mysql/update_mysql_vsphere_26.png
+[update_mysql_vsphere_27]:./../images/mysql/update_mysql_vsphere_27.png
+[update_mysql_vsphere_28]:./../images/mysql/update_mysql_vsphere_28.png
+[update_mysql_vsphere_29]:./../images/mysql/update_mysql_vsphere_29.png
+[update_mysql_vsphere_30]:./../images/mysql/update_mysql_vsphere_30.png
+[update_mysql_vsphere_31]:./../images/mysql/update_mysql_vsphere_31.png
+[update_mysql_vsphere_32]:./../images/mysql/update_mysql_vsphere_32.png
+[update_mysql_vsphere_33]:./../images/mysql/update_mysql_vsphere_33.png
+[update_mysql_vsphere_34]:./../images/mysql/update_mysql_vsphere_34.png
 
-[update_mysql_vsphere_35]:/Service-Guide/images/mysql/update_mysql_vsphere_35.png
-[update_mysql_vsphere_36]:/Service-Guide/images/mysql/update_mysql_vsphere_36.png
-[update_mysql_vsphere_37]:/Service-Guide/images/mysql/update_mysql_vsphere_37.png
-[update_mysql_vsphere_38]:/Service-Guide/images/mysql/update_mysql_vsphere_38.png
-[update_mysql_vsphere_39]:/Service-Guide/images/mysql/update_mysql_vsphere_39.png
-[update_mysql_vsphere_40]:/Service-Guide/images/mysql/update_mysql_vsphere_40.png
-[update_mysql_vsphere_41]:/Service-Guide/images/mysql/update_mysql_vsphere_41.png
-[update_mysql_vsphere_42]:/Service-Guide/images/mysql/update_mysql_vsphere_42.png
-[update_mysql_vsphere_43]:/Service-Guide/images/mysql/update_mysql_vsphere_43.png
-[update_mysql_vsphere_44]:/Service-Guide/images/mysql/update_mysql_vsphere_44.png
-[update_mysql_vsphere_45]:/Service-Guide/images/mysql/update_mysql_vsphere_45.png
-[update_mysql_vsphere_46]:/Service-Guide/images/mysql/update_mysql_vsphere_46.png
-[update_mysql_vsphere_47]:/Service-Guide/images/mysql/update_mysql_vsphere_47.png
-[update_mysql_vsphere_48]:/Service-Guide/images/mysql/update_mysql_vsphere_48.png
-[update_mysql_vsphere_49]:/Service-Guide/images/mysql/update_mysql_vsphere_49.png
-[update_mysql_vsphere_50]:/Service-Guide/images/mysql/update_mysql_vsphere_50.png
+[update_mysql_vsphere_35]:./../images/mysql/update_mysql_vsphere_35.png
+[update_mysql_vsphere_36]:./../images/mysql/update_mysql_vsphere_36.png
+[update_mysql_vsphere_37]:./../images/mysql/update_mysql_vsphere_37.png
+[update_mysql_vsphere_38]:./../images/mysql/update_mysql_vsphere_38.png
+[update_mysql_vsphere_39]:./../images/mysql/update_mysql_vsphere_39.png
+[update_mysql_vsphere_40]:./../images/mysql/update_mysql_vsphere_40.png
+[update_mysql_vsphere_41]:./../images/mysql/update_mysql_vsphere_41.png
+[update_mysql_vsphere_42]:./../images/mysql/update_mysql_vsphere_42.png
+[update_mysql_vsphere_43]:./../images/mysql/update_mysql_vsphere_43.png
+[update_mysql_vsphere_44]:./../images/mysql/update_mysql_vsphere_44.png
+[update_mysql_vsphere_45]:./../images/mysql/update_mysql_vsphere_45.png
+[update_mysql_vsphere_46]:./../images/mysql/update_mysql_vsphere_46.png
+[update_mysql_vsphere_47]:./../images/mysql/update_mysql_vsphere_47.png
+[update_mysql_vsphere_48]:./../images/mysql/update_mysql_vsphere_48.png
+[update_mysql_vsphere_49]:./../images/mysql/update_mysql_vsphere_49.png
+[update_mysql_vsphere_50]:./../images/mysql/update_mysql_vsphere_50.png

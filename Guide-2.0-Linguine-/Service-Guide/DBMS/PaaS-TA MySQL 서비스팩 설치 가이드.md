@@ -1,21 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1-문서-개요)
-  - 1.1. [목적](#11-목적)
-  - 1.2. [범위](#12-범위)
-  - 1.3. [시스템 구성도](#13-시스템-구성도)
-  - 1.4. [참고자료](#14-참고자료)
-2. [MySQL 서비스팩 설치](#2-mysql-서비스팩-설치)
-  - 2.1. [설치전 준비사항](#21-설치전-준비사항)
-  - 2.2. [MySQL 서비스 릴리즈 업로드](#22-mysql-서비스-릴리즈-업로드)
-  - 2.3. [MySQL 서비스 Deployment 파일 수정 및 배포](#23-mysql-서비스-deployment-파일-수정-및-배포)
-  - 2.4. [MySQL 서비스 브로커 등록](#24-mysql-서비스-브로커-등록)
-3. [MySQL 연동 Sample Web App 설명](#3-mysql-연동-sample-web-app-설명)
-  - 3.1. [Sample Web App 구조](#31-sample-web-app-구조)
-  - 3.2. [PaaS-TA에서 서비스 신청](#32-개방형-클라우드-플랫폼에서-서비스-신청)
-  - 3.3. [Sample Web App에 서비스 바인드 신청 및 App 확인](#33-sample-web-app에-서비스-바인드-신청-및-app-확인)
-4. [MySQL Client 툴 접속](#4-mysql-client-툴-접속)
-  - 4.1. [HeidiSQL 설치 및 연결](#41-heidisql-설치-및-연결)
-
+## PaaS-TA MySQL 서비스팩 설치 가이드
 # 1. 문서 개요
 ### 1.1. 목적
 

@@ -1,29 +1,15 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - 1.1. [목적](#11)
-  - 1.2. [범위](#12)
-  - 1.3. [시스템 구성도](#13)
-  - 1.4. [참고자료](#14)
-2. [RabbitMQ 서비스팩 설치](#2)
-  - 2.1. [설치전 준비사항](#21)
-  - 2.2. [RabbitMQ 서비스 릴리즈 업로드](#22)
-  - 2.3. [2.3. RabbitMQ 서비스 Deployment 파일 수정 및 배포](#23)
-  - 2.4. [RabbitMQ 서비스 브로커 등록](#24)
-3. [RabbitMQ 연동 Sample App 설명](#3)
-  - 3.1. [Sample App 구조](#31)
-  - 3.2. [PaaS-TA에서 서비스 신청](#32)
-  - 3.3. [Sample App에 서비스 바인드 신청 및 App 확인](#33)
-     
-# <div id='1'> 1. 문서 개요
-### <div id='11'> 1.1. 목적
+## PaaS-TA RabbitMQ 서비스팩 설치 가이드
+    
+#  1. 문서 개요
+###  1.1. 목적
 본 문서(RabbitMQ서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 RabbitMQ 서비스팩을 Bosh를 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application에서 RabbitMQ 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='12'> 1.2. 범위 
+###  1.2. 범위 
 설치 범위는 RabbitMQ 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다. 
 
 
-### <div id='13'> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도이다. RabbitMQ(1대), RabbitMQ 서비스 브로커, haproxy로 최소사항을 구성하였다.
 
 ![시스템 구성도][rabbitmq_image_01]
@@ -48,14 +34,14 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
 </table>
 
 
-### <div id='14'> 1.4. 참고자료
+###  1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)  
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
 
-# <div id='2'> 2. RabbitMQ 서비스팩 설치
+#  2. RabbitMQ 서비스팩 설치
 
-### <div id='21'> 2.1. 설치전 준비사항
+###  2.1. 설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
 BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이드 문서를 참고 하여 BOSH CLI v2를 설치를 하고 사용법을 숙지 해야 한다.<br>
@@ -68,11 +54,10 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 - PaaS-TA에서 제공하는 압축된 릴리즈 파일들을 다운받는다. (PaaSTA-Deployment.zip, PaaSTA-Sample-Apps.zip, PaaSTA-Services.zip)
 
 - 다운로드 위치
->PaaSTA-Deployment : **<https://paas-ta.kr/data/packages/3.5/deployment.zip>**  
->PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
+>Download : **<https://paas-ta.kr/download/package>**
 
 
-### <div id='22'> 2.2. RabbitMQ 서비스 릴리즈 업로드
+###  2.2. RabbitMQ 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -233,7 +218,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (RabbitMQ는 stemcell 3309 버전을 사용)
 	
 
-### <div id='23'> 2.3. RabbitMQ 서비스 Deployment 파일 수정 및 배포
+###  2.3. RabbitMQ 서비스 Deployment 파일 수정 및 배포
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
 
@@ -1255,7 +1240,7 @@ bosh -e micro-bosh -d paasta-rabbitmq-service deploy paasta_rabbitmq_bosh2.0.yml
 
 		Succeeded
 
-### <div id='24'> 2.4. RabbitMQ 서비스 브로커 등록
+###  2.4. RabbitMQ 서비스 브로커 등록
 RabbitMQ 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 RabbitMQ 서비스 브로커를 등록해 주어야 한다.
 서비스 브로커 등록시에는 PaaS-TA에서 서비스 브로커를 등록할 수 있는 사용자로 로그인 하여야 한다
 
@@ -1305,15 +1290,15 @@ RabbitMQ 서비스팩 배포가 완료 되었으면 Application에서 서비스 
 
 <br>
 
-<div id='11'></div>
 
-# <div id='3'> 3. RabbitMQ 연동 Sample App 설명
+
+#  3. RabbitMQ 연동 Sample App 설명
 본 Sample App은 PaaS-TA에 배포되며 RabbitMQ의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
 
 
-<div id='12'></div>
 
-### <div id='31'> 3.1. Sample App 구조
+
+###  3.1. Sample App 구조
 Sample App은 PaaS-TA에 App으로 배포가 된다. 배포 완료 후 정상적으로 App이 구동되면 curl 명령어로 App url를 입력하면 RabbitMQ 환경정보(서비스 연결 정보)를 보여주는 url 페이지를 제공한다.
 
 Sample App 구조는 다음과 같다.
@@ -1349,9 +1334,9 @@ Sample App 구조는 다음과 같다.
 
 <br>
 
-<div id='13'></div>
 
-### <div id='32'> 3.2. PaaS-TA에서 서비스 신청
+
+###  3.2. PaaS-TA에서 서비스 신청
 Sample App에서 RabbitMQ 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
 *참고: 서비스 신청시 PaaS-TA에서 서비스를 신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
 
@@ -1385,9 +1370,9 @@ Sample App에서 RabbitMQ 서비스를 사용하기 위해서는 서비스 신�
 
 <br>
 
-<div id='14'></div>
 
-### <div id='33'> 3.3. Sample App에 서비스 바인드 신청 및 App 확인
+
+###  3.3. Sample App에 서비스 바인드 신청 및 App 확인
 서비스 신청이 완료되었으면 Sample App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 RabbitMQ 서비스를 이용한다.
 * 참고: 서비스 Bind 신청시 PaaS-TA에서 서비스 Bind 신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
 
@@ -1453,22 +1438,22 @@ Sample App에서 RabbitMQ 서비스를 사용하기 위해서는 서비스 신�
 >![rabbitmq_image_19]
 
 
-[rabbitmq_image_01]:/Service-Guide/images/rabbitmq/rabbitmq_image_01.png
-[rabbitmq_image_02]:/Service-Guide/images/rabbitmq/rabbitmq_image_02.png
-[rabbitmq_image_03]:/Service-Guide/images/rabbitmq/rabbitmq_image_03.png
-[rabbitmq_image_04]:/Service-Guide/images/rabbitmq/rabbitmq_image_04.png
-[rabbitmq_image_05]:/Service-Guide/images/rabbitmq/rabbitmq_image_05.png
-[rabbitmq_image_06]:/Service-Guide/images/rabbitmq/rabbitmq_image_06.png
-[rabbitmq_image_07]:/Service-Guide/images/rabbitmq/rabbitmq_image_07.png
-[rabbitmq_image_08]:/Service-Guide/images/rabbitmq/rabbitmq_image_08.png
-[rabbitmq_image_09]:/Service-Guide/images/rabbitmq/rabbitmq_image_09.png
-[rabbitmq_image_10]:/Service-Guide/images/rabbitmq/rabbitmq_image_10.png
-[rabbitmq_image_11]:/Service-Guide/images/rabbitmq/rabbitmq_image_11.png
-[rabbitmq_image_12]:/Service-Guide/images/rabbitmq/rabbitmq_image_12.png
-[rabbitmq_image_13]:/Service-Guide/images/rabbitmq/rabbitmq_image_13.png
-[rabbitmq_image_14]:/Service-Guide/images/rabbitmq/rabbitmq_image_14.png
-[rabbitmq_image_15]:/Service-Guide/images/rabbitmq/rabbitmq_image_15.png
-[rabbitmq_image_16]:/Service-Guide/images/rabbitmq/rabbitmq_image_16.png
-[rabbitmq_image_17]:/Service-Guide/images/rabbitmq/rabbitmq_image_17.png
-[rabbitmq_image_18]:/Service-Guide/images/rabbitmq/rabbitmq_image_18.png
-[rabbitmq_image_19]:/Service-Guide/images/rabbitmq/rabbitmq_image_19.png
+[rabbitmq_image_01]:./../images/rabbitmq/rabbitmq_image_01.png
+[rabbitmq_image_02]:./../images/rabbitmq/rabbitmq_image_02.png
+[rabbitmq_image_03]:./../images/rabbitmq/rabbitmq_image_03.png
+[rabbitmq_image_04]:./../images/rabbitmq/rabbitmq_image_04.png
+[rabbitmq_image_05]:./../images/rabbitmq/rabbitmq_image_05.png
+[rabbitmq_image_06]:./../images/rabbitmq/rabbitmq_image_06.png
+[rabbitmq_image_07]:./../images/rabbitmq/rabbitmq_image_07.png
+[rabbitmq_image_08]:./../images/rabbitmq/rabbitmq_image_08.png
+[rabbitmq_image_09]:./../images/rabbitmq/rabbitmq_image_09.png
+[rabbitmq_image_10]:./../images/rabbitmq/rabbitmq_image_10.png
+[rabbitmq_image_11]:./../images/rabbitmq/rabbitmq_image_11.png
+[rabbitmq_image_12]:./../images/rabbitmq/rabbitmq_image_12.png
+[rabbitmq_image_13]:./../images/rabbitmq/rabbitmq_image_13.png
+[rabbitmq_image_14]:./../images/rabbitmq/rabbitmq_image_14.png
+[rabbitmq_image_15]:./../images/rabbitmq/rabbitmq_image_15.png
+[rabbitmq_image_16]:./../images/rabbitmq/rabbitmq_image_16.png
+[rabbitmq_image_17]:./../images/rabbitmq/rabbitmq_image_17.png
+[rabbitmq_image_18]:./../images/rabbitmq/rabbitmq_image_18.png
+[rabbitmq_image_19]:./../images/rabbitmq/rabbitmq_image_19.png

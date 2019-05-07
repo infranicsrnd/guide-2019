@@ -1,36 +1,4 @@
-# Table of Contents
-
-1. [개요](#1-개요)	
-	-	1.1. [문서 목적](#11-문서-목적)	
-	-	1.2. [범위](#12-범위)	
-	-	1.3. [참고자료](#13-참고자료)	
-2. [Prerequisites](#2-prerequisites)	
-	-	2.1. [개요](#21-개요)		
-	-	2.2. [OpenStack](#22-openstack)		
-		-	2.2.1. [Dashboard(Horizon)](#221-dashboard(horizon))	
-		-	2.2.2. [Security Group](#222-security-group)    
-	-	2.3. [Bosh Server 및 Bosh CLI](#23-bosh-server-및-bosh-cli)	
-	-	2.4. [DNS Server](#24-dns-server)	
-	-	2.5. [OP CLI](#25-op-cli)	
-3. [Open PaaS Controller 설치](#3-open-paas-controller-설치)	
-	-	3.1. [Release Upload](#31-release-upload)	
-	-	3.2. [Stemcell Upload](#32-stemcell-upload)		
-	-	3.3. [Deployment Manifest](#33-depoyment-manifest)	
-		-	3.3.1. [Name & Release](#331-name-&-release)		
-		-	3.3.2. [Networks](#332-networks)	
-		-	3.3.3. [Compilation](#333-compilation)	
-		-	3.3.4. [Resource Pools](#334-resource-pools)	
-		-	3.3.5. [Update](#335-update)	
-		-	3.3.6. [Jobs](#336-jobs)	
-		-	3.3.7. [Properties](#337-properties)	
-	-	3.4. [Bosh Deploy](#34-bosh-deploy)		
-		-	3.4.1. [Deployment Manifest 지정](#341-deployment-manifest-지정)	
-		-	3.4.2. [Open PaaS Controller Deploy](#342-open-paas-controller-deploy)	
-	-	3.5. [설치형상 확인](#35-설치형상-확인)	
-4. [설치 검증](#4-설치-검증)
-	-	4.1. [CF Login](#41-cf-login)
-	-	4.2. [Application Deploy](#42-application-deploy)
-	-	4.3. [Application Access](#43-application-access)
+## Controller_Openstack_install_guide
 
 #1. 개요
 ###1.1. 문서 목적
@@ -1527,17 +1495,17 @@ Deploy한 Application URL을 Browser 또는 curl 명령어로 Access하여 정�
 ![controller_openstack_image015]
 
 
-[controller_openstack_image002]:/images/openpaas-controller/controller_openstack_image002.png
-[controller_openstack_image003]:/images/openpaas-controller/controller_openstack_image003.png
-[controller_openstack_image004]:/images/openpaas-controller/controller_openstack_image004.png
-[controller_openstack_image005]:/images/openpaas-controller/controller_openstack_image005.png
-[controller_openstack_image006]:/images/openpaas-controller/controller_openstack_image006.png
-[controller_openstack_image007]:/images/openpaas-controller/controller_openstack_image007.png
-[controller_openstack_image008]:/images/openpaas-controller/controller_openstack_image008.png
-[controller_openstack_image009]:/images/openpaas-controller/controller_openstack_image009.png
-[controller_openstack_image010]:/images/openpaas-controller/controller_openstack_image010.png
-[controller_openstack_image011]:/images/openpaas-controller/controller_openstack_image011.png
-[controller_openstack_image012]:/images/openpaas-controller/controller_openstack_image012.png
-[controller_openstack_image013]:/images/openpaas-controller/controller_openstack_image013.png
-[controller_openstack_image014]:/images/openpaas-controller/controller_openstack_image014.png
-[controller_openstack_image015]:/images/openpaas-controller/controller_openstack_image015.png
+[controller_openstack_image002]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image002.png
+[controller_openstack_image003]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image003.png
+[controller_openstack_image004]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image004.png
+[controller_openstack_image005]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image005.png
+[controller_openstack_image006]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image006.png
+[controller_openstack_image007]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image007.png
+[controller_openstack_image008]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image008.png
+[controller_openstack_image009]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image009.png
+[controller_openstack_image010]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image010.png
+[controller_openstack_image011]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image011.png
+[controller_openstack_image012]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image012.png
+[controller_openstack_image013]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image013.png
+[controller_openstack_image014]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image014.png
+[controller_openstack_image015]:/Guide-1.0-Spaghetti-/images/openpaas-controller/controller_openstack_image015.png

@@ -1,51 +1,20 @@
-## Table of Contents
-
-1. [개요](#1)
-  * [목적](#2)
-  * [범위](#3)
-  * [참고자료](#4)
-2. [BOSH](#5)
-	* [BOSH1](#6)
-	* [BOSH2](#7)
-	* [Bosh 컴포넌트 구성](#8)
-3. [BOSH 설치 환경 구성 및 설치](#9)
-	* [BOSH 설치 절차](#10)
-    * [Inception 서버 구성](#11)
-    * [Inception 설치](#12)
-    	*  [Pre-requsite](#13)
-    	*  [BOSH cli 및 dependency 설치](#14)
-    	*  [Deployment 및 release 파일 다운로드](#15)
-    	*  [BOSH 환경 설정 및 디렉토리 설명](#16)
-			*  [Bosh 환경 설정](#17)
-            	*  [OPENSTACK BOSH 환경 설정](#18)
-            	*  [AWS BOSH 환경 설정](#19)
-            	*  [VSPHERE BOSH 환경 설정](#20)
-            	*  [AZURE BOSH 환경 설정](#21)
-            	*  [GOOGLE(GCP) BOSH 환경 설정](#22)
-            	*  [BOSH-LITE 환경 설정](#23)
-            *  [PaaS-TA Monitoring operation file](#24)
-        *  [BOSH Deploy](#25)
-        *  [BOSH Login](#26)
-        *  [credhub](#27)
-			*  [credhub cli install](#28)
-            *  [credhub LOGIN](#29)
-        *  [jumpbox](#30)
+## PaaS-TA_BOSH2_사용자_가이드v1.0
 
 ## Executive Summary
 
 본 문서는 BOSH2의 설명 및 설치하는 가이드 문서로 BOSH를 실행할 수 있는 환경을 구성하여 실행하고 사용하는 방법에 대해서 설명하였다.
 
-# <div id='1'/>1.  문서 개요 
+# 1.  문서 개요 
 
-## <div id='2'/>1.1.  목적
+## 1.1.  목적
 클라우드 환경에 서비스 시스템을 배포할 수 있는 BOSH는 릴리즈 엔지니어링, 개발, 소프트웨어 라이프사이클 관리를 통합한 오픈소스 프로젝트로 본 문서에서는 Inception환경(설치환경)에서 BOSH를 설치하여 BOSH를 기반으로 paasta-4.0을 설치하는데 그 목적이 있다. 
 
-## <div id='3'/>1.2.  범위
+## 1.2.  범위
 본 가이드에서는 Linux 환경(Ubuntu 16.04)을 기준으로 BOSH 설치를 위한 패키지 및 라이브러리를 설치, 구성을 하고 이를 이용하여 BOSH를 설치하는 것을 기준으로 작성 하였다.
 paasta-4.0에서 사용하는 bosh는 기존 3.1 이하 버전과 설치 방식이 이전과 다르게 변경되었다.
 3.1이하 버전은 cloud-foundry bosh1을 기반으로 bosh를 설치 했지만 bosh2에서는 bosh-deployment를 제공하며 이를 기반으로 bosh를 설치한다. 
 
-## <div id='4'/>1.3.  참고자료
+## 1.3.  참고자료
 
 본 문서는 Cloud Foundry의 BOSH Document와 Cloud Foundry Document를 참고로 작성하였다.
 
@@ -58,27 +27,27 @@ Cloud Foundry Document: [https://docs.cloudfoundry.org/](https://docs.cloudfound
 
 
 
-# <div id='5'/>2. BOSH
+# 2. BOSH
 BOSH는 초기에 Cloud Foundry PaaS를 위해 개발 되었지만 현재는 jenkins, Hadoop 등 Yaml 파일 형식으로 소프트웨어를 쉽게 배포할 수 있으며 수 백 가지의 VM을 설치 할 수 있고 각 각의 VM에 대해 모니터링, 장애복구 등 라이프 사이클을 관리 할 수 있는 통합 프로젝트이다.
 
 BOSH가 지원이 되는 IaaS는 vSphere, Google Cloud Platform, AWS, OpenStack, Azure, vCloud, RackHD, SoftLayer가 있다. 현재 PaaS-TA에서 지원 되는 IaaS 항목은 vSphere, AWS, Openstack, Google Cloud , Azure Platform이 지원이 되고 있다.
 
 PaaS-TA 3.1까지는 cloud-foundry bosh1을 기준으로 bosh 설치를 했다. PaaS-TA 3.5부터는 bosh2를 기준으로 Bosh를 설치하게 된다. PaaS-TA 4.0은 Bosh2는 cloud-foundry에서 제공하는 bosh-deployment를 활용하여 bosh를 설치한다.
 
-## <div id='6'/>2.1. BOSH1
+## 2.1. BOSH1
 
 Bosh1은 bosh-init을 통하여 Bosh를 생성하고, bosh1 cli를 통하여 PaaS-TA Controller, Container를 생성하였다.
 
 ![PaaSTa_BOSH_Use_Guide_Image1]
 
-## <div id='7'/>2.2. BOSH2
+## 2.2. BOSH2
 
 Bosh2는 Bosh2-cli를 통하여 Bosh와 PaaS-TA 를 모두 생성 시켜준다. Bosh생성시 Bosh-deployment를 이용하여 Bosh를 생성한다. Bosh생성 후 paasta-deployment를 활용하여 paasta를 생성한다.
 Paasta-3.1 버전까지는  PaaS-TA Container, Controller를 별도로 deployment로 설치 해야 했지만 3.5부터는 paasta deployment 하나로 통합 되었으며, 한번에 PaaS-TA를 설치 할 수 있다.
 
 ![PaaSTa_BOSH_Use_Guide_Image2]
 
-## <div id='8'/>2.3. Bosh 컴포넌트 구성
+## 2.3. Bosh 컴포넌트 구성
 
 BOSH의 컴포넌트 구성은 다음과 같다.
 
@@ -95,9 +64,9 @@ BOSH의 컴포넌트 구성은 다음과 같다.
 7.	Agent: 
 
 
-## <div id='9'/>3. BOSH 설치 환경 구성 및 설치
+## 3. BOSH 설치 환경 구성 및 설치
 
-## <div id='10'/>3.1. BOSH 설치 절차
+## 3.1. BOSH 설치 절차
 Inception(PaaS-TA 설치 환경)은 bosh 및 paasta를 설치하기 위한 설치 환경으로 vm또는 server 장비 이다. Os version은 Ubuntu 16.04를 기준으로 한다. IaaS에서 수동으로 Inception VM을 생성해야 한다.
 
 Inception VM은 ubuntu 16.04, vcpu 2 core이상, memory 4G, disk 100G 이상을 권고 한다.
@@ -105,7 +74,7 @@ Inception VM은 ubuntu 16.04, vcpu 2 core이상, memory 4G, disk 100G 이상을 
 
 ![PaaSTa_BOSH_Use_Guide_Image4]
 	
-### <div id='11'/>3.2.	Inception 서버 구성
+### 3.2.	Inception 서버 구성
 
 Inception 서버는 BOSH 설치와 BOSH의 Director를 설정하여 PaaS-TA를 설치 하기 위해 필요한 패키지 및 라이브러리, Manifest 파일 등의 환경을 가지고 있는 배포 작업 및 실행 서버이다. 환경 구성에 있어서 전제조건으로 Inception 서버는 외부와 통신이 가능해야 한다.
 
@@ -118,14 +87,14 @@ BOSH 및 PaaS-TA 설치를 위해 Inception 서버에 구성해야 할 컴포넌
 -	paasta Deployment : paasta를 설치하기 위한 manifest deployment (cf-deployment 5.5 기준)
 
 
-### <div id='12'/>3.3.	Inception 설치
+### 3.3.	Inception 설치
 
-### <div id='13'/>3.3.1.	Pre-requsite
+### 3.3.1.	Pre-requsite
 
 -	본 설치 가이드는 Ubuntu 16.04 버전을 기준으로 한다.
 -	Release, deployment 파일은 /home/{user_name}/workspace/paasta-4.0 이하에 다운로드 받아 야 한다.
 
-### <div id='14'/>3.3.2.	Bosh cli 및 dependency 설치
+### 3.3.2.	Bosh cli 및 dependency 설치
 
 ※  Bosh cli 설치
 ```
@@ -177,7 +146,7 @@ sudo cp ./bosh /usr/local/bin/bosh
 bosh -version
 ```
 
-### <div id='15'/>3.3.3.	Deployment 및 release 파일 다운로드
+### 3.3.3.	Deployment 및 release 파일 다운로드
 
 1.	다운로드 파일이 위치할 경로 디렉토리를 만든다.
 
@@ -197,7 +166,7 @@ $ mkdir -p ~/workspace/paasta-4.0/stemcell
 
 
 
-### <div id='16'/>3.3.4.	Bosh 환경 설정 및 디렉토리 설명
+### 3.3.4.	Bosh 환경 설정 및 디렉토리 설명
 
 - 다운로드 받은 파일이 아래 경로에 존재하는지 확인한다
 - paasta-4.0 이하 디렉토리
@@ -280,7 +249,7 @@ $ mkdir -p ~/workspace/paasta-4.0/stemcell
 </tr>
 </table>
 
-### <div id='17'/>3.3.5.	Bosh 환경 설정
+### 3.3.5.	Bosh 환경 설정
 
 
 
@@ -349,7 +318,7 @@ Bosh 설치 option 은 아래와 같다.
 </table>
 
 
-#### <div id='18'/>3.3.5.1. OPENSTACK BOSH 환경 설정
+#### 3.3.5.1. OPENSTACK BOSH 환경 설정
 
 ```
 bosh create-env bosh.yml \
@@ -383,7 +352,7 @@ bosh create-env bosh.yml \
     -v region=RegionOne                          # bosh 설치될 openstack 설치 될 region
 ```
 
-#### <div id='19'/>3.3.5.2. AWS BOSH 환경 설정
+#### 3.3.5.2. AWS BOSH 환경 설정
 
 ```
 bosh create-env bosh.yml \
@@ -414,7 +383,7 @@ bosh create-env bosh.yml \
 
 ```
 
-#### <div id='20'/>3.3.5.3. VSPHERE BOSH 환경 설정
+#### 3.3.5.3. VSPHERE BOSH 환경 설정
 
 ```
 bosh create-env bosh.yml \
@@ -450,7 +419,7 @@ bosh create-env bosh.yml \
 
 
 
-#### <div id='21'/>3.3.5.4. AZURE BOSH 환경 설정
+#### 3.3.5.4. AZURE BOSH 환경 설정
 ```
 bosh create-env bosh.yml \
      --state=azure/state.json \  #bosh 설치 시 생성되는 파일로 절대 삭제 되면 않됨. (backup 필요)
@@ -481,7 +450,7 @@ bosh create-env bosh.yml \
 ```
 
 
-#### <div id='22'/>3.3.5.5. GOOGLE(GCP) BOSH 환경 설정
+#### 3.3.5.5. GOOGLE(GCP) BOSH 환경 설정
 ```
 bosh create-env bosh.yml \
      --state=gcp/state.json \   # bosh 설치 시 생성되는 파일로 절대 삭제 되면 않됨. (backup 필요)
@@ -510,7 +479,7 @@ bosh create-env bosh.yml \
 ```
 
 
-#### <div id='23'/>3.3.5.6. BOSH-LITE 환경 설정
+#### 3.3.5.6. BOSH-LITE 환경 설정
 ```
 bosh create-env bosh.yml \
      --state=warden/state.json \   # bosh 설치 시 생성되는 파일로 절대 삭제 되면 않됨. (backup 필요)
@@ -536,7 +505,7 @@ bosh create-env bosh.yml \
      -v outbound_network_name=NatNetwork  # outbound network
 ```
 
-### <div id='24'/>3.3.6. PaaS-TA Monitoring operation file
+### 3.3.6. PaaS-TA Monitoring operation file
 
 PaaS-TA 모니터링을 적용하기 위해서는 Bosh deploy시 아래 두파일을 적용해야 한다. 만약 모니터링을 사용하지 않는다면 두 파일을 제거하고 Deploy해야 한다.
 
@@ -555,7 +524,7 @@ paasta설치 후 paasta-monitoring 및 logsearch를 설치하면 Data가 Agent�
 
 ![PaaSTa_LOGSEARCH_Image]
 
-### <div id='25'/>3.3.7. BOSH Deploy
+### 3.3.7. BOSH Deploy
 
 ```
 $ cd ~/workspace/paasta-4.0/deployment/bosh-deployment
@@ -568,7 +537,7 @@ $ ./deploy-{iaas}.sh
 다음은 bosh 설치 완료 화면이다. 
 ![PaaSTa_BOSH_Use_Guide_Image10]
 
-### <div id='26'/>3.3.8. BOSH Login
+### 3.3.8. BOSH Login
 bosh가 설치 되면 bosh설치 디렉토리 이하 {iaas}/creds.yml 이 생성된다. creds.yml은 bosh 인증정보를 가지고 있으며 creds.yml을 활용하여 bosh에 login 한다. Bosh 로그인 후 bosh-cli 명령어를 이용하어 paasta를 설치 할 수 있다
 
 ```
@@ -580,10 +549,10 @@ $ bosh alias-env {director_name} -e {bosh-internal-ip} --ca-cert <(bosh int {iaa
 $ bosh –e {director_name} env
 ```
 
-### <div id='27'/>3.3.9. credhub
+### 3.3.9. credhub
 BOSH설치시 operation file에 credhub.yml을 추가 하였다. Credhub은 인증정보를 저장소이다. Bosh 설치 시 credhub.yml을 적용하면 paasta 설치시 인증정보를 credhub에 저장하게 된다. Credhub에 로그인 하기 위해서는 credhub cli를 통해 인증정보를 조회 수정 삭제 할 수 있다
 
-#### <div id='28'/>3.3.9.1 credhub cli install
+#### 3.3.9.1 credhub cli install
 
 credhub cli는 bosh를 설치한 inception(설치환경)에서 설치를 한다.
 
@@ -595,7 +564,7 @@ $ sudo mv credhub /usr/local/bin/credhub
 $ credhub –version
 ```
 
-#### <div id='29'/>3.3.8.1 credhub login
+#### 3.3.8.1 credhub login
 credhub은 PaaS-TA설치시 PaaS-TA에서 사용하는 인증정보(certificate,password)가 보관되는 Bosh내의 서비스 이다. PaaS-TA 인증정보가 필요할때 credhub을 사용하면 된다.
 credhub에 로그인 하기 위해서는 bosh를 설치한 bosh-deployment 디렉토리의 creds.yml을 활용하여 login 한다.
 
@@ -615,7 +584,7 @@ ex) uaa 인증정보 조회
 $ credhub get -n /{director}/{deployment}/uaa_ca
 ```
 
-### <div id='30'/>3.3.9. jumpbox
+### 3.3.9. jumpbox
 BOSH설치시 operation file에 jumpbox-user.yml을 추가 하였다. Jumpbox는 BOSH VM에 접근하기 위한 인증을 적용하게 된다. 인증 key는 Bosh 자체적으로 생성하며 인증키를 통해 BOSH VM에 접근 할 수 있다. bosh vm에 이상이 이 있거나 상태를 체크 할때 jumpbox를 활용하여 bosh vm에 접근할 수 있다. 만약 Bosh에 문제가 있어 Bosh VM에 접근할 필요가 있을때 사용한다.
 
 ```

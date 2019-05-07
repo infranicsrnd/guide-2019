@@ -1,43 +1,33 @@
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 참고](#4)
-2. [InfluxDB & Grafana Release 배포](#5)
-     * [2.1.  upload release](#6)
-     * [2.2.  manifest 파일 설정](#7)
-     * [2.3.  deploy](#8)
-     * [2.4.  확인](#9)
+## PaaS-TA Logsearch 설치 가이드(AWS)
 
-<div id='1'></div>
 
 # 1. 문서 개요
 
-<div id='2'></div>
+
 
 ### 1.1. 목적
 
 본 문서는 IaaS(Infrastructure as a Service) 중 하나인 AWS 환경에서 모니터링 시스템의 주요 정보인 로그를 저장하기 위한 Elasticsearch, 수집하기 위한 LogStash 및 화면으로 보여주기 위한 Kibana를 설치하기 위한 가이드를 제공하는데 그 목적이 있다
 
-<div id='3'></div>
+
 
 ### 1.2. 범위
 
 본 문서는 AWS 기반에 설치하기 위한 내용으로 한정되어 있다.
 
-<div id='4'></div>
+
 
 ### 1.3. 참고
 
 > <a style="text-decoration:underline" href="https://github.com/PaaS-TA/Guide-3.0-Penne-/blob/master/Install-Guide/monitoring/PaaS-TA%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EC%B9%98%EA%B0%80%EC%9D%B4%EB%93%9C.md">모니터링 시스템 Architecutre</a>
 
-<div id='5'></div>
+
 
 # 2.  Logsearch Release 배포
 
 본 장에서는 Logsearch 서비스를 배포하는 방법에 대해서 기술하였다.
 
-<div id='6'></div>
+
 
 ### 2.1.  upload "Logsearch" release
 
@@ -54,7 +44,7 @@ $ bosh upload release paasta-logsearch-2.0.tgz
 <kbd>![2-1-1]</kbd>
 <kbd>![2-1-2]</kbd>
 
-<div id='7'></div>
+
 
 ### 2.2.  manifest 파일 설정
 
@@ -512,7 +502,7 @@ $ bosh deployment logsearch-release.yml
 
 <kbd>![2-2-1]</kbd>
 
-<div id='8'></div>
+
 
 ### 2.3.  배포
 
@@ -521,7 +511,7 @@ $ bosh -n deploy
 <kbd>![2-3-1]</kbd>
 <kbd>![2-3-2]</kbd>
 
-<div id='9'></div>
+
 
 ### 2.4.  확인
 

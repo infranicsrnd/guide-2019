@@ -1,29 +1,4 @@
-# Table of Contents
-
-1. [개요](#1)	
-	-	1.1. [문서 목적](#11)	
-	-	1.2. [범위](#12)	
-	-	1.3. [참고자료](#13)	
-2. [Prerequisites](#2)	
-	-	2.1. [OpenPaas Controller 설치확인](#21)		
-3. [Open Paas Container 설치](#3)	
-	-	3.1. [Release Upload](#31)	
-	-	3.2. [Deployment Manifest 파일 수정하기](#32)	
-		-	3.2.1. [Name & Release](#321)	
-		-	3.2.2. [Networks](#322)	
-		-	3.2.3. [Compilation](#323)	
-		-	3.2.4. [Resource Pools](#324)	
-		-	3.2.5. [Update](#325)	
-		-	3.2.6. [Jobs](#326)	
-		-	3.2.7. [Properties](#327)	
-	-	3.3. [Deployment Manifest 지정](#33)	
-	-	3.4. [Bosh Deploy](#34)	
-	-	3.5. [설치형상 확인](#35)
-	-	3.6. [Troubleshooting](#36)
-4. [설치 검증](#4-설치-검증)	
-	-	4.1. [CF Login](#41)	
-	-	4.2. [Application Deploy](#42)	
-	-	4.3. [Application Access](#43)	
+## Container_Openstack_install_guide
 
 #<a name="1"/>1. 개요
 ###<a name="11"/>1.1. 문서 목적
@@ -846,18 +821,18 @@ Deploy한 Application URL을 Browser 또는 curl 명령어로 Access하여 정�
 
 ![container_openstack_image15]
 
-[container_openstack_image01]:/images/openpaas-container/container-openstack-image01.png
-[container_openstack_image02]:/images/openpaas-container/container-openstack-image02.png
-[container_openstack_image03]:/images/openpaas-container/container-openstack-image03.png
-[container_openstack_image04]:/images/openpaas-container/container-openstack-image04.png
-[container_openstack_image05]:/images/openpaas-container/container-openstack-image05.png
-[container_openstack_image06]:/images/openpaas-container/container-openstack-image06.png
-[container_openstack_image07]:/images/openpaas-container/container-openstack-image07.png
-[container_openstack_image08]:/images/openpaas-container/container-openstack-image08.png
-[container_openstack_image09]:/images/openpaas-container/container-openstack-image09.png
-[container_openstack_image10]:/images/openpaas-container/container-openstack-image10.png
-[container_openstack_image11]:/images/openpaas-container/container-openstack-image11.png
-[container_openstack_image12]:/images/openpaas-container/container-openstack-image12.png
-[container_openstack_image13]:/images/openpaas-container/container-openstack-image13.png
-[container_openstack_image14]:/images/openpaas-container/container-openstack-image14.png
-[container_openstack_image15]:/images/openpaas-container/container-openstack-image15.png
+[container_openstack_image01]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image01.png
+[container_openstack_image02]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image02.png
+[container_openstack_image03]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image03.png
+[container_openstack_image04]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image04.png
+[container_openstack_image05]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image05.png
+[container_openstack_image06]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image06.png
+[container_openstack_image07]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image07.png
+[container_openstack_image08]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image08.png
+[container_openstack_image09]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image09.png
+[container_openstack_image10]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image10.png
+[container_openstack_image11]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image11.png
+[container_openstack_image12]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image12.png
+[container_openstack_image13]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image13.png
+[container_openstack_image14]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image14.png
+[container_openstack_image15]:/Guide-1.0-Spaghetti-/images/openpaas-container/container-openstack-image15.png

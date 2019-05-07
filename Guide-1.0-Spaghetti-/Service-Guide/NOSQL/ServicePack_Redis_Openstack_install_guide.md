@@ -1,20 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1-문서-개요)
-	-	1.1. [목적](#11-목적)
-	-	1.2. [범위](#12-범위)
-	-	1.3. [시스템 구성도](#13-시스템-구성도)
-	-	1.4. [참고자료](#14-참고자료)
-2. [Redis 서비스팩 설치](#2-redis-서비스팩-설치)
-	-	2.1. [설치전 준비사항](#21-설치전-준비사항)
-	-	2.2. [Redis 서비스 릴리즈 업로드](#22-redis-서비스-릴리즈-업로드)
-	-	2.3. [Redis 서비스 Deployment 파일 수정 및 배포](#23-redis-서비스-deployment-파일-수정-및-배포)
-	-	2.4. [Redis 서비스 브로커 등록](#24-redis-서비스-브로커-등록)
-3. [Redis 연동 Sample App 설명](#3-redis-연동-sample-app-설명)
-	-	3.1. [Sample App 구조](#31-sample-app-구조)
-	-	3.2. [개방형 클라우드 플랫폼에서 서비스 신청](#32-개방형-클라우드-플랫폼에서-서비스-신청)
-	-	3.3. [Sample App에 서비스 바인드 신청 및 App 확인](#33-sample-app에-서비스-바인드-신청-및-app-확인)
-4. [Redis Client 툴 접속](#4-redis-client-툴-접속)
-	-	4.1. [Redis Desktop Manager 설치 및 연결](#41-redis-desktop-manager-설치-및-연결)
+## ServicePack Redis Openstack install guide
 
 # 1. 문서 개요
 
@@ -671,49 +655,49 @@ Redis Desktop Manager 프로그램은 무료로 사용할 수 있는 오픈소�
 
 
 
-[redis_openstack_02]:/images/openpaas-service/redis/redis_openstack/redis_openstack_02.png
-[redis_openstack_03]:/images/openpaas-service/redis/redis_openstack/redis_openstack_03.png
-[redis_openstack_04]:/images/openpaas-service/redis/redis_openstack/redis_openstack_04.png
-[redis_openstack_05]:/images/openpaas-service/redis/redis_openstack/redis_openstack_05.png
-[redis_openstack_06]:/images/openpaas-service/redis/redis_openstack/redis_openstack_06.png
-[redis_openstack_07]:/images/openpaas-service/redis/redis_openstack/redis_openstack_07.png
-[redis_openstack_08]:/images/openpaas-service/redis/redis_openstack/redis_openstack_08.png
-[redis_openstack_09]:/images/openpaas-service/redis/redis_openstack/redis_openstack_09.png
-[redis_openstack_10]:/images/openpaas-service/redis/redis_openstack/redis_openstack_10.png
-[redis_openstack_11]:/images/openpaas-service/redis/redis_openstack/redis_openstack_11.png
-[redis_openstack_12]:/images/openpaas-service/redis/redis_openstack/redis_openstack_12.png
-[redis_openstack_13]:/images/openpaas-service/redis/redis_openstack/redis_openstack_13.png
-[redis_openstack_14]:/images/openpaas-service/redis/redis_openstack/redis_openstack_14.png
-[redis_openstack_15]:/images/openpaas-service/redis/redis_openstack/redis_openstack_15.png
-[redis_openstack_16]:/images/openpaas-service/redis/redis_openstack/redis_openstack_16.png
-[redis_openstack_17]:/images/openpaas-service/redis/redis_openstack/redis_openstack_17.png
-[redis_openstack_18]:/images/openpaas-service/redis/redis_openstack/redis_openstack_18.png
-[redis_openstack_19]:/images/openpaas-service/redis/redis_openstack/redis_openstack_19.png
-[redis_openstack_20]:/images/openpaas-service/redis/redis_openstack/redis_openstack_20.png
-[redis_openstack_21]:/images/openpaas-service/redis/redis_openstack/redis_openstack_21.png
-[redis_openstack_22]:/images/openpaas-service/redis/redis_openstack/redis_openstack_22.png
-[redis_openstack_23]:/images/openpaas-service/redis/redis_openstack/redis_openstack_23.png
-[redis_openstack_24]:/images/openpaas-service/redis/redis_openstack/redis_openstack_24.png
-[redis_openstack_25]:/images/openpaas-service/redis/redis_openstack/redis_openstack_25.png
-[redis_openstack_26]:/images/openpaas-service/redis/redis_openstack/redis_openstack_26.png
-[redis_openstack_27]:/images/openpaas-service/redis/redis_openstack/redis_openstack_27.png
-[redis_openstack_28]:/images/openpaas-service/redis/redis_openstack/redis_openstack_28.png
-[redis_openstack_29]:/images/openpaas-service/redis/redis_openstack/redis_openstack_29.png
-[redis_openstack_30]:/images/openpaas-service/redis/redis_openstack/redis_openstack_30.png
-[redis_openstack_31]:/images/openpaas-service/redis/redis_openstack/redis_openstack_31.png
-[redis_openstack_32]:/images/openpaas-service/redis/redis_openstack/redis_openstack_32.png
-[redis_openstack_33]:/images/openpaas-service/redis/redis_openstack/redis_openstack_33.png
-[redis_openstack_34]:/images/openpaas-service/redis/redis_openstack/redis_openstack_34.png
-[redis_openstack_35]:/images/openpaas-service/redis/redis_openstack/redis_openstack_35.png
-[redis_openstack_36]:/images/openpaas-service/redis/redis_openstack/redis_openstack_36.png
-[redis_openstack_37]:/images/openpaas-service/redis/redis_openstack/redis_openstack_37.png
-[redis_openstack_38]:/images/openpaas-service/redis/redis_openstack/redis_openstack_38.png
-[redis_openstack_39]:/images/openpaas-service/redis/redis_openstack/redis_openstack_39.png
-[redis_openstack_40]:/images/openpaas-service/redis/redis_openstack/redis_openstack_40.png
-[redis_openstack_41]:/images/openpaas-service/redis/redis_openstack/redis_openstack_41.png
-[redis_openstack_42]:/images/openpaas-service/redis/redis_openstack/redis_openstack_42.png
-[redis_openstack_43]:/images/openpaas-service/redis/redis_openstack/redis_openstack_43.png
-[redis_openstack_44]:/images/openpaas-service/redis/redis_openstack/redis_openstack_44.png
-[redis_openstack_45]:/images/openpaas-service/redis/redis_openstack/redis_openstack_45.png
-[redis_openstack_46]:/images/openpaas-service/redis/redis_openstack/redis_openstack_46.png
-[redis_openstack_47]:/images/openpaas-service/redis/redis_openstack/redis_openstack_47.png
+[redis_openstack_02]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_02.png
+[redis_openstack_03]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_03.png
+[redis_openstack_04]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_04.png
+[redis_openstack_05]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_05.png
+[redis_openstack_06]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_06.png
+[redis_openstack_07]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_07.png
+[redis_openstack_08]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_08.png
+[redis_openstack_09]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_09.png
+[redis_openstack_10]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_10.png
+[redis_openstack_11]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_11.png
+[redis_openstack_12]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_12.png
+[redis_openstack_13]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_13.png
+[redis_openstack_14]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_14.png
+[redis_openstack_15]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_15.png
+[redis_openstack_16]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_16.png
+[redis_openstack_17]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_17.png
+[redis_openstack_18]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_18.png
+[redis_openstack_19]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_19.png
+[redis_openstack_20]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_20.png
+[redis_openstack_21]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_21.png
+[redis_openstack_22]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_22.png
+[redis_openstack_23]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_23.png
+[redis_openstack_24]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_24.png
+[redis_openstack_25]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_25.png
+[redis_openstack_26]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_26.png
+[redis_openstack_27]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_27.png
+[redis_openstack_28]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_28.png
+[redis_openstack_29]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_29.png
+[redis_openstack_30]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_30.png
+[redis_openstack_31]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_31.png
+[redis_openstack_32]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_32.png
+[redis_openstack_33]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_33.png
+[redis_openstack_34]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_34.png
+[redis_openstack_35]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_35.png
+[redis_openstack_36]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_36.png
+[redis_openstack_37]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_37.png
+[redis_openstack_38]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_38.png
+[redis_openstack_39]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_39.png
+[redis_openstack_40]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_40.png
+[redis_openstack_41]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_41.png
+[redis_openstack_42]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_42.png
+[redis_openstack_43]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_43.png
+[redis_openstack_44]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_44.png
+[redis_openstack_45]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_45.png
+[redis_openstack_46]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_46.png
+[redis_openstack_47]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_openstack/redis_openstack_47.png

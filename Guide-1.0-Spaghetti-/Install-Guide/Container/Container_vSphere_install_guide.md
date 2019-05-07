@@ -1,30 +1,5 @@
-
-## Table of Contents
-1. [개요](#1)
-    * [1.1. 문서 목적](#2)
-    * [1.2. 범위](#3)
-    * [1.3. 참고자료](#4)
-2. [Prerequisites](#5)
-     * [2.1. OpenPaas Controller 설치확인](#6)
-3. [Open Paas Container 설치](#7)
-     * [3.1. Release Upload](#8)
-     * [3.2. Deployment Manifest 파일 수정하기](#9)
-     * [3.2.1. Name & Release](#10)
-     * [3.2.2. Networks](#11)
-     * [3.2.3. Compilation](#12)
-     * [3.2.4. Resource Pools](#13)
-     * [3.2.5. Update](#14)
-     * [3.2.6. Jobs](#15)
-     * [3.2.7. Properties](#16)
-     * [3.3. Deployment Manifest 지정](#17)
-     * [3.4. Bosh Deploy](#18)
-     * [3.5. 설치형상 확인](#19)
-     * [3.6. Trobleshooting](#20)
-4. [설치 검증](#21)
-     * [4.1. CF Login](#22)
-     * [4.2. Application Deploy](#23)
-     * [4.3. Application Access](#24)
-     
+## Container_vSphere_install_guide
+    
      
      
 # <a name="1"/>1. 개요
@@ -857,18 +832,18 @@ Deploy한 Application URL을 Browser 또는 curl 명령어로 Access하여 정�
 curl –L http:// hello-spring-test.controller.open-paas.com
 
 
-[container_vsphere_install_guide_01]:/images/openpaas-container/container_vsphere_install_guide_01.png
-[container_vsphere_install_guide_02]:/images/openpaas-container/container_vsphere_install_guide_02.png
-[container_vsphere_install_guide_03]:/images/openpaas-container/container_vsphere_install_guide_03.png
-[container_vsphere_install_guide_04]:/images/openpaas-container/container_vsphere_install_guide_04.png
-[container_vsphere_install_guide_05]:/images/openpaas-container/container_vsphere_install_guide_05.png
-[container_vsphere_install_guide_06]:/images/openpaas-container/container_vsphere_install_guide_06.png
-[container_vsphere_install_guide_07]:/images/openpaas-container/container_vsphere_install_guide_07.png
-[container_vsphere_install_guide_08]:/images/openpaas-container/container_vsphere_install_guide_08.png
-[container_vsphere_install_guide_09]:/images/openpaas-container/container_vsphere_install_guide_09.png
-[container_vsphere_install_guide_10]:/images/openpaas-container/container_vsphere_install_guide_10.png
-[container_vsphere_install_guide_11]:/images/openpaas-container/container_vsphere_install_guide_11.png
-[container_vsphere_install_guide_12]:/images/openpaas-container/container_vsphere_install_guide_12.png
-[container_vsphere_install_guide_13]:/images/openpaas-container/container_vsphere_install_guide_13.png
-[container_vsphere_install_guide_14]:/images/openpaas-container/container_vsphere_install_guide_14.png
-[container_vsphere_install_guide_15]:/images/openpaas-container/container_vsphere_install_guide_15.png
+[container_vsphere_install_guide_01]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_01.png
+[container_vsphere_install_guide_02]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_02.png
+[container_vsphere_install_guide_03]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_03.png
+[container_vsphere_install_guide_04]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_04.png
+[container_vsphere_install_guide_05]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_05.png
+[container_vsphere_install_guide_06]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_06.png
+[container_vsphere_install_guide_07]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_07.png
+[container_vsphere_install_guide_08]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_08.png
+[container_vsphere_install_guide_09]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_09.png
+[container_vsphere_install_guide_10]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_10.png
+[container_vsphere_install_guide_11]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_11.png
+[container_vsphere_install_guide_12]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_12.png
+[container_vsphere_install_guide_13]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_13.png
+[container_vsphere_install_guide_14]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_14.png
+[container_vsphere_install_guide_15]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_vsphere_install_guide_15.png

@@ -1,36 +1,20 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - 1.1. [목적](#2)
-  - 1.2. [범위](#3)
-  - 1.3. [시스템 구성도](#4)
-  - 1.4. [참고자료](#5)
-2. [WEB IDE 설치](#6)
-  - 2.1. [설치전 준비사항](#7)
-  - 2.2. [WEB-IDE 릴리즈 업로드](#8)
-  - 2.3. [WEB-IDE Deployment 파일 수정 및 배포](#9)
-3. [WEB-IDE의 PaaS-TA 포털사이트 연동](#10)
-  - 3.1. [WEB-IDE 대시보드 화면](#16)
-4. [WEB-IDE 에서 CF CLI 사용법](#17)
-  - 4.1. [WEB-IDE New Project 화면](#18)
-  - 4.2. [WEB-IDE Workspace 화면](#19)
-  - 4.3. [WEB-IDE Teminal에서의 CF CLI 실행](#20)
-
+## PaaS-TA WEB IDE 설치 가이드
 
 # 1. 문서 개요
 
-### <div id='2'/>1.1. 목적
+### 1.1. 목적
 
 본 문서(WEB-IDE 설치 가이드)는 PaaS-TA에서 사용할 수 있는 WEB-IDE의 설치를 Bosh를 이용하여 설치 하는 방법과 PaaS-TA 포털에서 WEB-IDE 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='3'/> 1.2. 범위
+###  1.2. 범위
 설치 범위는 WEB-IDE 사용을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='4'/> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. Browser(paasta Portal), WEB IDE
 Server, Workspace, Desktop IDE로 최소사항을 구성하였다.
 
-![](/Service-Guide/images/webide/web-ide-01.png)
+![](./../images/webide/web-ide-01.png)
 
 | 구분 | Resource Pool | 스펙 |
 |--------|-------|-------|
@@ -38,16 +22,16 @@ Server, Workspace, Desktop IDE로 최소사항을 구성하였다.
 | paasta-web-ide1 | resource\_pools | 1vCPU / 2GB RAM / 10GB Disk |
 
 
-### <div id='5'/>1.4. 참고자료
+### 1.4. 참고자료
 
 > [**http://bosh.io/docs**](http://bosh.io/docs) <br>
 > [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/) <br>
 > [**https://www.eclipse.org/che/technology/**](https://www.eclipse.org/che/technology/) <br>
 
 
-# <div id='6'/> 2.WEB IDE 설치
+#  2.WEB IDE 설치
 
-### <div id='7'/> 2.1. 설치전 준비사항
+###  2.1. 설치전 준비사항
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
@@ -61,10 +45,9 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 - PaaS-TA에서 제공하는 압축된 릴리즈 파일들을 다운받는다. (PaaSTA-Deployment.zip, PaaSTA-Sample-Apps.zip, PaaSTA-Services.zip)
 
 - 다운로드 위치
->PaaSTA-Deployment : **<https://paas-ta.kr/data/packages/3.5/deployment.zip>**  
->PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
+>Download : **<https://paas-ta.kr/download/package>**
 
-### <div id='8'/> 2.2. WEB-IDE 릴리즈 업로드
+###  2.2. WEB-IDE 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -211,7 +194,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (WEB-IDE 은 stemcell 3309 버전을 사용)
 		 
 
-### <div id='9'/> 2.3.WEB-IDE Deployment 파일 수정 및 배포
+###  2.3.WEB-IDE Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1046,54 +1029,54 @@ bosh -e micro-bosh -d paasta-web-ide-service deploy paasta_web_ide_bosh2.0.yml \
 		Succeeded
 
 
-# <div id='10'/> 3. WEB-IDE의 PaaS-TA 포털사이트 연동
+#  3. WEB-IDE의 PaaS-TA 포털사이트 연동
 
-### <div id='16'/> 3.1. WEB-IDE 대시보드 화면
+###  3.1. WEB-IDE 대시보드 화면
 
 -   WEB IDE 아이콘을 클릭하면 관리자에 의해 할당된 WEB IDE 대시보드 화면이 새탭으로 열리게 된다.
 
-![](/Service-Guide/images/webide/web-ide-07.png)
+![](./../images/webide/web-ide-07.png)
 
 <br>
 
-# <div id='17'/> 4. WEB-IDE 에서 CF CLI 사용법
+#  4. WEB-IDE 에서 CF CLI 사용법
 
-### <div id='18'/> 4.1. WEB-IDE New Project 화면
+###  4.1. WEB-IDE New Project 화면
 
 - 사용할 언어를 선택하고 Create workspace and project 로 새로운 프로젝트를 시작한다.
 
-![](/Service-Guide/images/webide/web-ide-08.png)
+![](./../images/webide/web-ide-08.png)
 
 <br>
 
 - Workspace를 구성하기 위해 Docker 관련 자료를 다운로드한다.
 
-![](/Service-Guide/images/webide/web-ide-09.png)
+![](./../images/webide/web-ide-09.png)
 
 <br>
 
-### <div id='19'/> 4.2. WEB-IDE Workspace 화면
+###  4.2. WEB-IDE Workspace 화면
 
 - Open Project를 누르면 Workspace 화면이 열린다.
 
-![](/Service-Guide/images/webide/web-ide-10.png)
+![](./../images/webide/web-ide-10.png)
 
 - 실제로 소스를 개발해서 빌드하거나 GIT이나 SVN에서 IMPORT 한다.
 
-![](/Service-Guide/images/webide/web-ide-11.png)
+![](./../images/webide/web-ide-11.png)
 
 <br>
 
-### <div id='20'/> 4.3. WEB-IDE Teminal에서의 CF CLI 실행
+###  4.3. WEB-IDE Teminal에서의 CF CLI 실행
 
 ##### -cf api 명령을 이용해 endpoint를 지정한다.
 
-> ![](/Service-Guide/images/webide/web-ide-12.png)
+> ![](./../images/webide/web-ide-12.png)
 
 ##### cf login 명령어로 로그인하고 조직과 공간을 선택한다.
 
-> ![](/Service-Guide/images/webide/web-ide-13.png)
+> ![](./../images/webide/web-ide-13.png)
 
 ##### cf push 를 이용해 cf에 앱을 업로드한다.
 
-> ![](/Service-Guide/images/webide/web-ide-14.png)
+> ![](./../images/webide/web-ide-14.png)

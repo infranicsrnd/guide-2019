@@ -1,41 +1,20 @@
-## Table of Contents
-
-1. [문서 개요](#문서-개요)
-     * [1.1. 목적](#목적)
-     * [1.2. 범위](#범위)
-     * [1.3. 시스템 구성도](#시스템-구성도)
-     * [1.4. 참고자료](#참고자료)
-
-2. [Pinpoint 서비스팩 설치](#pinpoint-서비스팩-설치)
-     * [2.1. 설치전 준비사항](#설치전-준비사항)
-     * [2.2. Pinpoint 서비스 릴리즈 업로드](#pinpoint-서비스-릴리즈-업로드)
-     * [2.3. Pinpoint 서비스 Deployment 파일 수정 및 배포](#pinpoint-서비스-deployment-파일-수정-및-배포)
-     * [2.4. HBase 기본 데이터 실행](#hbase-기본-데이터-실행)
-     * [2.4. Pinpoint 서비스 브로커 등록](#pinpoint-서비스-브로커-등록)
-
-3. [Sample Web App 연동 Pinpoint 연동](#sample-web-app-연동-pinpoint-연동)
-     * [3.1. Sample App 구조](#sample-web-app-구조)
-     * [3.2. PaaS-TA에서 서비스 신청](#PaaS-TA에서-서비스-신청)
-     * [3.3. Sample App에 서비스 바인드 신청 및 App 확인](#sample-web-app에-서비스-바인드-신청-및-app-확인)
-
-<br>
-<div id = 문서-개요></div>
+## PaaS-TA Pinpoint 서비스팩 설치 가이드
 #1.  문서 개요
 
 <br>
-<div id='목적'></div>
+
 ### 1.1. 목적
 
 본 문서(Pinpoint 서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 Pinpoint 서비스팩을 Bosh를 이용하여 설치하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application 에서 Pinpoint 서비스를 사용하는 방법을 기술하였다.
 
 <br>
-<div id='범위'></div>
+
 ### 1.2. 범위 
 
 설치 범위는 Pinpoint 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
 <br>
-<div id='시스템-구성도'></div>
+
 ### 1.3. 시스템 구성도
 
 본 문서의 설치된 시스템 구성도입니다. Pinpoint Server, HBase의 HBase Master2, HBase Slave2, Collector 2, Pinpoint 서비스 브로커, WebUI3로 최소사항을 구성하였다. 
@@ -81,7 +60,7 @@
 </table>
 
 <br>
-<div id='참고자료'></div>
+
 ### 1.4. 참고자료
 
 [**http://bosh.io/docs**](http://bosh.io/docs)
@@ -89,11 +68,11 @@
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
 <br>
-<div id='#pinpoint-서비스팩-설치'></div>
+
 #   2.Pinpoint 서비스팩 설치
 
 <br>
-<div id='설치전-준비사항'></div>
+
 ### 2.1.  설치전-준비사항
 
 본 서비스팩 설치를 위해서는 먼저 BOSH CLI 가 설치 되어 있어야 하고 BOSH에 로그인 및 target 설정이 되어 있어야 한다.
@@ -110,7 +89,7 @@ PaaS-TA에서 제공하는 압축된 릴리즈 파일들을 다운받는다. (Pa
 >PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**  
 
 <br>
-<div id='pinpoint-서비스-릴리즈-업로드'></div>
+
 ### 2.2. Pinpoint 서비스 릴리즈 업로드
 
 <br>
@@ -479,7 +458,7 @@ Acting as user 'admin' on 'bosh'
 Releases total: 11
 ```
 <br>
-<div id="Pinpoint-서비스-Deployment-파일-수정-및-배포"></div>
+
 ###2.3. Pinpoint 서비스 Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML  파일이다.
@@ -1159,7 +1138,7 @@ is subject to logging and monitoring.
 Errand 'h_master_register' completed successfully (exit code 0)
 ```
 <br>
-<div id='pinpoint-서비스-브로커-등록'></div>
+
 ### 2.5. Pinpoint 서비스 브로커 등록
 
 Pinpoint 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을
@@ -1251,7 +1230,7 @@ service plan access orgs
 Pinpoint Pinpoint\_standard all
 ```
 <br>
-<div id='sample-web-app-연동-pinpoint-연동'></div>
+
 #   3. Sample Web App 연동 Pinpoint 연동
 
 본 Sample Web App은 개방형 클라우드 플랫폼에 배포되며 Pinpoint의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
@@ -1304,7 +1283,7 @@ spring-music-pinpoint   stopped           0/1         512M     1G     spring-mus
 ```
 
 <br>
-<div id='PaaS-TA에서-서비스-신청'></div>
+
 ### 3.2. PaaS-TA에서 서비스 신청
 
 Sample Web App에서 Pinpoint 서비스를 사용하기 위해서는 서비스
@@ -1367,7 +1346,7 @@ syslog_service   user-provided                       php-demo, spring-music
 ```
 
 <br>
-<div id='#sample-web-app에-서비스-바인드-신청-및-app-확인'></div>
+
 ### 3.3. Sample App에 서비스 바인드 신청 및 App 확인
 -------------------------------------------------
 

@@ -1,32 +1,15 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - 1.1. [목적](#11)
-  - 1.2. [범위](#12)
-  - 1.3. [시스템 구성도](#13)
-  - 1.4. [참고자료](#14)
-2. [Mongodb 서비스팩 설치](#2)
-  - 2.1. [설치전 준비사항](#21)
-  - 2.2. [Mongodb 서비스 릴리즈 업로드](#22)
-  - 2.3. [Mongodb 서비스 Deployment 파일 수정 및 배포](#23)
-  - 2.4. [Mongodb 서비스 브로커 등록](#24)
-3. [Mongodb 연동 Sample Web App 설명](#3)
-  - 3.1. [Sample App 구조](#31)
-  - 3.2. [PaaS-TA에서 서비스 신청](#32)
-  - 3.3. [Sample App에 서비스 바인드 신청 및 App 확인](#33)
-4. [Mongodb Client 툴 접속](#4)
-  - 4.1. [MongoChef 설치 및 연결](#41)
+## PaaS-TA Mongodb 서비스팩 설치 가이드
 
-
-# <div id='1'> 1. 문서 개요
-### <div id='11'> 1.1. 목적
+#  1. 문서 개요
+###  1.1. 목적
 
 본 문서(Mongodb 서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 Mongodb 서비스팩을 Bosh를 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application 에서 Mongodb 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='12'> 1.2. 범위
+###  1.2. 범위
 설치 범위는 Mongodb 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='13'> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. Mongodb Server, Mongodb 서비스 브로커로 최소사항을 구성하였다.
 
 ![시스템구성도][mongodb_image_02]
@@ -55,15 +38,15 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
 </table>
 
 
-### <div id='14'> 1.4. 참고자료
+###  1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
 
 
-# <div id='2'> 2.  Mongodb 서비스팩 설치
+#  2.  Mongodb 서비스팩 설치
 
-### <div id='21'> 2.1.  설치전 준비사항
+###  2.1.  설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
 BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이드 문서를 참고 하여 BOSH CLI v2를 설치를 하고 사용법을 숙지 해야 한다.<br>
@@ -76,10 +59,9 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 - PaaS-TA에서 제공하는 압축된 릴리즈 파일들을 다운받는다. (PaaSTA-Deployment.zip, PaaSTA-Sample-Apps.zip, PaaSTA-Services.zip)
 
 - 다운로드 위치
->PaaSTA-Deployment : **<https://paas-ta.kr/data/packages/3.5/deployment.zip>**  
->PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
+>Download : **<https://paas-ta.kr/download/package>**
 
-### <div id='22'> 2.2. Mongodb 서비스 릴리즈 업로드
+###  2.2. Mongodb 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -232,7 +214,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (Mongodb 는 stemcell 3309 버전을 사용)
 
 
-### <div id='23'> 2.3. Mongodb 서비스 Deployment 파일 수정 및 배포
+###  2.3. Mongodb 서비스 Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1151,7 +1133,7 @@ bosh -e micro-bosh -d paasta-mongodb-shard-service deploy paasta_mongodb_shard_b
 		Succeeded
 
 
-### <div id='24'> 2.4. Mongodb 서비스 브로커 등록
+###  2.4. Mongodb 서비스 브로커 등록
 
 Mongodb 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 Mongodb 서비스 브로커를 등록해 주어야 한다.
 
@@ -1203,12 +1185,12 @@ Mongodb 서비스팩 배포가 완료 되었으면 Application에서 서비스 �
 > ![mongodb_image_10]
 
 
-# <div id='3'> 3. Mongodb 연동 Sample Web App 설명
+#  3. Mongodb 연동 Sample Web App 설명
 
 본 Sample Web App은 PaaS-TA에 배포되며 Mongodb의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
 
 
-### <div id='31'> 3.1. Sample App 구조
+###  3.1. Sample App 구조
 
 Sample Web App은 PaaS-TA에 App으로 배포가 된다. App을 배포하여 구동시 Bind 된 Mongodb 서비스 연결정보로 접속하여 초기 데이터를 생성하게 된다. 배포 완료 후 정상적으로 App 이 구동되면 브라우저나 curl로 해당 App에 접속 하여 Mongodb 환경정보(서비스 연결 정보)와 초기 적재된 데이터를 보여준다.
 
@@ -1246,7 +1228,7 @@ Sample Web App 구조는 다음과 같다.
 
 <br>
 
-### <div id='32'> 3.2. PaaS-TA에서 서비스 신청
+###  3.2. PaaS-TA에서 서비스 신청
 
 Sample Web App에서 Mongodb 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
 *참고: 서비스 신청시 개방형 클라우드 플랫폼에서 서비스를 신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
@@ -1283,7 +1265,7 @@ Sample Web App에서 Mongodb 서비스를 사용하기 위해서는 서비스 �
 <br>
 
 
-3.3. <div id='33'> Sample App에 서비스 바인드 신청 및 App 확인
+3.3.  Sample App에 서비스 바인드 신청 및 App 확인
 -------------------------------------------------
 서비스 신청이 완료되었으면 Sample Web App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 Mongodb 서비스를 이용한다.
 *참고: 서비스 Bind 신청시 개방형 클라우드 플랫폼에서 서비스 Bind신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
@@ -1402,12 +1384,12 @@ $ cf restart hello-spring-Mongodb
 > ![mongodb_image_23]
 
 
-# <div id='4'> 4.  Mongodb Client 툴 접속
+#  4.  Mongodb Client 툴 접속
 
 Application에 바인딩된 Mongodb 서비스 연결정보는 Private IP로 구성되어 있기 때문에 Mongodb Client 툴에서 직접 연결할수 없다. 따라서 SSH 터널, Proxy 터널 등을 제공하는 Mongodb Client 툴을 사용해서 연결하여야 한다. 본 가이드는 SSH 터널을 이용하여 연결 하는 방법을 제공하며 Mongodb Client 툴로써는 MongoChef 로 가이드한다. MongoChef 에서 접속하기 위해서 먼저 SSH 터널링 할수 있는 VM 인스턴스를 생성해야한다. 이 인스턴스는 SSH로 접속이 가능해야 하고 접속 후 PaaS-TA에 설치한 서비스팩에 Private IP 와 해당 포트로 접근이 가능하도록 시큐리티 그룹을 구성해야 한다. 이 부분은 OpenStack관리자 및 PaaS-TA 운영자에게 문의하여 구성한다.
 
 
-# <div id='41'> 4.1.  MongoChef 설치 & 연결
+#  4.1.  MongoChef 설치 & 연결
 MongoChef 프로그램은 무료로 사용할 수 있는 소프트웨어이다.
 
 
@@ -1507,45 +1489,45 @@ MongoChef 프로그램은 무료로 사용할 수 있는 소프트웨어이다.
 > ![mongodb_image_41]
 
 
-[mongodb_image_01]:/Service-Guide/images/mongodb/mongodb_image_01.png
-[mongodb_image_02]:/Service-Guide/images/mongodb/mongodb_image_02.png
-[mongodb_image_03]:/Service-Guide/images/mongodb/mongodb_image_03.png
-[mongodb_image_04]:/Service-Guide/images/mongodb/mongodb_image_04.png
-[mongodb_image_05]:/Service-Guide/images/mongodb/mongodb_image_05.png
-[mongodb_image_06]:/Service-Guide/images/mongodb/mongodb_image_06.png
-[mongodb_image_07]:/Service-Guide/images/mongodb/mongodb_image_07.png
-[mongodb_image_08]:/Service-Guide/images/mongodb/mongodb_image_08.png
-[mongodb_image_09]:/Service-Guide/images/mongodb/mongodb_image_09.png
-[mongodb_image_10]:/Service-Guide/images/mongodb/mongodb_image_10.png
-[mongodb_image_11]:/Service-Guide/images/mongodb/mongodb_image_11.png
-[mongodb_image_12]:/Service-Guide/images/mongodb/mongodb_image_12.png
-[mongodb_image_13]:/Service-Guide/images/mongodb/mongodb_image_13.png
-[mongodb_image_14]:/Service-Guide/images/mongodb/mongodb_image_14.png
-[mongodb_image_15]:/Service-Guide/images/mongodb/mongodb_image_15.png
-[mongodb_image_16]:/Service-Guide/images/mongodb/mongodb_image_16.png
-[mongodb_image_17]:/Service-Guide/images/mongodb/mongodb_image_17.png
-[mongodb_image_18]:/Service-Guide/images/mongodb/mongodb_image_18.png
-[mongodb_image_19]:/Service-Guide/images/mongodb/mongodb_image_19.png
-[mongodb_image_20]:/Service-Guide/images/mongodb/mongodb_image_20.png
-[mongodb_image_21]:/Service-Guide/images/mongodb/mongodb_image_21.png
-[mongodb_image_22]:/Service-Guide/images/mongodb/mongodb_image_22.png
-[mongodb_image_23]:/Service-Guide/images/mongodb/mongodb_image_23.png
-[mongodb_image_24]:/Service-Guide/images/mongodb/mongodb_image_24.png
-[mongodb_image_25]:/Service-Guide/images/mongodb/mongodb_image_25.png
-[mongodb_image_26]:/Service-Guide/images/mongodb/mongodb_image_26.png
-[mongodb_image_27]:/Service-Guide/images/mongodb/mongodb_image_27.png
-[mongodb_image_28]:/Service-Guide/images/mongodb/mongodb_image_28.png
-[mongodb_image_29]:/Service-Guide/images/mongodb/mongodb_image_29.png
-[mongodb_image_30]:/Service-Guide/images/mongodb/mongodb_image_30.png
-[mongodb_image_31]:/Service-Guide/images/mongodb/mongodb_image_31.png
-[mongodb_image_32]:/Service-Guide/images/mongodb/mongodb_image_32.png
-[mongodb_image_33]:/Service-Guide/images/mongodb/mongodb_image_33.png
-[mongodb_image_34]:/Service-Guide/images/mongodb/mongodb_image_34.png
-[mongodb_image_35]:/Service-Guide/images/mongodb/mongodb_image_35.png
-[mongodb_image_36]:/Service-Guide/images/mongodb/mongodb_image_36.png
-[mongodb_image_37]:/Service-Guide/images/mongodb/mongodb_image_37.png
-[mongodb_image_38]:/Service-Guide/images/mongodb/mongodb_image_38.png
-[mongodb_image_39]:/Service-Guide/images/mongodb/mongodb_image_39.png
-[mongodb_image_40]:/Service-Guide/images/mongodb/mongodb_image_40.png
-[mongodb_image_41]:/Service-Guide/images/mongodb/mongodb_image_41.png
-[mongodb_image_42]:/Service-Guide/images/mongodb/mongodb_image_42.png
+[mongodb_image_01]:./../images/mongodb/mongodb_image_01.png
+[mongodb_image_02]:./../images/mongodb/mongodb_image_02.png
+[mongodb_image_03]:./../images/mongodb/mongodb_image_03.png
+[mongodb_image_04]:./../images/mongodb/mongodb_image_04.png
+[mongodb_image_05]:./../images/mongodb/mongodb_image_05.png
+[mongodb_image_06]:./../images/mongodb/mongodb_image_06.png
+[mongodb_image_07]:./../images/mongodb/mongodb_image_07.png
+[mongodb_image_08]:./../images/mongodb/mongodb_image_08.png
+[mongodb_image_09]:./../images/mongodb/mongodb_image_09.png
+[mongodb_image_10]:./../images/mongodb/mongodb_image_10.png
+[mongodb_image_11]:./../images/mongodb/mongodb_image_11.png
+[mongodb_image_12]:./../images/mongodb/mongodb_image_12.png
+[mongodb_image_13]:./../images/mongodb/mongodb_image_13.png
+[mongodb_image_14]:./../images/mongodb/mongodb_image_14.png
+[mongodb_image_15]:./../images/mongodb/mongodb_image_15.png
+[mongodb_image_16]:./../images/mongodb/mongodb_image_16.png
+[mongodb_image_17]:./../images/mongodb/mongodb_image_17.png
+[mongodb_image_18]:./../images/mongodb/mongodb_image_18.png
+[mongodb_image_19]:./../images/mongodb/mongodb_image_19.png
+[mongodb_image_20]:./../images/mongodb/mongodb_image_20.png
+[mongodb_image_21]:./../images/mongodb/mongodb_image_21.png
+[mongodb_image_22]:./../images/mongodb/mongodb_image_22.png
+[mongodb_image_23]:./../images/mongodb/mongodb_image_23.png
+[mongodb_image_24]:./../images/mongodb/mongodb_image_24.png
+[mongodb_image_25]:./../images/mongodb/mongodb_image_25.png
+[mongodb_image_26]:./../images/mongodb/mongodb_image_26.png
+[mongodb_image_27]:./../images/mongodb/mongodb_image_27.png
+[mongodb_image_28]:./../images/mongodb/mongodb_image_28.png
+[mongodb_image_29]:./../images/mongodb/mongodb_image_29.png
+[mongodb_image_30]:./../images/mongodb/mongodb_image_30.png
+[mongodb_image_31]:./../images/mongodb/mongodb_image_31.png
+[mongodb_image_32]:./../images/mongodb/mongodb_image_32.png
+[mongodb_image_33]:./../images/mongodb/mongodb_image_33.png
+[mongodb_image_34]:./../images/mongodb/mongodb_image_34.png
+[mongodb_image_35]:./../images/mongodb/mongodb_image_35.png
+[mongodb_image_36]:./../images/mongodb/mongodb_image_36.png
+[mongodb_image_37]:./../images/mongodb/mongodb_image_37.png
+[mongodb_image_38]:./../images/mongodb/mongodb_image_38.png
+[mongodb_image_39]:./../images/mongodb/mongodb_image_39.png
+[mongodb_image_40]:./../images/mongodb/mongodb_image_40.png
+[mongodb_image_41]:./../images/mongodb/mongodb_image_41.png
+[mongodb_image_42]:./../images/mongodb/mongodb_image_42.png

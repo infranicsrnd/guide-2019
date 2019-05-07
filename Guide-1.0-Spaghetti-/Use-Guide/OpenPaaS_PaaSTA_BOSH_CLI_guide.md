@@ -1,124 +1,22 @@
-## Table Contents
-1. [개요](#11111)
-	* [문서 목적](#1-목적)
-	* [문서 범위](#1-범위)
-	* [참고 자료](#1-자료)
+## OpenPaaS PaaSTA BOSH CLI guide
 
-1. [BOSH CLI 기본 사용법](#22222)
-
-1. [BOSH CLI - micro](#33333)
-	* [micro deployment](#micro-deployment)
-	* [micro deployments](#micro-deployments)
-	* [micro deploy](#micro-deploy)
-	* [micro status](#micro-status)
-	* [micro agent](#micro-agent)
-	* [micro apply](#micro-apply)
-	* [micro delete](#micro-delete)
-
-1. [BOSH CLI - Deployment](#44444)
-	* [deployment](#deployment)
-	* [deployments](#deployments)
-	* [edit deployment](#edit-deployment)
-	* [deploy](#deploy)
-	* [download manifest](#download-manifest)
-	* [diff](#diff)
-	* [validate jobs](#validate-jobs)
-
-1. [BOSH CLI - Release](#55555)
-	* [create release](#create-release)
-	* [delete release](#delete-release)
-	* [verify release](#verify-release)
-	* [upload release](#upload-release)
-	* [releases](#releases)
-	* [reset release](#reset-release)
-	* [init release](#init-release)
-	* [generate job](#generate-job)
-	* [generate package](#generate-package)
-
-1. [BOSH CLI - Stemcell](#66666)
-	* [upload stemcell](#upload-stemcell)
-	* [verify stemcell](#verify-stemcell)
-	* [stemcells](#stemcells)
-	* [delete stemcell](#delete-stemcell)
-	* [public stemcells](#public-stemcells)
-	* [download public stemcell](#download-public-stemcell)
-
-1. [BOSH CLI - Job](#77777)
-	* [start](#start)
-	* [stop](#stop)
-	* [restart](#restart)
-	* [recreate](#recreate)
-
-1. [BOSH CLI - User](#88888)
-	* [create user](#create-user)
-	* [delete user](#delete-user)
-	* [login](#login)
-	* [logout](#logout)
-
-1. [BOSH CLI - Task](#99999)
-	* [task](#task)
-	* [tasks](#tasks)
-	* [tasks recent](#tasks-recent)
-	* [cancel task](#cancel-task)
-
-1. [BOSH CLI - Property](#aaaaa)
-	* [set property](#set-property)
-	* [get property](#get-property)
-	* [properties](#properties)
-	* [unset property](#unset-property)
-
-1. [BOSH CLI - Log](#bbbbb)
-	* [logs](#logs)
-
-1. [BOSH CLI - Maintenance](#ccccc)
-	* [cleanup](#cleanup)
-	* [cloudcheck](#cloudcheck)
-
-1. [BOSH CLI – Remote Access](#ddddd)
-	* [ssh](#ssh)
-	* [scp](#scp)
-
-1. [BOSH CLI - Blob](#eeeee)
-	* [upload blob](#upload-blobs)
-	* [add blob](#add-blob)
-	* [sync blobs](#sync-blobs)
-	* [blobs](#blobs)
-
-1. [BOSH CLI - Snapshot](#fffff)
-	* [take snapshot](#take-snapshot)
-	* [delete snapshot](#delete-snapshot)
-	* [delete snapshots](#delete-snapshots)
-	* [snapshots](#snapshots)
-
-1. [BOSH CLI - Misc](#ggggg)
-	* [status](#status)
-	* [target](#target)
-	* [targets](#targets)
-	* [vms](#vms)
-	* [locks](#locks)
-	* [alias](#alias)
-	* [aliases](#aliases)
-	* [export compiled_package](#export-compiled_package)
-	* [vm resurrection](#vm-resurrection)
-
-<div id='11111'/>
 ## 문서 개요
 
-<div id='1-목적'/>
+
 ### 문서 목적 
 본 문서는 MicroBOSH/BOSH에 대한 설치 및 운영 관리를 위한 도구인 BOSH CLI에 대해 기본 사용법 및 사용 예시를 통해 BOSH를 이해하는데 목적이 있다. 
 
-<div id='1-범위'/>
+
 ### 문서 범위 
 
 본 문서에서는 BOSH CLI 사용법에 대해서 작성하였습니다.
 
-<div id='1-자료'/>
+
 ### 참고 자료 
 
 본 문서는 Cloud Foundry의 BOSH Document([http://bosh.io](http://bosh.io))를 참고로 작성하였습니다.
 
-<div id='22222'/>
+
 ## BOSH CLI 기본 사용법
 
 CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 라인 명령어로 아래와 같이 2가지 형태로 구분된다.
@@ -152,10 +50,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|12         |-d, --deployment FILE     |BOSH 배포파일 지정|
 	|13         |-h, --help                |Help 메시지 보기|
 
-<div id='33333'/>
+
 ##  BOSH CLI - micro
 
-<div id='micro-deployment'/>
+
 ### ***micro deployment***
 
 - **기본 Syntax**
@@ -172,7 +70,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|manifest-filename| MicroBOSH 배포 Manifest파일|X|
 
-<div id='micro-deployments'/>
+
 ### ***micro deployments***
 
 - **기본 Syntax**
@@ -187,7 +85,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='micro-deploy'/>
+
 ### ***micro deploy*** 
 
 - **기본 Syntax**
@@ -207,7 +105,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--update|update existing instance|X|
 	|--update-if-exists|create new or update existing instance|X|
 
-<div id='micro-status'/>
+
 ### ***micro status*** 
 
 - **기본 Syntax**
@@ -223,7 +121,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 -   없음
 
 
-<div id='micro-agent'/>
+
 ### ***micro agent***
 
 - **기본 Syntax**
@@ -253,7 +151,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	- mount_disk CID : 마운트 디스크
 	- unmount_disk CID : 언마운트 디스크
 
-<div id='micro-apply'/>
+
 ### ***micro apply***
 
 - **기본 Syntax**
@@ -271,7 +169,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|spec|MicroBOSH Instance에 적용할 spec 파일|O|
 
 
-<div id='micro-delete'/>
+
 ### ***micro delete*** 
 
 - **기본 Syntax**
@@ -286,10 +184,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 -   없음
 
-<div id='44444'/>
+
 ## BOSH CLI - Deployment
 
-<div id='deployment'/>
+
 ### ***deployment***
 
 - **기본 Syntax**
@@ -307,7 +205,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|manifest-filename|BOSH 배포 Manifest파일|X|
 
 
-<div id='deployments'/>
+
 ### ***deployments***
 
 - **기본 Syntax**
@@ -324,7 +222,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 
 
-<div id='edit-deployment'/>
+
 ### ***edit deployment***
 
 - **기본 Syntax**
@@ -339,7 +237,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='deploy'/>
+
 ### ***deploy***
 
 - **기본 Syntax**
@@ -359,7 +257,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 
 
-<div id='download-manifest'/>
+
 ### ***download manifest***
 
 - **기본 Syntax**
@@ -377,7 +275,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|deployment_name|다운로드할 배포명 설정|O|
 	|save_as|저장할 파일명 설정|X|
 
-<div id='diff'/>
+
 ### ***diff***
 
 - **기본 Syntax**
@@ -395,7 +293,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|template|비교 대상 Manifst 파일|O|
 
 
-<div id='validate-jobs'/>
+
 ### ***validate jobs***
 
 - **기본 Syntax**
@@ -410,10 +308,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='55555'/>
+
 ## BOSH CLI - Release
 
-<div id='create-release'/>
+
 ### ***create release***
 
 - **기본 Syntax**
@@ -436,7 +334,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--name NAME|specify a custom release name|X|
 	|--version VERSION|specify a custom version number|X|
 
-<div id='delete-release'/>
+
 ### ***delete release***
 
 - **기본 Syntax**
@@ -455,7 +353,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|version|삭제할 Release 버전|X|
 	|--force|Release 삭제하는 동안 에러 무시|X|
 
-<div id='verify-release'/>
+
 ### ***verify release***
 
 - **기본 Syntax**
@@ -472,7 +370,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|tarball_path|Release 파일|O|
 
-<div id='upload-release'/>
+
 ### ***upload release***
 
 - **기본 Syntax**
@@ -491,7 +389,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--rebase|최신 버전 Release|X|
 	|--skip-if-exists|Release가 존재하는 경우 무시|X|
 
-<div id='releases'/>
+
 ### ***releases***
 
 - **기본 Syntax**
@@ -506,7 +404,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='reset-release'/>
+
 ### ***reset release***
 
  **기본 Syntax**
@@ -521,7 +419,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='init-release'/>
+
 ### ***init release***
 
 - **기본 Syntax**
@@ -539,7 +437,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|base|Release 작성을 위한 기준 디렉토리 지정(지정하지 않을 경우 현재 디렉토리에 생성됨)|X|
 	|--git|git repository 초기화|X|
 
-<div id='generate-job'/>
+
 ### ***generate job***
 
 - **기본 Syntax**
@@ -556,7 +454,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|name|생성할 Job Template 이름|O|
 
-<div id='generate-package'/>
+
 ### ***generate package***
 
 - **기본 Syntax**
@@ -573,10 +471,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|name|생성할 패키지 이름|O|
 
-<div id='66666'/>
+
 ## BOSH CLI - Stemcell 
 
-<div id='upload-stemcell'/>
+
 ### ***upload stemcell***
 
 - **기본 Syntax**
@@ -594,7 +492,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|stemcell_location|BOSH Stemcell 파일 경로|O|
 	|--skip-if-exists|존재하는 BOSH Stemcell이면 Skip|X|
 
-<div id='verify-stemcell'/>
+
 ### ***verify stemcell***
 
 - **기본 Syntax**
@@ -611,7 +509,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|tarball_path|BOSH Stemcell 파일 경로|O|
 
-<div id='stemcells'/>
+
 ### ***stemcells***
 
 - **기본 Syntax**
@@ -626,7 +524,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='delete-stemcell'/>
+
 ### ***delete stemcell***
 
 - **기본 Syntax**
@@ -645,7 +543,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|version|Stemcell 버전|O|
 	|--force|Stemcell 삭제하는 동안 에러 무시|X|
 
-<div id='public-stemcells'/>
+
 ### ***public stemcells***
 
 - **기본 Syntax**
@@ -663,7 +561,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--full|다운로드 URL 출력|X|
 	|--all|모든 Stemcell 출력|X|
 
-<div id='download-public-stemcell'/>
+
 ### ***download public stemcell***
 
 - **기본 Syntax**
@@ -680,10 +578,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|stemcell_filename|다운로드 받을 Stemcell 파일명|O|
 
-<div id='77777'/>
+
 ## BOSH CLI - Job
 
-<div id='start'/>
+
 ### ***start*** 
 
 - **기본 Syntax**
@@ -702,7 +600,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|index|Job 번호|X|
 	|--force|수행중 발생하는 에러 무시|X|
 
-<div id='stop'/>
+
 ### ***stop***
 
 - **기본 Syntax**
@@ -724,7 +622,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--force|수행중 발생하는 에러 무시|X|
 
 
-<div id='restart'/>
+
 ### ***restart***
 
 - **기본 Syntax**
@@ -743,7 +641,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|index|Job 번호|X|
 	|--force|수행중 발생하는 에러 무시|X|
 
-<div id='recreate'/>
+
 ### ***recreate***
 
 - **기본 Syntax**
@@ -763,10 +661,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--force|수행중 발생하는 에러 무시|X|
 
 	
-<div id='88888'/>
+
 ## BOSH CLI - User
 
-<div id='create-user'/>
+
 ### ***create user***
 
 - **기본 Syntax**
@@ -784,7 +682,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|username|사용자 아이디|X|
 	|password|사용자 비밀번호|X|
 
-<div id='delete-user'/>
+
 ### ***delete user***
 
 - **기본 Syntax**
@@ -801,7 +699,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|username|사용자 아이디|X|
 
-<div id='login'/>
+
 ### ***login*** 
 
 - **기본 Syntax**
@@ -819,7 +717,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|username|사용자 아이디|X|
 	|password|사용자 비밀번호|X|
 
-<div id='logout'/>
+
 ### ***logout***
 
 - **기본 Syntax**
@@ -834,10 +732,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='99999'/>
+
 ## BOSH CLI - Task
 
-<div id='task'/>
+
 ### ***task***
 
 - **기본 Syntax**
@@ -860,7 +758,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--raw|raw 로그 출력|X|
 	|--no-filter|모든 Task 유형(ssh, logs, vms, etc) 포함해서 로그 출력|X|
 
-<div id='tasks'/>
+
 ### ***tasks***
 
 - **기본 Syntax**
@@ -877,7 +775,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|--no-filter|모든 Task 유형(ssh, logs, vms, etc) 포함해서 로그 출력|X|
 
-<div id='tasks-recent'/>
+
 ### ***tasks recent***
 
 - **기본 Syntax**
@@ -895,7 +793,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|count|Task ID|O|
 	|--no-filter|모든 Task 유형(ssh, logs, vms, etc) 포함해서 출력|X|
 
-<div id='cancel-task'/>
+
 ### ***cancel task***
 
 - **기본 Syntax**
@@ -912,10 +810,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|task_id|수행중인 Task ID|O|
 
-<div id='aaaaa'/>
+
 ## BOSH CLI - Property
 
-<div id='set-property'/>
+
 ### ***set property***
 
 - **기본 Syntax**
@@ -933,7 +831,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|name|Property 이름|O|
 	|value|Property 값|O|
 
-<div id='get-property'/>
+
 ###  ***get property***
 
 - **기본 Syntax**
@@ -950,7 +848,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|name|Property 이름|O|
 
-<div id='properties'/>
+
 ### ***properties***
 
 - **기본 Syntax**
@@ -967,7 +865,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|--terse|간결한 형식으로 출력X|
 
-<div id='unset-property'/>
+
 ### ***unset property***
 
 - **기본 Syntax**
@@ -984,10 +882,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|name|Property 이름|O|
 
-<div id='bbbbb'/>
+
 ## BOSH CLI - Log
 
-<div id='logs'/>
+
 ### ***logs***
 
 - **기본 Syntax**
@@ -1010,10 +908,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--dir destination_directory|로그 다운로드 경로 지정|X|
 	|--all|Deprecated|X|
 
-<div id='ccccc'/>
+
 ## BOSH CLI - Maintenance
 
-<div id='cleanup'/>
+
 ### ***cleanup***
 
 - **기본 Syntax**
@@ -1030,7 +928,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|--all|사용되지 않은 Release와 Stemcell 모두 삭제|X|
 
-<div id='cloudcheck'/>
+
 ### ***cloudcheck***
 
 - **기본 Syntax**
@@ -1049,10 +947,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--auto|자동으로 Problem 해결|X|
 	|--report|Report 생성|X|
 
-<div id='ddddd'/>
+
 ## BOSH CLI – Remote Access
 
-<div id='ssh'/>
+
 ### ***ssh***
 
 - **기본 Syntax**
@@ -1073,7 +971,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--gateway_identity_file FILE|Gateway Identity File|X|
 	|--default_password PASSWORD|Default 비밀번호|X|
 
-<div id='scp'/>
+
 ### ***scp***
 
 - **기본 Syntax**
@@ -1096,10 +994,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--gateway_user USER|Gateway User|X|
 	|--gateway_identity_file FILE|Gateway Identity File|X|
 
-<div id='eeeee'/>
+
 ## BOSH CLI - Blob
 
-<div id='upload-blobs'/>
+
 ### ***upload blobs***
 
 - **기본 Syntax**
@@ -1114,7 +1012,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='add-blob'/>
+
 ### ***add blob*** 
 
 - **기본 Syntax**
@@ -1132,7 +1030,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|local_path|로컬 Blob디렉토리|O|
 	|blob_dir|Release내 blob 디렉토리|X|
 
-<div id='sync-blobs'/>
+
 ### ***sync blobs***
 
 - **기본 Syntax**
@@ -1147,7 +1045,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='blobs'/>
+
 ### ***blobs***
 
 - **기본 Syntax**
@@ -1162,10 +1060,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='fffff'/>
+
 ## BOSH CLI - Snapshot
 
-<div id='take-snapshot'/>
+
 ### ***take snapshot***
 
 - **기본 Syntax**
@@ -1183,7 +1081,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|job|Job 이름|O|
 	|index|Job 번호|O|
 
-<div id='delete-snapshot'/>
+
 ### ***delete snapshot***
 
 - **기본 Syntax**
@@ -1200,7 +1098,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|snapshot_cid|snapshot_cid|O|
 
-<div id='delete-snapshots'/>
+
 ### ***delete snapshots***
 
 - **기본 Syntax**
@@ -1215,7 +1113,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='snapshots'/>
+
 ### ***snapshots***
 
 - **기본 Syntax**
@@ -1233,10 +1131,10 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|job|Job 이름|X|
 	|index|Job 번호|X|
 
-<div id='ggggg'/>
+
 ## BOSH CLI - Misc
 
-<div id='status'/>
+
 ### ***status***
 
 - **기본 Syntax**
@@ -1253,7 +1151,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|----------|-------------------------|--------------------------------|
 	|--uuid|BOSH Director 등록 정보 출력|X|
 
-<div id='target'/>
+
 ### ***target***
 
 - **기본 Syntax**
@@ -1272,7 +1170,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|name|BOSH Director의 Alias 지정|X|
 	|--ca-cert FILE|UAA server에서 제공된 인증서|X|
 
-<div id='targets'/>
+
 ### ***targets***
 
 - **기본 Syntax**
@@ -1287,7 +1185,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='vms'/>
+
 ### ***vms***
 
 - **기본 Syntax**
@@ -1307,7 +1205,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|--dns|DNS 레코드 포함 출력|X|
 	|--vitals|VM 자원 사용 상태 출력|X|
 
-<div id='locks'/>
+
 ### ***locks***
 
 - **기본 Syntax**
@@ -1322,7 +1220,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='alias'/>
+
 ### ***alias***
 
 - **기본 Syntax**
@@ -1340,7 +1238,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|name|Alias 이름|O|
 	|command|등록할 BOSH Command|O|
 
-<div id='aliases'/>
+
 ### ***aliases***
 
 - **기본 Syntax**
@@ -1355,7 +1253,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 	없음
 
-<div id='export-compiled_package'/>
+
 ### ***export compiled_package***
 
 - **기본 Syntax**
@@ -1374,7 +1272,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|stemcell|Stemcell 이름과 버전|O|
 	|download_dir|내보내기 디렉토리|O|
 
-<div id='vm-resurrection'/>
+
 ### ***vm resurrection***
 
 - **기본 Syntax**

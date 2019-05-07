@@ -1,179 +1,4 @@
-## Table of Contents
-1. [개요](#개요)
-     * [문서 목적](#문서-목적)
-     * [범위](#범위)
-     * [참고 자료](#참고-자료)
-
-1. [OpenPaaS CLI기본 사용법](#ID-OpenPaaS-CLI-USAGE)
-
-1. [GETTING STARTED](#ID-GETTING-STARTED)
-     * [login](#login)
-     * [logout](#logout)
-     * [passwd](#passwd)
-     * [target](#target)
-     * [api](#api)
-     * [auth](#auth)
-
-1. [APPS](#ID-APPS)
-     * [apps](#apps)
-     * [app](#app)
-     * [push, p](#push-p)
-     * [scale](#scale)
-     * [delete](#delete)
-     * [rename](#rename)
-     * [start, st](#start-st)
-     * [stop, sp](#stop-sp)
-     * [restart, rs](#restart-rs)
-     * [restage, rg](#restage-rg)
-     * [restart-app-instance](#restart-app-instance)
-     * [events](#events)
-     * [files](#files)
-     * [logs](#logs)
-     * [env, e](#env-e)
-     * [set-env, se](#set-env-se)
-     * [unset-env](#unset-env)
-     * [stacks](#stacks)
-     * [stack](#stack)
-     * [copy-source](#copy-source)
-     * [create-app-manifest](#create-app-manifest)
-
-1. [SERVICES](#ID-SERVICES)
-    * [marketplace, m](#marketplace-m)
-    * [services, s](#services-s)
-    * [service](#service)
-    * [create-service](#create-service)
-    * [update-service](#update-service)
-    * [delete-service](#delete-service)
-    * [rename-service](#rename-service)
-    * [create-service-key, csk](#create-service-key-csk)
-    * [service-keys, sk](#service-keys-sk)
-    * [service-key](#service-key)
-    * [delete-service-key, dsk](#delete-service-key-dsk)
-    * [bind-service, bs](#bind-service-bs)
-    * [unbind-service,us](#unbind-service-us)
-    * [create-user-provided-service, cups](#create-user-provided-service-cups)
-    * [update-user-provided-service, cups](#update-user-provided-service-uups)
-
-1. [ORGS](#ID-ORGS)
-    * [orgs, o](#orgs-o)
-    * [org](#org)
-    * [create-org](#create-org-co)
-    * [delete-org](#delete-org)
-    * [rename-org](#rename-org)
-
-1. [SPACES](#ID-SPACES)
-    * [spaces](#spaces)
-    * [space](#space)
-    * [create-space](#create-space)
-    * [delete-space](#delete-space)
-    * [rename-space](#rename-space)
-
-1. [DOMAINS](#ID-DOMAINS)
-    * [domains](#domains)
-    * [create-domain](#create-domain)
-    * [delete-domain](#delete-domain)
-    * [create-shared-dommain](#create-shared-domain)
-    * [delete-shared-dommain](#delete-shared-domain)
-
-1. [ROUTES](#ID-ROUTES)
-    * [routes, r](#routes-r)
-    * [create-route](#create-route)
-    * [update-route](#update-route)
-    * [check-route](#check-route)
-    * [map-route](#map-route)
-
-1. [BUILDPACKS](#ID-BUILDPACKS)
-    * [buildpacks](#buildpacks)
-    * [create-buildpack](#create-buildpack)
-    * [update-buildpack](#update-buildpack)
-    * [rename-buildpack](#rename-buildpack)
-    * [delete-buildpack](#delete-buildpack)
-
-1. [USER ADMIN](#ID-USER-ADMIN)
-    * [create-user](#create-user)
-    * [delete-user](#delete-user)
-    * [org-users](#org-users)
-    * [set-org-role](#set-org-role)
-    * [unset-org-role](#unset-org-role)
-    * [space-user](#space-user)
-    * [set-space-role](#set-space-role)
-    * [unset-space-role](#unset-space-role)
-
-1. [ORG ADMIN](#ID-ORG-ADMIN)
-    * [quotas](#quotas)
-    * [quota](#quota)
-    * [set-quota](#set-quota)
-    * [create-quota](#create-quota)
-    * [delete-quota](#delete-quota)
-    * [update-quota](#update-quota)
-    * [shared-private-domain](#shared-private-domain)
-    * [unshared-private-domain](#unshared-private-domain)
-
-1. [SPACE ADMIN](#ID-SPACE-ADMIN)
-    * [space-quotas](#space-quotas)
-    * [space-quota](#space-quota)
-    * [create-space-quota](#create-space-quota)
-    * [update-space-quota](#update-space-quota)
-    * [delete-space-quota](#delete-space-quota)
-    * [set-space-quota](#set-space-quota)
-    * [unset-space-quota](#unset-space-quota)
-
-1. [SERVICE ADMIN](#ID-SERVICE-ADMIN)
-    * [service-auth-tokens](#service-auth-tokens)
-    * [create-service-auth-token](#create-service-auth-token)
-    * [update-service-auth-token](#update-service-auth-token)
-    * [delete-service-auth-token](#delete-service-auth-token)
-    * [service-brokers](#service-brokers)
-    * [create-service-broker](#create-service-broker)
-    * [create-service-broker](#create-service-broker)
-    * [update-service-broker](#update-service-broker)
-    * [delete-service-broker](#delete-service-broker)
-    * [rename-service-broker](#rename-service-broker)
-    * [migrate-service-broker](#migrate-service-broker)
-    * [purge-service-offering](#purge-service-offering)
-    * [service-access](#service-access)
-    * [enable-service-access](#enable-service-access)
-    * [disable-service-access](#disable-service-access)
-
-1. [SECURITY GROUP](#ID-SECURITY-GROUP)
-    * [security-group](#security-group)
-    * [security-groups](#security-groups)
-    * [create-security-group](#create-security-group)
-    * [update-security-group](#update-security-group)
-    * [delete-security-group](#delete-security-group)
-    * [bind-security-group](#bind-security-group)
-    * [unbind-security-group](#unbind-security-group)
-    * [bind-staging-security-group](#bind-staging-security-group)
-    * [staging-security-groups](#staging-security-groups)
-    * [unbind-staging-security-group](#unbind-staging-security-group)
-    * [running-security-group](#running-security-group)
-
-1. [ENVIRONMENT VARIABLE GROUPS](#ID-ENVIRONMENT-VARIABLE-GROUPS)
-    * [running-environment-variable-group, revg](#running-environment-variable-group-revg)
-    * [staging-environment-variable-group, sevg](#staging-environment-variable-group-sevg)
-    * [set-staging-environment-variable-group, ssevg](#set-staging-environment-variable-group-ssevg)
-    * [set-running-environment-variable-group, ssevg](#set-running-environment-variable-group-ssevg)
-
-1. [FEATURE FLAGS](#ID-FEATURE-FLAGS)
-    * [feature-flags](#feature-flags)
-    * [feature-flag](#feature-flag)
-    * [enable-feature-flag](#enable-feature-flag)
-    * [disable-feature-flag](#disable-feature-flag)
-
-1. [ADVANCE](#ID-ADVANCE)
-    * [curl](#curl)
-    * [config](#config)
-    * [oauth-token](#oauth-token)
-
-1. [ADD/REMOVE PLUGIN REPOSITORY](#ID-ADD-REMOVE-PLUGIN-REPOSITORY)
-    * [add-plugin-repo](#add-plugin-repo)
-    * [remove-plugin-repo](#remove-plugin-repo)
-    * [list-plugin-repos](#list-plugin-repos)
-    * [repo-plugins](#repo-plugins)
-
-1. [ADD/REMOVE PLUGIN](#ID-ADD-REMOVE-PLUGIN)
-    * [plugins](#plugins)
-    * [install-plugin](#install-plugin)
+## OpenPaas CLi 가이드.md
 
 ## 개요
 ---
@@ -192,7 +17,7 @@
 
  [***https://docs.cloudfoundry.org/devguide/installcf/***](https://docs.cloudfoundry.org/devguide/installcf/)
 
-<div id='ID-OpenPaaS-CLI-USAGE'/>
+
 ## OpenPaaS CLI기본 사용법
 
 OpenPaaS CLI : OpenPaaS를 관리하기 위한 CLI 도구입니다.
@@ -221,7 +46,7 @@ $ cf st
 OpenPaaS 명령어에 대괄호로 묶인 인자인 [command options]은 명령어에 따라 선택적으로 사용되고, command  `<arguments>` 인자는 필수 인자입니다. OpenPaaS 운영 및 관리하기 위한 도구인 OpenPaaS CLI 아래와 같은 명령어들을 제공하고 있습니다.
 
 
-<div id='ID-GETTING-STARTED'/>
+
 ## GETTING STARTED
 
 
@@ -461,7 +286,7 @@ OpenPaaS login시 로그인만 되며 스페이스, 타겟은 지정되지 않�
 ```
 $ cf api --skip-ssl-validation api.10.244.0.34.xip.io
 ```
-<div id='ID-APPS'/>
+
 ## APPS
 
 
@@ -524,7 +349,7 @@ $cf apps
     $ cf app spring-music
     ```
 
-<div id='push-p'/>
+
 #### push,p
 
   - **기본 Syntax**
@@ -677,7 +502,7 @@ $cf apps
   $  cf rename spring-music new-spring-music
   ```
 
-<div id='start-st'/>
+
 #### start,st
 
   - **기본 Syntax**
@@ -709,7 +534,7 @@ $cf apps
   ```
   $  cf start spring-music
   ```
-<div id='stop-sp'/>
+
 #### stop,sp
 
   - **기본 Syntax**
@@ -742,7 +567,7 @@ $cf apps
   $  cf stop spring-music
   ```
 
-<div id='restart-rs'/>
+
 #### restart, rs
 
   - **기본 Syntax**
@@ -774,7 +599,7 @@ $cf apps
   ```
   $cf restart spring-music
   ```
-<div id='restage-rg'/>
+
 #### restage, rg
 
   - **기본 Syntax**
@@ -936,7 +761,7 @@ $cf apps
   ```
   $  cf logs spring-music
   ```
-<div id='env-e'/>
+
 #### env,e
 
   - **기본 Syntax**
@@ -968,7 +793,7 @@ $cf apps
   $ cf env spring-music
   ```
 
-<div id='set-env-se'/>
+
 #### set-env,se
 
   - **기본 Syntax**
@@ -1168,10 +993,10 @@ $cf apps
   $  cf create-app-manifest spring-music -p ./spring-music-manifest.yml
   ```
 
-<div id='ID-SERVICES'/>
+
 ## SERVICES
 
-<div id='marketplace-m'/>
+
 #### marketplace,m
 
   - **기본 Syntax**
@@ -1203,7 +1028,7 @@ $cf apps
   ```
   $  cf create-app-manifest spring-music -p ./spring-music-manifest.yml
   ```
-<div id='services-s'/>
+
 #### services,s
 
   - **기본 Syntax**
@@ -1403,7 +1228,7 @@ $cf apps
   $ cf rename-service spring-music-db new_spring-music-db
   ```
 
-<div id='create-service-key-csk'/>
+
 #### create-service-key,csk
 
   - **기본 Syntax**
@@ -1438,7 +1263,7 @@ $cf apps
   $ cf create-service-key spring-music-db mykey -c '{"permissions":"read-only"}'
   ```
 
-<div id='service-keys-sk'/>
+
 #### service-keys,sk
 
   - **기본 Syntax**
@@ -1506,7 +1331,7 @@ $cf apps
   $ cf service-key spring-music-db mykey
   ```
 
-<div id='delete-service-key-dsk'/>
+
 #### delete-service-key,dsk
 
   - **기본 Syntax**
@@ -1542,7 +1367,7 @@ $cf apps
   $ cf delete-service-key spring-music-db mykey
   ```
 
-<div id='bind-service-bs'/>
+
 #### bind-service,bs
 
   - **기본 Syntax**
@@ -1580,7 +1405,7 @@ $cf apps
   $ cf bind-service spring-music spring-music-db -c ~/workspace/tmp/instance_config.json
   ```
 
-<div id='unbind-service-us'/>
+
 #### unbind-service,us
 
   - **기본 Syntax**
@@ -1615,7 +1440,7 @@ $cf apps
   $ cf unbind-service spring-music spring-music-db
   ```
 
-<div id='create-user-provided-service-cups'/>
+
 #### create-user-provided-service,cups
 
   - **기본 Syntax**
@@ -1650,7 +1475,7 @@ $cf apps
   $ cf create-user-provided-service spring-music-db -p '{"username":"admin","password":"pa55woRD"}'
   ```
 
-<div id='update-user-provided-service-uups'/>
+
 #### update-user-provided-service,uups
 
   - **기본 Syntax**
@@ -1685,10 +1510,10 @@ $cf apps
   $  cf update-user-provided-service spring-music-db -p '{"username":"admin","password":"pa55woRD"}'
   ```
 
-<div id='ID-ORGS'/>
+
 ## ORGS
 
-<div id='orgs-o'/>
+
 #### orgs,o
 
   - **기본 Syntax**
@@ -1754,7 +1579,7 @@ $cf apps
   ```
 
 
-<div id='create-org-co'/>
+
 #### create-org,co
 
   - **기본 Syntax**
@@ -1857,7 +1682,7 @@ $cf apps
   $ cf rename cf new-cf
   ```
 
-<div id='ID-SPACES'/>
+
 ## SPACES
 
 #### spaces
@@ -2019,7 +1844,7 @@ $cf apps
   $ cf rename-space development new_development
   ```
 
-<div id='ID-DOMAINS'/>
+
 ## DOMAINS
 
 #### domains
@@ -2185,10 +2010,10 @@ $cf apps
   $ cf delete-shared-domain cf.or.kr
   ```
 
-<div id='ID-ROUTES'/>
+
 ## REOUTES
 
-<div id='routes-r'/>
+
 #### routes, r
 
   - **기본 Syntax**
@@ -2458,7 +2283,7 @@ $cf apps
   $ cf delete-orphaned-routes
   ```
 
-<div id='ID-BUILDPACKS'/>
+
 ## BUILDPACKS
 
 
@@ -2601,7 +2426,7 @@ $cf apps
   $ cf delete-buildpack egov-buildpack
   ```
 
-<div id='ID-USER-ADMIN'/>
+
 ## USER ADMIN
 
 
@@ -2880,7 +2705,7 @@ $cf apps
   $ cf unset-space-role cfuser cforg development OrgManager
   ```
 
-<div id='ID-ORG-ADMIN'/>
+
 ## ORG ADMIN
 
 
@@ -3158,7 +2983,7 @@ $cf apps
   $ cf unshared-private-domain cf-org sharedomain.or.kr
   ```
 
-<div id='ID-SPACE-ADMIN'/>
+
 ## SPACE ADMIN
 
 
@@ -3409,7 +3234,7 @@ $cf apps
   $ cf unset-space-quota development cf-space-quota
   ```
 
-<div id='ID-SERVICE-ADMIN'/>
+
 ## SERVICE ADMIN
 
 
@@ -3911,7 +3736,7 @@ $cf apps
   $ cf disable-service-access mysql -p silver -o cf-org
   ```
 
-<div id='ID-SECURITY-GROUP'/>
+
 ## SECURITY GROUP
 
 
@@ -4280,10 +4105,10 @@ $cf apps
   ```
 
 
-<div id='ID-ENVIRONMENT-VARIABLE-GROUPS'/>
+
 ## ENVIRONMENT VARIABLE GROUPS
 
-<div id='running-environment-variable-group-revg'/>
+
 #### running-environment-variable-group, revg
 
   - **기본 Syntax**
@@ -4314,7 +4139,7 @@ $cf apps
   $ cf running-environment-variable-group
   ```
 
-<div id='staging-environment-variable-group-sevg'/>
+
 #### staging-environment-variable-group, sevg
 
   - **기본 Syntax**
@@ -4347,7 +4172,7 @@ $cf apps
 
 
 
-<div id='set-staging-environment-variable-group-ssevg'/>
+
 #### set-staging-environment-variable-group, ssevg
 
   - **기본 Syntax**
@@ -4382,7 +4207,7 @@ $cf apps
   $ cf set-staging-environment-variable-group '{"name":"value","name":"value"}'
   ```
 
-<div id='set-running-environment-variable-group-ssevg'/>
+
 #### set-running-environment-variable-group, ssevg
 
   - **기본 Syntax**
@@ -4417,7 +4242,7 @@ $cf apps
   $ cf set-running-environment-variable-group '{"name":"value","name":"value"}'
   ```
 
-<div id='ID-FEATURE-FLAGS'/>
+
 ## FEATURE FLAGS
 
 #### feature-flags
@@ -4554,7 +4379,7 @@ $cf apps
   $ cf disable-feature-flag app_bits_upload
   ```
 
-<div id='ID-ADVANCE'/>
+
 ## ADVANCE
 
 
@@ -4662,7 +4487,7 @@ $cf apps
   $cf oauth-token
   ```
 
-<div id='ID-ADD-REMOVE-PLUGIN-REPOSITORY'/>
+
 ## ADD/REMOVE PLUGIN REPOSITORY
 
 
@@ -4799,7 +4624,7 @@ $cf apps
   $ cf repo-plugins
   ```
 
-<div id='ID-ADD-REMOVE-PLUGIN'/>
+
 ## ADD/REMOVE PLUGIN
 
 

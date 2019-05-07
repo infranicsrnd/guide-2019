@@ -1,3 +1,4 @@
+## PaaS-TA_GCP_환경설정_가이드v1.0
 ## Table of Contents
 
 1. [개요](#1)
@@ -21,27 +22,27 @@
 
 본 문서는 PaaS-TA가 지원하는 IaaS 환경 중 Google에 대한 BOSH 설치 환경 설정하는 방법에 대해서 설명하였다.
 
-# <div id='1'/>1.  문서 개요 
+# 1.  문서 개요 
 
-## <div id='2'/>1.1.  목적
+## 1.1.  목적
 본 문서에서는 Inception 서버 환경에 BOSH를 설치하여 기능을 테스트할 수 있는 환경을 구축 시 Google Cloud Platform (이하 GCP) 기본 환경 설정을 하는 데 목적이 있다. 
 
-## <div id='3'/>1.2.  범위
+## 1.2.  범위
 본 가이드에서는 Linux 환경(Ubuntu 14.04 TRUSTY) 을 설치환경 구성 기준으로 작성 하였으며, 전제 조건으로는 Google Cloud Platform 계정이 있어야 한다.
 
-## <div id='4'/>1.3.  범위
+## 1.3.  범위
 본 문서는 Cloud Foundry의 BOSH Document와 Google Cloud Platform Document를 참고로 작성하였다.
 
 BOSH Document: http://bosh.io
 
 GCP Document: https://cloud.google.com/docs/
 
-# <div id='5'/>2.  Google Cloud Platform 환경 설정
+# 2.  Google Cloud Platform 환경 설정
 
 BOSH는 클라우드 환경에 서비스를 배포 관리하는 소프트웨어로 BOSH 자체도 클라우드에 배포 되어야 
 하는 서비스이다. 본 문서에서는 BOSH를 Google Cloud Platform 환경에서 배포 시 필요한 기본 환경 설정에 목적이 있다.
 
-## <div id='6'/>2.1. Google Cloud Platform 기본 환경 설정 절차
+## 2.1. Google Cloud Platform 기본 환경 설정 절차
 Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 
 -	Google Cloud Platform 프로젝트 생성 
@@ -54,7 +55,7 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 -	Google Cloud Platform KeyPair 생성
 -	Google Cloud Platform Meta Data생성
 
-### <div id='7'/>2.1.1. Google Cloud Platform 프로젝트 생성
+### 2.1.1. Google Cloud Platform 프로젝트 생성
 
 위에서 범위에서 언급 하였듯이 사전에  Google Cloud Platform 계정이 존해 해야 한다.
 
@@ -66,7 +67,7 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 
 ![PaaSTa_Google_Use_Guide_Image2]
 
-### <div id='8'/>2.1.2. Google Cloud Platform API Enable 설정
+### 2.1.2. Google Cloud Platform API Enable 설정
 - API를 통하여 Token 및 데이터를 가져오기 위해 API를 Enable 설정 한다.
 
 		Enable the GCE API for your project
@@ -88,7 +89,7 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 5.위와 같은 방법으로 IAM, Cloud Resource Manager API의 상태도 활성화 한다. 
 
 
-### <div id='9'/>2.1.3. Google Cloud Platform Service Account 생성
+### 2.1.3. Google Cloud Platform Service Account 생성
 
 1.Google Cloud Platform IAM & ADMIN 메뉴의 하위 Service accounts 메뉴에서 Service Account를 생성 한다.
 ![PaaSTa_Google_Use_Guide_Image6]
@@ -104,7 +105,7 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 
 ![PaaSTa_Google_Use_Guide_Image9]
 
-### <div id='10'/>2.1.4. Google Cloud Platform Service Account Key 생성
+### 2.1.4. Google Cloud Platform Service Account Key 생성
 
 1.Service Account에 대한 접근 가능  key를 JSON으로 생성 한다.
 -	Service Account 목록에서 해당 Service Account의 우측에 Create Key메뉴를 클릭하면 된다.
@@ -114,7 +115,7 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 ![PaaSTa_Google_Use_Guide_Image11]
 
 
-### <div id='11'/>2.1.5. Google Cloud Platform VPC networks 생성
+### 2.1.5. Google Cloud Platform VPC networks 생성
 
 1.Networking의 하위메뉴 VPC networks 메뉴를 선택 하고 CREATE VPC NETWORK 버튼을 클릭 한다.
 
@@ -124,7 +125,7 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 
 ![PaaSTa_Google_Use_Guide_Image13]
 
-### <div id='12'/>2.1.6. Google Cloud Platform External IP Address 생성
+### 2.1.6. Google Cloud Platform External IP Address 생성
 
 1.Networking의 하위메뉴 External IP address 메뉴를 선택 하고 Reserve static address 버튼을 클릭 한다.
 
@@ -134,7 +135,7 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 
 ![PaaSTa_Google_Use_Guide_Image15]
 
-### <div id='13'/>2.1.7. Google Cloud Platform External IP Address 생성
+### 2.1.7. Google Cloud Platform External IP Address 생성
 
 1.Networking의 하위메뉴 Firewall rules 메뉴를 선택 하고 CREATE FIREWALL RULE 버튼을 클릭 한다.
 
@@ -152,12 +153,12 @@ Google Cloud Platform 기본 환경 설정 절차는 다음과 같다.
 
 ![PaaSTa_Google_Use_Guide_Image19]
 
-### <div id='14'/>2.1.7. Google Cloud Platform Key pair 생성 
+### 2.1.7. Google Cloud Platform Key pair 생성 
 1.Ubuntu Linux 명령어를 사용하여 Key Pair를 생성 한다.
 
 	$ ssh-keygen -t rsa -f ~/.ssh/vcap -C vcap
 
-### <div id='15'/>2.1.7. Google Cloud Platform ssh Meta Data 생성
+### 2.1.7. Google Cloud Platform ssh Meta Data 생성
 1.Compute Engine 하위 메뉴 Metadata 메뉴를 클릭 하고 ssh Keys 탭 메뉴의 Add SSH keys를 선택 한다.
 
 ![PaaSTa_Google_Use_Guide_Image20]

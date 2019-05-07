@@ -1,54 +1,21 @@
-## Table of Contents
-
-1. [개요](#1)
-  * [목적](#2)
-  * [범위](#3)
-  * [참고자료](#4)
-2. [paasta-4.0](#5)
-	* [paasta-3.1](#6)
-	* [paasta-4.0](#7)
-3. [paasta-4.0 설치](#8)
-	* [pre-requsite](#9)
-    * [Stemcell upload](#10)
-    * [cloud-config](#11)
-        *  [azs](#12)
-        *  [vm_types](#13)
-        *  [compilation](#14)
-        *  [disk_size](#15)
-        *  [networks](#16)
-    * [bosh-dns release upload](#17)
-        *  [update-runtime-config.sh](#18)
-    * [paasta설치 파일](#19)
-    * [paasta deploy shell](#20)
-    	*  [deploy-aws.sh](#21)
-    	*  [deploy-openstack.sh](#22)
-    	*  [deploy-azure.sh](#23)
-    	*  [deploy-google.sh](#24)
-    	*  [deploy-vsphere.sh](#25)
-        *  [deploy-bosh-lite.sh](#26)
-        *  [operation file](#27)
-        *  [PaaS-TA value](#28)
-    * [paasta deploy](#29)
-    * [paasta deploy 확인](#30)
-    * [paasta login](#31)
-
+## PaaS_TA_PaaS-TA_Install_Guide-v4.0
 ## Executive Summary
 
 본 문서(설치가이드)는 paasta 를 수동으로 설치 하기 위한 가이드를 제공하는데 그목적이 있다.
  
 
-# <div id='1'/>1.  문서 개요 
+# 1.  문서 개요 
 
-## <div id='2'/>1.1.  목적
+## 1.1.  목적
 본 문서(설치가이드)는 paasta 를 설치 하기 위한 가이드를 제공하는데 그목적이 있다.
 
-## <div id='3'/>1.2.  범위
+## 1.2.  범위
 Paasta-4.0에서 사용하는 설치 방식은 기존 bosh1과 다르다. Bosh2에서 제공하는 bosh-deployment를 기반으로 bosh를 설치 된 환경에서 paasta-4.0 를 설치 한다.
 
 본문서는 cf-deployment v5.5.0을 기준으로 작성 되었다.
 기본 stemcell은 기존 ubuntu-trusty에서 ubuntu-xenial-97.28로 변경되었다.
 
-## <div id='4'/>1.3.  참고자료
+## 1.3.  참고자료
 
 본 문서는 Cloud Foundry의 BOSH Document와 Cloud Foundry Document를 참고로 작성하였다.
 
@@ -62,40 +29,40 @@ CF DEPLOYMENT: [https://github.com/cloudfoundry/cf-deployment](https://github.co
 
 
 
-# <div id='5'/>2. paasta-4.0
+# 2. paasta-4.0
 Pasta-3.1까지는 bosh-init을 통하여 Bosh를 생성하고, bosh1 cli를 통하여 PaaS-TA Controller, Container를 생성하였다. 
 
 
 
-## <div id='6'/>2.1.	paasta-3.1
+## 2.1.	paasta-3.1
 
 Bosh1은 bosh-init을 통하여 Bosh를 생성하고, bosh1 cli를 통하여 PaaS-TA Controller, Container를 생성하였다.
 
 ![PaaSTa_BOSH_Use_Guide_Image1]
 
-## <div id='7'/>2.2.	paasta-4.0
+## 2.2.	paasta-4.0
 paasta-4.0는 bosh2를 기반으로 설치된다. Bosh2를 사용하여 Bosh생성 후 paasta-deployment를 활용하여 paasta를 deploy한다. Paasta-3.1 버전까지는  PaaS-TA Container, Controller를 별도로 deployment로 설치 해야 했지만 3.5/4.0 에서는 paasta deployment 하나로 통합 되었으며, 한번에 PaaS-TA를 설치 할 수 있다. 
 
 ![PaaSTa_BOSH_Use_Guide_Image2]
 
-# <div id='8'/>3.	paasta-4.0 설치
+# 3.	paasta-4.0 설치
 
-## <div id='9'/>3.1.	pre-requsite
+## 3.1.	pre-requsite
 
 1.	PaaS-ta 4.0를 설치 하기 위해서는 bosh 설치과정에서 언급한 것 처럼 관련 deployment, release , stemcell을 파스타 사이트에서 다운로드 받아 정해진 경로에 복사 해야 한다.
 2.	Bosh를 bosh2 기반으로 설치 되어 있어야 한다.
 3.	Paasta-4.0 설치하는 환경은 bosh를 deploy한 inception(설치 환경)에서 작업 해야 한다.
 
-### <div id='11'/>3.2.	PaaS-TA Release 파일 다운로드
+### 3.2.	PaaS-TA Release 파일 다운로드
 
-   - [설치 파일 다운로드 받기](../../Download_Page.md)
+   - [설치 파일 다운로드 받기](http://45.248.73.44/index.php/s/GjXJ6DLz5iSG5tt)
 
 1. 파스타 다운로드 URL에서 [PaaS-TA 설치 릴리즈] 파일을 다운로드 받아 ~/workspace/paasta-4.0/release 이하 디렉토리에 압축을 푼다. 
 압출을 풀면 아래 그림과 같이 ~/workspace/paasta-4.0/release/paasta 이하 디렉토리가 생성되며 이하에 릴리즈 파일(tgz)이 존재한다.
 
 ![PaaSTa_release_Image]
 
-### <div id='10'/>3.2.	Stemcell upload
+### 3.2.	Stemcell upload
 
 Paasta-4.0는 ubuntu xenial stemcell 97.28을 기반으로 한다. Bosh login 후 stemcell을 upload 한다. Stemcell은 Deploy될 때 생성되는 PaaS-TA VM Base OS Image이다.
 Bosh Login 후 다음 명령어를 수행하여 stemcel을 upload 한다. stemcell은 bosh 설치시 download 받아야 한다.
@@ -111,7 +78,7 @@ $ bosh -e {director_name} upload-stemcell bosh-google-kvm-ubuntu-xenial-go_agent
 $ bosh -e {director_name} stemcells
 ```
 
-### <div id='11'/>3.3.	cloud-config
+### 3.3.	cloud-config
 
 PaaS-Ta 설치하기 위한 iaas 관련 network,storage,vm 관련 설정들을 정의 한다. IaaS,network,disk등 상황에 따라 설정이 다르다. paasta-deployment.yml은 cloud-config설정에 따라 paasta-vm을 설치 한다. PaaS-TA Deploy전에 cloud-config가 Bosh에 Upload 되어야 한다. PaaS-TA는 iaas별 cloud-config 예제를 제공하며, paasta를 설치 하려면 cloud-config.yml을 iaas상황에 맞게 수정 해야 한다.
 
@@ -380,11 +347,11 @@ upload된 cloud-config 확인 한다.
 $ bosh –e {director_name} cloud-config  
 ```
 
-### <div id='12'/>3.3.1. azs
+### 3.3.1. azs
 
 PaaS-TA에서 제공되는 CloudConfig 예제는 z1 ~ z6 까지 설정되어 있다. z1 ~z3 까지는 PaaS-TA VM이 설치되는 Zone이며 z4 ~ z6 까지는 Service가 설치되는 zone으로 정의한다. 3개 단위로 설정하는 이유는 서비스 3중화를 위해서 이다. PaaS-TA를 설치하는 환경에 따라 다르게 설정해도 된다.
 
-### <div id='13'/>3.3.2. vm_types
+### 3.3.2. vm_types
 
 vm_type은 IaaS에서 정의된 VM Type이다. Openstack으로 따지면 Flavor Type이다.  
 
@@ -392,18 +359,18 @@ vm_type은 IaaS에서 정의된 VM Type이다. Openstack으로 따지면 Flavor 
 
 ![PaaSTa_FLAVOR_Image]
 
-### <div id='14'/>3.3.3. compilation
+### 3.3.3. compilation
 PaaS-TA및 서비스를 설치시 PaaS-TA는 Compile VM을 생성하여 소스를 컴파일하고 PaaS-TA VM을 생성 하여 컴파일된 output file을 대상 VM에 설치한다. 컴파일이 끝난 Vm은 삭제된다.
 worker 수는 Compile VM의 수로 많을 수록 컴파일 속도가 빨라진다.
 
-### <div id='15'/>3.3.4. disk_size
+### 3.3.4. disk_size
 PaaS-TA및 서비스 설치되는 VM의 Persistence disk size이다.
 
-### <div id='16'/>3.3.4. networks
+### 3.3.4. networks
 networks는 azs zone별 subnet network, dns , security_toups, network_id를 정의 한다.
 보통 azs별로 256개의 IP를 정의 할 수 있도록 range cider를 정의 하였다.
 
-### <div id='17'/>3.4.	bosh-dns release upload
+### 3.4.	bosh-dns release upload
 PaaS-TA 4.0부터 적용된는 부분으로 PaaS-TA Component에서 Consul이 대체되어 들어온 Component이다. PaaS-TA Component간의 통신을 위해 Bosh DNS가 Deploy되어야 한다.
 
 Bosh Login후 아래 내용을 실행한다.
@@ -412,7 +379,7 @@ $ cd ~/workspace/paasta-4.0/deployment/bosh-deployment
 $ ./update-runtime-config.sh
 ```
 
-### <div id='18'/>3.4.1. update-runtime-config.sh
+### 3.4.1. update-runtime-config.sh
 아래 내용을 inception 상황에 맞게 수정하여 실행한다.
 ```
 bosh -e {director-name} update-runtime-config runtime-configs/dns.yml \
@@ -420,7 +387,7 @@ bosh -e {director-name} update-runtime-config runtime-configs/dns.yml \
 -v cert_days=3650   # 인증서 인증 기간
 ```
 
-### <div id='19'/>3.4.	paasta 설치 파일
+### 3.4.	paasta 설치 파일
 
 ~/workspace/paasta-4.0/deployment/paasta-deployment 이하 디렉토리에는 iaas별 paasta를 설치하는 shell이 존재한다. Shell 파일을 이용하여 bosh를 설치 한다.
 파일명은 deploy-{iaaS-name}.sh 로 만들어 졌다. 
@@ -485,7 +452,7 @@ $ bosh –e {director_name} –d paasta deploy {deploy.yml}
 </tr>
 </table>
 
-## <div id='20'/>3.5.	paasta deploy shell
+## 3.5.	paasta deploy shell
 
  - paasta-deployment.yml 파일은 paasta를 deploy하는 manifest file이다. paasta vm에대한 설치 정의를 하게 된다. vm중 singleton-blobstore, database 의 azs(zone)을 변경 하면 조직, 스페이스, app의 정보가 모두 삭제된다. 
 
@@ -493,7 +460,7 @@ $ bosh –e {director_name} –d paasta deploy {deploy.yml}
 
 다음은 paasta-deploy시 필수 옵션이다. cf_admin_password, cc_db_encryption_key, uaa_database_password, cc_database_password는 –v 옵션이 없는 경우 Bosh에서 자동생성하여 bosh credhub에 저장된다.
 
-### <div id='21'/>3.5.1. deploy-aws.sh
+### 3.5.1. deploy-aws.sh
 ```
 bosh -e {director_name} -d paasta deploy paasta-deployment.yml \  # paasta manifest file
    -o operations/aws.yml \                         # aws 설정
@@ -530,7 +497,7 @@ bosh -e {director_name} -d paasta deploy paasta-deployment.yml \  # paasta manif
    -v uaa_admin_client_secret="admin-secret"                # uaac adminclient에 접근하기 위한 secret 변수
 ```
 
-### <div id='22'/>3.5.2. deploy-openstack.sh
+### 3.5.2. deploy-openstack.sh
 ```
 bosh -e {director_name} -d paasta deploy paasta-deployment.yml \   # paasta manifest file
    -o operations/use-compiled-releases.yml \      # compile된 release 파일 정보(offline)
@@ -566,7 +533,7 @@ bosh -e {director_name} -d paasta deploy paasta-deployment.yml \   # paasta mani
    -v uaa_admin_client_secret="admin-secret"            # uaac adminclient에 접근하기 위한 secret 변수
 ```
 
-### <div id='23'/>3.5.3. deploy-azure.sh
+### 3.5.3. deploy-azure.sh
 ```
 bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
    -o operations/azure.yml \
@@ -603,7 +570,7 @@ bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
    -v uaa_admin_client_secret="admin-secret"               # uaac adminclient에 접근하기 위한 secret 변수
 ```
 
-### <div id='24'/>3.5.4. deploy-google.sh
+### 3.5.4. deploy-google.sh
 
 ```
 bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
@@ -641,7 +608,7 @@ bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
 ```
 
 
-### <div id='25'/>3.5.5. deploy-vshpere.sh
+### 3.5.5. deploy-vshpere.sh
 
 ```
 bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
@@ -678,7 +645,7 @@ bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
    -v uaa_admin_client_secret="admin-secret"                # uaac adminclient에 접근하기 위한 secret 변수
 ```
 
-#### <div id='26'/>3.5.6. deploy-bosh-lite.sh
+#### 3.5.6. deploy-bosh-lite.sh
 
 ```
 bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
@@ -706,7 +673,7 @@ bosh -e {director_name} -d paasta deploy paasta-deployment.yml \
    -v uaa_admin_client_secret="admin-secret"            # uaac adminclient에 접근하기 위한 secret 변수
 ```
 
-#### <div id='27'/>3.5.7. PaaS-TA operation file
+#### 3.5.7. PaaS-TA operation file
 
 <table>
 <tr>
@@ -775,7 +742,7 @@ syslog agent는 bosh vm의 log정보를 logsearch의 ls-router에 전송하는 �
 metric_url은 Bosh 설치 전에 pasta-monitoring에서 influxdb ip를 사전에 정의해야 한다. 마찬가지로 syslog_address도 Bosh 설치 전에 logsearch의 ls-router ip를 사전에 정의 해야 한다.
 paasta설치 후 paasta-monitoring 및 logsearch를 설치하면 Data가 Agent로 부터 전송된다.
 
-#### <div id='28'/>3.5.7. PaaS-TA value
+#### 3.5.7. PaaS-TA value
 
   1. uaa_login_logout_redirect_parameter_whitelist : 포탈 페이지 이동을 위한 uaa redirect whitelist 등록 변수
 
@@ -820,14 +787,14 @@ uaa_admin_client_secret 적용 확인 방법
 
 설정한 secret값으로 admin token을 얻을경우 화면과 같은 결과가 나온다.
 
-### <div id='29'/>3.6.	paasta deploy 
+### 3.6.	paasta deploy 
 
 ```
 $ cd ~/workspace/paasta-4.0/deployment/paasta-deployment
 $ ./deploy-{iaas}.sh
 ```
 
-### <div id='30'/>3.7.	paasta deploy 확인
+### 3.7.	paasta deploy 확인
 
 ```
 bosh -e {director_name} vms
@@ -836,7 +803,7 @@ bosh -e {director_name} vms
 ![PaaSTa_VMS_Guide_Image]
 
 
-### <div id='31'/>2.8.	paasta login 
+### 2.8.	paasta login 
 
 cf cli를 설치 하고 paasta에 로그인 한다.
 api target 은 paasta deploy시 지정해주었던 system_domain 명을 사용한다.

@@ -1,19 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1)
-    * [1.1. 목적](#1.1)
-    * [1.2. 범위](#1.2)
-    * [1.3. 시스템 구성도](#1.3)
-    * [1.4. 참고자료](#1.4)
-2. [RabbitMQ 서비스팩 설치] (#2)
-    * [2.1. 설치전 준비사항](#2.1)
-    * [2.2. RabbitMQ 서비스 릴리즈 업로드](#2.2)
-    * [2.3. RabbitMQ 서비스 Deployment 파일 수정 및 배포](#2.3)
-    * [2.4. RabbitMQ 서비스 브로커 등록](#2.4)
-3. [RabbitMQ 연동 Sample App 설명](#3)
-    * [3.1. Sample App 구조](#3.1)
-    * [3.2. 개방형 클라우드 플랫폼에서 서비스 신청](#3.2)
-    * [3.3. Sample App에 서비스 바인드 신청 및 App 확인](#3.3)
-
+## ServicePack RabbitMQ BOSH-Lite install guide
 
 
 ## <a name="1"/>1. 문서 개요
@@ -1348,37 +1333,37 @@ $ cf logs lab-rat<br><br>
 ![rabbitmq_bosh_lite_(34)]
 
 <!-- images for this document -->
-[rabbitmq_bosh_lite_(1)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(1).png
-[rabbitmq_bosh_lite_(2)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(2).png
-[rabbitmq_bosh_lite_(3)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(3).png
-[rabbitmq_bosh_lite_(4)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(4).png
-[rabbitmq_bosh_lite_(5)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(5).png
-[rabbitmq_bosh_lite_(6)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(6).png
-[rabbitmq_bosh_lite_(7)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(7).png
-[rabbitmq_bosh_lite_(8)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(8).png
-[rabbitmq_bosh_lite_(9)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(9).png
-[rabbitmq_bosh_lite_(10)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(10).png
-[rabbitmq_bosh_lite_(11)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(11).png
-[rabbitmq_bosh_lite_(12)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(12).png
-[rabbitmq_bosh_lite_(13)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(13).png
-[rabbitmq_bosh_lite_(14)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(14).png
-[rabbitmq_bosh_lite_(15)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(15).png
-[rabbitmq_bosh_lite_(16)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(16).png
-[rabbitmq_bosh_lite_(17)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(17).png
-[rabbitmq_bosh_lite_(18)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(18).png
-[rabbitmq_bosh_lite_(19)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(19).png
-[rabbitmq_bosh_lite_(20)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(20).png
-[rabbitmq_bosh_lite_(21)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(21).png
-[rabbitmq_bosh_lite_(22)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(22).png
-[rabbitmq_bosh_lite_(23)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(23).png
-[rabbitmq_bosh_lite_(24)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(24).png
-[rabbitmq_bosh_lite_(25)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(25).png
-[rabbitmq_bosh_lite_(26)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(26).png
-[rabbitmq_bosh_lite_(27)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(27).png
-[rabbitmq_bosh_lite_(28)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(28).png
-[rabbitmq_bosh_lite_(29)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(29).png
-[rabbitmq_bosh_lite_(30)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(30).png
-[rabbitmq_bosh_lite_(31)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(31).png
-[rabbitmq_bosh_lite_(32)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(32).png
-[rabbitmq_bosh_lite_(33)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(33).png
-[rabbitmq_bosh_lite_(34)]: /images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(34).png
+[rabbitmq_bosh_lite_(1)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(1).png
+[rabbitmq_bosh_lite_(2)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(2).png
+[rabbitmq_bosh_lite_(3)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(3).png
+[rabbitmq_bosh_lite_(4)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(4).png
+[rabbitmq_bosh_lite_(5)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(5).png
+[rabbitmq_bosh_lite_(6)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(6).png
+[rabbitmq_bosh_lite_(7)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(7).png
+[rabbitmq_bosh_lite_(8)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(8).png
+[rabbitmq_bosh_lite_(9)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(9).png
+[rabbitmq_bosh_lite_(10)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(10).png
+[rabbitmq_bosh_lite_(11)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(11).png
+[rabbitmq_bosh_lite_(12)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(12).png
+[rabbitmq_bosh_lite_(13)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(13).png
+[rabbitmq_bosh_lite_(14)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(14).png
+[rabbitmq_bosh_lite_(15)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(15).png
+[rabbitmq_bosh_lite_(16)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(16).png
+[rabbitmq_bosh_lite_(17)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(17).png
+[rabbitmq_bosh_lite_(18)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(18).png
+[rabbitmq_bosh_lite_(19)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(19).png
+[rabbitmq_bosh_lite_(20)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(20).png
+[rabbitmq_bosh_lite_(21)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(21).png
+[rabbitmq_bosh_lite_(22)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(22).png
+[rabbitmq_bosh_lite_(23)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(23).png
+[rabbitmq_bosh_lite_(24)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(24).png
+[rabbitmq_bosh_lite_(25)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(25).png
+[rabbitmq_bosh_lite_(26)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(26).png
+[rabbitmq_bosh_lite_(27)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(27).png
+[rabbitmq_bosh_lite_(28)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(28).png
+[rabbitmq_bosh_lite_(29)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(29).png
+[rabbitmq_bosh_lite_(30)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(30).png
+[rabbitmq_bosh_lite_(31)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(31).png
+[rabbitmq_bosh_lite_(32)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(32).png
+[rabbitmq_bosh_lite_(33)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(33).png
+[rabbitmq_bosh_lite_(34)]:/Guide-1.0-Spaghetti-/images/openpaas-service/rabbitmq/bosh_lite/rabbitmq_bosh_lite_(34).png

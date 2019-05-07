@@ -1,45 +1,22 @@
 
-## Table of Contents
-1.	[개요](#1)
-     * [1.1.	문서 개요](#2)
-          * [1.1.1.	목적](#3)
-          * [1.1.2.	범위](#4)
-          * [1.1.3.	참고 자료](#5)
-2.	[Ruby 애플리케이션 개발가이드](#6)
-     * [2.1.	개요](#7)
-     * [2.2.	개발환경 구성](#8)
-          * [2.2.1.	Ruby & Ruby On Rails설치](#9)
-     * [2.3.	개발](#10)
-          * [2.3.1.	애플리케이션 생성](#11)
-          * [2.3.2.	애플리케이션 환경설정](#12)
-          * [2.3.3.	VCAP_SERVICES 환경설정 정보](#13)
-          * [2.3.4.	Mysql 연동](#14)
-          * [2.3.5.	Cubrid 연동](#15)
-          * [2.3.6.	MongoDB 연동](#16)
-          * [2.3.7.	Redis 연동](#17)
-          * [2.3.8.	RabbitMQ연동](#18)
-          * [2.3.9.	GlusterFS 연동](#19)
-     * [2.4.	배포](#21)
-          * [2.4.1.	개방형 플랫폼 애플리케이션 배포](#22)
-     * [2.5.	테스트](#23)
+## OpenPaaS PaaSTA Application Ruby develope guide
 
-<div id='1'></div>
 # 1.	개요
 
-<div id='2'></div>
+
 ### 1.1.	문서 개요
 
-<div id='3'></div>
+
 ##### 1.1.1.	목적
 
 본 문서(Ruby 애플리케이션 개발 가이드)는 개방형 플랫폼 프로젝트의 서비스팩(Mysql, Cubrid, MongoDB, RabbitMQ, Radis, GlusterFS)을 Ruby 애플리케이션과 연동하여 사용하고 Ruby 애플리케이션을 배포하는 방법에 대해 제시하는 문서이다.
 
-<div id='4'></div>
+
 ##### 1.1.2.	범위
 
 본 문서의 범위는 Open PaaS 프로젝트의 Ruby 애플리케이션 개발과 서비스팩 연동, 애플리케이션 배포에 대한 내용으로 한정되어 있다.
 
-<div id='5'></div>
+
 ##### 1.1.3.	참고 자료
 **<http://rubyinstaller.org/>**  
 **<https://docs.pivotal.io/pivotalcf/buildpacks/ruby/index.html/>**  
@@ -52,16 +29,16 @@
 **<https://github.com/fog/fog/>**  
 
 
-<div id='6'></div>
+
 # 2.	Ruby 애플리케이션 개발가이드
 
 
-<div id='7'></div>
+
 ### 2.1.	개요
 
 개방형 플랫폼에 등록된 다양한 서비스팩을 Ruby언어로 작성된 애플리케이션과 바인딩하고 해당 애플리케이션에 바인딩된 서비스 환경정보(VCAP_SERVICES)를 이용하여 애플리케이션관 연동하고 각 서비스를 사용 할 수 있도록 Windows기반 환경에서 개방형 플랫폼에 배포할 Ruby 애플리케이션을 작성하는 방법을 설명한다.
 
-<div id='8'></div>
+
 ### 2.2.	개발환경 구성
 
 Ruby 애플리케이션 개발을 위해 다음과 같은 환경으로 개발환경을 구성 한다.
@@ -75,7 +52,7 @@ Ruby 애플리케이션 개발을 위해 다음과 같은 환경으로 개발환
 ※	Ruby IDE는 개별 선택하여 사용한다. 
 
 
-<div id='9'></div>
+
 ##### 2.2.1.	Ruby & Ruby On Rails설치
 
 1)	Ruby & DevKit 다운로드   
@@ -126,7 +103,7 @@ DEVELOPMENT KIT : DevKit-tdm-32-4.5.2-20111229-1559-sfx
 ![ruby13] 
 
 
-<div id='10'></div>
+
 ### 2.3.	개발
 
 Ruby 샘플 애플리케이션을 개발하기 위한 애플리케이션의 생성과 환경설정, VCAP_SERVICES 정보의 획득 및 각 서비스의 연동 방법에 대하여 설명한다.
@@ -138,7 +115,7 @@ Ruby 샘플 애플리케이션을 개발하기 위한 애플리케이션의 생�
 
 > http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW#0icB5ZW
 
-<div id='11'></div>
+
 ##### 2.3.1.	애플리케이션 생성
 
 1)	Rails 애플리케이션 생성(bundle install 제외)
@@ -211,7 +188,7 @@ Ruby 샘플 애플리케이션을 개발하기 위한 애플리케이션의 생�
 </tr>
 </table>
 
-<div id='12'></div>
+
 ##### 2.3.2.	애플리케이션 환경설정
 
 해당 예제는 Ruby 1.9.3을 기준으로 각 드라이버의 버전을 명시적으로 선택하여 설치하였습니다.  
@@ -395,7 +372,7 @@ Rails.application.configure do
 config.action_controller.allow_forgery_protection    = false
 ```
 
-<div id='13'></div>
+
 ##### 2.3.3.	VCAP_SERVICES 환경설정 정보
 
 개방형 플랫폼에 배포되는 애플리케이션이 바인딩된 서비스별 접속 정보를 얻기 위해서는 애플리케이션별로 등록되어있는 VCAP_SERVICES 환경설정 정보를 읽어들여 정보를 획득 할 수 있다.
@@ -468,7 +445,7 @@ vcap_services = JSON.parse(ENV['VCAP_SERVICES'])
 ```
 
 
-<div id='14'></div>
+
 ##### 2.3.4.	Mysql 연동
 
 <table>
@@ -556,7 +533,7 @@ end
 ```
 ※해당 클래스는 샘플 예제이며 서비스의 접속정보의 획득 및 활용 방법은 애플리케이션의 구조및 특성에 맞게 사용 할 수 있다.
 
-<div id='15'></div>
+
 ##### 2.3.5.	Cubrid 연동
 
 <table>
@@ -655,7 +632,7 @@ end
 ```
 ※해당 클래스는 샘플 예제이며 서비스의 접속정보의 획득 및 활용 방법은 애플리케이션의 구조및 특성에 맞게 사용 할 수 있다.
 
-<div id='16'></div>
+
 ##### 2.3.6.	MongoDB 연동
 
 <table>
@@ -760,7 +737,7 @@ end
 ※해당 클래스는 샘플 예제이며 서비스의 접속정보의 획득 및 활용 방법은 애플리케이션의 구조및 특성에 맞게 사용 할 수 있다.
 
 
-<div id='17'></div>
+
 ##### 2.3.7.	Redis 연동
 
 <table>
@@ -837,7 +814,7 @@ end
 ```
 ※해당 클래스는 샘플 예제이며 서비스의 접속정보의 획득 및 활용 방법은 애플리케이션의 구조및 특성에 맞게 사용 할 수 있다.
 
-<div id='18'></div>
+
 ##### 2.3.8.	RabbitMQ연동
 
 <table>
@@ -927,7 +904,7 @@ end
 ```
 ※해당 클래스는 샘플 예제이며 서비스의 접속정보의 획득 및 활용 방법은 애플리케이션의 구조및 특성에 맞게 사용 할 수 있다.
 
-<div id='19'></div>
+
 ##### 2.3.9.	GlusterFS 연동
 
 <table>
@@ -1005,12 +982,12 @@ end
 ※해당 클래스는 샘플 예제이며 서비스의 접속정보의 획득 및 활용 방법은 애플리케이션의 구조및 특성에 맞게 사용 할 수 있다.
 
 
-<div id='21'></div>
+
 ### 2.4.	배포
 
 개발 완료된 애플리케이션을 개방형 플랫폼에 배포하는 방법을 설명한다.
 
-<div id='22'></div>
+
 ##### 2.4.1.	개방형 플랫폼 애플리케이션 배포
 
 <table>
@@ -1132,7 +1109,7 @@ http://sourceforge.net/projects/dos2unix/files/latest/download
 
 
 
-<div id='23'></div>
+
 ### 2.5.	테스트
 
 Rspec을 이용한 Ruby 애플리케이션 테스트
@@ -1159,19 +1136,19 @@ Rspec을 이용한 Ruby 애플리케이션 테스트
       
 
 
-[ruby01]:/Sample-App-Guide/image/ruby/ruby_01.png
-[ruby02]:/Sample-App-Guide/image/ruby/ruby_02.png
-[ruby03]:/Sample-App-Guide/image/ruby/ruby_03.png
-[ruby04]:/Sample-App-Guide/image/ruby/ruby_04.png
-[ruby05]:/Sample-App-Guide/image/ruby/ruby_05.png
-[ruby06]:/Sample-App-Guide/image/ruby/ruby_06.png
-[ruby07]:/Sample-App-Guide/image/ruby/ruby_07.png
-[ruby08]:/Sample-App-Guide/image/ruby/ruby_08.png
-[ruby09]:/Sample-App-Guide/image/ruby/ruby_09.png
-[ruby10]:/Sample-App-Guide/image/ruby/ruby_10.png
-[ruby11]:/Sample-App-Guide/image/ruby/ruby_11.png
-[ruby12]:/Sample-App-Guide/image/ruby/ruby_12.png
-[ruby13]:/Sample-App-Guide/image/ruby/ruby_13.png
-[ruby14]:/Sample-App-Guide/image/ruby/ruby_14.png
-[ruby15]:/Sample-App-Guide/image/ruby/ruby_15.png
-[ruby16]:/Sample-App-Guide/image/ruby/ruby_16.png
+[ruby01]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_01.png
+[ruby02]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_02.png
+[ruby03]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_03.png
+[ruby04]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_04.png
+[ruby05]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_05.png
+[ruby06]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_06.png
+[ruby07]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_07.png
+[ruby08]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_08.png
+[ruby09]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_09.png
+[ruby10]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_10.png
+[ruby11]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_11.png
+[ruby12]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_12.png
+[ruby13]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_13.png
+[ruby14]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_14.png
+[ruby15]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_15.png
+[ruby16]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/ruby/ruby_16.png

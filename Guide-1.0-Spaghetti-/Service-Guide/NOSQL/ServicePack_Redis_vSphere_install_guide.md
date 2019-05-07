@@ -1,35 +1,18 @@
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 시스템 구성도](#4)
-     * [1.4. 참고자료](#5)
-2. [Redis 서비스팩 설치](#6)
-     * [2.1. 설치전 준비사항](#7)
-     * [2.2. Redis 서비스 릴리즈 업로드](#8)
-     * [2.3. Redis 서비스 Deployment 파일 수정 및 배포](#9)
-     * [2.4. Redis 서비스 브로커 등록](#10)
-3. [Redis 연동 Sample App 설명](#11)
-     * [3.1. Sample App 구조](#12)
-     * [3.2. 개방형 클라우드 플랫폼에서 서비스 신청](#13)
-     * [3.3. Sample App에 서비스 바인드 신청 및 App 확인](#14)
-4. [Redis Client 툴 접속](#15)
-     * [4.1. Redis Desktop Manager 설치 및 연결](#16)
+## ServicePack Redis vSphere install guide
 
-<div id='1'></div>
 # 1. 문서 개요
 
-<div id='2'></div>
+
 ### 1.1. 목적
       
 본 문서(Redis서비스팩설치 가이드)는 전자정부표준프레임워크 기반의 Open PaaS에서 제공되는 서비스팩인Redis서비스팩을 Bosh를 이용하여 설치 하는 방법과 Open PaaS의 SaaS 형태로 제공하는 Application 에서Redis 서비스를 사용하는 방법을 기술하였다.
 
-<div id='3'></div>
+
 ### 1.2. 범위 
 
 설치 범위는 Redis서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다. 
 
-<div id='4'></div>
+
 ### 1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. Redisdedicated-node(5대), Redis 서비스 브로커로 최소사항을 구성하였다.
 ![시스템 구성도][redis_vsphere_02]
@@ -65,15 +48,15 @@
   </tr>
 </table>
 
-<div id='5'></div>
+
 ### 1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
-<div id='6'></div>
+
 #   2. Redis서비스팩설치
 
-<div id='7'></div>
+
 ### 2.1. 설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI 가 설치 되어 있어야 하고 BOSH 에 로그인 및 타켓 설정이 되어 있어야 한다.
@@ -86,7 +69,7 @@ BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문
 >OpenPaaS-Deployment : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0YWXQzq>**  
 >OpenPaaS-Sample-Apps : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW>**
 
-<div id='8'></div>
+
 ###   2.2. Redis 서비스 릴리즈 업로드
 
 - OpenPaaS-Services 폴더 안에 있는 redis 서비스 릴리즈 파일 openpaas-redis-release-1.0.tgz 을 다운로드 한다.
@@ -118,7 +101,7 @@ BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문
 >![redis_vsphere_09]
 ><div>Redis 서비스 릴리즈가 업로드 되어 있는 것을 확인</div>
 
-<div id='9'></div>
+
 ###   2.3. Redis 서비스 Deployment 파일 수정 및 배포
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML  파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params등을 정의가 되어 있다.
@@ -344,7 +327,7 @@ stemcell:
 ><div>$bosh vms</div>
 >![redis_vsphere_16]
 
-<div id='10'></div>
+
 ### 2.4. Redis 서비스 브로커 등록
 Redis서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 Redis 서비스 브로커를 등록해 주어야 한다.
 서비스 브로커 등록시개방형 클라우드 플랫폼에서서비스브로커를등록할수있는사용자로로그인이되어있어야한다.
@@ -380,10 +363,10 @@ Redis서비스팩 배포가 완료 되었으면 Application에서 서비스 팩�
 ><div>$ cf service-access</div>
 >![redis_vsphere_21]
 
-<div id='11'></div>
+
 #   3. Redis연동 Sample App 설명
 본 Sample App은 개발형클라우드 플랫폼에 배포되며 Redis의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
-<div id='12'></div>
+
 ### 3.1. Sample App 구조
 Sample App은 개방형 클라우드 플랫폼에 App으로 배포가 된다. 배포 완료 후 정상적으로 App 이 구동되면 curl 명령어로 배포된 도메인 정보를 이용하여 Redis에 특정 key 에 값을 저장/조회/삭제를 한다.
 
@@ -416,7 +399,7 @@ Sample App 구조는 다음과 같다.
 ><div>$ls -all</div>
 >![redis_vsphere_22]
 
-<div id='13'></div>
+
 ### 3.2. 개방형 클라우드 플랫폼에서 서비스 신청
 Sample App에서 Redis 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
 *참고: 서비스 신청시개방형 클라우드 플랫폼에서 서비스를신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
@@ -441,7 +424,7 @@ Sample App에서 Redis 서비스를 사용하기 위해서는 서비스 신청(P
 ><div>$cf services</div>
 >![redis_vsphere_25]
 
-<div id='14'></div>
+
 ### 3.3. Sample App에 서비스 바인드 신청 및 App 확인
 서비스 신청이 완료되었으면 Sample App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 Redis 서비스를 이용한다.
 *참고: 서비스 Bind 신청시개방형 클라우드 플랫폼에서 서비스 Bind신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
@@ -501,11 +484,11 @@ $ curl -X DELETE $APP/foo<br>
 ></div>
 >![redis_vsphere_33]
 
-<div id='15'></div>
+
 # 4. Redis Client 툴 접속
 Application에 바인딩된Redis 서비스 연결정보는 Private IP로 구성되어 있기 때문에 Redis Client 툴에서 직접 연결할수 없다. 따라서 Redis Client 툴에서 SSH 터널, Proxy 터널 등을 제공하는 툴을 사용해서 연결하여야 한다. 본 가이드는 SSH 터널을 이용하여 연결 하는 방법을 제공하며 Redis Client 툴로써는 오픈 소스인 Redis Desktop Manager로 가이드한다. Redis Desktop Manager 에서 접속하기 위해서 먼저 SSH 터널링할수 있는 VM 인스턴스를생성해야한다. 이 인스턴스는 SSH로 접속이 가능해야 하고 접속 후 Open PaaS 에 설치한 서비스팩에 Private IP 와 해당 포트로 접근이 가능하도록 시큐리티 그룹을 구성해야 한다. 이 부분은 OpenStack 관리자 및 OpenPaaS 운영자에게 문의하여 구성한다. vsphere 에서 구성한 인스턴스는공개키(.pem) 로 접속을 해야 하므로 공개키는 운영 담당자에게 문의하여 제공받는다. 참고) 개인키(.ppk)로는 접속이 되지 않는다.
 
-<div id='16'></div>
+
 ### 4.1. Redis Desktop Manager 설치 및 연결
 Redis Desktop Manager 프로그램은 무료로 사용할 수 있는 오픈소스 소프트웨어이다.
 
@@ -559,48 +542,48 @@ Redis Desktop Manager 프로그램은 무료로 사용할 수 있는 오픈소�
 
 
 
-[redis_vsphere_02]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_02.png
-[redis_vsphere_03]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_03.png
-[redis_vsphere_04]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_04.png
-[redis_vsphere_05]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_05.png
-[redis_vsphere_06]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_06.png
-[redis_vsphere_07]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_07.png
-[redis_vsphere_08]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_08.png
-[redis_vsphere_09]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_09.png
-[redis_vsphere_10]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_10.png
-[redis_vsphere_11]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_11.png
-[redis_vsphere_12]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_12.png
-[redis_vsphere_13]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_13.png
-[redis_vsphere_14]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_14.png
-[redis_vsphere_15]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_15.png
-[redis_vsphere_16]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_16.png
-[redis_vsphere_17]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_17.png
-[redis_vsphere_18]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_18.png
-[redis_vsphere_19]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_19.png
-[redis_vsphere_20]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_20.png
-[redis_vsphere_21]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_21.png
-[redis_vsphere_22]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_22.png
-[redis_vsphere_23]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_23.png
-[redis_vsphere_24]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_24.png
-[redis_vsphere_25]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_25.png
-[redis_vsphere_26]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_26.png
-[redis_vsphere_27]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_27.png
-[redis_vsphere_28]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_28.png
-[redis_vsphere_29]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_29.png
-[redis_vsphere_30]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_30.png
-[redis_vsphere_31]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_31.png
-[redis_vsphere_32]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_32.png
-[redis_vsphere_33]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_33.png
-[redis_vsphere_34]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_34.png
-[redis_vsphere_35]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_35.png
-[redis_vsphere_36]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_36.png
-[redis_vsphere_37]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_37.png
-[redis_vsphere_38]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_38.png
-[redis_vsphere_39]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_39.png
-[redis_vsphere_40]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_40.png
-[redis_vsphere_41]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_41.png
-[redis_vsphere_42]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_42.png
-[redis_vsphere_43]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_43.png
-[redis_vsphere_44]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_44.png
-[redis_vsphere_45]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_45.png
-[redis_vsphere_46]:/images/openpaas-service/redis/redis_vsphere/redis_vsphere_46.png
+[redis_vsphere_02]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_02.png
+[redis_vsphere_03]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_03.png
+[redis_vsphere_04]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_04.png
+[redis_vsphere_05]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_05.png
+[redis_vsphere_06]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_06.png
+[redis_vsphere_07]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_07.png
+[redis_vsphere_08]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_08.png
+[redis_vsphere_09]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_09.png
+[redis_vsphere_10]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_10.png
+[redis_vsphere_11]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_11.png
+[redis_vsphere_12]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_12.png
+[redis_vsphere_13]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_13.png
+[redis_vsphere_14]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_14.png
+[redis_vsphere_15]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_15.png
+[redis_vsphere_16]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_16.png
+[redis_vsphere_17]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_17.png
+[redis_vsphere_18]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_18.png
+[redis_vsphere_19]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_19.png
+[redis_vsphere_20]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_20.png
+[redis_vsphere_21]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_21.png
+[redis_vsphere_22]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_22.png
+[redis_vsphere_23]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_23.png
+[redis_vsphere_24]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_24.png
+[redis_vsphere_25]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_25.png
+[redis_vsphere_26]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_26.png
+[redis_vsphere_27]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_27.png
+[redis_vsphere_28]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_28.png
+[redis_vsphere_29]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_29.png
+[redis_vsphere_30]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_30.png
+[redis_vsphere_31]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_31.png
+[redis_vsphere_32]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_32.png
+[redis_vsphere_33]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_33.png
+[redis_vsphere_34]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_34.png
+[redis_vsphere_35]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_35.png
+[redis_vsphere_36]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_36.png
+[redis_vsphere_37]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_37.png
+[redis_vsphere_38]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_38.png
+[redis_vsphere_39]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_39.png
+[redis_vsphere_40]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_40.png
+[redis_vsphere_41]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_41.png
+[redis_vsphere_42]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_42.png
+[redis_vsphere_43]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_43.png
+[redis_vsphere_44]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_44.png
+[redis_vsphere_45]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_45.png
+[redis_vsphere_46]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_vsphere/redis_vsphere_46.png

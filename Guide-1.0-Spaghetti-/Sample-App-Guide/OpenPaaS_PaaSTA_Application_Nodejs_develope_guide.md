@@ -1,46 +1,20 @@
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 참고 자료](#4)
-2. [개발환경 구성](#5)
-     * [2.1. Node.js 및 npm 설치](#6)
-3. [개발](#7)
-     * [3.1. Node.js Express애플리케이션 생성](#8)
-     * [3.2. Node.js 샘플 애플리케이션](#9)
-     * [3.3. 애플리케이션 환경설정](#10)
-     * [3.4. VCAP_SERVICES 환경설정 정보](#11)
-     * [3.5. Mysql 연동](#12)
-     * [3.6. Cubrid 연동](#13)
-     * [3.7. MongoDB 연동](#14)
-     * [3.8. Redis 연동](#15)
-     * [3.9. RabbitMQ연동](#16)
-     * [3.10. GlusterFS 연동](#17)
-4. [배포](#18)
-     * [4.1. 개방형 플랫폼 로그인](#19)
-     * [4.2. 서비스 생성](#20)
-     * [4.3. 애플리케이션 배포](#21)
-     * [4.4. 애플리케이션, 서비스 연결](#22)
-     * [4.5. 애플리케이션 실행](#23)
-5. [테스트](#24)
+## OpenPaaS PaaSTA Application Nodejs develope guide
 
 
+#  1. 문서 개요
 
 
-# <div id='1'> 1. 문서 개요
-
-
-### <div id='2'> 1.1. 목적
+###  1.1. 목적
 
 본 문서(node.js 애플리케이션 개발 가이드)는 개방형 플랫폼 프로젝트의 서비스팩(Mysql, Cubrid, MongoDB, RabbitMQ, Radis, GlusterFS)을 Node.js 애플리케이션과 연동하여서비스를 사용하고 애플리케이션을 배포하는 방법에 대해 제시하는 문서이다.
 
 
-### <div id='3'> 1.2. 범위
+###  1.2. 범위
 
 본 문서의 범위는 개방형 플랫폼 프로젝트의 Node.js 애플리케이션 개발과 서비스팩 연동에 대한 내용으로 한정되어 있다.
 
 
-### <div id='4'> 1.3. 참고자료
+###  1.3. 참고자료
 **<https://docs.cloudfoundry.org/devguide/>**
 **<https://docs.cloudfoundry.org/buildpacks/node/node-tips.html>**
 **<https://nodejs.org/>**
@@ -54,7 +28,7 @@
 **<https://mochajs.org/>**
 
 
-# <div id='5'> 2. 개발환경 구성
+#  2. 개발환경 구성
 
 Open PaaS에 등록된 다양한 서비스팩을 Node.js언어로 작성된 애플리케이션과 바인딩하고해당 애플리케이션에 바인딩된 환경정보(VCAP_SERVICES)에서 각 서비스별 접속정보를 획득하여 애플리케이션에 적용하여 이용 할 수 있도록 Windows 환경에서 Node.js 애플리케이션을 작성 할 수 있도록한다.
 
@@ -66,7 +40,7 @@ Node.js 애플리케이션 개발을 위해 다음과 같은 환경으로 개발
 - npm : v2.10.1
 
 
-### <div id='6'> 2.1. Node.js 및 npm 설치
+###  2.1. Node.js 및 npm 설치
 
 ##### 1. Node.js 다운로드
 
@@ -125,12 +99,12 @@ Node.js 애플리케이션 개발을 위해 다음과 같은 환경으로 개발
 Node.js는 javascript기반의 언어로 Notepad++, Sublim Text, EditPlus등 문서편집기를 개발도구로 사용할 수 있다. 또한 Eclipse의 플러그인 Nodeclipse를 설치하여 사용할 수도있다.
 
 
-# <div id='7'> 3. 개발
+#  3. 개발
 
 샘플 애플리케이션에의 데이터 관리는 MySQL, CubridDB, MongoDB 중에 하나를 이용하기 때문에 API 요청시 요청 본문에 DBType 값을 가지고 결정한다.
 
 
-### <div id='8'> 3.1. Node.js Express애플리케이션 생성
+###  3.1. Node.js Express애플리케이션 생성
 ##### 1. 'express-generator'를 이용하여 Express 애플리케이션을 생성
 
 - 커맨드 창에서 개발을 진행할 경로로 이동후 아래의 명령어를 입력하여 'express-generator' npm을 설치한다.
@@ -164,7 +138,7 @@ Node.js는 javascript기반의 언어로 Notepad++, Sublim Text, EditPlus등 문
 ![2-3-1-4]
 
 
-### <div id='9'> 3.2. Node.js 샘플 애플리케이션
+###  3.2. Node.js 샘플 애플리케이션
 
 ##### 1. Node.js 샘플 애플리케이션 다운로드
 
@@ -247,7 +221,7 @@ Node.js는 javascript기반의 언어로 Notepad++, Sublim Text, EditPlus등 문
 </table>
 
 
-### <div id='10'> 3.3. 애플리케이션 환경설정
+###  3.3. 애플리케이션 환경설정
 
 이 샘플은 Node.js version 0.12.4, npm version 2.10.1.을 기준으로 각 모듈의 버전을 명시적으로 선택하여 설치하였다.
 package.json 수정(설정)시 설치된 Node.js의 버전에 맞는 모듈을 설치하는 것을 권장한다.
@@ -524,7 +498,7 @@ app.delete('/orgs/:org_id/mysql', orgs_mysql.destroy);
 ```
 
 
-### <div id='11'> 3.4. VCAP_SERVICES 환경설정 정보
+###  3.4. VCAP_SERVICES 환경설정 정보
 개방형 플랫폼에 배포되는 애플리케이션이 바인딩된서비스별 접속 정보를 얻기 위해서는 애플리케이션별로 등록되어있는 VCAP_SERVICES 환경설정 정보를 읽어들여정보를 획득 할 수 있다.
 
 1)  개방형 플랫폼의 애플리케이션 환경정보
@@ -564,7 +538,7 @@ process.env.VCAP_SERVICES
 ```
 
 
-### <div id='12'> 3.5. Mysql 연동
+###  3.5. Mysql 연동
 1)  ./route/db/mysql/db_pooling.js
 - 개방형 플랫폼의 애플리케이션 환경정보에 접근하여 mysql Connection Pool을 생성
 ```javascript
@@ -634,7 +608,7 @@ module.exports = pooling;
 ```
 
 
-### <div id='13'> 3.6. Cubrid 연동
+###  3.6. Cubrid 연동
 1)  ./route/db/cubrid/db_pooling.js
 - 개방형 플랫폼의 애플리케이션 환경정보에 접근하여 cubrid Connection Pool을 생성
 
@@ -707,7 +681,7 @@ process.on("exit", function(){
 module.exports = pooling;
 ```
 
-### <div id='14'> 3.7. MongoDB 연동
+###  3.7. MongoDB 연동
 1)  ./route/db/mongo/db_pooling.js
 - 개방형 플랫폼의 애플리케이션 환경정보에 접근하여 mongodb Connection Pool을 생성
 
@@ -762,7 +736,7 @@ module.exports = pooling;
 ```
 
 
-### <div id='15'> 3.8. Redis 연동
+###  3.8. Redis 연동
 1)  ./route/redis/redis.js
 - 개방형 플랫폼의 애플리케이션 환경정보에 접근하여 redis Connection을 생성
 
@@ -809,7 +783,7 @@ exports.close = function(){
 ```
 
 
-### <div id='16'> 3.9. RabbitMQ연동
+###  3.9. RabbitMQ연동
 1)  ./route/rabbitMQ/rabbitMQ.js
 - 개방형 플랫폼의 애플리케이션 환경정보에 접근하여 rabbirMQ Connection을 생성
 
@@ -849,7 +823,7 @@ exports.close = function(){
 */
 ```
 
-### <div id='17'> 3.10. GlusterFS 연동
+###  3.10. GlusterFS 연동
 1)  ./route/glusterfs/glusterfs.js
 - 개방형 플랫폼의 애플리케이션 환경정보에 접근하여 glusterfs Connection을 생성
 
@@ -939,12 +913,12 @@ module.exports = client;
 ```
 
 
-# <div id='18'> 4. 배포
+#  4. 배포
 
 개방형 플랫폼에 애플리케이션을 배포하면 배포한 애플리케이션과 개방형 플랫폼이 제공하는 서비스를 연결하여 사용할 수 있다. 개방형 플랫폼상에서 실행을 해야만 개방형 플랫폼의 애플리케이션 환경변수에 접근하여 서비스에 접속할 수 있다.
 
 
-### <div id='19'> 4.1.  개방형 플랫폼 로그인
+###  4.1.  개방형 플랫폼 로그인
 
 아래의 과정을 수행하기 위해서 개방형 플랫폼에 로그인
 
@@ -955,7 +929,7 @@ module.exports = client;
 ![2-4-1-0]
 
 
-### <div id='20'> 4.2.  서비스 생성
+###  4.2.  서비스 생성
 애플리케이션에서 사용할 서비스를 개방형 플랫폼을 통하여 생성한다. 별도의 서비스 설치과정 없이 생성할 수 있으며, 애플리케이션과 바인딩과정을 통해 접속정보를 얻을 수있다.
 - 서비스 생성 (cf marketplace 명령을 통해 서비스 목록과 각 서비스의 플랜을 조회할 수 있다.
 
@@ -969,7 +943,7 @@ module.exports = client;
 ![2-4-2-0]
 
 
-### <div id='21'> 4.3. 애플리케이션 배포
+###  4.3. 애플리케이션 배포
 
 애플리케이션을 개방형 플랫폼에 배포한다. 배포된 애플리케이션은 생성된 서비스와 바인드하여 서비스를 사용할 수 있다.
 
@@ -1038,7 +1012,7 @@ ON DELETE CASCADE;
 ![2-4-3-0]
 
 
-### <div id='22'> 4.4. 애플리케이션, 서비스 연결
+###  4.4. 애플리케이션, 서비스 연결
 
 애플리케이션과 서비스를 연결하는 과정을 '바인드(bind)라고 하며, 이 과정을 통해 서비스에 접근할 수 있는 접속정보를 생성한다.
 
@@ -1059,7 +1033,7 @@ ON DELETE CASCADE;
 ![2-4-4-1]
 
 
-### <div id='23'> 4.5. 애플리케이션 실행
+###  4.5. 애플리케이션 실행
 
 서비스 바인드 과정을 통해 생성된 접속정보 환경변수를 가지고 어플리케이션이 실행된다.
 
@@ -1067,7 +1041,7 @@ ON DELETE CASCADE;
 ![2-4-5-0]
 
 
-# <div id='24'> 5. 테스트
+#  5. 테스트
 
 샘플 어플리케이션은 REST 서비스로 구현되어있으며 REST 테스트를 위해서 mocha 모듈을 사용하였다. 테스트를 진행하기 위해서는 mocha 모듈을 포함한 package.json 안의 모듈들이 설치 되어 있어야한다. (npm install)
 
@@ -1094,28 +1068,28 @@ test:
 ><div>$ make test
 ![2-5-0-0]
 
-[2-2-1-0]:/Sample-App-Guide/image/nodejs/2-2-1-0.png
-[2-2-1-1]:/Sample-App-Guide/image/nodejs/2-2-1-1.png
-[2-2-1-2]:/Sample-App-Guide/image/nodejs/2-2-1-2.png
-[2-2-1-3]:/Sample-App-Guide/image/nodejs/2-2-1-3.png
-[2-2-1-4]:/Sample-App-Guide/image/nodejs/2-2-1-4.png
-[2-2-1-5]:/Sample-App-Guide/image/nodejs/2-2-1-5.png
-[2-2-1-6]:/Sample-App-Guide/image/nodejs/2-2-1-6.png
-[2-2-1-7]:/Sample-App-Guide/image/nodejs/2-2-1-7.png
-[2-2-1-8]:/Sample-App-Guide/image/nodejs/2-2-1-8.png
-[2-2-1-9]:/Sample-App-Guide/image/nodejs/2-2-1-9.png
-[2-2-1-10]:/Sample-App-Guide/image/nodejs/2-2-1-10.png
-[2-3-1-0]:/Sample-App-Guide/image/nodejs/2-3-1-0.png
-[2-3-1-1]:/Sample-App-Guide/image/nodejs/2-3-1-1.png
-[2-3-1-2]:/Sample-App-Guide/image/nodejs/2-3-1-2.png
-[2-3-1-3]:/Sample-App-Guide/image/nodejs/2-3-1-3.png
-[2-3-1-4]:/Sample-App-Guide/image/nodejs/2-3-1-4.png
-[2-3-2-0]:/Sample-App-Guide/image/nodejs/2-3-2-0.png
-[2-3-2-1]:/Sample-App-Guide/image/nodejs/2-3-2-1.png
-[2-4-1-0]:/Sample-App-Guide/image/nodejs/2-4-1-0.png
-[2-4-2-0]:/Sample-App-Guide/image/nodejs/2-4-2-0.png
-[2-4-3-0]:/Sample-App-Guide/image/nodejs/2-4-3-0.png
-[2-4-4-0]:/Sample-App-Guide/image/nodejs/2-4-4-0.png
-[2-4-4-1]:/Sample-App-Guide/image/nodejs/2-4-4-1.png
-[2-4-5-0]:/Sample-App-Guide/image/nodejs/2-4-5-0.png
-[2-5-0-0]:/Sample-App-Guide/image/nodejs/2-5-0-0.png
+[2-2-1-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-0.png
+[2-2-1-1]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-1.png
+[2-2-1-2]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-2.png
+[2-2-1-3]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-3.png
+[2-2-1-4]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-4.png
+[2-2-1-5]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-5.png
+[2-2-1-6]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-6.png
+[2-2-1-7]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-7.png
+[2-2-1-8]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-8.png
+[2-2-1-9]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-9.png
+[2-2-1-10]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-2-1-10.png
+[2-3-1-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-3-1-0.png
+[2-3-1-1]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-3-1-1.png
+[2-3-1-2]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-3-1-2.png
+[2-3-1-3]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-3-1-3.png
+[2-3-1-4]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-3-1-4.png
+[2-3-2-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-3-2-0.png
+[2-3-2-1]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-3-2-1.png
+[2-4-1-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-4-1-0.png
+[2-4-2-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-4-2-0.png
+[2-4-3-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-4-3-0.png
+[2-4-4-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-4-4-0.png
+[2-4-4-1]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-4-4-1.png
+[2-4-5-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-4-5-0.png
+[2-5-0-0]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/nodejs/2-5-0-0.png

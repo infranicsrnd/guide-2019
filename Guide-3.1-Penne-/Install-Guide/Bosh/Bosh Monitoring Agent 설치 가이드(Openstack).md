@@ -8,11 +8,11 @@
      * [2.2.  manifest 파일 설정](#7)
      * [2.3.  Bosh 배포](#8)
 
-<div id='1'></div>
+
 
 # 1. 문서 개요
 
-<div id='2'></div>
+
 
 ### 1.1. 목적
 
@@ -20,19 +20,19 @@
 
 <kbd>![1-1-1]</kbd>
 
-<div id='3'></div>
+
 
 ### 1.2. 범위
 
 본 문서는 Openstack 기반에 설치하기 위한 내용으로 한정되어 있다.
 
-<div id='4'></div>
+
 
 ### 1.3. 참고  
       
 > <a style="text-decoration:underline" href="https://github.com/PaaS-TA/Guide-3.0-Penne-/blob/master/Install-Guide/monitoring/PaaS-TA%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EC%B9%98%EA%B0%80%EC%9D%B4%EB%93%9C.md">모니터링 시스템 Architecutre</a>
 
-<div id='5'></div>
+
 
 # 2.  Bosh 배포
 
@@ -55,7 +55,7 @@ Bosh를 설치 하기 위해서는 bosh-init이 PaaS 서비스 설치환경에 �
 
 본 장에서는 Bosh를 배포하는 방법에 대해서 기술하였다. PaaS-TA 2.0 에서는 Bosh Monitoring Agent를 수동으로 배포 하였으나 PaaS-TA3.0에서는 Bosh Deploy명령으로 Bosh Monitoring Agent를 자동 배포 할 수 있다.
 
-<div id='6'></div>
+
 
 ### 2.1.  download "Bosh Agent"
 
@@ -67,7 +67,7 @@ Bosh를 설치 하기 위해서는 bosh-init이 PaaS 서비스 설치환경에 �
 >bosh-monitoring-agent-1.2.tgz 파일을 확인한다. <br>
 ~/workspace/bosh-agent 디렉토리로 이동한다. <br>
 
-<div id='7'></div>
+
 
 ### 2.2.  manifest 파일 설정
 
@@ -254,7 +254,7 @@ cloud_provider:
     ntp: *ntp
 ```
 
-<div id='8'></div>
+
 
 ### 3.4.  Bosh 배포
 

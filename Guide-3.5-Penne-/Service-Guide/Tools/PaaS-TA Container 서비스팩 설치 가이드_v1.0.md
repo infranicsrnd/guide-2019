@@ -1,35 +1,17 @@
-## Table of Contents
+## PaaS-TA Container 서비스팩 설치 가이드_v1.0
+#  1. 문서 개요
 
-[1. 문서 개요](#1)
-
-  -  [1.1. 목적](#11)
-  -  [1.2. 범위](#12)
-  -  [1.3. 시스템 구성도](#13)
-  -  [1.4. 참고 자료](#14)
-
-[2. Container 서비스팩 설치](#2)
-
-  -  [2.1. 설치 전 준비사항](#21)
-  -  [2.1.1. Deployment 및 Release 파일 다운로드](#211)
-  -  [2.2. Stemcell 업로드](#22)
-  -  [2.3. Container 서비스 릴리즈 Deployment 파일 수정 및 배포](#23)
-  -  [2.4. Container 서비스 브로커 등록](#24)
-  -  [2.5. Container 서비스 UAA Client Id 등록](#25)
-  -  [2.6. Container 서비스 Private image Repository 설정 (Optional)](#26)
-
-# <div id='1'/> 1. 문서 개요
-
-### <div id='11'/> 1.1. 목적
+###  1.1. 목적
 본 문서(Container 서비스팩 설치 가이드)는 개방형 PaaS 플랫폼 고도화 및 개발자 지원 환경 기반의 Open PaaS에서 제공되는 서비스팩인 Container 서비스팩을 Bosh를 이용하여 설치 및 서비스 등록하는 방법을 기술하였다.
 
 PaaS-TA 3.5 버전부터는 Bosh 2.0 기반으로 배포(deploy)를 진행한다. 기존 Bosh 1.0 기반으로 설치를 원할 경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
 
-### <div id='12'/> 1.2. 범위
+###  1.2. 범위
 설치 범위는 Container 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
 
-### <div id='13'/> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도이다. Container 서비스 Server, Container 서비스 브로커로 최소사항을 구성하였다.
 
 ![Architecture]
@@ -100,14 +82,14 @@ PaaS-TA 3.5 버전부터는 Bosh 2.0 기반으로 배포(deploy)를 진행한다
   </tr>
 </table>
 
-### <div id='14'/> 1.4. 참고 자료
+###  1.4. 참고 자료
 >http://bosh.io/docs
 http://docs.cloudfoundry.org
 
 
-# <div id='2'/> 2. Container 서비스팩 설치
+#  2. Container 서비스팩 설치
 
-### <div id='21'/> 2.1. 설치 전 준비사항
+###  2.1. 설치 전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2가 설치되어 있어야 하고 BOSH에 로그인이 되어 있어야 한다.<br>
 BOSH CLI v2가 설치 되어 있지 않을 경우, 먼저 BOSH 2.0 설치 가이드 문서를 참고하여 BOSH CLI v2를 설치를 하고 사용법을 숙지해야한다.<br>
@@ -118,7 +100,7 @@ BOSH CLI v2가 설치 되어 있지 않을 경우, 먼저 BOSH 2.0 설치 가이
   >BOSH CLI V2 사용자 가이드 : <https://github.com/PaaS-TA/Guide-3.0-Penne-/blob/v3.5/Use-Guide/Bosh/PaaS-TA_BOSH_CLI_V2_사용자_가이드v1.0.md>
 
 
-#### <div id='211'/> 2.1.1. Deployment 및 Release 파일 다운로드
+####  2.1.1. Deployment 및 Release 파일 다운로드
 
 Container 서비스 설치에 필요한 Deployment 및 릴리즈 파일을 다운로드 받아 서비스 설치 작업 경로로 위치시킨다.
 
@@ -150,7 +132,7 @@ $ mkdir -p ~/workspace/paasta-4.0/release/service
 -	Release 파일을 다운로드 받아 ~/workspace/paasta-4.0/release/service 이하 디렉토리에 이동한다.
 
 
-### <div id='22'/> 2.2. Stemcell 업로드
+###  2.2. Stemcell 업로드
 
 - Deploy시 사용할 Stemcell을 확인한다.
   >Stemcell 목록이 존재 하지 않을 경우, BOSH 설치 가이드 문서를 참고하여 Stemcell을 업로드를 해야 한다. (Stemcell 3586.26 버전 사용, PaaSTA-Stemcell.zip)
@@ -177,7 +159,7 @@ Succeeded
 ```
 
 
-### <div id='23'/> 2.3. Container 서비스 릴리즈 Deployment 파일 수정 및 배포
+###  2.3. Container 서비스 릴리즈 Deployment 파일 수정 및 배포
 BOSH Deployment manifest는 Components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 
 Deployment 파일에서 사용하는 network, vm_type 등은 Cloud config를 활용하고 해당 가이드는 BOSH 2.0 가이드를 참고한다.
@@ -2136,7 +2118,7 @@ Succeeded
 ```
 
 
-### <div id='24'/> 2.4. Container 서비스 브로커 등록
+###  2.4. Container 서비스 브로커 등록
 Container 서비스팩 배포가 완료되었으면 PaaS-TA 포탈에서 서비스 팩을 사용하기 위해서 먼저 Container 서비스 브로커를 등록해 주어야 한다. 서비스 브로커 등록 시 개방형 클라우드 플랫폼에서 서비스 브로커를 등록할 수 있는 사용자로 로그인이 되어있어야 한다.
 
 - 서비스 브로커 목록을 확인한다.
@@ -2217,7 +2199,7 @@ broker: delivery-pipeline-service-broker
 ```
 
 
-### <div id='25'/> 2.5. Container 서비스 UAA Client Id 등록
+###  2.5. Container 서비스 UAA Client Id 등록
 UAA 포털 계정 등록 절차에 대한 순서를 확인한다.
 
 - Container 서비스 대시보드에 접근이 가능한 IP를 알기 위해 **haproxy IP** 를 확인한다.
@@ -2300,7 +2282,7 @@ $ uaac client add caasclient -s clientsecret --redirect_uri "http://localhost:80
 $ uaac client update caasclient --redirect_uri="http://54.180.13.40:8091 http://115.68.151.177:8091 http://localhost:8091 http://115.68.47.179:8091 http://115.68.47.176:8091
 ```
 
-### <div id='26'/> 2.6. Container 서비스 Private Image Repository 설정 (Optional)
+###  2.6. Container 서비스 Private Image Repository 설정 (Optional)
 
 해당 설정은 Container 서비스에서 설치된 Private Image Repository에 저장된 Image를 참조하기 위해
 각 Work Node Host의 Private Image Repository와 Docker 간의 액세스를 위한 설정이다.

@@ -1,77 +1,33 @@
-## Table of Contents
-
-1. [개요](#1)	
-	-	[1.1. 문서 개요](#1-1)  
-		-	[1.1.1.	목적](#1-1-1)  
-		-	[1.1.2.	범위](#1-1-2)  
-		-	[1.1.3.	참고 자료](#1-1-3)  
-
-2. [python 애플리케이션개발가이드](#2)  
-
-	-	[2.1. 개요](#2-1)  
-	-	[2.2. 개발환경 구성](#2-2)  
-		-	[2.2.1.	python 설치](#2-2-1)  
-		-	[2.2.2.	python 가상환경 구성](#2-2-2)  
-		-	[2.2.3.	Django 설치](#2-2-3)  
-
-	-	[2.3. 개발](#2-3)  
-		-	[2.3.1.	django 애플리케이션 생성](#2-3-1)  
-		-	[2.3.2.	애플리케이션 환경설정](#2-3-2)  
-		-	[2.3.3.	VCAP_SERVICES 환경설정 정보](#2-3-3)  
-		-	[2.3.4.	Mysql 연동](#2-3-4)  
-		-	[2.3.5.	Cubrid 연동](#2-3-5)  
-		-	[2.3.6.	MongoDB 연동](#2-3-6)  
-		-	[2.3.7.	Redis 연동](#2-7-7)  
-		-	[2.3.8.	RabbitMQ연동](#2-3-8)  
-		-	[2.3.9.	GlusterFS 연동](#2-3-9)  
-
-	-	[2.4. 배포](#2-4) 
-	-	-	[2.4.1. 완성된 샘플 애플리케이션 다운로드](#2-4-1)
-		-	[2.4.2.	개방형 클라우드 플랫폼 로그인](#2-4-2) 
-		-	[2.4.3.	서비스 생성](#2-4-3) 
-		-	[2.4.4.	애플리케이션 배포](#2-4-4) 
-		-	[2.4.5.	서비스 바인드](#2-4-5) 
-		-	[2.4.6.	애플리케이션 실행](#2-4-6) 
-
-	-	[2.5. 테스트](#2-5)  
-	
-3.	[부록](#3)  
-	-	[3.1. 이클립스 개발환경 설정](#3-1)  
-	-	[3.2. 이클립스 python 설정](#3-2)  
-		-	[3.2.1.	PyDev 설치](#3-2-1)  
-		-	[3.2.2.	python 설정](#3-2-2)  
-		-	[3.2.3.	django 프로젝트 생성](#3-2-3)  
-		-	[3.2.4.	django 애플리케이션 생성](#3-2-4)  
+## OpenPaaS PaaSTA Application Python develope guide
 
 
-<div id='1'></div>
 #1. 개요
-<div id='1-1'></div>
+
 ##1.1. 문서 개요  
 
-<div id='1-1-1'></div>
+
 #####1.1.1 목적  
 본 문서(python 애플리케이션 개발 가이드)는 Open PaaS프로젝트의 서비스팩(Mysql, Cubrid, MongoDB, RabbitMQ, Radis, GlusterFS)을 python 애플리케이션과 연동하여서비스를 사용하고 애플리케이션을 배포하는 방법에 대해 제시하는 문서이다.
 
-<div id='1-1-2'></div>  
+  
 #####1.1.2 범위  
 본 문서의 범위는 Open PaaS 프로젝트의 python 애플리케이션 개발과 서비스팩 연동에 대한 내용으로 한정한다.
 
-<div id='1-1-3'></div>  
+  
 #####1.1.3 참고 자료  
 [**http://docs.run.pivotal.io/buildpacks/python/index.html**](http://docs.run.pivotal.io/buildpacks/python/index.html) <br>
 [**http://www.cubrid.com/manual/93/api/python.html**](http://www.cubrid.com/manual/93/api/python.html) <br>
 [**https://docs.djangoproject.com/en/1.9/intro/tutorial01**](https://docs.djangoproject.com/en/1.9/intro/tutorial01) <br>
 [**http://pythontips.com/**](http://pythontips.com/) <br>
 
-<div id='2'></div>
+
 #2.python 애플리케이션개발가이드  
 
-<div id='2-1'></div>
+
 ##2.1.	개요
 Open PaaS에 등록된 다양한 서비스팩을 python 언어로 작성된 애플리케이션과 바인딩하고 해당 애플리케이션에 바인딩 된 환경정보(VCAP_SERVICES)에서 각 서비스별 접속정보를 획득하여 애플리케이션에 적용하여 이용 할 수 있도록 Windows 환경에서 python 애플리케이션을 작성할 수 있도록 한다. 
 
-<div id='2-2'></div>  
+  
 ##2.2.	개발환경 구성  
 python 샘플 애플리케이션 개발이 이루어진 환경은 다음과 같다..
 
@@ -79,7 +35,7 @@ python 샘플 애플리케이션 개발이 이루어진 환경은 다음과 같�
 * python : 2.7.10
 * Framwork : Django 1.8.6   
 
-<div id='2-2-1'></div>  
+  
 #####2.2.1 python 설치
 
 * python 2.7.10 다운로드 
@@ -133,7 +89,7 @@ Windows x86-64 MSI installer
 
 ` easy_install pip` 
 
- <div id='2-2-2'><div>
+ 
 #####2-2-2. python 가상환경 구성
 
  독립된 python 개발환경을 구성하기 위하여 python 가상환경 생성도구인 virtualenv를 설치하여 이용한다. 가상환경에서 패키지 설치를 진행한다. 가상환경 구성은 사용자의 필요에 따라 생략될 수 있다.
@@ -172,7 +128,7 @@ Windows x86-64 MSI installer
 
 ![python-7]
 
-<div id='2-2-3'></div>
+
 #####2.2.3. Django 설치
  샘플 어플리케이션은 Django framework를 적용하여 개발되었기 때문에, 어플리케이션 생성을 위해 Django를 설치 한다. 설치하는 django의 버전은 1.8.6 버전이다. pip를 사용하여 django를 설치한다.
 
@@ -182,7 +138,7 @@ Windows x86-64 MSI installer
 
  ※ 가상환경에 장고를 설치하고자 하는 사용자는 가상환경을 실행시킨 상태에서 명령어를 입력한다.
 
-<div id='2-2'></div>
+
 ##2.3. 개발
 샘플 애플리케이션의 데이터 관리는 MySQL, CubridDB, MongoDB 중 하나를 이용하기 때문에 API 요청시 요청 본문의 DBType 값을 가지고 결정한다.
 
@@ -192,7 +148,7 @@ Windows x86-64 MSI installer
 Sample-App: [http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW](http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW)
 
 
-<div id='2-3-1'></div>
+
 #####2.3.1. django 애플리케이션 생성
 
 * django 프로젝트 생성 
@@ -272,7 +228,7 @@ Sample-App: [http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW](http://extdi
 	</tr>
 </table>
 
-<div id='2-3-2'></div>
+
 #####2.3.2. 애플리케이션 환경설정
 
  django 애플리케이션에서 환경설정은 settings 모듈에 정의하도록 되어 있다. settings 모듈은 [2.3.1.1. django 프로젝트 생성](#2-3-3-1)에서 프로젝트 생성을 통해 자동 생성된 my_sampleproject 디렉토리의 settings.py 파일을 의미한다. 샘플어플리케이션에서 사용하는 패키지를 django 애플리케이션에서 사용하기 위해서는 이 settings 모듈에 설정을 추가하거나 수정하여야 한다. 하단에 settings 모듈에서 추가 또는 수정하여야 하는 부분을 설명과 함께 기술한다.
@@ -338,7 +294,7 @@ WhiteNoise를 사용할 수 있도록 wsgi 모듈을 수정한다.
 +application = DjangoWhiteNoise(get_wsgi_application())
 ```
 
-<div id='2-3-3'></div>
+
 #####2.3.3. VCAP_SERVICES 환경설정 정보 
 
 개방형 플랫폼에 배포되는 애플리케이션이 바인딩 된 각각의 서비스의 접속 정보를 얻기 위해서는 각각의 애플리케이션에 등록되어있는 VCAP_SERVICES 환경설정 정보를 읽어 들여 정보를 획득 해야 한다.
@@ -382,7 +338,7 @@ WhiteNoise를 사용할 수 있도록 wsgi 모듈을 수정한다.
 (이하 생략)
 ```
 
-<div id='2-3-4'></div>
+
 #####2.3.4. Mysql 연동
  
  각 서비스에 대한 VCAP_SERVICES 환경설정 정보는 settings 모듈에서 획득할 수 있다. settings 모듈은 [2.3.1.1. django 프로젝트 생성]에서 프로젝트 생성시 자동으로 생성된다. MySQL의 경우는 MySQL-python 드라이버가 django 연동을 지원하기 때문에 settings 모듈의 DATABASES 정보가 정의된 부분을 찾아 다음과 같이 수정함으로써 연동이 가능하다.
@@ -430,7 +386,7 @@ def make_connection():
     return cursor
 ```
 
-<div id='2-3-5'></div>
+
 #####2.3.5. Cubrid 연동
 
  각 서비스에 대한 VCAP_SERVICES 환경설정 정보는 settings 모듈에서 획득할 수 있다. settings 모듈은 [2.3.1.1. django 프로젝트 생성](#2-3-1-1) 에서 프로젝트 생성시 자동으로 생성된다. CUBRID-Python 드라이버는 django 연동을 지원하지 않기 때문에 settings 모듈에서 VCAP_SERVICES 환경설정 정보의 credentials 정보를 cubrid_views 모듈에서 읽어와 connection을 생성한다.
@@ -469,7 +425,7 @@ def make_connection():
 
 ```
 
-<div id='2-3-6'></div>
+
 #####2.3.6. MongoDB 연동
 
  각 서비스에 대한 VCAP_SERVICES 환경설정 정보는 settings 모듈에서 획득할 수 있다. settings 모듈은 [2.3.1.1. django 프로젝트 생성]에서 프로젝트 생성시 자동으로 생성된다. pymongo 드라이버는 django 연동을 지원하지 않기 때문에 settings 모듈에서 획득한 VCAP_SERVICES 환경설정 정보의 credentials 정보를 mongo_views 모듈에서 읽어와 db를 생성한다.
@@ -507,7 +463,7 @@ def make_connection():
         return db
 ```
 
-<div id='2-3-7'></div>
+
 #####2.3.7. Redis 연동
 
  각 서비스에 대한 VCAP_SERVICES 환경설정 정보는 settings 모듈에서 획득할 수 있다. settings 모듈은 [2.3.1.1. django 프로젝트 생성]에서 프로젝트 생성시 자동으로 생성된다. redis의 경우는 django-redis-cache 드라이버가 django 연동을 지원하기 때문에 settings 모듈의 CACHES 정보가 정의된 부분을 찾아 다음과 같이 수정함으로써 연동이 가능하다.
@@ -553,7 +509,7 @@ cache.set('key값','value값')
 cache.delete('key값')
 ```
 
-<div id='2-3-8'></div>
+
 #####2.3.8. RabbitMQ연동
 
  각 서비스에 대한 VCAP_SERVICES 환경설정 정보는 settings 모듈에서 획득할 수 있다. settings 모듈은 [2.3.1.1. django 프로젝트 생성](#2-3-1-1)에서 프로젝트 생성시 자동으로 생성된다. settings 모듈에서 획득한 VCAP_SERVICES 환경설정 정보의 credentials 정보를 rabbitmq_views 모듈에서 읽어와 connection을 생성한다.
@@ -593,7 +549,7 @@ def make_connection():
         return connection
 ```
 
-<div id='2-3-9'></div>
+
 #####2.3.9. GlusterFS 연동 
 
 각 서비스에 대한 VCAP_SERVICES 환경설정 정보는 settings 모듈에서 획득할 수 있다. settings 모듈은 [2.3.1.1. django 프로젝트 생성]에서 프로젝트 생성시 자동으로 생성된다. settings 모듈에서 획득한 VCAP_SERVICES 환경설정 정보의 credentials 정보를 gluster_views 모듈에서 읽어와 connection을 생성한다.
@@ -639,17 +595,17 @@ def make_connection():
         return connection
 ```
 
-<div id='2-4'></div>
+
 ##2.4. 배포
 
  개발 완료된 애플리케이션을 개방형 클라우드 플랫폼에 배포하는 방법을 기술한다. 배포과정은 개방형 클라우드 플랫폼 로그인, 서비스 생성, 애플리케이션 배포, 서비스 바인드, 애플리케이션 실행의 과정으로 이루어져 있다.
 
-<div id='2-4-1'></div>
+
 #####2.4.1. 완성된 샘플 애플리케이션 다운로드
 [2.3. 개발]에서 설명한 애플리케이션 개발 과정을 거쳐 완성된 샘플 애플리케이션을 다음의 위치에서 다운로드 할 수 있다. 하단의 링크에서 python-sample-app 디렉토리 전체를 다운로드하면 이미 완성된 샘플 애플리케이션을 이용하여 [2.4. 배포] 과정을 진행 할 수 있다. 
 Sample-App: [http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW](http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW)
 
-<div id='2-4-2'></div>
+
 #####2.4.2. 개방형 클라우드 플랫폼 로그인
 
  애플리케이션 배포과정을 진행하기 위해 개방형 클라우드 플랫폼의 사용자 계정으로 로그인한다.
@@ -665,7 +621,7 @@ Sample-App: [http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW](http://extdi
 
 `$ cf login -u testUser -o sample_test -s sample_space`
 
-<div id='2-4-3'></div>
+
 #####2.4.3. 서비스 생성
 
  서비스 생성은 개방형 클라우드 플랫폼에서 제공하는 서비스에 대해서 사용자가 서비스 인스턴스를 생성하는 과정이다. 개방형 클라우드 플랫폼에서 제공하지 않는 서비스에 대해서는 서비스 생성이 불가능하며, 서비스 제공 여부는 플랫폼 관리자(운영자)가 결정한다.
@@ -692,7 +648,7 @@ Sample-App: [http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW](http://extdi
 
  ※cf create-service 명령어는 서비스명, 플랜, 서비스 인스턴스명을 순서대로 입력하게 되어 있다. 서비스명과 플랜은 cf marketplace 명령어를 통해 확인하고, 서비스 인스턴스명은 임의의 명칭을 사용한다.
 
-<div id='2-4-4'></div>
+
 #####2.4.4. 애플리케이션 배포
 
 * requirements.txt 생성
@@ -772,7 +728,7 @@ applications:
 
 `cf push --no-start`
 
-<div id='2-4-5'></div>
+
 #####2.4.5. 서비스 바인드
 
 [2.4.3. 서비스 생성](#2-4-3)에서 생성한 서비스와 [2.4.4. 애플리케이션 배포](#2-4-4)에서 배포한 애플리케이션을 연결하는 것을 서비스 바인드(bind)라고 한다. 서비스 바인드를 통해서 애플리케이션은 서비스에 접근할 수 있는 VCAP_SERVICES 환경설정 정보를 얻을 수 있게 되고 이는 [2.3.3. VCAP_SERVICES 환경설정 정보](#2-3-3)에서 확인할 수 있다. 
@@ -789,7 +745,7 @@ $ cf bind-service python-sample-app python-rabbitmq
 
  ※ cf bind-service 명령어는 바인드할 애플리케이션명과 서비스 인스턴스명을 순서대로 입력하여 사용한다. 이때 '-c' 옵션을 이용해 애플리케이션의 VCAP_SERVICES 환경설정 정보에 추가적인 정보를 담을 수 있다. 
 
-<div id='2-4-6'></div>
+
 #####2.4.6. 애플리케이션 실행
 
 서비스 바인드가 완료되었다면 애플리케이션을 정상적으로 실행시킬 수 있다. 애플리케이션 실행 명령어는 다음과 같다.
@@ -798,7 +754,7 @@ $ cf bind-service python-sample-app python-rabbitmq
 
  ※MySQL과 Cubrid 서비스는 사용자가 직접 DB에 접속하여 테이블을 먼저 생성해야 사용이 가능하다.
 
-<div id='2-5'></div>
+
 ###2.5.	테스트 
 
  python 샘플 애플리케이션은 REST 서비스로 구현되어 있으며, REST 테스트를 위해 python에 기본적으로 내장된 모듈인 unittest 모듈을 사용한다. django의 테스트 기능이 있지만, 샘플 애플리케이션에서 사용하기에는 적절하지 않아 tests 모듈을 생성하여 REST 테스트를 진행하였다. 추가적으로 테스트 결과를 html파일로 저장하기 위해 nose-html-report를 설치하였다.
@@ -832,10 +788,10 @@ $ cf bind-service python-sample-app python-rabbitmq
 ![python-14]
 ![python-15]
 
-<div id='3'></div>
+
 #3. 부록
 
-<div id='3-1'></div>
+
 ##3.1.	이클립스 개발환경 설정
 
  본 장은 본 문서의 [2.3. 개발] 과정에서 이클립스(eclipse)를 개발 도구로 사용할 수 있도록 안내한다. 본 장은 사용자가 본 문서의 [2.2.3. Django 설치]까지 완료하였음을 전제로 기술된다.
@@ -856,10 +812,10 @@ $ cf bind-service python-sample-app python-rabbitmq
 
 다운로드가 완료되면 압축을 풀고 이클립스를 실행한다.
 
-<div id='3-2'></div>
+
 ##3.2.	이클립스 python 설정
 
-<div id='3-2-1'></div>
+
 #####3.2.1.PyDev 설치
 
  PyDev는 이클립스에서 python 개발을 가능하게 하는 이클립스 플러그인이다. 
@@ -900,7 +856,7 @@ $ cf bind-service python-sample-app python-rabbitmq
 ![python-23]
  
 
-<div id='3-2-2'></div>
+
 #####3.2.2. python 설정
 
 
@@ -934,7 +890,7 @@ $ cf bind-service python-sample-app python-rabbitmq
 
 인터프리터를 추가했다면 'ok' 버튼을 눌러 설정을 완료한다. 
 
-<div id='3-2-3'></div>
+
 #####3.2.3. django 프로젝트 생성
  
 ![python-30]
@@ -953,7 +909,7 @@ $ cf bind-service python-sample-app python-rabbitmq
 
  샘플 애플리케이션에서는 django의 ORM(객체 관계 매핑) 기능을 사용하지 않기 때문에 Database 설정을 하지 않는다. 그림처럼 기존의 값을 삭제하고 'Finish'버튼을 눌러 프로젝트 생성을 완료한다.
 
-<div id=3-2-4>
+
 3.2.4.	django 애플리케이션 생성
 </div>
 
@@ -970,38 +926,38 @@ $ cf bind-service python-sample-app python-rabbitmq
 
 
 
-[python-2]:/Sample-App-Guide/image/python/image2.png
-[python-3]:/Sample-App-Guide/image/python/image3.png
-[python-4]:/Sample-App-Guide/image/python/image4.png
-[python-5]:/Sample-App-Guide/image/python/image5.png
-[python-6]:/Sample-App-Guide/image/python/image6.png
-[python-7]:/Sample-App-Guide/image/python/image7.png
-[python-8]:/Sample-App-Guide/image/python/image8.png
-[python-9]:/Sample-App-Guide/image/python/image9.png
-[python-10]:/Sample-App-Guide/image/python/image10.png
-[python-11]:/Sample-App-Guide/image/python/image11.png
-[python-12]:/Sample-App-Guide/image/python/image12.png
-[python-13]:/Sample-App-Guide/image/python/image13.png
-[python-14]:/Sample-App-Guide/image/python/image14.png
-[python-15]:/Sample-App-Guide/image/python/image15.png
-[python-16]:/Sample-App-Guide/image/python/image16.png
-[python-17]:/Sample-App-Guide/image/python/image17.png
-[python-18]:/Sample-App-Guide/image/python/image18.png
-[python-19]:/Sample-App-Guide/image/python/image19.png
-[python-20]:/Sample-App-Guide/image/python/image20.png
-[python-21]:/Sample-App-Guide/image/python/image21.png
-[python-22]:/Sample-App-Guide/image/python/image22.png
-[python-23]:/Sample-App-Guide/image/python/image23.png
-[python-24]:/Sample-App-Guide/image/python/image24.png
-[python-25]:/Sample-App-Guide/image/python/image25.png
-[python-26]:/Sample-App-Guide/image/python/image26.png
-[python-27]:/Sample-App-Guide/image/python/image27.png
-[python-28]:/Sample-App-Guide/image/python/image28.png
-[python-29]:/Sample-App-Guide/image/python/image29.png
-[python-30]:/Sample-App-Guide/image/python/image30.png
-[python-31]:/Sample-App-Guide/image/python/image31.png
-[python-32]:/Sample-App-Guide/image/python/image32.png
-[python-33]:/Sample-App-Guide/image/python/image33.png
-[python-34]:/Sample-App-Guide/image/python/image34.png
-[python-35]:/Sample-App-Guide/image/python/image35.png
-[python-36]:/Sample-App-Guide/image/python/image36.png
+[python-2]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image2.png
+[python-3]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image3.png
+[python-4]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image4.png
+[python-5]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image5.png
+[python-6]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image6.png
+[python-7]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image7.png
+[python-8]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image8.png
+[python-9]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image9.png
+[python-10]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image10.png
+[python-11]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image11.png
+[python-12]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image12.png
+[python-13]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image13.png
+[python-14]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image14.png
+[python-15]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image15.png
+[python-16]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image16.png
+[python-17]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image17.png
+[python-18]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image18.png
+[python-19]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image19.png
+[python-20]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image20.png
+[python-21]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image21.png
+[python-22]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image22.png
+[python-23]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image23.png
+[python-24]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image24.png
+[python-25]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image25.png
+[python-26]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image26.png
+[python-27]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image27.png
+[python-28]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image28.png
+[python-29]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image29.png
+[python-30]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image30.png
+[python-31]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image31.png
+[python-32]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image32.png
+[python-33]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image33.png
+[python-34]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image34.png
+[python-35]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image35.png
+[python-36]:/Guide-1.0-Spaghetti-/Sample-App-Guide/image/python/image36.png

@@ -1,20 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1-문서-개요)
-	-	1.1. [목적](#11-목적)
-	-	1.2. [범위](#12-범위)
-	-	1.3. [시스템 구성도](#13-시스템-구성도)
-	-	1.4. [참고자료](#14-참고자료)
-2. [MySQL 서비스팩 설치](#2-mysql-서비스팩-설치)
-	-	2.1. [설치전 준비사항](#21-설치전-준비사항)
-	-	2.2. [MySQL 서비스 릴리즈 업로드](#22-mysql-서비스-릴리즈-업로드)
-	-	2.3. [MySQL 서비스 Deployment 파일 수정 및 배포](#23-mysql-서비스-deployment-파일-수정-및-배포)
-	-	2.4. [MySQL 서비스 브로커 등록](#24-mysql-서비스-브로커-등록)
-3. [MySQL 연동 Sample Web App 설명](#3-mysql-연동-sample-web-app-설명)
-	-	3.1. [Sample Web App 구조](#31-sample-web-app-구조)
-	-	3.2. [개방형 클라우드 플랫폼에서 서비스 신청](#32-개방형-클라우드-플랫폼에서-서비스-신청)
-	-	3.3. [Sample Web App에 서비스 바인드 신청 및 App 확인](#33-sample-web-app에-서비스-바인드-신청-및-app-확인)
-4. [MySQL Client 툴 접속](#4-mysql-client-툴-접속)
-	-	4.1. [HeidiSQL 설치 및 연결](#41-heidisql-설치-및-연결)
+## ServicePack MySQL Openstack install guide
 
 # 1. 문서 개요
 ### 1.1. 목적
@@ -736,59 +720,59 @@ HeidiSQL 프로그램은 무료로 사용할 수 있는 오픈소스 소프트�
 >![mysql_openstack_4.1.17]
 
 
-[mysql_openstack_1.3.01]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_1.3.01.png
+[mysql_openstack_1.3.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_1.3.01.png
 
-[mysql_openstack_4.1.01]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.01.png
-[mysql_openstack_4.1.02]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.02.png
-[mysql_openstack_4.1.03]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.03.png
-[mysql_openstack_4.1.04]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.04.png
-[mysql_openstack_4.1.05]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.05.png
-[mysql_openstack_4.1.06]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.06.png
-[mysql_openstack_4.1.07]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.07.png
-[mysql_openstack_4.1.08]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.08.png
-[mysql_openstack_4.1.09]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.09.png
-[mysql_openstack_4.1.10]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.10.png
-[mysql_openstack_4.1.11]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.11.png
-[mysql_openstack_4.1.12]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.12.png
-[mysql_openstack_4.1.13]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.13.png
-[mysql_openstack_4.1.14]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.14.png
-[mysql_openstack_4.1.15]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.15.png
-[mysql_openstack_4.1.16]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.16.png
-[mysql_openstack_4.1.17]:/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.17.png
+[mysql_openstack_4.1.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.01.png
+[mysql_openstack_4.1.02]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.02.png
+[mysql_openstack_4.1.03]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.03.png
+[mysql_openstack_4.1.04]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.04.png
+[mysql_openstack_4.1.05]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.05.png
+[mysql_openstack_4.1.06]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.06.png
+[mysql_openstack_4.1.07]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.07.png
+[mysql_openstack_4.1.08]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.08.png
+[mysql_openstack_4.1.09]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.09.png
+[mysql_openstack_4.1.10]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.10.png
+[mysql_openstack_4.1.11]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.11.png
+[mysql_openstack_4.1.12]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.12.png
+[mysql_openstack_4.1.13]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.13.png
+[mysql_openstack_4.1.14]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.14.png
+[mysql_openstack_4.1.15]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.15.png
+[mysql_openstack_4.1.16]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.16.png
+[mysql_openstack_4.1.17]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/mysql_openstack_4.1.17.png
 
 
-[update_mysql_openstack_01]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_01.png
-[update_mysql_openstack_02]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_02.png
-[update_mysql_openstack_03]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_03.png
-[update_mysql_openstack_04]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_04.png
-[update_mysql_openstack_05]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_05.png
-[update_mysql_openstack_06]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_06.png
-[update_mysql_openstack_07]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_07.png
-[update_mysql_openstack_08]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_08.png
-[update_mysql_openstack_09]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_09.png
-[update_mysql_openstack_10]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_10.png
-[update_mysql_openstack_11]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_11.png
-[update_mysql_openstack_12]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_12.png
-[update_mysql_openstack_13]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_13.png
-[update_mysql_openstack_14]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_14.png
-[update_mysql_openstack_15]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_15.png
-[update_mysql_openstack_16]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_16.png
-[update_mysql_openstack_17]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_17.png
-[update_mysql_openstack_18]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_18.png
-[update_mysql_openstack_19]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_19.png
-[update_mysql_openstack_20]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_20.png
-[update_mysql_openstack_21]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_21.png
-[update_mysql_openstack_22]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_22.png
-[update_mysql_openstack_23]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_23.png
-[update_mysql_openstack_24]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_24.png
-[update_mysql_openstack_25]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_25.png
-[update_mysql_openstack_26]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_26.png
-[update_mysql_openstack_27]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_27.png
-[update_mysql_openstack_28]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_28.png
-[update_mysql_openstack_29]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_29.png
-[update_mysql_openstack_30]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_30.png
-[update_mysql_openstack_31]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_31.png
-[update_mysql_openstack_32]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_32.png
-[update_mysql_openstack_33]:/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_33.png
+[update_mysql_openstack_01]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_01.png
+[update_mysql_openstack_02]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_02.png
+[update_mysql_openstack_03]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_03.png
+[update_mysql_openstack_04]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_04.png
+[update_mysql_openstack_05]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_05.png
+[update_mysql_openstack_06]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_06.png
+[update_mysql_openstack_07]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_07.png
+[update_mysql_openstack_08]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_08.png
+[update_mysql_openstack_09]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_09.png
+[update_mysql_openstack_10]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_10.png
+[update_mysql_openstack_11]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_11.png
+[update_mysql_openstack_12]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_12.png
+[update_mysql_openstack_13]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_13.png
+[update_mysql_openstack_14]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_14.png
+[update_mysql_openstack_15]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_15.png
+[update_mysql_openstack_16]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_16.png
+[update_mysql_openstack_17]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_17.png
+[update_mysql_openstack_18]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_18.png
+[update_mysql_openstack_19]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_19.png
+[update_mysql_openstack_20]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_20.png
+[update_mysql_openstack_21]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_21.png
+[update_mysql_openstack_22]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_22.png
+[update_mysql_openstack_23]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_23.png
+[update_mysql_openstack_24]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_24.png
+[update_mysql_openstack_25]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_25.png
+[update_mysql_openstack_26]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_26.png
+[update_mysql_openstack_27]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_27.png
+[update_mysql_openstack_28]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_28.png
+[update_mysql_openstack_29]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_29.png
+[update_mysql_openstack_30]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_30.png
+[update_mysql_openstack_31]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_31.png
+[update_mysql_openstack_32]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_32.png
+[update_mysql_openstack_33]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_openstack/update_mysql_openstack_33.png
 
-[update_mysql_vsphere_34]:/images/openpaas-service/mysql/mysql_vsphere/update_mysql_vsphere_34.png
+[update_mysql_vsphere_34]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_vsphere/update_mysql_vsphere_34.png

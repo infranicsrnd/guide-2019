@@ -1,31 +1,20 @@
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 시스템 구성도](#4)
-     * [1.4. 참고자료](#5)
-2. [Object Storage 설치](#6)
-     * [2.1. 설치전 준비사항](#7)
-     * [2.2. Object Strorage 릴리즈 업로드](#8)
-     * [2.3. Object Strorage Deployment 파일 수정 및 배포](#9)
+## PaaS-TA 포탈 Object Storage 설치 가이드
+
+#  1. 문서 개요
 
 
 
-# <div id='1'> 1. 문서 개요
-
-
-
-### <div id='2'> 1.1. 목적
+###  1.1. 목적
 본 문서(포털 Object Storage 설치 가이드)는 PaaS-TA 포털에서 사용하는 Object Storage의 설치를 Bosh를 이용하여 설치 하는 방법을 기술하였다.
 
 
 
-### <div id='3'> 1.2. 범위
+###  1.2. 범위
 설치 범위는 Object Storage 사용을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
 
 
-### <div id='4'> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서에서 설명하는 Object Storage의 시스템 설치 구성도이다. OpenStack Swift의 간편한 설치를 지원하는 Swift All In One과 인증처리를 위한 Keystone으로 기본 최소사항을 구성하였다.
 ※	Openstack 환경에서는 Portal Object Storage를 설치할 필요없이, OpenStack이 제공하는 Openstack Swift 서비스를 이용할 수 있다.
 
@@ -44,18 +33,18 @@
 
 
 
-### <div id='5'> 1.4. 참고자료
+###  1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 [**http://docs.openstack.org/developer/swift/**](http://docs.openstack.org/developer/swift/)
 
 
 
-# <div id='6'> 2. Object Storage 설치
+#  2. Object Storage 설치
 
 
 
-### <div id='7'> 2.1. 설치전 준비사항
+###  2.1. 설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI 가 설치 되어 있어야 하고 BOSH 에 로그인 및 target 설정이 되어 있어야 한다.
 BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문서를 참고 하여 BOSH CLI를 설치 해야 한다.
@@ -68,7 +57,7 @@ BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문
 
 
 
-### <div id='8'> 2.2. Object Storage 릴리즈 업로드
+###  2.2. Object Storage 릴리즈 업로드
 
 -	PaaSTA-Portal.zip의 압축을 풀고 폴더 안에 있는 파스타 포털 Object Storage 릴리즈 paasta-portal-object-storage-2.0.tgz 파일을 확인한다.
 ```
@@ -242,7 +231,7 @@ Releases total: 13
 
 
 
-### <div id='9'> 2.3. Object Storage Deployment 파일 수정 및 배포
+###  2.3. Object Storage Deployment 파일 수정 및 배포
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent)을 사용 할 것인지와 Release(Software packages, Config templates, Scripts)의 이름과 버전, VMs 용량, Jobs params 등이 정의 되어 있다.
 

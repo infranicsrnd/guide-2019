@@ -1,33 +1,18 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - 1.1. [목적](#11)
-  - 1.2. [범위](#12)
-  - 1.3. [시스템 구성도](#13)
-  - 1.4. [참고자료](#14)
-2. [API 플랫폼 서비스팩 설치](#2)
-  - 2.1. [설치전 준비사항](#21)
-  - 2.2. [API 플랫폼 서비스 릴리즈 업로드](#22)
-  - 2.3. [API 플랫폼 서비스 Deployment 파일 수정 및 배포](#23)
-  - 2.4. [API 매니저에서 API 생성 및 배포](#24)
-  - 2.5. [API 플랫폼 서비스 브로커 등록](#25)
-3. [API 플랫폼 연동](#3)
-  - 3.1. [Sample Web App에 서비스 바인드 신청 및 App 확인](#31)
-  - 3.2. [서비스 바인드 확인](#32)
+## PaaS-TA API 플랫폼 서비스팩 설치 가이드
 
+#  1. 문서 개요
 
-# <div id='1'> 1. 문서 개요
-
-### <div id='11'> 1.1. 목적
+###  1.1. 목적
       
 본 문서(API 플랫폼 서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 API 플랫폼 서비스팩을 Bosh를 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application 에서 API 플랫폼 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='12'> 1.2. 범위 
+###  1.2. 범위 
 
 설치 범위는 API 플랫폼 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다. 
 
 
-### <div id='13'> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다.  API 플랫폼(api manager), API 플랫폼 서비스 브로커, Business Activity Monitor(bam), Maria DB로 최소사항을 구성하였다.
 
 ![apiplatform_image_01]
@@ -48,15 +33,15 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
 | bam | service_medium | 2vCPU / 4GB RAM / 8GB Disk |
 | mariadb | minimal | 1vCPU / 1GB RAM / 8GB Disk |
 
-### <div id='14'> 1.4. 참고자료
+###  1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)  
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)  
 [**https://docs.wso2.com/display/AM180/Quick+Start+Guide**](https://docs.wso2.com/display/AM180/Quick+Start+Guide/)
 
 
-# <div id='2'> 2. API 플랫폼 서비스팩 설치
+#  2. API 플랫폼 서비스팩 설치
 
-### <div id='21'> 2.1. 설치전 준비사항
+###  2.1. 설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
 BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이드 문서를 참고 하여 BOSH CLI v2를 설치를 하고 사용법을 숙지 해야 한다.<br>
@@ -73,7 +58,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
 
 
-### <div id='22'> 2.2. API 플랫폼 서비스 릴리즈 업로드
+###  2.2. API 플랫폼 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -230,7 +215,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (API 플랫폼 서비스는 stemcell 3309 버전을 사용)
 
 
-### <div id='23'> 2.3. API 플랫폼 서비스 릴리즈 Deployment 파일 수정 및 배포
+###  2.3. API 플랫폼 서비스 릴리즈 Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1171,7 +1156,7 @@ bosh -e micro-bosh -d paasta-apiplatform-service deploy paasta_apiplatform_bosh2
 		Succeeded
 
 
-### <div id='24'> 2.4. API 매니저에서 API 생성 및 배포
+###  2.4. API 매니저에서 API 생성 및 배포
 API 플랫폼 서비스 팩에는 API 매니저(API 플랫폼) 서비스 브로커가 포함되어 있다. API 매니저에 등록된 API 서비스를 PaaS-TA에서 사용하기 위해서는 PaaS-TA에서 이 서비스 브로커를 등록하여야 한다. 이때, API 매니저에 API 서비스가 존재하지 않으면, PaaS-TA에서 API 매니저 서비스 브로커를 등록할 수 없기 때문에 서비스 브로커를 등록하기 전에 API 매니저에서 API 서비스를 등록한다. 
 ※ 본 문서에서 등록하는 API 서비스는 WSO2 API Manager의 공식 문서에서 가이드 하는 샘플 API이다.
 
@@ -1236,7 +1221,7 @@ Open 버튼을 클릭하여 해당 머신에 연결한다
 ###### 3. 터널링 설정 확인
 터널링 설정이 되어있는 Putty 접속을 유지한 채로, Mozila Firefox 브라우저를 이용하여 API 매니저 관리자 화면에 접속해본다. 하단의 화면이 확인된다면 API 매니저 배포 및 터널링 설정이 정상적으로 이루어진 것이다.
 
-<div id=APICreatePublish></div>
+
 
 ##### 2.4.2. API 생성 및 배포
 터널링 설정이 완료 되었다면, API 플랫폼 서비스팩을 통해 배포된 API 매니저에 접속하여 API를 생성하고 배포(Publish)한다.
@@ -1270,7 +1255,7 @@ Open 버튼을 클릭하여 해당 머신에 연결한다
 ![apiplatform_image_12]
 
 
-<div id=DefineGeneralDetails></div>
+
 
 ###### 3. General Details 정의
 ① API 생성 화면으로 이동하였다.<br>
@@ -1287,7 +1272,7 @@ Version: 1.0.0
 
 ![apiplatform_image_13]
 
-<div id=DefineResources></div>
+
 
 ###### 4. Resources 정의
 ① General Details 하단에 Resources 입력란이 있다. URL Pattern에 대소문자 구분에 유의하여 CheckPhoneNumber 값을 입력하고 GET, POST, OPTIONS 메소드를 선택한다. Resource Name의 값은 URL Pattern을 입력하면 같은 값이 자동으로 입력되는데 사용자 필요에 따라 변경할 수 있다.<br>
@@ -1315,7 +1300,7 @@ Version: 1.0.0
 ![apiplatform_image_16]
 
 
-<div id=DefineSwagger></div>
+
 
 ※ Swagger 정의<br>
 상단의 [[3. General Details 정의]](#DefineGeneralDetails)에서 푸른색 ④번 박스로 표시된 Edit Swagger Definition 버튼을 클릭하면 Swagger 수정이 가능하다. 다음과 같이 수정하고 Save버튼을 클릭하여 Resources를 정의한다. 이 방법을 통해 상단에 기술된 [[4. Resources 정의]](#DefineResources) 절차를 생략할 수 있다.
@@ -1392,7 +1377,7 @@ authorizations:
 ![apiplatform_image_17]
 
 
-<div id=ChooseTier></div>
+
 
 ###### 6. Tier 선택
 ① API의 Tier 및 추가적인 설정을 입력하는 Manage화면이다.<br>
@@ -1415,7 +1400,7 @@ authorizations:
 
 ![apiplatform_image_19]
 
-### <div id='25'> 2.5. 플랫폼 서비스 브로커 등록
+###  2.5. 플랫폼 서비스 브로커 등록
 API 매니저(API 플랫폼)에 API 서비스가 정상적으로 등록 및 배포가 완료되었다면, 등록된 API 서비스를 PaaS-TA의 서비스 형태로 제공하기 위해 API 플랫폼 서비스 브로커를 등록해 주어야 한다. 서비스 브로커 등록 시, PaaS-TA에서 서비스 브로커를 등록할 수 있는 사용자로 로그인이 되어 있어야 한다.
 
 - 서비스 브로커 목록을 확인한다.
@@ -1477,11 +1462,11 @@ $ cf marketplace
 ![apiplatform_image_25]
 
 
-# <div id='3'> 3. API 플랫폼 연동
+#  3. API 플랫폼 연동
 [[2.4 API 매니저에서 API 생성 및 배포]](#APICreatePublish)에서 생성한 API 서비스를 샘플 App에 바인드하여, Vcap 환경설정 정보를 정상적으로 획득할 수 있는지를 확인함으로써 연동여부를 확인한다. 서비스 바인드만 진행하기 때문에 샘플 App은 어떤 App을 사용해도 무방하다.
 
 
-### <div id='31'> 3.1. Sample Web App에 서비스 바인드 신청 및 App 확인
+###  3.1. Sample Web App에 서비스 바인드 신청 및 App 확인
 샘플 App을 배포하고 API 서비스와 바인드 신청을 한다. 먼저 샘플 App을 배포한다.
 ※ 참고: 서비스 Bind 신청시 PaaS-TA에서 서비스 Bind를 할 수 있는 사용자로 로그인이 되어 있어야 한다.
 
@@ -1557,7 +1542,7 @@ $ cf bind-service hello-servlet-api phoneverification-instance-unlimited
 ![apiplatform_image_31]
 
 
-### <div id='32'> 3.2. 서비스 바인드 확인
+###  3.2. 서비스 바인드 확인
 샘플 앱에 대한 VCAP_SERVICES 정보를 확인하여 샘플 앱과 서비스의 정상적인 바인드 여부를 판단한다. VCAP_SERVICES 정보를 확인하는 명령어는 다음과 같다. VCAP_SERVICES에서 앱에서 API를 사용하는데 필요한 정보를 확인할 수 있고 따라서 앱은 이 값을 읽을 수 있도록 작성되어야 한다.
 
 ```

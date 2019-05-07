@@ -1,40 +1,25 @@
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 시스템 구성도](#4)
-     * [1.4. 참고자료](#5)
-2. [RabbitMQ 서비스팩 설치](#6)
-     * [2.1. 설치전 준비사항](#7)
-     * [2.2. RabbitMQ 서비스 릴리즈 업로드](#8)
-     * [2.3. RabbitMQ 서비스 Deployment 파일 수정 및 배포](#9)
-     * [2.4. RabbitMQ 서비스 브로커 등록](#10)
-3. [RabbitMQ 연동 Sample App 설명](#11)
-     * [3.1. Sample App 구조](#12)
-     * [3.2. PaaS-TA에서 서비스 신청](#13)
-     * [3.3. Sample App에 서비스 바인드 신청 및 App 확인](#14)
-
+## PaaS-TA RabbitMQ 서비스팩 설치 가이드
 
 <br>
-<div id='1'></div>
+
 # 1. 문서 개요
 
 <br>
-<div id='2'></div>
+
 
 ### 1.1. 목적
       
 본 문서(RabbitMQ서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 RabbitMQ 서비스팩을 Bosh를 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application에서 RabbitMQ 서비스를 사용하는 방법을 기술하였다.
 
 <br>
-<div id='3'></div>
+
 
 ### 1.2. 범위 
 
 설치 범위는 RabbitMQ 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다. 
 
 <br>
-<div id='4'></div>
+
 
 ### 1.3. 시스템 구성도
 
@@ -62,17 +47,17 @@
 </table>
 
 <br>
-<div id='5'></div>
+
 ### 1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs) <br>
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
 <br>
-<div id='6'></div>
+
 #   2. RabbitMQ 서비스팩 설치
 
 <br>
-<div id='7'></div>
+
 ### 2.1. 설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI가 설치 되어 있어야 하고 BOSH 에 로그인 및 target 설정이 되어 있어야 한다.
@@ -85,7 +70,7 @@ BOSH CLI가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문�
 
 
 <br>
-<div id='8'></div>
+
 ###   2.2. RabbitMQ 서비스 릴리즈 업로드
 
 -	PaaSTA-Services.zip 파일 압축을 풀고 폴더안에 있는 RabbitMQ 서비스 릴리즈 paasta-rabbitmq-2.0.tgz 파일을 확인한다.
@@ -354,7 +339,7 @@ Releases total: 1
 ```
 
 <br>
-<div id='9'></div>
+
 ###   2.3. RabbitMQ 서비스 Deployment 파일 수정 및 배포
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML  파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent)을 사용 할 것인지와 Release (Software packages, Config templates, Scripts)의 이름과 버전, VMs 용량, Jobs params 등;이 정의 되어 있다.
@@ -740,7 +725,7 @@ VMs total: 3
 ```
 
 <br>
-<div id='10'></div>
+
 ### 2.4. RabbitMQ 서비스 브로커 등록
 RabbitMQ 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 RabbitMQ 서비스 브로커를 등록해 주어야 한다.
 서비스 브로커 등록시에는 PaaS-TA에서 서비스 브로커를 등록할 수 있는 사용자로 로그인 하여야 한다
@@ -795,12 +780,12 @@ $ cf service-access
 ![rabbitmq_image_06]
 
 <br>
-<div id='11'></div>
+
 #   3. RabbitMQ 연동 Sample App 설명
 본 Sample App은 PaaS-TA에 배포되며 RabbitMQ의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
 
 <br>
-<div id='12'></div>
+
 ### 3.1. Sample App 구조
 Sample App은 PaaS-TA에 App으로 배포가 된다. 배포 완료 후 정상적으로 App이 구동되면 curl 명령어로 App url를 입력하면 RabbitMQ 환경정보(서비스 연결 정보)를 보여주는 url 페이지를 제공한다.
 
@@ -835,7 +820,7 @@ Sample App 구조는 다음과 같다.
 >![rabbitmq_image_07]
 
 <br>
-<div id='13'></div>
+
 ### 3.2. PaaS-TA에서 서비스 신청
 Sample App에서 RabbitMQ 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
 *참고: 서비스 신청시 PaaS-TA에서 서비스를 신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
@@ -866,7 +851,7 @@ $ cf create-service {서비스명} {서비스 플랜} {내 서비스명}
 >![rabbitmq_image_10]
 
 <br>
-<div id='14'></div>
+
 ### 3.3. Sample App에 서비스 바인드 신청 및 App 확인
 서비스 신청이 완료되었으면 Sample App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 RabbitMQ 서비스를 이용한다.
 * 참고: 서비스 Bind 신청시 PaaS-TA에서 서비스 Bind 신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.

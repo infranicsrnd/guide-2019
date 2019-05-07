@@ -1,19 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1-문서-개요)
-    *  [1.1 목적](#11-목적)
-    *  [1.2 범위](#12-범위)
-    *  [1.3 시스템 구성도](#13-시스템-구성도)
-    *  [1.4 참고자료](#14-참고자료)
-2. [PaaS-TA Portal 설치](#2-paas-ta-portal-설치)
-    *  [2.1 설치전 준비사항](#21-설치전-준비사항)
-    *  [2.2 PaaS-TA Portal 릴리즈 업로드](#22-paas-ta-portal-릴리즈-업로드)
-    *  [2.3 PaaS-TA Portal Deployment 배포](#23-paas-ta-portal-deployment-배포)
-    *  [2.4 사용자의 조직 생성 Flag 활성화](#24-사용자의-조직-생성-flag-활성화)
-    *  [2.5 사용자포탈 UAA페이지 오류](#25.-사용자포탈-uaa페이지-오류)
-3. [PaaS-TA Portal 운영](#3-paas-ta-portal-운영)
-    *  [3.1 DB Migration](#31-db-migration)
-    *  [3.2 Log](#32-log)
-    *  [3.3 카탈로그 적용](#33-카탈로그-적용)
+## PaaS-TA_Portal_install
 
 # 1. 문서 개요
 ### 1.1. 목적
@@ -75,7 +60,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 - 다운로드 방법
 1. 릴리즈된 파일받는방법
 
-        $ wget -O download.zip http://45.248.73.44/index.php/s/2qmg2FxiGrjTZcS/download
+        $ wget -O download.zip http://45.248.73.44/index.php/s/MeXCEMGWDtZzB8r/download
         $ unzip download.zip 
 
 2. PAAS-TA-PORTAL-RELEASE 다운받아  직접 릴리즈 생성및 업로드 하는 방법
@@ -83,7 +68,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
         $ git clone https://github.com/PaaS-TA/PAAS-TA-PORTAL-RELEASE.git
         $ git checkout v4.0
         $ cd ~/PAAS-TA-PORTAL-RELEASE
-        $ wget -O download.zip http://45.248.73.44/index.php/s/woPTcXBJDymCqTx/download
+        $ wget -O download.zip http://45.248.73.44/index.php/s/xc3JeTsHnmfH6zt/download
         $ unzip download.zip
         $ cd ..
         $ sh start.sh
@@ -1207,9 +1192,11 @@ bosh -e micro-bosh -d paasta-portal deploy paasta-portal-bosh2.0.yml \
 >cf_uaa_admin_client_secret: uaac admin client의 secret를 입력한다.\
  portal_client_secret: uaac portalclient의 secret를 입력한다.\
  
->paas_ta_web_user_url: Portal Webuser의 Url을 입력한다.
- abacus_url= Abacus Url을 입력한다.
- monitoring_api_url: Monitoring Api의 Url을 입력한다.
+>paas_ta_web_user_url: Portal Webuser의 Url을 입력한다.\
+ abacus_url: Abacus Url을 입력한다.\
+ portal_webuser_monitoring : 미터링 페이지 사용 여부를 설정한다.\ 
+ monitoring_api_url: Monitoring Api의 Url을 입력한다.\
+ portal_webuser_monitoring: Monitoring 화면 표기 유무를 설정한다. 
  
 >mail_smtp_host: smtp의 host를 설정한다.\
  mail_smtp_port: smtp의 port를 설정한다.\
@@ -2017,7 +2004,7 @@ Feature user_org_creation Enabled.
 ```
 
 ### 2.5. 사용자포탈 UAA페이지 오류
->![paas-ta-portal-27]
+>![paas-ta-portal-31]
 1. uaac portalclient가 등록이 되어있지 않다면 해당 화면과 같이 redirect오류가 발생한다.
 2. uaac client add를 통해 potalclient를 추가시켜주어야 한다.
     > $ uaac target\
@@ -2025,7 +2012,7 @@ Feature user_org_creation Enabled.
         Client ID:  admin\
         Client secret:  *****
         
-3. uaac client add portalclient –s “portalclient Secret”\ 
+3. uaac client add portalclient –s “portalclient Secret” 
 >--redirect_uri "사용자포탈 Url, 사용자포탈 Url/callback"\
 $ uaac client add portalclient -s xxxxx --redirect_uri "http://portal-web-user.xxxx.xip.io, http://portal-web-user.xxxx.xip.io/callback" \
 --scope "cloud_controller_service_permissions.read , openid , cloud_controller.read , cloud_controller.write , cloud_controller.admin" \
@@ -2033,7 +2020,7 @@ $ uaac client add portalclient -s xxxxx --redirect_uri "http://portal-web-user.x
 --authorities="uaa.resource" \
 --autoapprove="openid , cloud_controller_service_permissions.read"
 
- >![paas-ta-portal-28]
+ >![paas-ta-portal-32]
 1. uaac portalclient가 url이 잘못 등록되어있다면 해당 화면과 같이 redirect오류가 발생한다. 
 2. uaac client update를 통해 url을 수정해야한다.
    > $ uaac target\
@@ -2043,6 +2030,8 @@ $ uaac client add portalclient -s xxxxx --redirect_uri "http://portal-web-user.x
 3. uaac client update portalclient --redirect_uri "사용자포탈 Url, 사용자포탈 Url/callback"
     >$ uaac client update portalclient --redirect_uri "http://portal-web-user.xxxx.xip.io, http://portal-web-user.xxxx.xip.io/callback"
 
+### 2.6. 운영자 포탈 유저 페이지 조회 오류
+1. 페이지 이동시 정보를 가져오지 못하고 오류가 났을 경우 common-api VM으로 이동후에 DB 정보 config를 수정후 재시작을 해 주어야 한다.
 
 
 # 3. PaaS-TA Portal 운영
@@ -2175,7 +2164,24 @@ Paas-TA Portal 설치 후에 관리자 포탈에서 빌드팩, 서비스팩을 �
  3. 빌드팩, 서비스팩 상세화면에 들어가서 각 항목란에 값을 입력후에 저장을 누른다.
     >![paas-ta-portal-18]
  4. 사용자포탈에서 변경된값이 적용되어있는지 확인한다.
-    >![paas-ta-portal-19]    
+    >![paas-ta-portal-19] 
+    
+### 3.4. 모니터링 및 오토스케일링 적용
+##### 1. 포탈 설치 이전 모니터링 설정 적용
+###### PaaS-TA 에서 제공하고있는 모니터링을 미리 설치를 한 후에 진행해야 한다.
+ 1. Paas-TA Portal 설치전 2.3. PaaS-TA Portal Deployment 배포의 deploy-{Iaas}.sh 설정단계에서 
+    monitoring_api_url= 모니터링 url, portal_webuser_monitoring = true로 적용한 후 배포를 하면 정상적으로
+    모니터링 페이지 및 오토스케일링을 사용할 수 있다.
+##### 2. 포탈 설치 이후 모니터링 설정 적용
+ 1. 사용자 포탈의 앱 상세 페이지로 이동한다.
+    >![paas-ta-portal-30]
+ 2. ① 상세페이지 레이아웃 하단의 모니터링 버튼을 누른다.
+    
+ 3. ② 모니터링 오토 스케일링 화면
+    
+ 4. ③ 모니터링 알람 설정 화면
+    
+ 5. 추이차트 탭에서 디스크 메모리 네트워크 사용량을 인스턴스 별로 확인이 가능하다.        
     
 [paas-ta-portal-01]:../../Install-Guide/Portal/images/Paas-TA-Portal_01.png
 [paas-ta-portal-02]:../../Install-Guide/Portal/images/Paas-TA-Portal_02.png
@@ -2203,5 +2209,9 @@ Paas-TA Portal 설치 후에 관리자 포탈에서 빌드팩, 서비스팩을 �
 [paas-ta-portal-24]:../../Install-Guide/Portal/images/Paas-TA-Portal_24.png
 [paas-ta-portal-25]:../../Install-Guide/Portal/images/Paas-TA-Portal_25.png
 [paas-ta-portal-26]:../../Install-Guide/Portal/images/Paas-TA-Portal_26.png
-[paas-ta-portal-27]:../../Install-Guide/Portal/images/Paas-TA-Portal_27.jpg
-[paas-ta-portal-28]:../../Install-Guide/Portal/images/Paas-TA-Portal_28.jpg
+[paas-ta-portal-27]:../../Install-Guide/Portal/images/Paas-TA-Portal_27.PNG
+[paas-ta-portal-28]:../../Install-Guide/Portal/images/Paas-TA-Portal_28.PNG
+[paas-ta-portal-29]:../../Install-Guide/Portal/images/Paas-TA-Portal_29.png
+[paas-ta-portal-30]:../../Install-Guide/Portal/images/Paas-TA-Portal_30.png
+[paas-ta-portal-31]:../../Install-Guide/Portal/images/Paas-TA-Portal_27.jpg
+[paas-ta-portal-32]:../../Install-Guide/Portal/images/Paas-TA-Portal_28.jpg

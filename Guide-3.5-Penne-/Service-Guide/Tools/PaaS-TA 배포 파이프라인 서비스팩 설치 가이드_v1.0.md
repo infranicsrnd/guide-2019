@@ -1,26 +1,14 @@
-## Table of Contents
-1. [문서 개요](#1)
-  -  [1.1. 목적](#11)
-  -  [1.2. 범위](#12)
-  -  [1.3. 시스템 구성도](#13)
-  -  [1.4. 참고 자료](#14)
-2. [배포 파이프라인 서비스팩 설치](#2)
-  -  [2.1. 설치 전 준비사항](#21)  
-  -  [2.2. 배포 파이프라인 서비스 릴리즈 업로드](#22)
-  -  [2.3. 배포 파이프라인 서비스 릴리즈 Deployment 파일 수정 및 배포](#23)
-  -  [2.4. 배포 파이프라인 서비스 브로커 등록](#24)
-  -  [2.5. 배포 파이프라인 UAA Client Id 등록](#25)
+## PaaS-TA 배포 파이프라인 서비스팩 설치 가이드_v1.0
+#  1. 문서 개요
 
-# <div id='1'/> 1. 문서 개요
-
-### <div id='11'/> 1.1 목적
+###  1.1 목적
 본 문서(배포 파이프라인 서비스팩 설치 가이드)는 개방형 PaaS 플랫폼 고도화 및 개발자 지원 환경 기반의 Open PaaS에서 제공되는 서비스팩인 배포 파이프라인 서비스팩을 Bosh를 이용하여 설치 및 서비스 등록하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='12'/> 1.2 범위
+###  1.2 범위
 설치 범위는 배포 파이프라인 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='13'/> 1.3 시스템 구성도
+###  1.3 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. 배포 파이프라인 Server, 형상관리 서비스 브로커로 최소사항을 구성하였다.
 ![1-1-3]
 <table>
@@ -124,13 +112,13 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
   </tr>
 </table>
 
-### <div id='14'/> 1.4 참고 자료
+###  1.4 참고 자료
 > http://bosh.io/docs <br>
 > http://docs.cloudfoundry.org/
 
-# <div id='2'/> 2. 배포 파이프라인 서비스팩 설치
+#  2. 배포 파이프라인 서비스팩 설치
 
-### <div id='21'/> 2.1 설치 전 준비사항
+###  2.1 설치 전 준비사항
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
@@ -148,7 +136,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
 
 
-### <div id='22'/> 2.2 배포 파이프라인 서비스 릴리즈 업로드
+###  2.2 배포 파이프라인 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -319,7 +307,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 		
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (배포 파이프라인 서비스는 stemcell 3445.2 버전을 사용)
 
-### <div id='23'/> 2.3 배포 파이프라인 서비스 Deployment 파일 수정 및 배포
+###  2.3 배포 파이프라인 서비스 Deployment 파일 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1571,7 +1559,7 @@ bosh -e micro-bosh -d paasta-delivery-pipeline-service deploy paasta_delivery_pi
 		Succeeded
 
 
-### <div id='24'/> 2.4 배포 파이프라인 서비스 브로커 등록
+###  2.4 배포 파이프라인 서비스 브로커 등록
 
 배포 파이프라인 서비스팩 배포가 완료되었으면 파스-타 포탈에서 서비스 팩을 사용하기 위해서 먼저 배포 파이프라인 서비스 브로커를 등록해 주어야 한다.
 서비스 브로커 등록 시 개방형 클라우드 플랫폼에서 서비스 브로커를 등록할 수 있는 사용자로 로그인이 되어있어야 한다.
@@ -1684,7 +1672,7 @@ broker: delivery-pipeline
    delivery-pipeline   default   all
 ```
 
-### <div id='25'/> 2.5 배포 파이프라인 UAA Client Id 등록
+###  2.5 배포 파이프라인 UAA Client Id 등록
 UAA 포털 계정 등록 절차에 대한 순서를 확인한다.
 
 **haproxy IPs**:8084 입력 후 루트 도메인을 입력한다. **haproxy IPs**의 주소는 **실제 대시보드 URL**이다. URL 정보 다중 입력 시 ","(comma)를 사용하여 추가한다.

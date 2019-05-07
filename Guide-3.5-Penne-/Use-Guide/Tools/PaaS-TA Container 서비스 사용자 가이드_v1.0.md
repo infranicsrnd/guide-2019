@@ -1,54 +1,15 @@
-## Table of Contents
+## PaaS-TA Container 서비스 사용자 가이드_v1.0
+#  1. 문서 개요
 
-1. [문서 개요](#1)
-    * [1.1. 목적](#1-1)
-    * [1.2. 범위](#1-2)
-2. [Container 서비스 신청](#2)
-    * [2.1. PaaS-TA 사용자 포탈 접속](#2-1)
-    * [2.2. Container 서비스 신청](#2-2)
-    * [2.3. Container 서비스 접속](#2-3)
-3. [Container 서비스 사용자 메뉴얼](#3)
-    * [3.1. Container 서비스 사용자 메뉴 구성](#3-1)
-    * [3.2. Container 서비스 사용자 메뉴 설명](#3-2)
-    * [3.2.1. Intro](#3-2-1)
-    * [3.2.1.1. Overview](#3-2-1-1)
-    * [3.2.1.2. Access](#3-2-1-2)
-    * [3.2.1.3. Namespaces](#3-2-1-3)
-    * [3.2.1.3.1. Namespace 상세 조회](#3-2-1-3-1)
-    * [3.2.1.4. Nodes](#3-2-1-4)
-    * [3.2.1.4.1. Node 상세 조회](#3-2-1-4-1)
-    * [3.2.2. Users](#3-2-2)
-    * [3.2.2.1. User 목록 조회](#3-2-2-1)
-    * [3.2.2.2. User Role 변경](#3-2-2-2)
-    * [3.2.2.3. User 삭제](#3-2-2-3)
-    * [3.2.3. Roles](#3-2-3)
-    * [3.2.4. Workloads](#3-2-4)
-    * [3.2.4.1. Deployments](#3-2-4-1)
-    * [3.2.4.1.1. Deployment 목록 조회](#3-2-4-1-1)
-    * [3.2.4.1.2. Deployment 상세 조회](#3-2-4-1-2)
-    * [3.2.4.2. Pods](#3-2-4-2)
-    * [3.2.4.2.1. Pod 목록 조회](#3-2-4-2-1)
-    * [3.2.4.2.2. Pod 상세 조회](#3-2-4-2-2)
-    * [3.2.4.3. Replica Sets](#3-2-4-3)
-    * [3.2.4.3.1. Replica Set 목록 조회](#3-2-4-3-1)
-    * [3.2.4.3.2. Replica Set 상세 조회](#3-2-4-3-2)
-    * [3.2.5. Services](#3-2-5)
-    * [3.2.5.1. Service 목록 조회](#3-2-5-1)
-    * [3.2.5.2. Service 상세 조회](#3-2-5-2)
-
-----
-
-# <div id='1'/> 1. 문서 개요
-
-## <div id='1-1'/> 1.1. 목적
+##  1.1. 목적
 본 문서는 Container 서비스를 사용할 사용자의 사용 방법에 대해 기술하였다.
 
-## <div id='1-2'/> 1.2. 범위
+##  1.2. 범위
 본 문서는 Windows 환경을 기준으로 Container 서비스를 사용할 사용자의 사용 방법에 대해 작성되었다.
 
-# <div id='2'/> 2. Container 서비스 신청
+#  2. Container 서비스 신청
 
-### <div id='2-1'/> 2.1. PaaS-TA 사용자 포탈 접속
+###  2.1. PaaS-TA 사용자 포탈 접속
 1. PaaS-TA 사용자 포탈에 접속하여 "로그인" 버튼을 클릭한다.
 
 ![IMG_002]
@@ -61,7 +22,7 @@
 
 ![IMG_011]
 
-### <div id='2-2'/> 2.2. Container 서비스 신청
+###  2.2. Container 서비스 신청
 - Container 서비스는 조직 별 한 개의 서비스를 생성할 수 있다.
 
 1. 카탈로그 페이지에서 Container 서비스를 선택한다.
@@ -73,7 +34,7 @@
 ![IMG_013]
 
 
-### <div id='2-3'/> 2.3. Container 서비스 접속
+###  2.3. Container 서비스 접속
 1. PaaS-TA 사용자 포탈의 대시보드 페이지에서 서비스 탭을 클릭해 생성한 Container 서비스를 확인한다.
 
 ![IMG_014]
@@ -83,10 +44,10 @@
 ![IMG_016]
 
 
-## <div id='3'/> 3. Container 서비스 사용자 메뉴얼
+##  3. Container 서비스 사용자 메뉴얼
 
 
-## <div id='3-1'/> 3.1. Container 서비스 사용자 메뉴 구성
+##  3.1. Container 서비스 사용자 메뉴 구성
 | <center>메뉴</center> | <center>분류</center> | <center>설명</center> |
 | :--- | :--- | :--- |
 | Intro | Overview | Container 서비스 대시보드 |
@@ -100,12 +61,12 @@
 | Roles | Roles | Role 조회 |
 
 
-## <div id='3-2'/> 3.2. Container 서비스 사용자 메뉴 설명
+##  3.2. Container 서비스 사용자 메뉴 설명
 본 장에서는 Container 서비스의 5개 메뉴에 대한 설명을 기술한다.
 
-### <div id='3-2-1'/> 3.2.1. Intro
+###  3.2.1. Intro
 
-#### <div id='3-2-1-1'/> 3.2.1.1. Overview
+####  3.2.1.1. Overview
 - Namespace 정보, Container 서비스 Plan 정보, Resource Quota 정보를 조회한다.
 
 1. Intro의 Overview 탭을 클릭하여 Overview 페이지로 이동한다.
@@ -113,7 +74,7 @@
 ![IMG_016]
 
 
-#### <div id='3-2-1-2'/> 3.2.1.2. Access
+####  3.2.1.2. Access
 - Container 서비스의 CLI 사용을 위한 환경 설정 정보를 조회한다.
 
 1. Intro의 Access 탭을 클릭하여 Access 페이지로 이동한다.
@@ -121,8 +82,8 @@
 ![IMG_017]
 
 
-#### <div id='3-2-1-3'/> 3.2.1.3. Namespaces
-##### <div id='3-2-1-3-1'/> 3.2.1.3.1. Namespace 상세 조회
+####  3.2.1.3. Namespaces
+#####  3.2.1.3.1. Namespace 상세 조회
 
 - Namespace 상세 페이지는 Details, Events 탭으로 구성된다.
 
@@ -133,8 +94,8 @@
 ![IMG_049]
 
 
-#### <div id='3-2-1-4'/> 3.2.1.4. Nodes
-##### <div id='3-2-1-4-1'/> 3.2.1.4.1. Node 상세 조회
+####  3.2.1.4. Nodes
+#####  3.2.1.4.1. Node 상세 조회
 
 - Node 상세 페이지는 Summary, Details, Events 탭으로 구성된다.
 
@@ -145,19 +106,19 @@
 ![IMG_052]
 
 
-### <div id='3-2-2'/> 3.2.2. Users
+###  3.2.2. Users
 - 본 장에서는 Container 서비스를 사용하는 사용자들의 Role 관리 및 정보 조회에 대한 설명을 기술한다.
 - 서비스 신청자는 Administrator Role, 그 외 신규 사용자는 Init User Role을 부여 받는다.
 - User 삭제 및 Role 변경은 Administrator Role을 가진 User만이 가능하다.
 
 
-#### <div id='3-2-2-1'/> 3.2.2.1. User 목록 조회
+####  3.2.2.1. User 목록 조회
 1. Container 서비스를 사용하는 User 목록을 조회한다.
 
 ![IMG_059]
 
 
-#### <div id='3-2-2-2'/> 3.2.2.2. User Role 변경
+####  3.2.2.2. User Role 변경
 1. User Role을 변경하여 저장[①] 버튼을 클릭한다.
 
 ![IMG_062]
@@ -171,7 +132,7 @@
 ![IMG_064]
 
 
-#### <div id='3-2-2-3'/> 3.2.2.3. User 삭제
+####  3.2.2.3. User 삭제
 1. 삭제할 User의 삭제[①] 버튼을 클릭한다.
 
 ![IMG_065]
@@ -185,25 +146,25 @@
 ![IMG_067]
 
 
-### <div id='3-2-3'/> 3.2.3. Roles
+###  3.2.3. Roles
 1. Container 서비스의 사용 가능한 권한을 조회한다.
 
 ![IMG_069]
 
 
-### <div id='3-2-4'/> 3.2.4. Workloads
+###  3.2.4. Workloads
 -  Overview, Deployments, Pods, Replica Sets 목록을 조회한다.
 
 ![IMG_020]
 
-#### <div id='3-2-4-1'/> 3.2.4.1. Deployments
+####  3.2.4.1. Deployments
 
-##### <div id='3-2-4-1-1'/> 3.2.4.1.1. Deployment 목록 조회
+#####  3.2.4.1.1. Deployment 목록 조회
 1. Workloads의 Deployment 탭을 클릭하여 Deployment 목록 페이지로 이동한다.
 
 ![IMG_028]
 
-##### <div id='3-2-4-1-2'/> 3.2.4.1.2. Deployment 상세 조회
+#####  3.2.4.1.2. Deployment 상세 조회
 - Deployment 상세 페이지는 Details, Events, YAML 탭으로 구성된다.
 
 
@@ -214,14 +175,14 @@
 ![IMG_037]
 
 
-#### <div id='3-2-4-2'/> 3.2.4.2. Pods
+####  3.2.4.2. Pods
 
-##### <div id='3-2-4-2-1'/> 3.2.4.2.1. Pod 목록 조회
+#####  3.2.4.2.1. Pod 목록 조회
 1. Workloads의 Pods 탭을 클릭하여 Pod 목록 페이지로 이동한다.
 
 ![IMG_029]
 
-##### <div id='3-2-4-2-2'/> 3.2.4.2.2. Pod 상세 조회
+#####  3.2.4.2.2. Pod 상세 조회
 - Pod 상세 페이지는 Details, Events, YAML 탭으로 구성된다.
 
 1. Pod 목록에서 Pod 명을 클릭하여 Pod 상세 페이지로 이동한다.
@@ -231,14 +192,14 @@
 ![IMG_046]
 
 
-#### <div id='3-2-4-3'/> 3.2.4.3. Replica Sets
+####  3.2.4.3. Replica Sets
 
-##### <div id='3-2-4-3-1'/> 3.2.4.3.1. Replica Set 목록 조회
+#####  3.2.4.3.1. Replica Set 목록 조회
 1. Workloads의 Replica Sets 탭을 클릭하여 Replica Set 목록 페이지로 이동한다.
 
 ![IMG_030]
 
-##### <div id='3-2-4-3-2'/> 3.2.4.3.2. Replica Set 상세 조회
+#####  3.2.4.3.2. Replica Set 상세 조회
 - Replica Set 상세 페이지는 Details, Events, YAML 탭으로 구성된다.
 
 1. Replica Set 목록에서 Replica Set 명을 클릭하여 Replica Set 상세 페이지로 이동한다.
@@ -248,15 +209,15 @@
 ![IMG_042]
 
 
-### <div id='3-2-5'/> 3.2.5. Services 메뉴
+###  3.2.5. Services 메뉴
 
-#### <div id='3-2-5-1'/> 3.2.5.1. Service 목록 조회
+####  3.2.5.1. Service 목록 조회
 1. Services 메뉴를 클릭하여 Service 목록 페이지로 이동한다.
 
 ![IMG_053]
 
 
-#### <div id='3-2-5-2'/> 3.2.5.2. Service 내용 조회
+####  3.2.5.2. Service 내용 조회
 - Service 상세 페이지는 Details, Events, YAML 탭으로 구성된다.
 
 1. Service 목록에서 Service 명을 클릭하여 Service 상세 페이지로 이동한다.

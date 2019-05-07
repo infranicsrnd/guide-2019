@@ -1,18 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1-문서-개요)
-  - 1.1. [목적](#11-목적)
-  - 1.2. [범위](#12-범위)
-  - 1.3. [시스템 구성도](#13-시스템-구성도)
-  - 1.4. [참고자료](#14-참고자료)
-2. [API 플랫폼 서비스팩 설치](#2-API-플랫폼-서비스팩-설치)
-  - 2.1. [설치전 준비사항](#21-설치전-준비사항)
-  - 2.2. [API 플랫폼 서비스 릴리즈 업로드](#22-API-플랫폼-서비스-릴리즈-업로드)
-  - 2.3. [API 플랫폼 서비스 Deployment 파일 수정 및 배포](#23-API-플랫폼-서비스-deployment-파일-수정-및-배포)
-  - 2.4. [API 매니저에서 API 생성 및 배포](#24-API-매니저에서-API-생성-및-베포)
-  -   2.5. [API 플랫폼 서비스 브로커 등록](#25-API-플랫폼-서비스-브로커-등록)
-3. [API 플랫폼 연동 Sample Web App 설명](#3-API-플랫폼-연동-sample-web-app-설명)
-  - 3.1. [Sample Web App에 서비스 바인드 신청 및 App 확인](#31-sample-web-app에-서비스-바인드-신청-및-app-확인)
-
+## ServiceBroker APIPlatform vSphere install guide
 
 # 1. 문서 개요
 ### 1.1. 목적
@@ -365,7 +351,7 @@ Open 버튼을 클릭하여 해당 머신에 연결한다
 ###### 3. 터널링 설정 확인
 터널링 설정이 되어있는 Putty 접속을 유지한 채로, Mozila Firefox 브라우저를 이용하여 API 매니저 관리자 화면에 접속해본다. 하단의 화면이 확인된다면 API 매니저 배포 및 터널링 설정이 정상적으로 이루어진 것이다.
 
-<div id=APICreatePublish></div>
+
 ##### 2.4.2. API 생성 및 배포
 터널링 설정이 완료 되었다면, API 플랫폼 서비스팩을 통해 배포된 API 매니저에 접속하여 API를 생성하고 배포(Publish)한다.
 ```
@@ -399,7 +385,7 @@ Open 버튼을 클릭하여 해당 머신에 연결한다
 
 <br>
 
-<div id=DefineGeneralDetails></div>
+
 ###### 3. General Details 정의
 ① API 생성 화면으로 이동하였다.<br>
 ② API 생성의 첫 단계인 Design 단계이다.<br>
@@ -417,7 +403,7 @@ Version: 1.0.0
 
 >![apiplatform_vsphere_2.4.2.04]
 
-<div id=DefineResources></div>
+
 ###### 4. Resources 정의
 ① General Details 하단에 Resources 입력란이 있다. URL Pattern에 대소문자 구분에 유의하여 CheckPhoneNumber 값을 입력하고 GET, POST, OPTIONS 메소드를 선택한다. Resource Name의 값은 URL Pattern을 입력하면 같은 값이 자동으로 입력되는데 사용자 필요에 따라 변경할 수 있다.<br>
 ② 입력이 완료되었다면, Add New Resource 버튼을 클릭하여 Resource를 추가한다.<br>
@@ -448,7 +434,7 @@ Version: 1.0.0
 
 <br>
 
-<div id=DefineSwagger></div>
+
 ※ Swagger 정의<br>
 상단의 [[3. General Details 정의]](#DefineGeneralDetails)에서 푸른색 ④번 박스로 표시된 Edit Swagger Definition 버튼을 클릭하면 Swagger 수정이 가능하다. 다음과 같이 수정하고 Save버튼을 클릭하여 Resources를 정의한다. 이 방법을 통해 상단에 기술된 [[4. Resources 정의]](#DefineResources) 절차를 생략할 수 있다.
 
@@ -523,7 +509,7 @@ authorizations:
 
 >![apiplatform_vsphere_2.4.2.08]
 
-<div id=ChooseTier></div>
+
 ###### 6. Tier 선택
 ① API의 Tier 및 추가적인 설정을 입력하는 Manage화면이다.<br>
 ② Tier Availability는 해당 API 서비스의 호출 횟수를 제한하는 설정으로 개방형 클라우드 플랫폼에서는 플랜으로 표시된다. API 매니저에 설정된 4가지 기본 Tier 중, 사용자 필요에 맞게 선택할 수 있고 API 매니저 관리자 대시보드({API매니저 URL}:{API매니저 포트}/carbon)에서 Tier명과 호출 횟수 제한을 변경할 수 있다. 다만, 현재는 API 서비스 브로커 설계상 API Tier는 Unlimited Tier를 선택하여야 한다. 따라서 Unlimited Tier만을 선택한다. Unlimited Tier만 선택하여 API 서비스를 배포하더라도 개방형 클라우드 플랫폼에서는 Unlimited와 Bronze의 두 가지 플랜을 선택할 수 있다.<br>
@@ -694,46 +680,46 @@ path: target/hello-java-1.0.war    #배포하는 App의 war 파일 경로
 >![apiplatform_vsphere_3.2.01]
 
 
-[apiplatform_vsphere_1.3.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/시스템구성도.png
-[apiplatform_vsphere_2.2.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image3.png
-[apiplatform_vsphere_2.2.02]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image4.png
-[apiplatform_vsphere_2.2.03]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image5.png
-[apiplatform_vsphere_2.2.04]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image6.png
-[apiplatform_vsphere_2.3.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image7.png
-[apiplatform_vsphere_2.3.02]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image8.png
-[apiplatform_vsphere_2.3.03]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image9.png
-[apiplatform_vsphere_2.3.04]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image10.png
-[apiplatform_vsphere_2.3.05]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image11.png
-[apiplatform_vsphere_2.3.06]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image12.png
-[apiplatform_vsphere_2.3.07]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image13.png
-[apiplatform_vsphere_2.4.1.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image14.png
-[apiplatform_vsphere_2.4.1.02]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image15.png
-[apiplatform_vsphere_2.4.1.03]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image16.png
-[apiplatform_vsphere_2.4.1.04]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image17.png
-[apiplatform_vsphere_2.4.1.05]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image18.png
-[apiplatform_vsphere_2.4.1.06]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image19.jpeg
-[apiplatform_vsphere_2.4.1.07]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image20.png
-[apiplatform_vsphere_2.4.1.08]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image21.png
-[apiplatform_vsphere_2.4.2.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image22.png
-[apiplatform_vsphere_2.4.2.02]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image23.png
-[apiplatform_vsphere_2.4.2.03]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image24.png
-[apiplatform_vsphere_2.4.2.04]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image25.png
-[apiplatform_vsphere_2.4.2.05]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image26.png
-[apiplatform_vsphere_2.4.2.06]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image27.png
-[apiplatform_vsphere_2.4.2.07]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image28.png
-[apiplatform_vsphere_2.4.2.08]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image29.png
-[apiplatform_vsphere_2.4.2.09]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image30.png
-[apiplatform_vsphere_2.4.2.10]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image31.png
-[apiplatform_vsphere_2.5.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image32.png
-[apiplatform_vsphere_2.5.02]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image33.png
-[apiplatform_vsphere_2.5.03]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image34.png
-[apiplatform_vsphere_2.5.04]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image35.png
-[apiplatform_vsphere_2.5.05]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image36.png
-[apiplatform_vsphere_2.5.06]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image37.png
-[apiplatform_vsphere_3.1.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image38.png
-[apiplatform_vsphere_3.1.02]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image39.png
-[apiplatform_vsphere_3.1.03]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image40.png
-[apiplatform_vsphere_3.1.04]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image41.png
-[apiplatform_vsphere_3.1.05]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image42.png
-[apiplatform_vsphere_3.1.06]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image43.png
-[apiplatform_vsphere_3.2.01]:/images/openpaas-service/apiplatform/apiplatform_vsphere/image44.png
+[apiplatform_vsphere_1.3.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/시스템구성도.png
+[apiplatform_vsphere_2.2.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image3.png
+[apiplatform_vsphere_2.2.02]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image4.png
+[apiplatform_vsphere_2.2.03]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image5.png
+[apiplatform_vsphere_2.2.04]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image6.png
+[apiplatform_vsphere_2.3.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image7.png
+[apiplatform_vsphere_2.3.02]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image8.png
+[apiplatform_vsphere_2.3.03]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image9.png
+[apiplatform_vsphere_2.3.04]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image10.png
+[apiplatform_vsphere_2.3.05]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image11.png
+[apiplatform_vsphere_2.3.06]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image12.png
+[apiplatform_vsphere_2.3.07]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image13.png
+[apiplatform_vsphere_2.4.1.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image14.png
+[apiplatform_vsphere_2.4.1.02]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image15.png
+[apiplatform_vsphere_2.4.1.03]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image16.png
+[apiplatform_vsphere_2.4.1.04]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image17.png
+[apiplatform_vsphere_2.4.1.05]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image18.png
+[apiplatform_vsphere_2.4.1.06]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image19.jpeg
+[apiplatform_vsphere_2.4.1.07]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image20.png
+[apiplatform_vsphere_2.4.1.08]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image21.png
+[apiplatform_vsphere_2.4.2.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image22.png
+[apiplatform_vsphere_2.4.2.02]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image23.png
+[apiplatform_vsphere_2.4.2.03]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image24.png
+[apiplatform_vsphere_2.4.2.04]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image25.png
+[apiplatform_vsphere_2.4.2.05]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image26.png
+[apiplatform_vsphere_2.4.2.06]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image27.png
+[apiplatform_vsphere_2.4.2.07]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image28.png
+[apiplatform_vsphere_2.4.2.08]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image29.png
+[apiplatform_vsphere_2.4.2.09]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image30.png
+[apiplatform_vsphere_2.4.2.10]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image31.png
+[apiplatform_vsphere_2.5.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image32.png
+[apiplatform_vsphere_2.5.02]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image33.png
+[apiplatform_vsphere_2.5.03]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image34.png
+[apiplatform_vsphere_2.5.04]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image35.png
+[apiplatform_vsphere_2.5.05]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image36.png
+[apiplatform_vsphere_2.5.06]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image37.png
+[apiplatform_vsphere_3.1.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image38.png
+[apiplatform_vsphere_3.1.02]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image39.png
+[apiplatform_vsphere_3.1.03]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image40.png
+[apiplatform_vsphere_3.1.04]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image41.png
+[apiplatform_vsphere_3.1.05]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image42.png
+[apiplatform_vsphere_3.1.06]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image43.png
+[apiplatform_vsphere_3.2.01]:/Guide-1.0-Spaghetti-/images/openpaas-service/apiplatform/apiplatform_vsphere/image44.png

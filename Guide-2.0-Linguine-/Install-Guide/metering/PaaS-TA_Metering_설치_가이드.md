@@ -1,67 +1,32 @@
-## Table of Contents
-1. [개요](#1)
-	* [문서 개요](#2)
-	 * [목적](#3)
-	 * [범위](#4)
-	 * [참고자료](#5)
+## PaaS-TA Metering 설치 가이드
 
-2. [Abacus 배포](#6)
-    * [미터링 범위](#7)
-    * [배포 전제 조건](#8)
-    * [Node.js 설치](#9)
-     * [Node.js 설치 순서](#10)
-    * [pouchdb, couchdb 설치](#11)
-     * [couchdb 설치](#12)
-     * [pouchdb 설치(옵션)](#13)
-     * [설치 확인](#14)
-     * [CouchDB 계정 생성](#32)
-    * [CF에 abacus UAA 계정 등록](#15)
-     * [UAA 클라이언트 설치](#16)
-     * [CF 앱 사용량 수집을 위한 UAA 계정 드록](#17)
-     * [Secured Abacus를 위한 UAA 계정 등록](#18)
-    * [cf-abacus 배포](#19)
-     * [Git을 통해 cf-abacus를 다운받는다.](#20)
-     * [gradle build를 위한 dependency 추가](#21)
-     * [Abacus와 연동할 DB 및 Secure 정보 설정](#22)
-     * [Abacus 빌드](#23)
-     * [Abacus 배포](#24)
-     * [Abaus-cf-bridge 배포](#25)
-* [PAASTA-USAGE-REPORTION 배포](#26)
-    * [배포 전제 조건](#27)
-    * [CF에 UAA 계정 등록](#28)
-    * [paasta-usage-repoting 배포](#29)
-    * [다운로드](#30)
-    * [paasta-usage-reportion 배포](#31)
-    * [배포 형상](#32)
-    * [api 호출 예제](#33)
-
-# <div id='1'/>1.  개요
-## <div id='2'/>1.1.  문서 개요
-### <div id='3'/>1.1.1.  목적
+# 1.  개요
+## 1.1.  문서 개요
+### 1.1.1.  목적
 
 본 문서(node.js API 서비스 미터링 애플리케이션 개발 가이드)는 파스-타
 플랫폼 프로젝트의 미터링 플러그인과 Node.js API 애플리케이션과 연동하여
 API 서비스를 미터링하는 방법에 대해 기술 하였다.
 
 
-### <div id='4'/>1.1.2.  범위
+### 1.1.2.  범위
 
 본 문서의 범위는 파스-타 플랫폼 프로젝트의 Node.js API 서비스
 애플리케이션 개발과 CF-Abacus 연동에 대한 내용으로 한정되어 있다.
 
 
-### <div id='5'/>1.1.3.  참고 자료 
+### 1.1.3.  참고 자료 
 
 -   [https://github.com/cloudfoundry-incubator/cf-abacus](https://github.com/cloudfoundry-incubator/cf-abacus)
 
 
-# <div id='6'/>2.  Abacus 배포 
+# 2.  Abacus 배포 
 
-## <div id='7'/>2.1.  미터링 범위
+## 2.1.  미터링 범위
 - 파스-타 플랫폼에서 배포 또는 삭제 한 앱의 컨테이너 사용량을 집계
 - 조직/영역/앱에 대해 당월 사용량 및 지정한 기간 동안의 월간 사용량에 대해 조회 가능
 
-## <div id='8'/>2.2.  배포 전제 조건
+## 2.2.  배포 전제 조건
 
 -   이 가이드는 ubuntu14.04 및 로컬 설치를 기준으로 작성되어 있다. 
 -   cf-CLI 가 로컬에 설치 되어 있어야 한다.
@@ -130,7 +95,7 @@ API 서비스를 미터링하는 방법에 대해 기술 하였다.
     </table>
 
 
-## <div id='9'/>2.3.  Node.js 설치
+## 2.3.  Node.js 설치
 
 ※ 설치할 abacus가 요구하는 Node.js 및 Npm 버전을 설치한다. Cf-abacus
 사이트에서 해당 버전을 확인한다.
@@ -138,7 +103,7 @@ API 서비스를 미터링하는 방법에 대해 기술 하였다.
 
 ※ Node.js와 npm은 같이 설치된다
 
-### <div id='10'/>2.3.1. Node.js 설치 순서
+### 2.3.1. Node.js 설치 순서
 
   	$ sudo apt-get install curl
 
@@ -149,13 +114,13 @@ API 서비스를 미터링하는 방법에 대해 기술 하였다.
   	## Node.js & Npm 설치
   	$ sudo apt-get install -y nodejs
 
-## <div id='11'/>2.4.  pouchdb, couchdb 설치
+## 2.4.  pouchdb, couchdb 설치
 
 ※ abacus 데모를 실행하기 위해서는 pouchdb를 설치 해야 한다.
 
 ※ abacus 데이터를 영구 보존하기 위해 서는 couchdb를 설치해야 한다.
 
-### <div id='12'/>2.4.1.couchdb 설치
+### 2.4.1.couchdb 설치
 
   	## CouchDB 설치
   	$ sudo apt-get install couchdb
@@ -191,7 +156,7 @@ API 서비스를 미터링하는 방법에 대해 기술 하였다.
 [http://docs.couchdb.org/en/master/config/index.html](http://docs.couchdb.org/en/master/config/index.html)
 
 
-### <div id='13'/>2.4.2. pouchdb 설치(옵션)
+### 2.4.2. pouchdb 설치(옵션)
 
   	## pouchdb 설치
   	$ sudo npm install -g pouchdb-server
@@ -199,15 +164,15 @@ API 서비스를 미터링하는 방법에 대해 기술 하였다.
   	## pouchdb에 서비스 포트 할당
   	$ pouchdb-server --port 5984
 
-### <div id='14'/>2.4.3.  설치 확인 
+### 2.4.3.  설치 확인 
 
   	$ curl localhost:5984 
   	> {"couchdb":"Welcome","version":"1.5.1",...}
 
-### <div id='32'/>2.4.4.  CouchDB 계정 생성
+### 2.4.4.  CouchDB 계정 생성
 [CouchDB 계정 생성](https://github.com/PaaS-TA/Guide-2.0-Linguine-/blob/master/Install-Guide/metering/Couchdb_Create_Admin.md)
 
-## <div id='15'/>2.5.  CF에 abacus UAA 계정 등록
+## 2.5.  CF에 abacus UAA 계정 등록
 
 CF 설치한 abacus에서 CF의 앱 사용량 정보를 수집하기 위해서 CF 접근을
 위한 계정 및 토큰을발급 받아야 한다.
@@ -215,11 +180,11 @@ CF 설치한 abacus에서 CF의 앱 사용량 정보를 수집하기 위해서 C
 또한 보안 모드로 abacus를 배포한 경우, abacus 컴포넌트간의 데이터 전송을
 위한 계정을 등록해야 한다.
 
-### <div id='16'/>2.5.1. UAA 클라이언트 설치
+### 2.5.1. UAA 클라이언트 설치
 
   	$ gem install cf-uaac
 
-### <div id='17'/>2.5.2. CF 앱 사용량 수집을 위한 UAA 계정 등록
+### 2.5.2. CF 앱 사용량 수집을 위한 UAA 계정 등록
 
   	## CF target 설정
   	$ uaac target uaa.<CF 도메인> --skip-ssl-validation
@@ -236,7 +201,7 @@ CF 설치한 abacus에서 CF의 앱 사용량 정보를 수집하기 위해서 C
 
  	예) $ uaac client add abacus-cf-bridge --name abacus-cf-bridge --authorized_grant_types client_credentials --authorities cloud_controller.admin --secret secret
 
-## <div id='18'/>2.5.3.  Secured Abacus를 위한 UAA 계정 등록 
+## 2.5.3.  Secured Abacus를 위한 UAA 계정 등록 
 
 -   Secured Abacus를 위한 권한 목록
 
@@ -296,7 +261,7 @@ CF 설치한 abacus에서 CF의 앱 사용량 정보를 수집하기 위해서 C
 [https://github.com/cloudfoundry-incubator/cf-abacus/blob/master/doc/security.md](https://github.com/cloudfoundry-incubator/cf-abacus/blob/master/doc/security.md)
 
 
-## <div id='19'/>2.6.  Abacus 배포를 위한 조직 및 영역 설정
+## 2.6.  Abacus 배포를 위한 조직 및 영역 설정
 
   	<< Bosh Lite의 경우>>
 
@@ -336,7 +301,7 @@ CF 설치한 abacus에서 CF의 앱 사용량 정보를 수집하기 위해서 C
   	$ cf create-space <영역>
   	$ cf target -o <조직> -s <영역>
 
-## <div id='20'/>2.7.  cf-abacus 배포
+## 2.7.  cf-abacus 배포
 
 -   **Abacus****기능 개요**
 
@@ -355,7 +320,7 @@ CF 설치한 abacus에서 CF의 앱 사용량 정보를 수집하기 위해서 C
 |   abacus-eureka-plugin      | Netflix의 Eureka 시스템과 연동하여 Abacus 앱의 분산 처리 서비스를 제공한다.  |
 
 
-### <div id='21'/>2.7.1. Git을 통해 cf-abacus를 다운 받는다.
+### 2.7.1. Git을 통해 cf-abacus를 다운 받는다.
 
   	$ cd <abacus를 설치할 경로>
   	$ git clone https://github.com/cloudfoundry-incubator/cf-abacus
@@ -363,7 +328,7 @@ CF 설치한 abacus에서 CF의 앱 사용량 정보를 수집하기 위해서 C
 -   Abacus를 빌드하기 위해서는 Node.js 및 Npm을 사전에 설치해야 한다.
 
 
-### <div id='22'/>2.7.2. Abacus와 연동할 DB 및 Secure 정보 설정
+### 2.7.2. Abacus와 연동할 DB 및 Secure 정보 설정
 
 -	DB연동 및 Secure 정보를 설정하기 위해서는 다음 경로에 있는 manifest.yml 파일을 수정한다.
 
@@ -427,13 +392,13 @@ applications:
   	JWTALGO: HS256 ## JWTKEY 알고리즘
 
 
-### <div id='23'/>2.7.3. Abacus 빌드
+### 2.7.3. Abacus 빌드
 
   	$ cd <abacus 경로>
   	$ npm run build
 
 
-### <div id='24'/>2.7.4. Abacus 배포
+### 2.7.4. Abacus 배포
 
   	$ cd <abacus 경로>
 
@@ -495,7 +460,7 @@ applications:
 
 [https://docs.cloudfoundry.org/adminguide/buildpacks.html](https://docs.cloudfoundry.org/adminguide/buildpacks.html)
 
-### <div id='25'/>2.7.5. abacus-cf-bridge 배포
+### 2.7.5. abacus-cf-bridge 배포
 
 [2.6.4](#23) 에서 배포한 abacus는 외부 사용량에 대한 수집 기능은 없다. 따라서
 실제 CF에서 발생한 앱 사용량을 수집하기 위해서는 별도의 앱을 배포해야
@@ -559,22 +524,22 @@ applications:
 ※	참고: cf-abacus 는 cf-abacus 가 설치 완료 된 이후 시점부터, cf 상의 app이 새로 push 되거나 cf stop 및 cf start 된 cf event 를 기반으로 데이터를 수집, 집계한다.
 
 
-# <div id='26'/>3.  PAASTA-USAGE-REPORTING 배포
+# 3.  PAASTA-USAGE-REPORTING 배포
 
 PAASTA-USAGE-REPORTING은 abacus 시스템과 연동하여 PAASTA에 앱의 사용량을
 보고하는 서비스이다.
 
-## <div id='27'/>3.1.  배포 전제 조건 
+## 3.1.  배포 전제 조건 
 
 [[Abacus 배포 전제 조건](#7)]  참조.
 
-## <div id='28'/>3.2.  CF에 UAA 계정 등록 
+## 3.2.  CF에 UAA 계정 등록 
 
 [[Abacus UAA 계정 등록](#14)]  참조.
 
-## <div id='29'/>3.3.  paasta-usage-repoting 배포 
+## 3.3.  paasta-usage-repoting 배포 
 
-### <div id='30'/>3.3.1.다운로드 
+### 3.3.1.다운로드 
 
 [다운로드](https://paas-ta.kr/data/packages/2.0/PaaSTA-Metering.zip)
 
@@ -588,7 +553,7 @@ PAASTA-USAGE-REPORTING은 abacus 시스템과 연동하여 PAASTA에 앱의 사�
   	$ tar xvf PaaS-TA-Usage-Reporting.tar
 
 
-### <div id='31'/>3.3.2. paasta-usage-reporting 배포
+### 3.3.2. paasta-usage-reporting 배포
 
   	$ cd <설치 경로>/PaaS-TA-Usage-Reporting/usageReporting
 
@@ -632,7 +597,7 @@ applications:
 ```
 
 
-### <div id='32'/>3.3.3. 배포 형상
+### 3.3.3. 배포 형상
 
   	$ cf a
 
@@ -641,7 +606,7 @@ applications:
   	name requested state instances memory disk urls
   	paasta-usage-reporting started 1/1 512M 512M paasta-usage-reporting.bosh-lite.com
 
-### <div id='33'/>3.3.4.  api 호출 예제
+### 3.3.4.  api 호출 예제
 
   	$ curl -k -X GET https://paasta-usage-reporting.bosh-lite.com/v1/org/:org_id/space/:space_id
 

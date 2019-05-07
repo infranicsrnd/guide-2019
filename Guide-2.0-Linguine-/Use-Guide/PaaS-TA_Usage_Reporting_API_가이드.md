@@ -1,50 +1,34 @@
-## Table of Contents
-1. [문서개요](#1)
-	* [목적](#2)
-	* [범위](#3)
-2. [GET org_app_usage_summary](#4)
-	* [Request Parameters](#5)
-	* [cURL](#6)
-	* [Response body](#7)
-3. [GET monthly_org_usage](#8)
-	* [Request Parameters](#9)
-	* [cURL](#10)
-	* [Response body](#11)
-4.  [GET app_monthly_usage](#12)
-	* [Request Parameters](#13)
-	* [cURL](#14)
-	* [Response body](#15)
+## PaaS-TA_Usage_Reporting_API_가이드
+# 1.  문서 개요
 
-# <div id='1'/>1.  문서 개요
-
-## <div id='2'/>1.1.  목적
+## 1.1.  목적
 
 본 문서는 PaaS-TA Usage Reporting의 API 호출에 대해 기술하였다.
 
-## <div id='3'/>1.2.  범위 
+## 1.2.  범위 
 
 본 문서에서는 PaaS-TA Usage Reporting의 API의 인터페이스 정보 및 호출
 방법에 대해 작성되었다.
 
 
-# <div id='4'/>2. GET org_app_usage_summary
+# 2. GET org_app_usage_summary
 
 해당 조회 월 1일부터 현재 시간까지의 org / space 에서 동작 중인 각 app의
 메모리 사용량을 조회한다. space_id parameter 가 ‘all’ 인 경우, org
 전체의 값을 리턴한다.
 
-## <div id='5'/>2.1.  Request Parameters 
+## 2.1.  Request Parameters 
 
 |  이름  |설명 |기본값| 유효값| 예시값|
 |--------|----|-----|------|-------|
 |org_id   |조직 아이디       |-|	org_guid	        |‘7726b51e-b7b4-4b9f-a1cf-78eab2710e2d’|
 |space_id |	스페이스 아이디	|-|	space_guid, ‘all’	|‘b5e7f478-6f26-457f-97ce-c57a31afe157’|
 
-## <div id='6'/>2.2.  cURL
+## 2.2.  cURL
 
 	curl -i -X GET http://paasta-usage-reporting.your-domain.com/v1/org/:org_id/space/:space_id
 
-## <div id='7'/>2.3.  Response body
+## 2.3.  Response body
 
 | 프로퍼티 이름  |설명 | 유효값| 예시값|
 |---------|---|----|-----|
@@ -89,14 +73,14 @@
 	    ]
 	}
 
-# <div id='8'/>3.  GET monthly_org_usage
+# 3.  GET monthly_org_usage
 
 org /space 내 동작 중인 각 app의 집계 기간내 월별 메모리 사용량을 조회한다.
 
 space_id parameter 가 ‘all’ 인 경우, org 전체의 값을 리턴한다.
 
 
-## <div id='9'/>3.1.  Request Parameters
+## 3.1.  Request Parameters
 
 |  이름  |설명 |기본값| 유효값| 예시값|
 |--------|---|------|-------|-----|
@@ -105,12 +89,12 @@ space_id parameter 가 ‘all’ 인 경우, org 전체의 값을 리턴한다.
 |from_month   |	집계 시작 년월 yyyymm|-|yyyymm 형식 String |  ‘201601’|
 |to_month     |	집계 종료 년월 yyyymm|-|yyyymm 형식 String | ‘201603’|
 
-## <div id='10'/>3.2.  cURL 
+## 3.2.  cURL 
 
 	curl -i -X GET http://pasta-usage-reporting.your-domain.com/v1/org/:org_id/space/:space_id/from/:from_month/to/:to_month
 
 
-## <div id='11'/>3.3.  Response body
+## 3.3.  Response body
 
 | 프로퍼티 이름  |설명 | 유효값| 예시값|
 |---------|---|----|-----|
@@ -244,11 +228,11 @@ space_id parameter 가 ‘all’ 인 경우, org 전체의 값을 리턴한다.
 	}
 
 
-# <div id='12'/>4. GET app_monthly_usage
+# 4. GET app_monthly_usage
 
 해당 app의 집계기간 내의 월별 메모리 사용량을 조회한다.
 
-## <div id='13'/>4.1.  Request Parameters
+## 4.1.  Request Parameters
 <table>
   <tr>
     <th>이름</th>
@@ -295,12 +279,12 @@ space_id parameter 가 ‘all’ 인 경우, org 전체의 값을 리턴한다.
 </table>
 
 
-## <div id='14'/>4.2.  cURL
+## 4.2.  cURL
 
 	curl -i -X GET http://pasta-usage-reporting.your-domain.com/v1/ org/:org_id/space/:space_id/app/:app_id/from/:from_month/to/:to_month
 
 
-## <div id='15'/>4.3.  Response body
+## 4.3.  Response body
 <table>
   <tr>
     <th>프로퍼티 이름</th>

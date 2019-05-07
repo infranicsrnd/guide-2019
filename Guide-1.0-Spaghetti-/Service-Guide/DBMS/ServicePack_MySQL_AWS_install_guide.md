@@ -1,20 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1-문서-개요)
-  - 1.1. [목적](#11-목적)
-  - 1.2. [범위](#12-범위)
-  - 1.3. [시스템 구성도](#13-시스템-구성도)
-  - 1.4. [참고자료](#14-참고자료)
-2. [MySQL 서비스팩 설치](#2-mysql-서비스팩-설치)
-  - 2.1. [설치전 준비사항](#21-설치전-준비사항)
-  - 2.2. [MySQL 서비스 릴리즈 업로드](#22-mysql-서비스-릴리즈-업로드)
-  - 2.3. [MySQL 서비스 Deployment 파일 수정 및 배포](#23-mysql-서비스-deployment-파일-수정-및-배포)
-  - 2.4. [MySQL 서비스 브로커 등록](#24-mysql-서비스-브로커-등록)
-3. [MySQL 연동 Sample Web App 설명](#3-mysql-연동-sample-web-app-설명)
-  - 3.1. [Sample Web App 구조](#31-sample-web-app-구조)
-  - 3.2. [개방형 클라우드 플랫폼에서 서비스 신청](#32-개방형-클라우드-플랫폼에서-서비스-신청)
-  - 3.3. [Sample Web App에 서비스 바인드 신청 및 App 확인](#33-sample-web-app에-서비스-바인드-신청-및-app-확인)
-4. [MySQL Client 툴 접속](#4-mysql-client-툴-접속)
-  - 4.1. [HeidiSQL 설치 및 연결](#41-heidisql-설치-및-연결)
+## ServicePack MySQL AWS install guide
 
 # 1. 문서 개요
 ### 1.1. 목적
@@ -683,56 +667,56 @@ HeidiSQL 프로그램은 무료로 사용할 수 있는 오픈소스 소프트�
 >![mysql_HeidiSQL_17]
 
 
-[mysql_AWS_00]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_00.png
-[mysql_AWS_01]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_01.png
-[mysql_AWS_02]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_02.png
-[mysql_AWS_03]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_03.png
-[mysql_AWS_04]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_04.png
-[mysql_AWS_05]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_05.png
-[mysql_AWS_06]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_06.png
-[mysql_AWS_07]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_07.png
-[mysql_AWS_08]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_08.png
-[mysql_AWS_09]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_09.png
-[mysql_AWS_10]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_10.png
-[mysql_AWS_11]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_11.png
-[mysql_AWS_12]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_12.png
-[mysql_AWS_13]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_13.png
-[mysql_AWS_14]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_14.png
-[mysql_AWS_15]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_15.png
-[mysql_AWS_16]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_16.png
-[mysql_AWS_17]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_17.png
-[mysql_AWS_18]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_18.png
-[mysql_AWS_19]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_19.png
-[mysql_AWS_20]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_20.png
-[mysql_AWS_21]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_21.png
-[mysql_AWS_22]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_22.png
-[mysql_AWS_23]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_23.png
-[mysql_AWS_24]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_24.png
-[mysql_AWS_25]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_25.png
-[mysql_AWS_26]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_26.png
-[mysql_AWS_27]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_27.png
-[mysql_AWS_28]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_28.png
-[mysql_AWS_29]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_29.png
-[mysql_AWS_30]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_30.png
-[mysql_AWS_31]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_31.png
-[mysql_AWS_32]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_32.png
-[mysql_AWS_33]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_33.png
-[mysql_AWS_34]:/images/openpaas-service/mysql/mysql_aws/mysql_AWS_34.png
+[mysql_AWS_00]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_00.png
+[mysql_AWS_01]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_01.png
+[mysql_AWS_02]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_02.png
+[mysql_AWS_03]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_03.png
+[mysql_AWS_04]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_04.png
+[mysql_AWS_05]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_05.png
+[mysql_AWS_06]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_06.png
+[mysql_AWS_07]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_07.png
+[mysql_AWS_08]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_08.png
+[mysql_AWS_09]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_09.png
+[mysql_AWS_10]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_10.png
+[mysql_AWS_11]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_11.png
+[mysql_AWS_12]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_12.png
+[mysql_AWS_13]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_13.png
+[mysql_AWS_14]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_14.png
+[mysql_AWS_15]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_15.png
+[mysql_AWS_16]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_16.png
+[mysql_AWS_17]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_17.png
+[mysql_AWS_18]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_18.png
+[mysql_AWS_19]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_19.png
+[mysql_AWS_20]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_20.png
+[mysql_AWS_21]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_21.png
+[mysql_AWS_22]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_22.png
+[mysql_AWS_23]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_23.png
+[mysql_AWS_24]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_24.png
+[mysql_AWS_25]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_25.png
+[mysql_AWS_26]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_26.png
+[mysql_AWS_27]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_27.png
+[mysql_AWS_28]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_28.png
+[mysql_AWS_29]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_29.png
+[mysql_AWS_30]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_30.png
+[mysql_AWS_31]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_31.png
+[mysql_AWS_32]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_32.png
+[mysql_AWS_33]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_33.png
+[mysql_AWS_34]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_AWS_34.png
 
-[mysql_HeidiSQL_01]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_01.png
-[mysql_HeidiSQL_02]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_02.png
-[mysql_HeidiSQL_03]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_03.png
-[mysql_HeidiSQL_04]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_04.png
-[mysql_HeidiSQL_05]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_05.png
-[mysql_HeidiSQL_06]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_06.png
-[mysql_HeidiSQL_07]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_07.png
-[mysql_HeidiSQL_08]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_08.png
-[mysql_HeidiSQL_09]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_09.png
-[mysql_HeidiSQL_10]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_10.png
-[mysql_HeidiSQL_11]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_11.png
-[mysql_HeidiSQL_12]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_12.png
-[mysql_HeidiSQL_13]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_13.png
-[mysql_HeidiSQL_14]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_14.png
-[mysql_HeidiSQL_15]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_15.png
-[mysql_HeidiSQL_16]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_16.png
-[mysql_HeidiSQL_17]:/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_17.png
+[mysql_HeidiSQL_01]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_01.png
+[mysql_HeidiSQL_02]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_02.png
+[mysql_HeidiSQL_03]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_03.png
+[mysql_HeidiSQL_04]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_04.png
+[mysql_HeidiSQL_05]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_05.png
+[mysql_HeidiSQL_06]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_06.png
+[mysql_HeidiSQL_07]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_07.png
+[mysql_HeidiSQL_08]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_08.png
+[mysql_HeidiSQL_09]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_09.png
+[mysql_HeidiSQL_10]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_10.png
+[mysql_HeidiSQL_11]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_11.png
+[mysql_HeidiSQL_12]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_12.png
+[mysql_HeidiSQL_13]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_13.png
+[mysql_HeidiSQL_14]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_14.png
+[mysql_HeidiSQL_15]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_15.png
+[mysql_HeidiSQL_16]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_16.png
+[mysql_HeidiSQL_17]:/Guide-1.0-Spaghetti-/images/openpaas-service/mysql/mysql_aws/mysql_HeidiSQL_17.png

@@ -1,47 +1,5 @@
-
-## Table of Contents
-1. [개요](#1)
-    * [1.1. 문서 개요](#2)
-    * [1.1.1 목적](#3)
-    * [1.1.2 범위](#4)
-    * [1.1.3 참고자료](#5)
-2. [시스템 구성](#6)
-     * [2.1. 시스템 구성도](#7)
-3. [도로명주소 서비스](#8)
-     * [2.1. 도로명 주소 흭득](#9)
-     * [2.2. 주소 데이터 Table 정의하기](#10)
-     * [2.3. 주소 데이터 DB 넣기](#11)
-4. [도로명 주소 서비스](#12)
-     * [4.1. 도로명 주소 서비스 구조](#13)
-     * [4.2. 도로명 주소 서비스 API](#14)
-     * [4.2.1. 도로명 주소 검색 서비스](#15)
-     * [4.2.2. 도로명 주소 관리 서비스](#16)
-     * [4.3. 소스 설명](#17)
-     * [4.3.1. Class Diagram](#18)
-     * [4.3.2. 소스 리스트 및 설명](#19)
-5. [도로명 주소 서비스 등록(API 플랫폼)](#20)
-     * [5.1. 도로명 주소 검색 API 등록](#21)
-     * [5.2. 도로명 주소 관리 API 등록](#22)
-6. [개방형 클라우드 플랫폼 설정](#23)
-     * [6.1. API 플랫폼 서비스팩 등록](#24)
-     * [6.2. API 플랫폼 서비스팩 Update](#25)
-7. [도로명 주소 검색 Sample Web App 설명](#26)
-     * [7.1. Sample Web App 구조](#27)
-     * [7.2. 개방형 클라우드 플랫폼에서 서비스 신청 및 바인딩 하기](#28)
-     * [7.2.1. 서비스 신청(Provision)하기](#29)
-     * [7.2.2. 서비스와 Sample App을 연결(Binding) 하기](#30)
-     * [7.3. 소스 리스트 및 설명](#31)
-     * [7.3.1. Spring 서버 영역](#32)
-     * [7.3.2. Web영역 (중요한 파일만 표사 - main/resources 안에 있음)](#33)
-8. [별첨A. 도로명 주소 검색 API 정의서](#34)
-     * [8.1. 도로명 주소 검색](#35)
-9. [별첨B. 도로명 주소 관리 API 정의서](#36)
-     * [9.1. 도로명 주소 검색](#37)
-     * [9.2. 도로명 주소 검색 (한 개)](#38)
-     * [9.3. 도로명 주소 등록](#39)
-     * [9.4. 도로명 주소 수정](#40)
-     * [9.5. 도로명 주소 삭제](#41)
-     
+## Application APIPlatform dorojuso devlope guide
+   
      
      
 # <a name="1"/>1. 개요
@@ -1254,19 +1212,19 @@ Accept : application/json
 }
 ````
 
-[api_platform_dorojuso_01]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_01.png
-[api_platform_dorojuso_02]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_02.png
-[api_platform_dorojuso_03]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_03.png
-[api_platform_dorojuso_04]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_04.png
-[api_platform_dorojuso_05]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_05.png
-[api_platform_dorojuso_06]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_06.png
-[api_platform_dorojuso_07]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_07.png
-[api_platform_dorojuso_08]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_08.png
-[api_platform_dorojuso_09]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_09.png
-[api_platform_dorojuso_10]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_10.png
-[api_platform_dorojuso_11]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_11.png
-[api_platform_dorojuso_12]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_12.png
-[api_platform_dorojuso_13]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_13.png
-[api_platform_dorojuso_14]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_14.png
-[api_platform_dorojuso_15]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_15.png
-[api_platform_dorojuso_16]:/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_16.png
+[api_platform_dorojuso_01]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_01.png
+[api_platform_dorojuso_02]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_02.png
+[api_platform_dorojuso_03]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_03.png
+[api_platform_dorojuso_04]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_04.png
+[api_platform_dorojuso_05]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_05.png
+[api_platform_dorojuso_06]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_06.png
+[api_platform_dorojuso_07]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_07.png
+[api_platform_dorojuso_08]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_08.png
+[api_platform_dorojuso_09]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_09.png
+[api_platform_dorojuso_10]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_10.png
+[api_platform_dorojuso_11]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_11.png
+[api_platform_dorojuso_12]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_12.png
+[api_platform_dorojuso_13]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_13.png
+[api_platform_dorojuso_14]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_14.png
+[api_platform_dorojuso_15]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_15.png
+[api_platform_dorojuso_16]:/Guide-1.0-Spaghetti-/images/openpaas-application-apiplatform-dorojuso/api_platform_dorojuso_16.png

@@ -1,30 +1,15 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - 1.1. [목적](#11)
-  - 1.2. [범위](#12)
-  - 1.3. [시스템 구성도](#13)
-  - 1.4. [참고자료](#14)
-2. [Pinpoint 서비스팩 설치](#2)
-  - 2.1. [설치전 준비사항](#21)
-  - 2.2. [Pinpoint 서비스 릴리즈 업로드](#22)
-  - 2.3. [Pinpoint 서비스 Deployment 파일 수정 및 배포](#23)
-  - 2.4. [HBase 기본 데이터 실행](#24)
-  - 2.5. [Pinpoint 서비스 브로커 등록](#25)
-3. [Sample Web App 연동 Pinpoint 연동](#3)
-  - 3.1. [Sample Web App 구조](#31)
-  - 3.2. [PaaS-TA에서 서비스 신청](#32)
-  - 3.3. [Sample Web App에 서비스 바인드 신청 및 App 확인](#33)
+## PaaS-TA Pinpoint 서비스팩 설치 가이드
 
-# <div id='1'> 1. 문서 개요
-### <div id='11'> 1.1. 목적
+#  1. 문서 개요
+###  1.1. 목적
 
 본 문서(Pinpoint 서비스팩 설치 가이드)는 전자정부표준프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 Pinpoint 서비스팩을 Bosh2.0을 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application 에서 Pinpoint 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='12'> 1.2. 범위
+###  1.2. 범위
 설치 범위는 Pinpoint 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='13'> 1.3. 시스템 구성도
+###  1.3. 시스템 구성도
 
 본 문서의 설치된 시스템 구성도입니다. Pinpoint Server, HBase의 HBase Master2, HBase Slave2, Collector 2, Pinpoint 서비스 브로커, WebUI3로 최소사항을 구성하였다. 
 
@@ -68,13 +53,13 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
   </tr>
 </table>
 
-### <div id='14'> 1.4. 참고자료
+###  1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs)  
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
-# <div id='2'> 2. Pinpoint 서비스팩 설치
+#  2. Pinpoint 서비스팩 설치
 
-### <div id='21'> 2.1. 설치전 준비사항
+###  2.1. 설치전 준비사항
 
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
@@ -91,7 +76,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >PaaSTA-Deployment : **<https://paas-ta.kr/data/packages/3.5/deployment.zip>**  
 >PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
 
-### <div id='22'> 2.2. Pinpoint 서비스 릴리즈 업로드
+###  2.2. Pinpoint 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -262,7 +247,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 		
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (pinpoint는 stemcell 3309 버전을 사용)
 
-### <div id='23'> 2.3. MySQL 서비스 Deployment 파일 및 deploy-mysql-bosh2.0.sh 수정 및 배포
+###  2.3. MySQL 서비스 Deployment 파일 및 deploy-mysql-bosh2.0.sh 수정 및 배포
 
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
@@ -1127,7 +1112,7 @@ bosh -e micro-bosh -d paasta-pinpoint-service deploy paasta_pinpoint_bosh2.0.yml
 
 		Succeeded
 
-### <div id='24'> 2.4. HBase 기본 데이터 실행
+###  2.4. HBase 기본 데이터 실행
 
 -	Pinpoint 서비스팩 배포가 완료 되었으면 HBase 14개의 기본 Table이 생성되어야 Application에서 서비스 팩을 정상 사용할 수 있다.
 h_master 서버에 ssh 로 접속 하여 hbase table 생성 스크립트를 구동한다.
@@ -1183,7 +1168,7 @@ h_master 서버에 ssh 로 접속 하여 hbase table 생성 스크립트를 구�
 		Traces
 		14 row(s) in 0.0470 seconds
 
-### <div id='25'> 2.5. Pinpoint 서비스 브로커 등록
+###  2.5. Pinpoint 서비스 브로커 등록
 
 Pinpoint 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을
 사용하기 위해서 먼저 Pinpoint 서비스 브로커를 등록해 주어야 한다.
@@ -1274,11 +1259,11 @@ service plan access orgs
 Pinpoint Pinpoint\_standard all
 ```
 
-#  <div id='3'> 3. Sample Web App 연동 Pinpoint 연동
+#   3. Sample Web App 연동 Pinpoint 연동
 
 본 Sample Web App은 개방형 클라우드 플랫폼에 배포되며 Pinpoint의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
 
-### <div id='31'> 3.1. Sample Web App 구조
+###  3.1. Sample Web App 구조
 
 Sample Web App은 PaaS-TA에 App으로 배포가 된다. 배포된
 App에 Pinpoint 서비스 Bind 를 통하여 초기 데이터를 생성하게 된다. 바인드
@@ -1324,7 +1309,7 @@ spring-music            stopped           0/1         512M     1G     spring-mus
 spring-music-pinpoint   stopped           0/1         512M     1G     spring-music-pinpoint.monitoring.open-paas.com
 ```
 
-### <div id='32'> 3.2. PaaS-TA에서 서비스 신청
+###  3.2. PaaS-TA에서 서비스 신청
 
 Sample Web App에서 Pinpoint 서비스를 사용하기 위해서는 서비스
 신청(Provision)을 해야 한다.
@@ -1385,7 +1370,7 @@ PS1              Pinpoint        Pinpoint_standard                            cr
 syslog_service   user-provided                       php-demo, spring-music 
 ```
 
-### <div id='33'> 3.3. Sample Web App에 서비스 바인드 신청 및 App 확인
+###  3.3. Sample Web App에 서비스 바인드 신청 및 App 확인
 -------------------------------------------------
 
 서비스 신청이 완료되었으면 Sample Web App 에서는 생성된 서비스

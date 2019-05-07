@@ -1,20 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1-문서-개요)
-	-	1.1. [목적](#11-목적)
-	-	1.2. [범위](#12-범위)
-	-	1.3. [시스템 구성도](#13-시스템-구성도)
-	-	1.4. [참고자료](#14-참고자료)
-2. [Redis 서비스팩 설치](#2-redis-서비스팩-설치)
-	-	2.1. [설치전 준비사항](#21-설치전-준비사항)
-	-	2.2. [Redis 서비스 릴리즈 업로드](#22-redis-서비스-릴리즈-업로드)
-	-	2.3. [Redis 서비스 Deployment 파일 수정 및 배포](#23-redis-서비스-deployment-파일-수정-및-배포)
-	-	2.4. [Redis 서비스 브로커 등록](#24-redis-서비스-브로커-등록)
-3. [Redis 연동 Sample App 설명](#3-redis-연동-sample-app-설명)
-	-	3.1. [Sample App 구조](#31-sample-app-구조)
-	-	3.2. [개방형 클라우드 플랫폼에서 서비스 신청](#32-개방형-클라우드-플랫폼에서-서비스-신청)
-	-	3.3. [Sample App에 서비스 바인드 신청 및 App 확인](#33-sample-app에-서비스-바인드-신청-및-app-확인)
-4. [Redis Client 툴 접속](#4-redis-client-툴-접속)
-	-	4.1. [Redis Desktop Manager 설치 및 연결](#41-redis-desktop-manager-설치-및-연결)
+## ServicePack Redis BOSH-Lite install guide
 
 # 1. 문서 개요
 
@@ -55,7 +39,7 @@ BOSH-lite 가 설치 되어 있지 않을 경우 먼저 BOSH-lite 설치 가이�
 >OpenPaaS-Deployment : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0YWXQzq>**  
 >OpenPaaS-Sample-Apps : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW>**
 
-<div id='8'></div>
+
 ###   2.2. Redis 서비스 릴리즈 업로드
 
 - OpenPaaS-Services 폴더 안에 있는 redis 서비스 릴리즈 파일 openpaas-redis-release-1.0.tgz 을 다운로드 한다.
@@ -678,50 +662,50 @@ Redis Desktop Manager 프로그램은 무료로 사용할 수 있는 오픈소�
 
 
 
-[redis_bosh_lite_02]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_02.png
-[redis_bosh_lite_03]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_03.png
-[redis_bosh_lite_04]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_04.png
-[redis_bosh_lite_05]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_05.png
-[redis_bosh_lite_06]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_06.png
-[redis_bosh_lite_07]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_07.png
-[redis_bosh_lite_08]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_08.png
-[redis_bosh_lite_09]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_09.png
-[redis_bosh_lite_10]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_10.png
-[redis_bosh_lite_11]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_11.png
-[redis_bosh_lite_12]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_12.png
-[redis_bosh_lite_13]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_13.png
-[redis_bosh_lite_14]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_14.png
-[redis_bosh_lite_15]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_15.png
-[redis_bosh_lite_16]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_16.png
-[redis_bosh_lite_17]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_17.png
-[redis_bosh_lite_18]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_18.png
-[redis_bosh_lite_19]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_19.png
-[redis_bosh_lite_20]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_20.png
-[redis_bosh_lite_21]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_21.png
-[redis_bosh_lite_22]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_22.png
-[redis_bosh_lite_23]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_23.png
-[redis_bosh_lite_24]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_24.png
-[redis_bosh_lite_25]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_25.png
-[redis_bosh_lite_26]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_26.png
-[redis_bosh_lite_27]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_27.png
-[redis_bosh_lite_28]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_28.png
-[redis_bosh_lite_29]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_29.png
-[redis_bosh_lite_30]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_30.png
-[redis_bosh_lite_31]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_31.png
-[redis_bosh_lite_32]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_32.png
-[redis_bosh_lite_33]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_33.png
-[redis_bosh_lite_34]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_34.png
-[redis_bosh_lite_35]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_35.png
-[redis_bosh_lite_36]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_36.png
-[redis_bosh_lite_37]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_37.png
-[redis_bosh_lite_38]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_38.png
-[redis_bosh_lite_39]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_39.png
-[redis_bosh_lite_40]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_40.png
-[redis_bosh_lite_41]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_41.png
-[redis_bosh_lite_42]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_42.png
-[redis_bosh_lite_43]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_43.png
-[redis_bosh_lite_44]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_44.png
-[redis_bosh_lite_45]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_45.png
-[redis_bosh_lite_46]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_46.png
-[redis_bosh_lite_47]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_47.png
-[redis_bosh_lite_48]:/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_48.png
+[redis_bosh_lite_02]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_02.png
+[redis_bosh_lite_03]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_03.png
+[redis_bosh_lite_04]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_04.png
+[redis_bosh_lite_05]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_05.png
+[redis_bosh_lite_06]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_06.png
+[redis_bosh_lite_07]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_07.png
+[redis_bosh_lite_08]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_08.png
+[redis_bosh_lite_09]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_09.png
+[redis_bosh_lite_10]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_10.png
+[redis_bosh_lite_11]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_11.png
+[redis_bosh_lite_12]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_12.png
+[redis_bosh_lite_13]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_13.png
+[redis_bosh_lite_14]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_14.png
+[redis_bosh_lite_15]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_15.png
+[redis_bosh_lite_16]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_16.png
+[redis_bosh_lite_17]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_17.png
+[redis_bosh_lite_18]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_18.png
+[redis_bosh_lite_19]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_19.png
+[redis_bosh_lite_20]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_20.png
+[redis_bosh_lite_21]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_21.png
+[redis_bosh_lite_22]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_22.png
+[redis_bosh_lite_23]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_23.png
+[redis_bosh_lite_24]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_24.png
+[redis_bosh_lite_25]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_25.png
+[redis_bosh_lite_26]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_26.png
+[redis_bosh_lite_27]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_27.png
+[redis_bosh_lite_28]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_28.png
+[redis_bosh_lite_29]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_29.png
+[redis_bosh_lite_30]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_30.png
+[redis_bosh_lite_31]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_31.png
+[redis_bosh_lite_32]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_32.png
+[redis_bosh_lite_33]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_33.png
+[redis_bosh_lite_34]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_34.png
+[redis_bosh_lite_35]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_35.png
+[redis_bosh_lite_36]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_36.png
+[redis_bosh_lite_37]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_37.png
+[redis_bosh_lite_38]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_38.png
+[redis_bosh_lite_39]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_39.png
+[redis_bosh_lite_40]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_40.png
+[redis_bosh_lite_41]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_41.png
+[redis_bosh_lite_42]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_42.png
+[redis_bosh_lite_43]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_43.png
+[redis_bosh_lite_44]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_44.png
+[redis_bosh_lite_45]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_45.png
+[redis_bosh_lite_46]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_46.png
+[redis_bosh_lite_47]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_47.png
+[redis_bosh_lite_48]:/Guide-1.0-Spaghetti-/images/openpaas-service/redis/redis_bosh_lite/redis_bosh_lite_48.png

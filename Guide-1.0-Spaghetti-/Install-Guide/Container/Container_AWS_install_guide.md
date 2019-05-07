@@ -1,29 +1,5 @@
-## Table of Contents
-1. [개요](#1)
-    * [1.1. 목적](#11)
-    * [1.2. 범위](#12)
-    * [1.3. 참고자료](#13)
-2. [Prerequisites](#2)
-    * [2.1. OpenPaas Controller 설치확인](#21)
-3. [Open Paas Container 설치](#3)
-    * [3.1. Release Upload](#31)
-    * [3.2. Deployment Manifes](#32)
-    * [3.2.1. Name & Release](#321)
-    * [3.2.2. Networks](#322)
-    * [3.2.3. Compilatio](#323)
-    * [3.2.4. Resource Pools](#324)
-    * [3.2.5. Update](#325)
-    * [3.2.6. Jobs](#326)
-    * [3.2.7. Properties](#327)
-    * [3.3. Deployment Manifest 지정](#33)
-    * [3.4. Bosh Deploy](#34)
-    * [3.5. 설치형상 확인](#35)
-4. [설치 검증](#4)
-    * [4.1. CF Login](#41)
-    * [4.2. Application Deploy](#42)
-    * [4.3. Application Access](#43)
-    
-        
+## Container_AWS_install_guide
+       
 # <a name="1"/>1. 개요
 
 ### <a name="11"/>1.1. 목적
@@ -1487,22 +1463,22 @@ manifest 설정 파일에서 변경하야 한다.**
 >
 > curl –L http:// hello-spring-test.controller.open-paas.com
 
-[container_aws_guide_01]:/images/openpaas-container/container_aws_guide_01.png
-[container_aws_guide_02]:/images/openpaas-container/container_aws_guide_02.png
-[container_aws_guide_03]:/images/openpaas-container/container_aws_guide_03.png
-[container_aws_guide_04]:/images/openpaas-container/container_aws_guide_04.png
-[container_aws_guide_05]:/images/openpaas-container/container_aws_guide_05.png
-[container_aws_guide_06]:/images/openpaas-container/container_aws_guide_06.png
-[container_aws_guide_07]:/images/openpaas-container/container_aws_guide_07.png
-[container_aws_guide_08]:/images/openpaas-container/container_aws_guide_08.png
-[container_aws_guide_09]:/images/openpaas-container/container_aws_guide_09.png
-[container_aws_guide_10]:/images/openpaas-container/container_aws_guide_10.png
-[container_aws_guide_11]:/images/openpaas-container/container_aws_guide_11.png
-[container_aws_guide_12]:/images/openpaas-container/container_aws_guide_12.png
-[container_aws_guide_13]:/images/openpaas-container/container_aws_guide_13.png
-[container_aws_guide_14]:/images/openpaas-container/container_aws_guide_14.png
-[container_aws_guide_15]:/images/openpaas-container/container_aws_guide_15.png
-[container_aws_guide_16]:/images/openpaas-container/container_aws_guide_16.png
+[container_aws_guide_01]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_01.png
+[container_aws_guide_02]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_02.png
+[container_aws_guide_03]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_03.png
+[container_aws_guide_04]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_04.png
+[container_aws_guide_05]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_05.png
+[container_aws_guide_06]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_06.png
+[container_aws_guide_07]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_07.png
+[container_aws_guide_08]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_08.png
+[container_aws_guide_09]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_09.png
+[container_aws_guide_10]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_10.png
+[container_aws_guide_11]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_11.png
+[container_aws_guide_12]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_12.png
+[container_aws_guide_13]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_13.png
+[container_aws_guide_14]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_14.png
+[container_aws_guide_15]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_15.png
+[container_aws_guide_16]:/Guide-1.0-Spaghetti-/images/openpaas-container/container_aws_guide_16.png
 
 
 

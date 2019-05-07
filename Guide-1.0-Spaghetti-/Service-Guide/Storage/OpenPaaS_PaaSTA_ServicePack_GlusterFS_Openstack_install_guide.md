@@ -1,40 +1,22 @@
 
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 시스템 구성도](#4)
-     * [1.4. 참고자료](#5)
-2. [GlusterFS 서비스팩 설치](#6)
-     * [2.1. 설치전 준비사항](#7)
-     * [2.2. GlusterFS 서비스 릴리즈 업로드](#8)
-     * [2.3. GlusterFS 서비스 Deployment 파일 수정 및 배포](#9)
-     * [2.4. GlusterFS 서비스 브로커 등록](#10)
-3. [GlusterFS 연동 Sample App 설명](#11)
-     * [3.1. Sample App 구조](#12)
-     * [3.2. 개방형 클라우드 플랫폼에서 서비스 신청](#13)
-     * [3.3. Sample App에 서비스 바인드 신청 및 App 확인](#14)
-4. [GlusterFS Client 툴 접속](#15)
-     * [4.1. Putty 다운로드 및 터널링](#16)
-     * [4.2. GlusterFS Manager 설치 및 연결](#17)
-
+## OpenPaaS PaaSTA ServicePack GlusterFS Openstack install guide
      
 
 
-<div id='1'></div>
+
 # 1. 문서 개요
 
-<div id='2'></div>
+
 ### 1.1. 목적
       
 본 문서(GlusterFS서비스팩설치 가이드)는 전자정부표준프레임워크 기반의 Open PaaS에서 제공되는 서비스팩인GlusterFS서비스팩을 Bosh를 이용하여 설치 하는 방법과 Open PaaS의 SaaS 형태로 제공하는 Application 에서GlusterFS 서비스를 사용하는 방법을 기술하였다.
 
-<div id='3'></div>
+
 ### 1.2. 범위 
 
 설치 범위는 GlusterFS서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다. 
 
-<div id='4'></div>
+
 ### 1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도입니다. Mysql Server, GlusterFS 서비스 브로커로 최소사항을 구성하였고 서비스 백엔드는 외부에 구성되어 있습니다. 
 ![시스템 구성도][1-3-0-0]
@@ -54,15 +36,15 @@
   </tr>
 </table>
 
-<div id='5'></div>
+
 ### 1.4. 참고자료
 **<http://bosh.io/docs>**  
 **<http://docs.cloudfoundry.org/>**
 
-<div id='6'></div>
+
 #   2. GlusterFS 서비스팩 설치
 
-<div id='7'></div>
+
 ### 2.1. 설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.  
 서비스팩 설치를 위해서는 먼저 BOSH CLI 가 설치 되어 있어야 하고 BOSH 에 로그인 및 타켓 설정이 되어 있어야 한다.  
@@ -76,7 +58,7 @@ BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문
 >OpenPaaS-Deployment : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0YWXQzq>**  
 >OpenPaaS-Sample-Apps : **<http://extdisk.hancom.com:8080/share.cgi?ssid=0icB5ZW>**
 
-<div id='8'></div>
+
 ###   2.2. GlusterFS 서비스 릴리즈 업로드
 
 - OpenPaaS-Services을 다운로드 받고 폴더안에 있는 GlusterFS 서비스 릴리즈 openpaas-glusterfs-1.0.tgz 파일을 확인한다.
@@ -107,7 +89,7 @@ BOSH CLI 가 설치 되어 있지 않을 경우 먼저 BOSH 설치 가이드 문
 ![2-2-3-0]  
 >GlusterFS 서비스 릴리즈가 업로드 되어 있는 것을 확인
 
-<div id='9'></div>
+
 ### 2.3.  GlusterFS 서비스 Deployment 파일 수정 및 배포
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML  파일이다.  
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params등을 정의가 되어 있다.
@@ -281,7 +263,7 @@ instance_type: m1.small   # OpenStack Flavor 타입
 >$ bosh vms openpaas-glusterfs-service  
 ![2-3-5-0]  
 
-<div id='10'></div>
+
 ### 2.4. GlusterFS 서비스 브로커 등록
 GlusterFS 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 GlusterFS 서비스 브로커를 등록해 주어야 한다.  
 서비스 브로커 등록시 개방형 클라우드 플랫폼에서 서비스브로커를 등록할 수 있는 사용자로 로그인이 되어있어야 한다.
@@ -318,10 +300,10 @@ GlusterFS 서비스팩 배포가 완료 되었으면 Application에서 서비스
 >$ cf service-access  
 >![2-4-4-0]
 
-<div id='11'></div>
+
 #   3. GlusterFS연동 Sample App 설명
 본 Sample Web App은 개발형 클라우드 플랫폼에 배포되며 GlusterFS의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
-<div id='12'></div>
+
 ### 3.1. Sample App 구조
 Sample Web App은 개방형 클라우드 플랫폼에 App으로 배포가 된다. App을 배포하여 구동시 Bind 된 GlusterFS 서비스 연결정보로 접속하여 초기 데이터를 생성하게 된다. 배포 완료 후 정상적으로 App 이 구동되면 브라우져나 curl로 해당 App에 접속 하여 GlusterFS 환경정보(서비스 연결 정보)와 초기 적재된 데이터를 보여준다.
 
@@ -354,7 +336,7 @@ Sample Web App 구조는 다음과 같다.
 ><div>$ ls -all</div>
 >![3-1-0-0]
 
-<div id='13'></div>
+
 ### 3.2. 개방형 클라우드 플랫폼에서 서비스 신청
 Sample Web App에서 GlusterFS 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
 *참고: 서비스 신청시 개방형 클라우드 플랫폼에서 서비스를신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.
@@ -380,7 +362,7 @@ Sample Web App에서 GlusterFS 서비스를 사용하기 위해서는 서비스 
 ><div>$ cf services</div>
 >![3-2-2-0]
 
-<div id='14'></div>
+
 ### 3.3. Sample App에 서비스 바인드 신청 및 App 확인
 서비스 신청이 완료되었으면 Sample Web App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 GlusterFS 서비스를 이용한다.  
 *참고: 서비스 Bind 신청시개방형 클라우드 플랫폼에서 서비스 Bind신청 할 수 있는 사용자로 로그인이 되어 있어야 한다.  
@@ -435,34 +417,34 @@ $ curl --form attchFile=@../../../Desert.jpg --form press=OK hello-spring-gluste
 >![3-3-4-1]
 
 
-[1-3-0-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/1-3-0-0.png
-[2-2-0-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-0-0.png
-[2-2-1-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-1-0.png
-[2-2-2-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-2-0.png
-[2-2-2-1]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-2-1.png
-[2-2-2-2]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-2-2.png
-[2-2-3-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-3-0.png
-[2-3-0-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-0-0.png
-[2-3-1-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-1-0.png
-[2-3-2-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-2-0.png
-[2-3-3-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-3-0.png
-[2-3-4-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-4-0.png
-[2-3-4-1]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-4-1.png
-[2-3-5-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-5-0.png
-[2-4-0-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-0-0.png
-[2-4-1-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-1-0.png
-[2-4-2-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-2-0.png
-[2-4-3-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-3-0.png
-[2-4-4-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-4-0.png
-[3-1-0-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-1-0-0.png
-[3-2-0-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-2-0-0.png
-[3-2-1-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-2-1-0.png
-[3-2-2-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-2-2-0.png
-[3-3-0-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-0-0.png
-[3-3-1-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-1-0.png
-[3-3-1-1]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-1-1.png
-[3-3-2-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-2-0.png
-[3-3-3-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-3-0.png
-[3-3-3-1]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-3-1.png
-[3-3-4-0]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-4-0.png
-[3-3-4-1]:/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-4-1.png
+[1-3-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/1-3-0-0.png
+[2-2-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-0-0.png
+[2-2-1-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-1-0.png
+[2-2-2-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-2-0.png
+[2-2-2-1]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-2-1.png
+[2-2-2-2]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-2-2.png
+[2-2-3-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-2-3-0.png
+[2-3-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-0-0.png
+[2-3-1-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-1-0.png
+[2-3-2-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-2-0.png
+[2-3-3-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-3-0.png
+[2-3-4-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-4-0.png
+[2-3-4-1]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-4-1.png
+[2-3-5-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-3-5-0.png
+[2-4-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-0-0.png
+[2-4-1-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-1-0.png
+[2-4-2-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-2-0.png
+[2-4-3-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-3-0.png
+[2-4-4-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/2-4-4-0.png
+[3-1-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-1-0-0.png
+[3-2-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-2-0-0.png
+[3-2-1-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-2-1-0.png
+[3-2-2-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-2-2-0.png
+[3-3-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-0-0.png
+[3-3-1-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-1-0.png
+[3-3-1-1]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-1-1.png
+[3-3-2-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-2-0.png
+[3-3-3-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-3-0.png
+[3-3-3-1]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-3-1.png
+[3-3-4-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-4-0.png
+[3-3-4-1]:/Guide-1.0-Spaghetti-/images/openpaas-service/glusterfs/glusterfs_openstack/3-3-4-1.png

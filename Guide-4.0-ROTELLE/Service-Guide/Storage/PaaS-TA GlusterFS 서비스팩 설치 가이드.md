@@ -1,30 +1,15 @@
-## Table of Contents
-1. [문서 개요](#1)
-  - [1.1. 목적](#2)
-  - [1.2. 범위](#3)
-  - [1.3. 시스템 구성도](#4)
-  - [1.4. 참고자료](#5)
-2. [GlusterFS 서비스팩 설치](#6)
-  -  [2.1. 설치전 준비사항](#7)
-  -  [2.2. GlusterFS 서비스 릴리즈 업로드](#8)
-  -  [2.3. GlusterFS 서비스 Deployment 파일 수정 및 배포](#9)
-  -  [2.4. GlusterFS 서비스 브로커 등록](#10)
-3. [GlusterFS 연동 Sample App 설명](#11)
-  - [3.1. Sample App 구조](#12)
-  - [3.2. PaaS-TA에서 서비스 신청](#13)
-  - [3.3. Sample App에 서비스 바인드 신청 및 App 확인](#14)
-
+## PaaS-TA GlusterFS 서비스팩 설치 가이드
 
 # 1. 문서 개요
 
-### <div id='2'>1.1. 목적</div>
+### 1.1. 목적
 본 문서(GlusterFS 서비스팩 설치 가이드)는 전자정부 표준 프레임워크 기반의 PaaS-TA에서 제공되는 서비스팩인 GlusterFS 서비스팩을 Bosh를 이용하여 설치 하는 방법과 PaaS-TA의 SaaS 형태로 제공하는 Application 에서GlusterFS 서비스를 사용하는 방법을 기술하였다.
 PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 Bosh1.0 기반으로 설치를 원할경우에는 PaaS-TA 3.1 이하 버전의 문서를 참고한다.
 
-### <div id='3'> 1.2. 범위 </div>
+###  1.2. 범위 
 설치 범위는 GlusterFS 서비스팩을 검증하기 위한 기본 설치를 기준으로 작성하였다.
 
-### <div id='4'>1.3. 시스템 구성도</div>
+### 1.3. 시스템 구성도
 본 문서의 설치된 시스템 구성도이다. Mysql Server, GlusterFS 서비스 브로커로 최소사항을 구성하였고 서비스 백엔드는 외부에 구성되어 있다.
 ![시스템 구성도][glusterfs_image_01]
 
@@ -42,15 +27,15 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
 | mysql | minimal | 1vCPU / 1GB RAM / 8GB Disk |
 
 <br>
-<div id='5'></div>
+
 
 ### 1.4. 참고자료
 [**http://bosh.io/docs**](http://bosh.io/docs) <br>
 [**http://docs.cloudfoundry.org/**](http://docs.cloudfoundry.org/)
 
-# <div id='6'>2. GlusterFS 서비스팩 설치</div>
+# 2. GlusterFS 서비스팩 설치
 
-### <div id='7'> 2.1. 설치전 준비사항</div>
+###  2.1. 설치전 준비사항
 본 설치 가이드는 Linux 환경에서 설치하는 것을 기준으로 하였다.
 서비스팩 설치를 위해서는 먼저 BOSH CLI v2 가 설치 되어 있어야 하고 BOSH 에 로그인이 되어 있어야 한다.<br>
 BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이드 문서를 참고 하여 BOSH CLI v2를 설치를 하고 사용법을 숙지 해야 한다.<br>
@@ -63,7 +48,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 >PaaSTA-Sample-Apps : **<https://paas-ta.kr/data/packages/2.0/PaaSTA-Sample-Apps.zip>**
 
 
-### <div id='8'>2.2. GlusterFS 서비스 릴리즈 업로드</div>
+### 2.2. GlusterFS 서비스 릴리즈 업로드
 
 -	업로드 되어 있는 릴리즈 목록을 확인한다.
 
@@ -231,7 +216,7 @@ BOSH CLI v2 가 설치 되어 있지 않을 경우 먼저 BOSH2.0 설치 가이�
 		
 >Stemcell 목록이 존재 하지 않을 경우 BOSH 설치 가이드 문서를 참고 하여 Stemcell을 업로드를 해야 한다. (glusterfs 는  stemcell 3309 버전을 사용)
 
-###   <div id='9'>2.3. glusterfs 서비스 Deployment 파일 수정 및 배포</div>
+###   2.3. glusterfs 서비스 Deployment 파일 수정 및 배포
 BOSH Deployment manifest 는 components 요소 및 배포의 속성을 정의한 YAML 파일이다.
 Deployment manifest 에는 sotfware를 설치 하기 위해서 어떤 Stemcell (OS, BOSH agent) 을 사용할것이며 Release (Software packages, Config templates, Scripts) 이름과 버전, VMs 용량, Jobs params 등을 정의가 되어 있다.
 
@@ -1163,7 +1148,7 @@ bosh -e micro-bosh -d paasta-swift-object-service deploy paasta_swift_object_bos
 
 		Succeeded
 
-<div id='10'> </div>
+
 
 ### 2.4. GlusterFS 서비스 브로커 등록
 GlusterFS 서비스팩 배포가 완료 되었으면 Application에서 서비스 팩을 사용하기 위해서 먼저 GlusterFS 서비스 브로커를 등록해 주어야 한다.
@@ -1220,13 +1205,13 @@ GlusterFS 서비스팩 배포가 완료 되었으면 Application에서 서비스
 
 <br>
 
-<div id='11'></div>
+
 
 #   3. GlusterFS 연동 Sample App 설명
 본 Sample Web App은 PaaS-TA에 배포되며 GlusterFS의 서비스를 Provision과 Bind를 한 상태에서 사용이 가능하다.
 
 
-<div id='12'></div>
+
 
 ### 3.1. Sample App 구조
 Sample Web App은 PaaS-TA에 App으로 배포가 된다. 배포 완료 후 정상적으로 App 이 구동되면 브라우저나 curl로 해당 App에 접속 하여 GlusterFS 환경정보(서비스 연결 정보)와파일 업로드하고 확인하는 기능을 제공한다.
@@ -1265,7 +1250,7 @@ Sample App 구조는 다음과 같다.
 
 <br>
 
-<div id='13'></div>
+
 
 ### 3.2. PaaS-TA에서 서비스 신청
 Sample App에서 GlusterFS 서비스를 사용하기 위해서는 서비스 신청(Provision)을 해야 한다.
@@ -1301,7 +1286,7 @@ Sample App에서 GlusterFS 서비스를 사용하기 위해서는 서비스 신�
 
 <br>
 
-<div id='14'></div>
+
 
 ### 3.3. Sample App에 서비스 바인드 신청 및 App 확인
 서비스 신청이 완료되었으면 Sample App 에서는 생성된 서비스 인스턴스를 Bind 하여 App에서 GlusterFS 서비스를 이용한다.
@@ -1379,21 +1364,21 @@ path: target/hello-spring-glusterfs.war # 배포하는 App 파일 PATH
 
 > ![glusterfs_image_17]
 
-[glusterfs_image_01]:/Service-Guide/images/glusterfs/glusterfs_image_01.png
-[glusterfs_image_02]:/Service-Guide/images/glusterfs/glusterfs_image_02.png
-[glusterfs_image_03]:/Service-Guide/images/glusterfs/glusterfs_image_03.png
-[glusterfs_image_04]:/Service-Guide/images/glusterfs/glusterfs_image_04.png
-[glusterfs_image_05]:/Service-Guide/images/glusterfs/glusterfs_image_05.png
-[glusterfs_image_06]:/Service-Guide/images/glusterfs/glusterfs_image_06.png
-[glusterfs_image_07]:/Service-Guide/images/glusterfs/glusterfs_image_07.png
-[glusterfs_image_08]:/Service-Guide/images/glusterfs/glusterfs_image_08.png
-[glusterfs_image_09]:/Service-Guide/images/glusterfs/glusterfs_image_09.png
-[glusterfs_image_10]:/Service-Guide/images/glusterfs/glusterfs_image_10.png
-[glusterfs_image_11]:/Service-Guide/images/glusterfs/glusterfs_image_11.png
-[glusterfs_image_12]:/Service-Guide/images/glusterfs/glusterfs_image_12.png
-[glusterfs_image_13]:/Service-Guide/images/glusterfs/glusterfs_image_13.png
-[glusterfs_image_14]:/Service-Guide/images/glusterfs/glusterfs_image_14.png
-[glusterfs_image_15]:/Service-Guide/images/glusterfs/glusterfs_image_15.png
-[glusterfs_image_16]:/Service-Guide/images/glusterfs/glusterfs_image_16.png
-[glusterfs_image_17]:/Service-Guide/images/glusterfs/glusterfs_image_17.jpeg
+[glusterfs_image_01]:./../images/glusterfs/glusterfs_image_01.png
+[glusterfs_image_02]:./../images/glusterfs/glusterfs_image_02.png
+[glusterfs_image_03]:./../images/glusterfs/glusterfs_image_03.png
+[glusterfs_image_04]:./../images/glusterfs/glusterfs_image_04.png
+[glusterfs_image_05]:./../images/glusterfs/glusterfs_image_05.png
+[glusterfs_image_06]:./../images/glusterfs/glusterfs_image_06.png
+[glusterfs_image_07]:./../images/glusterfs/glusterfs_image_07.png
+[glusterfs_image_08]:./../images/glusterfs/glusterfs_image_08.png
+[glusterfs_image_09]:./../images/glusterfs/glusterfs_image_09.png
+[glusterfs_image_10]:./../images/glusterfs/glusterfs_image_10.png
+[glusterfs_image_11]:./../images/glusterfs/glusterfs_image_11.png
+[glusterfs_image_12]:./../images/glusterfs/glusterfs_image_12.png
+[glusterfs_image_13]:./../images/glusterfs/glusterfs_image_13.png
+[glusterfs_image_14]:./../images/glusterfs/glusterfs_image_14.png
+[glusterfs_image_15]:./../images/glusterfs/glusterfs_image_15.png
+[glusterfs_image_16]:./../images/glusterfs/glusterfs_image_16.png
+[glusterfs_image_17]:./../images/glusterfs/glusterfs_image_17.jpeg
 

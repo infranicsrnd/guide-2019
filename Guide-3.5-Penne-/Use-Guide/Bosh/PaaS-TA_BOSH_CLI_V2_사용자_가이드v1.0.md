@@ -1,139 +1,19 @@
-## Table Contents
-1. [개요](#1)
-	* [문서 목적](#2)
-	* [문서 범위](#3)
-	* [참고 자료](#4)
+## PaaS-TA BOSH CLI V2 사용자 가이드v1.0
 
-1. [BOSH CLI 기본 사용법](#5)
+## 문서 개요
 
-
-1. [BOSH CLI - Environments](#6)
-	* [bosh environments](#7)
-	* [bosh create-env](#8)
-	* [bosh alias-env](#9)
-	* [bosh environment](#10)
-	* [bosh delete-env](#11)
-
-
-1. [BOSH CLI - Session](#12)
-	* [bosh log-in](#13)
-	* [bosh log-out](#14)
-
-
-1. [BOSH CLI - Stemcell](#15)
-	* [bosh Stemcells](#16)
-	* [bosh upload-stemcell](#17)
-	* [bosh delete-stemcell](#18)
-	* [bosh repack-stemcell](#19)
-
-1. [BOSH CLI - Release creation](#20)
-	* [bosh init-release](#20)
-	* [bosh generate-job](#21)
-	* [bosh generate-package](#22)
-	* [bosh vendor-package](#23)
-	* [bosh create-release](#24)
-	* [bosh finalize-release](#25)
-	* [bosh reset-release](#26)
-
-1. [BOSH CLI - Release blobs](#27)
-	* [bosh blob](#28)
-	* [bosh add-blob](#29)
-	* [bosh reomove-blob](#30)
-	* [bosh sync-blob](#31)
-
-1. [BOSH CLI - Releases](#32)
-	* [bosh releases](#33)
-	* [bosh upload-release](#34)
-	* [bosh delete-release](#35)
-	* [bosh export-release](#36)
-	* [bosh inspect-release](#37)
-
-1. [BOSH CLI - Configs](#38)
-	* [bosh configs](#39)
-	* [bosh update-config](#40)
-	* [bosh delete-config](#41)
-
-1. [BOSH CLI - Cloud config](#42)
-	* [bosh cloud-configs](#43)
-	* [bosh update-cloud-config](#44)
-
-1. [BOSH CLI - Runtime config](#45)
-	* [bosh runtime-configs](#46)
-	* [bosh update-runtime-config](#47)
-
-1. [BOSH CLI – CPI config](#48)
-	* [bosh cpi-configs](#49)
-	* [bosh update-cpi-config](#50)
-
-1. [BOSH CLI - Deployments](#51)
-	* [bosh deployments](#52)
-	* [bosh deployment](#53)
-	* [bosh deploy](#54)
-	* [bosh delete-deployment](#55)
-	* [bosh delete-instance](#56)
-	* [bosh manifest](#57)
-	* [bosh recreate](#58)
-	* [bosh restart](#59)
-	* [bosh start](#60)
-	* [bosh stop](#61)
-	* [bosh ignore](#62)
-	* [bosh unignore](#63)
-	* [bosh logs](#64)
-
-1. [BOSH CLI - VMs](#65)
-	* [bosh vms](#66)
-	* [bosh delete-vms](#67)
-
-1. [BOSH CLI - Disks](#68)
-	* [bosh disks](#69)
-	* [bosh attach-disk](#70)
-	* [bosh delete-disk](#71)
-
-1. [BOSH CLI - SSH](#72)
-	* [bosh ssh](#73)
-	* [bosh scp-disk](#74)
-
-1. [BOSH CLI - Errands](#75)
-	* [bosh errands](#76)
-	* [bosh run-errand](#77)
-
-1. [BOSH CLI - Tasks](#78)
-	* [bosh tasks](#79)
-	* [bosh task](#80)
-	* [bosh cancle-task](#81)
-
-1. [BOSH CLI - Snapshot](#82)
-	* [bosh snapshots](#83)
-	* [bosh take-snapshot](#84)
-	* [bosh delete-snapshot](#85)
-	* [bosh delete-snapshots](#86)
-
-1. [BOSH CLI - Deployment recovery](#87)
-	* [bosh update-resurrection](#88)
-	* [bosh cloud-check](#89)
-	* [bosh locks](#90)
-
-1. [BOSH CLI - Misc](#91)
-	* [bosh clean-up](#92)
-	* [bosh help](#93)
-	* [bosh interpolate](#94)
-
-
-
-## <div id='1'/>문서 개요
-
-### <div id='2'/>문서 목적 
+### 문서 목적 
 본 문서는 BOSH에 대한 설치 및 운영 관리를 위한 도구인 BOSH CLI v2에 대해 기본 사용법 및 사용 예시를 통해 BOSH를 이해하는데 목적이 있다. 
 
-### <div id='3'/>문서 범위 
+### 문서 범위 
 
 본 문서에서는 BOSH CLI V2 사용법에 대해서 작성하였다.
 
-### <div id='4'/>참고 자료 
+### 참고 자료 
 
 본 문서는 Cloud Foundry의 BOSH Document([http://bosh.io](http://bosh.io))를 참고로 작성하였다.
 
-## <div id='5'/>BOSH CLI 기본 사용법
+## BOSH CLI 기본 사용법
 
 CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 라인 명령어로 아래와 같이 구분된다.
 
@@ -166,9 +46,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|13         |--parallel=                |병렬 작업의 최대 수|
 	|14         |--client-secret=                |암호 또는 UAA 클라이언트 암호 재정의|
 
-##  <div id='6'/>BOSH CLI - Environments
+##  BOSH CLI - Environments
 
-### <div id='7'/>***bosh environments***
+### ***bosh environments***
 
 - **기본 Syntax**
 
@@ -190,7 +70,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-### <div id='8'/>***bosh create-env***
+### ***bosh create-env***
 
 - **기본 Syntax**
 
@@ -227,7 +107,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
   		-v outbound_network_name=NatNetwork
 
 
-### <div id='9'/>***bosh alias-env*** 
+### ***bosh alias-env*** 
 
 - **기본 Syntax**
 
@@ -246,7 +126,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|location|디렉터 위치 지정|O|
 	|--ca-cert=path|CA 인증서를 지정|X|
 
-### <div id='10'/>***bosh environment*** 
+### ***bosh environment*** 
 
 - **기본 Syntax**
 
@@ -279,7 +159,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-### <div id='11'/>***bosh delete-env***
+### ***bosh delete-env***
 
 - **기본 Syntax**
 
@@ -316,9 +196,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
   		-v outbound_network_name=NatNetwork
 
 
-## <div id='12'/>BOSH CLI - Session
+## BOSH CLI - Session
 
-### <div id='13'/>***bosh log-in***
+### ***bosh log-in***
 
 - **기본 Syntax**
 
@@ -341,7 +221,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Password ():
 
 
-### <div id='14'/>***bosh log-out***
+### ***bosh log-out***
 
 - **기본 Syntax**
 
@@ -365,9 +245,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-## <div id='15'/>BOSH CLI - Stemcells
+## BOSH CLI - Stemcells
 
-### <div id='16'/>***bosh Stemcells***
+### ***bosh Stemcells***
 
 - **기본 Syntax**
 
@@ -400,7 +280,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-### <div id='17'/>***bosh upload-stemcell***
+### ***bosh upload-stemcell***
 
 - **기본 Syntax**
 
@@ -426,7 +306,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env us https://bosh.io/d/stemcells/bosh-stemcell-warden-boshlite-ubuntu-trusty-go_agent?v=3468.17
 
 
-### <div id='18'/>***bosh delete-stemcell***
+### ***bosh delete-stemcell***
 
 - **기본 Syntax**
 
@@ -448,7 +328,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env delete-stemcell bosh-warden-boshlite-ubuntu-trusty-go_agent/3468.17
 
-### <div id='19'/>***bosh repack-stemcell***
+### ***bosh repack-stemcell***
 
 - **기본 Syntax**
 
@@ -473,9 +353,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh repack-stemcell --name=acme-ubuntu-encrypted --cloud-properties='{"encrypted": true, "kms_key_arn": "arn:aws:kms:us-east-1:088444384256:key/4ffbe966-d138-4f4d-a077-4c234d05b3b1"}' bosh-stemcell-3363.9-aws-xen-hvm-ubuntu-trusty-go_agent.tgz acme-encrypted-stemcell.tgz
 
 
-## <div id='20'/>BOSH CLI - Release creation 
+## BOSH CLI - Release creation 
 
-### <div id='21'/>***bosh init-release***
+### ***bosh init-release***
 
 - **기본 Syntax**
 
@@ -498,7 +378,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ cd release-dir
 
 
-### <div id='22'/>***bosh generate-job***
+### ***bosh generate-job***
 
 - **기본 Syntax**
 
@@ -519,7 +399,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh generate-job jenkins
 
-### <div id='23'/>***bosh generate-package***
+### ***bosh generate-package***
 
 - **기본 Syntax**
 
@@ -540,7 +420,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh generate-package jenkins
 
-### <div id='24'/>***bosh vendor-package***
+### ***bosh vendor-package***
 
 - **기본 Syntax**
 
@@ -563,7 +443,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh vendor-package golang-1.8-linux ~/workspace/golang-release
 
-### <div id='25'/>***bosh create-release***
+### ***bosh create-release***
 
 - **기본 Syntax**
 
@@ -588,7 +468,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh create-release --force
 
-### <div id='26'/>***bosh finalize-release***
+### ***bosh finalize-release***
 
 - **기본 Syntax**
 
@@ -615,7 +495,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ git commit -am 'Final release 20'
 		$ git push origin master
 
-### <div id='27'/>***bosh reset-release***
+### ***bosh reset-release***
 
 - **기본 Syntax**
 
@@ -637,9 +517,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh reset-release ~/Download/jenkins
 
 
-## <div id='28'/>BOSH CLI - Release blobs
+## BOSH CLI - Release blobs
 
-### <div id='29'/>***bosh blob*** 
+### ***bosh blob*** 
 
 - **기본 Syntax**
 
@@ -662,7 +542,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-### <div id='30'/>***bosh add-blob***
+### ***bosh add-blob***
 
 - **기본 Syntax**
 
@@ -685,7 +565,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh add-blob ~/Downloads/stress-1.0.4.tar.gz stress/stress-1.0.4.tar.gz
 
 
-### <div id='31'/>***bosh reomove-blob***
+### ***bosh reomove-blob***
 
 - **기본 Syntax**
 
@@ -707,7 +587,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh remove-blob stress/stress-1.0.4.tar.gz
 
 
-### <div id='32'/>***bosh sync-blob***
+### ***bosh sync-blob***
 
 - **기본 Syntax**
 
@@ -723,9 +603,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh sync-blobs
 
 	
-## <div id='33'/>BOSH CLI - Releases
+## BOSH CLI - Releases
 
-### <div id='34'/>***bosh releases***
+### ***bosh releases***
 
 - **기본 Syntax**
 
@@ -771,7 +651,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-### <div id='35'/>***bosh upload-release***
+### ***bosh upload-release***
 
 - **기본 Syntax**
 
@@ -797,7 +677,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env ur git+https://github.com/concourse/concourse --version 2.7.3
 
 
-### <div id='36'/>***bosh delete-release*** 
+### ***bosh delete-release*** 
 
 - **기본 Syntax**
 
@@ -819,7 +699,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env delete-release cf-smoke-tests/94
 
-### <div id='37'/>***bosh export-release***
+### ***bosh export-release***
 
 - **기본 Syntax**
 
@@ -844,7 +724,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env -d my-dep export-release cf-smoke-tests/94 ubuntu-trusty/3369
 
-### <div id='38'/>***bosh inspect-release***
+### ***bosh inspect-release***
 
 - **기본 Syntax**
 
@@ -900,9 +780,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-## <div id='39'/>BOSH CLI - Configs
+## BOSH CLI - Configs
 
-### <div id='40'/>***bosh configs***
+### ***bosh configs***
 
 - **기본 Syntax**
 
@@ -936,7 +816,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-### <div id='41'/>***bosh update-config***
+### ***bosh update-config***
 
 - **기본 Syntax**
 
@@ -959,7 +839,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env config my-type config.yml
 
-### <div id='42'/>***bosh delete-config***
+### ***bosh delete-config***
 
 - **기본 Syntax**
 
@@ -981,9 +861,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env config my-type config.yml
 
-## <div id='43'/>BOSH CLI - Cloud config
+## BOSH CLI - Cloud config
 
-### <div id='44'/>***bosh  cloud-configs***
+### ***bosh  cloud-configs***
 
 - **기본 Syntax**
 
@@ -1003,7 +883,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env cloud-config
 
-###  <div id='45'/>***bosh update-cloud-config***
+###  ***bosh update-cloud-config***
 
 - **기본 Syntax**
 
@@ -1027,9 +907,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env ucc cc.yml
 
 
-## <div id='46'/>BOSH CLI - Runtime config
+## BOSH CLI - Runtime config
 
-### <div id='47'/>***bosh runtime-configs***
+### ***bosh runtime-configs***
 
 - **기본 Syntax**
 
@@ -1049,7 +929,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env runtime-config
 
-### <div id='48'/>***bosh update-runtime-config***
+### ***bosh update-runtime-config***
 
 - **기본 Syntax**
 
@@ -1073,9 +953,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env urc runtime.yml
 
-## <div id='49'/>BOSH CLI - CPI config
+## BOSH CLI - CPI config
 
-### <div id='50'/>***bosh cpi-configs***
+### ***bosh cpi-configs***
 
 - **기본 Syntax**
 
@@ -1095,7 +975,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env cpi-config
 
-### <div id='51'/>***bosh update-cpi-config***
+### ***bosh update-cpi-config***
 
 - **기본 Syntax**
 
@@ -1119,9 +999,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env update-cpi-config runtime.yml
 
-## <div id='52'/>BOSH CLI – Deployments
+## BOSH CLI – Deployments
 
-### <div id='53'/>***bosh deployments***
+### ***bosh deployments***
 
 - **기본 Syntax**
 
@@ -1166,7 +1046,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 
 
-### <div id='54'/>***bosh deployment***
+### ***bosh deployment***
 
 - **기본 Syntax**
 
@@ -1201,7 +1081,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		Succeeded
 
-### <div id='55'/>***bosh deploy***
+### ***bosh deploy***
 
 - **기본 Syntax**
 
@@ -1228,7 +1108,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 
 
-### <div id='56'/>***bosh delete-deployment***
+### ***bosh delete-deployment***
 
 - **기본 Syntax**
 
@@ -1252,7 +1132,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e vbox -d cf deld
 
-### <div id='57'/>***bosh manifest***
+### ***bosh manifest***
 
 - **기본 Syntax**
 
@@ -1274,7 +1154,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e vbox -d cf man > /tmp/manifest.yml
 
-### <div id='58'/>***bosh recreate***
+### ***bosh recreate***
 
 - **기본 Syntax**
 
@@ -1309,7 +1189,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 
 
-### <div id='59'/>***bosh restart***
+### ***bosh restart***
 
 - **기본 Syntax**
 
@@ -1335,7 +1215,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env -d my-dep restart
 
-### <div id='60'/>***bosh start***
+### ***bosh start***
 
 - **기본 Syntax**
 
@@ -1362,7 +1242,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env -d my-dep start
 
 
-### <div id='61'/>***bosh stop***
+### ***bosh stop***
 
 - **기본 Syntax**
 
@@ -1391,7 +1271,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env -d my-dep stop
 
 
-### <div id='62'/>***bosh ignore***
+### ***bosh ignore***
 
 - **기본 Syntax**
 
@@ -1414,7 +1294,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env -d my-dep ignore cell
 
-### <div id='63'/>***bosh unignore***
+### ***bosh unignore***
 
 - **기본 Syntax**
 
@@ -1437,7 +1317,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e my-env -d my-dep unignore cell
 
-### <div id='64'/>***bosh logs***
+### ***bosh logs***
 
 - **기본 Syntax**
 
@@ -1474,9 +1354,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 
 
-## <div id='65'/>BOSH CLI - VMs
+## BOSH CLI - VMs
 
-### <div id='66'/>***bosh vms***
+### ***bosh vms***
 
 - **기본 Syntax**
 
@@ -1500,7 +1380,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e vbox -d cf vms
 		$ bosh -e vbox -d cf vms --vitals
 
-### <div id='67'/>***bosh delete-vms*** 
+### ***bosh delete-vms*** 
 
 - **기본 Syntax**
 
@@ -1524,9 +1404,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e vbox -d cf delete-vm i-fs384238fjwjf8
 
 
-## <div id='68'/>BOSH CLI - Disks
+## BOSH CLI - Disks
 
-### <div id='69'/>***bosh disks***
+### ***bosh disks***
 
 - **기본 Syntax**
 
@@ -1548,7 +1428,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e vnps -d cf disks  
 
-### <div id='70'/>***bosh attach-disk***
+### ***bosh attach-disk***
 
 - **기본 Syntax**
 
@@ -1571,7 +1451,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 		$ bosh -e vbox -d cf attach-disk postgres/209c42e5-3c1a-432a-8445-ab8d7c9f69b0 vol-shw8f293f2f2
 
-### <div id='71'/>***bosh delete-disk***
+### ***bosh delete-disk***
 
 - **기본 Syntax**
 
@@ -1594,9 +1474,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e vbox -d cf delete-disk vol-shw8f293f2f2
 
 
-## <div id='72'/>BOSH CLI - SSH
+## BOSH CLI - SSH
 
-### <div id='73'/>***bosh ssh***
+### ***bosh ssh***
 
 - **기본 Syntax**
 
@@ -1639,7 +1519,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e vbox -d cf ssh uaa/0 --opts ' -L 8080:localhost:8080'
 
 
-### <div id='74'/>***bosh scp***
+### ***bosh scp***
 
 - **기본 Syntax**
 
@@ -1677,9 +1557,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		# copy files from each instance into instance specific local directory
 		$ bosh -e vbox -d cf scp diego-cell:/tmp/logs/ /tmp/logs/((instance_id))
 
-## <div id='75'/>BOSH CLI - Errands
+## BOSH CLI - Errands
 
-### <div id='76'/>***bosh errands***
+### ***bosh errands***
 
 - **기본 Syntax**
 
@@ -1712,7 +1592,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		Succeeded
 
 
-### <div id='77'/>***bosh run-errand***
+### ***bosh run-errand***
 
 - **기본 Syntax**
 
@@ -1763,9 +1643,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 
 
 
-## <div id='78'/>BOSH CLI - Tasks
+## BOSH CLI - Tasks
 
-### <div id='79'/>***bosh tasks***
+### ***bosh tasks***
 
 - **기본 Syntax**
 
@@ -1812,7 +1692,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e vbox ts -r=1000
 
 
-### <div id='80'/>***bosh task***
+### ***bosh task***
 
 - **기본 Syntax**
 
@@ -1839,7 +1719,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e vbox t 281
 		$ bosh -e vbox t 281 --debug
 
-### <div id='81'/>***bosh cancle-task***
+### ***bosh cancle-task***
 
 - **기본 Syntax**
 
@@ -1857,9 +1737,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 	|id|task 아이디|O|
 
 
-## <div id='82'/>BOSH CLI - Snapshot
+## BOSH CLI - Snapshot
 
-### <div id='83'/>***bosh snapshots***
+### ***bosh snapshots***
 
 - **기본 Syntax**
 
@@ -1883,7 +1763,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env -d my-dep snapshots
 
 
-### <div id='84'/>***bosh take-snapshot***
+### ***bosh take-snapshot***
 
 - **기본 Syntax**
 
@@ -1907,7 +1787,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env -d my-dep take-snapshot cell
 
 
-### <div id='85'/>***bosh delete-snapshot***
+### ***bosh delete-snapshot***
 
 - **기본 Syntax**
 
@@ -1931,7 +1811,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env -d my-dep delete-snapshot 1acsda-ccas
 
 
-### <div id='86'/>***bosh delete-snapshots***
+### ***bosh delete-snapshots***
 
 - **기본 Syntax**
 
@@ -1955,9 +1835,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env -d my-dep delete-snapshots
 
 
-## <div id='87'/>BOSH CLI - Deployment recovery
+## BOSH CLI - Deployment recovery
 
-### <div id='88'/>***bosh update-resurrection***
+### ***bosh update-resurrection***
 
 - **기본 Syntax**
 
@@ -1981,7 +1861,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env update-resurrection on
 
 
-### <div id='89'/>***bosh cloud-check***
+### ***bosh cloud-check***
 
 - **기본 Syntax**
 
@@ -2007,7 +1887,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e vbox -d cf cloud-check --report --auto
 
 
-### <div id='90'/>***bosh locks***
+### ***bosh locks***
 
 - **기본 Syntax**
 
@@ -2031,9 +1911,9 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env locks
 
 
-## <div id='91'/>BOSH CLI - Misc
+## BOSH CLI - Misc
 
-### <div id='92'/>***bosh clean-up***
+### ***bosh clean-up***
 
 - **기본 Syntax**
 
@@ -2057,7 +1937,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh -e my-env clean-up --all
 
 
-### <div id='93'/>***bosh help***
+### ***bosh help***
 
 - **기본 Syntax**
 
@@ -2081,7 +1961,7 @@ CLI는 BOSH 배포와 Release를 관리하기 위해 도움을 주는 커맨드 
 		$ bosh upload-release -h
 
 
-### <div id='94'/>***bosh interpolate***
+### ***bosh interpolate***
 
 - **기본 Syntax**
 

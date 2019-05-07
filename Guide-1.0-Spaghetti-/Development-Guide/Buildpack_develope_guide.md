@@ -1,31 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1)
-    * [1.1. 목적](#11)
-    * [1.2. 범위](#12)
-    * [1.3. 참고자료](#13)
-2. [빌드팩 개요](#2)
-    * [2.1. 어플리케이션 배포 프로세스](#21)
-    * [2.2. 용어 정의](#22)
-    * [2.3. 빌드팩 아키텍처](#23)
-    * [2.4. 빌드팩 유형](#24)
-3. [빌드팩 개발 가이드](#3)
-    * [3.1. 필수 기능](#31)
-    * [3.1.1. 검출 (Detect)](#311)
-    * [3.1.2. 컴파일 (Compile)](#312)
-    * [3.1.3. 릴리즈 (Release)](#313)
-    * [3.2. 부가 기능](#32)
-    * [3.2.1. 패키지 (Package)](#321)
-    * [3.2.2. 저장소 (Repository)](#322)
-4. [빌드팩 확장 가이드](#4)    
-    * [4.1. JAVA 빌드팩 확장](#41)
-    * [4.1.1. 소스구조](#411)
-    * [4.1.2. 저장소(Repository) 설정 변경](#412)
-    * [4.1.3. 컴포넌트 확장(Extends)](#413)
-    * [4.1.4. 예제: 컴포넌트 클래스 추가](#414)
-5. [빌드팩 테스트 가이드](#5) 
-    * [5.1. 시스템 빌드팩 추가](#51)
-    * [5.2. GitHub URL 제공](#52) 
-
+## Buildpack develope guide
 
 # <a name="1"/>1. 문서 개요
 
@@ -1359,5 +1332,5 @@ https://username:password@github.com/johndoe/my-buildpack.git\#my-branch-name
 
 [^10]: Rspec, 루비를 위한 BDD(behavior-driven development) 프레임워크[***http://rspec.info/***](http://rspec.info/)
 
-[buildpack_develope_guide_01]:/images/openpaas-buildpack-devolpe-guide/buildpack_develope_guide_01.png
-[buildpack_develope_guide_02]:/images/openpaas-buildpack-devolpe-guide/buildpack_develope_guide_02.png
+[buildpack_develope_guide_01]:/Guide-1.0-Spaghetti-/images/openpaas-buildpack-devolpe-guide/buildpack_develope_guide_01.png
+[buildpack_develope_guide_02]:/Guide-1.0-Spaghetti-/images/openpaas-buildpack-devolpe-guide/buildpack_develope_guide_02.png
