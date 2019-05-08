@@ -241,7 +241,7 @@ API 서비스 브로커를 통해 서비스되는 서비스들이 공통적으�
   ※ instance_id는 서비스 인스턴스 생성 명령어를 입력 했을 때, 클라우드 컨트롤러에서 생성하는 고유의(Unique) ID이다.
   
 - cURL
-  ```
+  ```sh
   $ curl http://username:password@broker-url/v2/service_instances/:instance_id -d '{
   "service_id":        "Service1 PublicPerformance ServiceID",
   "plan_id":           "Service1 PublicPerformance Plan1 basic PlanID",
