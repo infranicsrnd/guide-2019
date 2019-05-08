@@ -235,12 +235,15 @@ API 서비스 브로커를 통해 서비스되는 서비스들이 공통적으�
 
 ##### 4.3.1 요청
 - Route
+  
   ```
   PUT /v2/service_instances/:instance_id
   ```
-  ※ instance_id는 서비스 인스턴스 생성 명령어를 입력 했을 때, 클라우드 컨트롤러에서 생성하는 고유의(Unique) ID이다.
+ 
+ ※ instance_id는 서비스 인스턴스 생성 명령어를 입력 했을 때, 클라우드 컨트롤러에서 생성하는 고유의(Unique) ID이다.
   
 - cURL
+
   ```
   $ curl http://username:password@broker-url/v2/service_instances/:instance_id -d '{
       "service_id":        "Service1 PublicPerformance ServiceID",
@@ -249,6 +252,7 @@ API 서비스 브로커를 통해 서비스되는 서비스들이 공통적으�
       "space_guid":        "[space-guid-here]"
       }' -X PUT -H "X-Broker-API-Version: 2.5" -H "Content-Type: application/json"
   ```
+
   ※ ''username:password'는 서비스 브로커의 인증ID와 인증Password를 의미한다. 서비스 브로커 구현 시, 라이브러리에 정의된 값이다. 정의되어 있는 인증ID는 'admin', 인증Password는 'cluoudfoundry'이다.
 
 - body
