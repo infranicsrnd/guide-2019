@@ -1053,7 +1053,9 @@ VCAP_SERVICES 정보를 확인하면 그림과 같이 각각의 서비스 별로
 
 화면의 좌측 하단 셀렉트 박스에서 지역을 선택해보면서 각각의 API들이 정상적으로 작동하는 것을 확인한다.
 
-![7-7-0-3]
+![7-7-0-3]<br>
+
+
 
 
  [2-1-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-0.png
