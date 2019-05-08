@@ -1,4 +1,4 @@
-#PaaS-TA Guide
+## PaaS-TA Guide
 - 파스타 버전별 가이드 입니다.
 
 - [PaaS-TA 1.0 Guide : Spaghetti](Guide-1.0-Spaghetti-/README.md)
