@@ -312,6 +312,7 @@ API 서비스 브로커를 통해 서비스되는 서비스들이 공통적으�
 
 ##### 4.5.1 요청
 - Route
+
   ```
   PUT /v2/service_instances/:instance_id/service_bindings/:binding_id
   ```
@@ -319,11 +320,11 @@ API 서비스 브로커를 통해 서비스되는 서비스들이 공통적으�
 - cURL
   ```
   $ curl http://username:password@broker-url/v2/service_instances/
-:instance_id/service_bindings/:binding_id -d '{
+  :instance_id/service_bindings/:binding_id -d '{
   "plan_id":       "Service1 PublicPerformance Plan1 basic PlanID",
   "service_id":     "Service1 PublicPerformance ServiceID",
   "app_guid":       "app-guid-here"
-}' -X PUT -H "X-Broker-API-Version: 2.5" -H "Content-Type: application/json"
+  }' -X PUT -H "X-Broker-API-Version: 2.5" -H "Content-Type: application/json"
   ```
   ※ 'username:password'는 서비스 브로커의 인증ID와 인증Password를 의미한다. 서비스 브로커 구현 시, 라이브러리에 정의된 값이다. 정의되어 있는 인증ID는 'admin', 인증Password는 'cluoudfoundry'이다.
 
@@ -365,7 +366,7 @@ API 서비스 브로커를 통해 서비스되는 서비스들이 공통적으�
 - cURL
   ```
   $ curl 'http://username:password@broker-url/v2/service_instances/:instance_id/
-service_bindings/:binding_id?service_id=Service1 PublicPerformance ServiceID &plan_id=Service1 PublicPerformance Plan1 basic PlanID' -X DELETE -H "X-Broker-API-Version: 2.4"
+  service_bindings/:binding_id?service_id=Service1 PublicPerformance ServiceID &plan_id=Service1 PublicPerformance Plan1 basic PlanID' -X DELETE -H "X-Broker-API-Version: 2.4"
   ```
   ※ 'username:password'는 서비스 브로커의 인증ID와 인증Password를 의미한다. 서비스 브로커 구현 시, 라이브러리에 정의된 값이다. 정의되어 있는 인증ID는 'admin', 인증Password는 'cluoudfoundry'이다.
 
@@ -397,7 +398,7 @@ service_bindings/:binding_id?service_id=Service1 PublicPerformance ServiceID &pl
 - cURL
   ```
   $ curl 'http://username:password@broker-url/v2/service_instances/:instance_id?service_id=
-Service1 PublicPerformance ServiceID plan_id=Service1 PublicPerformance Plan1 basic PlanID -X DELETE -H "X-Broker-API-Version: 2.5"
+  Service1 PublicPerformance ServiceID plan_id=Service1 PublicPerformance Plan1 basic PlanID -X DELETE -H "X-Broker-API-Version: 2.5"
   ```
   ※ 'username:password'는 서비스 브로커의 인증ID와 인증Password를 의미한다. 서비스 브로커 구현 시, 라이브러리에 정의된 값이다. 정의되어 있는 인증ID는 'admin', 인증Password는 'cluoudfoundry'이다.
 
