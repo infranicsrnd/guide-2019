@@ -247,7 +247,7 @@ API 서비스 브로커를 통해 서비스되는 서비스들이 공통적으�
   "plan_id":           "Service1 PublicPerformance Plan1 basic PlanID",
   "organization_guid": "[org-guid-here]",
   "space_guid":        "[space-guid-here]"
-}' -X PUT -H "X-Broker-API-Version: 2.5" -H "Content-Type: application/json"
+  }' -X PUT -H "X-Broker-API-Version: 2.5" -H "Content-Type: application/json"
   ```
   ※ ''username:password'는 서비스 브로커의 인증ID와 인증Password를 의미한다. 서비스 브로커 구현 시, 라이브러리에 정의된 값이다. 정의되어 있는 인증ID는 'admin', 인증Password는 'cluoudfoundry'이다.
 
@@ -1054,7 +1054,7 @@ VCAP_SERVICES 정보를 확인하면 그림과 같이 각각의 서비스 별로
 화면의 좌측 하단 셀렉트 박스에서 지역을 선택해보면서 각각의 API들이 정상적으로 작동하는 것을 확인한다.
 
 ![7-7-0-3]
-```
+
 
 
 
