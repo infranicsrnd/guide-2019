@@ -510,6 +510,7 @@ Deployment 파일에서 사용하는 network, vm_type 등은 Cloud config를 활
   Succeeded
 ```
 -	Deployment 를 하기 전에 remove-all-addons.sh 을 환경에 맞게 수정한다.
+
 ```
 $ cd ~/workspace/paasta-4.0/deployment/service-deployment/paasta-container-service-2.0
 $ vi remove-all-addons.sh
