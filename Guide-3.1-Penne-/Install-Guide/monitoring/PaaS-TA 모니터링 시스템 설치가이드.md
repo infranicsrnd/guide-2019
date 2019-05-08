@@ -1,20 +1,4 @@
 ## PaaS-TA 모니터링 시스템 설치가이드
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-2. [Metrics Architecture](#3)
-     * [2.1.  Architecure](#4)
-     * [2.2.  Component 설명](#5)
-3. [Log Architecture](#6)
-     * [3.1.  Architecture](#7)
-     * [3.2.  Component 설명](#8)
-4. [설치 전제 조건](#9)
-5. [InfluxDB-Grafana 설치 방법](#10)
-6. [Logsearch 설치 방법](#11)
-7. [Metrics Collector 서비스 설치 방법](#12)
-8. [PaaS-TA 모니터링 App 설치 방법](#13)
-9. [IaaS 모니터링 App 설치 방법](#14)
-
 
 
 # 1. 문서 개요

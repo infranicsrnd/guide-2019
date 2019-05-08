@@ -14,7 +14,7 @@ PaaS-TA 3.5 버전부터는 Bosh2.0 기반으로 deploy를 진행하며 기존 B
 본 문서의 설치된 시스템 구성도입니다. Browser(paasta Portal), WEB IDE
 Server, Workspace, Desktop IDE로 최소사항을 구성하였다.
 
-![](/Service-Guide/images/webide/web-ide-01.png)
+![](./../images/webide/web-ide-01.png)
 
 | 구분 | Resource Pool | 스펙 |
 |--------|-------|-------|
@@ -1794,7 +1794,7 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
   ⑪ 요약에 등록 할 간략한 정보를 입력한다.<br>
   ⑫ 설명에 등록 할 자세한 정보를 입력한다.<br>
   
- ![](/Service-Guide/images/webide/web-ide-07.png) <br>
+ ![](./../images/webide/web-ide-07.png) <br>
   
 -   참고 : https://github.com/PaaS-TA/Guide-3.0-Penne-/blob/v3.5/Use-Guide/portal/PaaS-TA%20%EC%9A%B4%EC%98%81%EC%9E%90%20%ED%8F%AC%ED%83%88%20%EA%B0%80%EC%9D%B4%EB%93%9C_v1.1.md#--433-%EC%B9%B4%ED%83%88%EB%A1%9C%EA%B7%B8-%EA%B4%80%EB%A6%AC-%EC%84%9C%EB%B9%84%EC%8A%A4
 <br>
@@ -1808,19 +1808,19 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
   ② 공간 목록에서 공간을 선택한다.<br>
   ③ 서비스 이름을 입력한다.<br>
   
- ![](/Service-Guide/images/webide/web-ide-08.png)
+ ![](./../images/webide/web-ide-08.png)
 
 <br>
 
 - 서비스 목록에서 해당 WEB-IDE 서비스의 "대시보드" 버튼을 클릭한다. 
 
- ![](/Service-Guide/images/webide/web-ide-15.png)
+ ![](./../images/webide/web-ide-15.png)
  
 <br>
 
 - Workspace를 구성하기 위해 Docker 관련 자료를 다운로드한다.
 
- ![](/Service-Guide/images/webide/web-ide-09.png)
+ ![](./../images/webide/web-ide-09.png)
 
 <br>
 
@@ -1828,11 +1828,11 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
 
 - Open Project를 누르면 Workspace 화면이 열린다.
 
-![](/Service-Guide/images/webide/web-ide-10.png)
+![](./../images/webide/web-ide-10.png)
 
 - 실제로 소스를 개발해서 빌드하거나 GIT이나 SVN에서 IMPORT 한다.
 
-![](/Service-Guide/images/webide/web-ide-11.png)
+![](./../images/webide/web-ide-11.png)
 
 <br>
 
@@ -1840,12 +1840,12 @@ bosh -e micro-bosh -d webide-broker-service deploy paasta_web_ide_vsphere_2.0.ym
 
 ##### -cf api 명령을 이용해 endpoint를 지정한다.
 
-> ![](/Service-Guide/images/webide/web-ide-12.png)
+> ![](./../images/webide/web-ide-12.png)
 
 ##### cf login 명령어로 로그인하고 조직과 공간을 선택한다.
 
-> ![](/Service-Guide/images/webide/web-ide-13.png)
+> ![](./../images/webide/web-ide-13.png)
 
 ##### cf push 를 이용해 cf에 앱을 업로드한다.
 
-> ![](/Service-Guide/images/webide/web-ide-14.png)
+> ![](./../images/webide/web-ide-14.png)

@@ -1,43 +1,6 @@
 ## PaaS-TA 형상관리 서비스 사용자 가이드_v1.0
 # [PaaS-TA 형상관리 서비스 사용자 가이드]
 
-## 목차
-1. [문서 개요](#1)
-     * [1.1. PaaS-TA 포탈 계정 생성](#2)
-     * [1.2. 범위](#3)
-2. [PaaS-TA 사용자 포탈 서비스](#4)
-     * [2.1. PaaS-TA 포탈 계정 생성](#5)
-3. [형상관리 사용자 포탈 서비스](#6)
-     * [3.1. 형상관리 서비스 사용자 생성](#7)
-     * [3.1.1 로그인](#8)
-     * [3.1.2 레파지토리 참여자 권한 관리](#9)
-     * [3.1.2.1.1.	레파지토리 참여자 권한 추가](#10)
-     * [3.1.2.1.2.	레파지토리 참여자 권한 삭제](#11)     
-     * [3.1.2.1.3.	레파지토리 참여자 권한 조회](#12)
-     * [3.1.2.1.4.	인스턴스 사용자 권한 조회](#13)
-     * [3.1.2.1.5.	사용자 아이디 레파지토리 참여자 검색](#14)
-     * [3.1.2.1.6.	인스턴스 아이디 검색조건 별 사용자 정보 검색](#15)
-     * [3.1.3. 레파지토리 생성](#16)
-     * [3.1.3.1.1.	모든 레파지토리 조회](#17)
-     * [3.1.3.1.2.	사용자 레파지토리 리스트 조회](#18)
-     * [3.1.3.1.3.	레파지토리 삭제](#19)
-     * [3.1.3.1.4.	레파지토리 수정](#20)
-     * [3.1.3.1.5.	레파지토리 상세 조회](#21)  
-     * [3.1.3.1.6.	레파지토리 파일 목록 조회](#22)
-     * [3.1.3.1.6.1. 레파지토리 브렌치 목록 조회](#23)
-     * [3.1.3.1.6.2. 레파지토리 태그 목록 조회](#24)
-     * [3.1.3.1.7.	레파지토리 브라우저 목록 조회](#25)
-     * [3.1.3.1.8.	레파지토리 변경 목록 조회](#26)
-     * [3.1.4.	사용자 관리](#27)
-     * [3.1.4.1.1.	모든 사용자 조회](#28)
-     * [3.1.4.1.2.	사용자 생성](#29)
-     * [3.1.4.1.3.	사용자 삭제](#30)
-     * [3.1.4.1.4.	사용자 수정](#31)
-     * [3.1.4.1.5.	사용자 상세정보 조회](#32)
-     * [3.1.4.1.6.	서비스 인스턴스 레파지토리 사용자 목록 조회](#33)
-     * [3.1.4.1.7.	인스턴스 사용자 삭제](#34)
-
-
 
 
 #  1. 문서 개요
@@ -319,48 +282,48 @@
 
 6.	알림 메시지 “참여자가 삭제되었습니다.”가 나오면 인스턴스 사용자가 삭제된다.
 
-[002]:/Use-Guide/images/source_control/image002.png
-[003]:/Use-Guide/images/source_control/image003.png
-[004]:/Use-Guide/images/source_control/image004.png
-[005]:/Use-Guide/images/source_control/image005.png
-[006]:/Use-Guide/images/source_control/image006.png
-[007]:/Use-Guide/images/source_control/image007.png
-[008]:/Use-Guide/images/source_control/image008.png
-[009]:/Use-Guide/images/source_control/image009.png
-[010]:/Use-Guide/images/source_control/image010.png
-[011]:/Use-Guide/images/source_control/image011.png
-[012]:/Use-Guide/images/source_control/image012.png
-[013]:/Use-Guide/images/source_control/image013.png
-[014]:/Use-Guide/images/source_control/image014.png
-[015]:/Use-Guide/images/source_control/image015.png
-[016]:/Use-Guide/images/source_control/image016.png
-[017]:/Use-Guide/images/source_control/image017.png
-[018]:/Use-Guide/images/source_control/image018.png
-[019]:/Use-Guide/images/source_control/image019.png
-[020]:/Use-Guide/images/source_control/image020.png
-[021]:/Use-Guide/images/source_control/image021.png
-[022]:/Use-Guide/images/source_control/image022.png
-[023]:/Use-Guide/images/source_control/image023.png
-[024]:/Use-Guide/images/source_control/image024.png
-[025]:/Use-Guide/images/source_control/image025.png
-[026]:/Use-Guide/images/source_control/image026.png
-[027]:/Use-Guide/images/source_control/image027.png
-[028]:/Use-Guide/images/source_control/image028.png
-[029]:/Use-Guide/images/source_control/image029.png
-[030]:/Use-Guide/images/source_control/image030.png
-[031]:/Use-Guide/images/source_control/image031.png
-[032]:/Use-Guide/images/source_control/image032.png
-[033]:/Use-Guide/images/source_control/image033.png
-[034]:/Use-Guide/images/source_control/image034.png
-[035]:/Use-Guide/images/source_control/image035.png
-[036]:/Use-Guide/images/source_control/image036.png
-[037]:/Use-Guide/images/source_control/image037.png
-[038]:/Use-Guide/images/source_control/image038.png
-[039]:/Use-Guide/images/source_control/image039.png
-[040]:/Use-Guide/images/source_control/image040.png
-[041]:/Use-Guide/images/source_control/image041.png
-[042]:/Use-Guide/images/source_control/image042.png
-[043]:/Use-Guide/images/source_control/image043.png
-[044]:/Use-Guide/images/source_control/image044.png
-[045]:/Use-Guide/images/source_control/image045.png
+[002]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image002.png
+[003]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image003.png
+[004]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image004.png
+[005]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image005.png
+[006]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image006.png
+[007]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image007.png
+[008]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image008.png
+[009]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image009.png
+[010]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image010.png
+[011]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image011.png
+[012]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image012.png
+[013]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image013.png
+[014]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image014.png
+[015]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image015.png
+[016]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image016.png
+[017]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image017.png
+[018]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image018.png
+[019]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image019.png
+[020]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image020.png
+[021]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image021.png
+[022]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image022.png
+[023]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image023.png
+[024]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image024.png
+[025]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image025.png
+[026]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image026.png
+[027]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image027.png
+[028]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image028.png
+[029]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image029.png
+[030]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image030.png
+[031]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image031.png
+[032]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image032.png
+[033]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image033.png
+[034]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image034.png
+[035]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image035.png
+[036]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image036.png
+[037]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image037.png
+[038]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image038.png
+[039]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image039.png
+[040]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image040.png
+[041]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image041.png
+[042]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image042.png
+[043]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image043.png
+[044]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image044.png
+[045]:/Guide-3.1-Penne-/Use-Guide/images/source_control/image045.png
 

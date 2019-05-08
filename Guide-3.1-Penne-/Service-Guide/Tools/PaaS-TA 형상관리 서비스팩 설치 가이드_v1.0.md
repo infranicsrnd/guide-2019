@@ -1,20 +1,6 @@
 ## PaaS-TA 형상관리 서비스팩 설치 가이드_v1.0
 # [PaaS-TA 형상관리 서비스팩 설치 가이드]
 
-## 목차
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 시스템 구성도](#4)
-     * [1.4. 참고 자료](#5)
-2. [형상관리 서비스팩 설치](#6)
-     * [2.1. 설치 전 준비사항](#7)
-     * [2.2. 형상관리 서비스 릴리즈 업로드](#8)
-     * [2.3. 형상관리 서비스 Deployment 파일 수정 및 배포](#9)
-     * [2.4. 형상관리 서비스 브로커 등록](#10)
-     * [2.5. 형상관리 UAA Client Id 등록](#11)
-
-
 
 #  1. 문서 개요
 
@@ -700,4 +686,4 @@ scope "cloud_controller_service_permissions.read , openid , cloud_controller.rea
 --autoapprove="openid , cloud_controller_service_permissions.read"
 ```
 
-[source_controller_Service_Guide01]:/Service-Guide/images/source_control/source_controller_Service_Guide01.PNG
+[source_controller_Service_Guide01]:/Guide-3.1-Penne-/Service-Guide/images/source_control/source_controller_Service_Guide01.PNG

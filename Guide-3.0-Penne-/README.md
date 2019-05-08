@@ -1,4 +1,4 @@
-# PaaS-TA3.0 가이드 문서
+# PaaS-TA 3.0 Guide : Penne
 
 ## 플랫폼 설치 가이드
 - [설치 파일 다운로드 받기](./Download_Page.md)
@@ -36,7 +36,7 @@
 - [PaaS-TA 포털](./Use-Guide/portal/PaaS-TA%20Portal%20배포%20가이드_v1.1.md)
 
 ## 모니터링 설치 가이드
-- [PaaS-TA 모니터링](Install-Guide/monitoring/PaaS-TA%20모니터링%20시스템%20설치가이드.md)
+- [PaaS-TA 모니터링](./Install-Guide/monitoring/PaaS-TA%20모니터링%20시스템%20설치가이드.md)
 - [IaaS 모니터링](https://github.com/PaaS-TA/IaaS-Monitoring)
 
 ## 활용 가이드

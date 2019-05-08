@@ -763,22 +763,22 @@ $ curl --form attchFile=@../../../Desert.jpg --form press=OK hello-spring-gluste
 ##### 브라우에서 이미지 확인
 ![glusterfs_image_17]
 
-[glusterfs_image_01]:/images/paasta-service/glusterfs/glusterfs_image_01.png
-[glusterfs_image_02]:/images/paasta-service/glusterfs/glusterfs_image_02.png
-[glusterfs_image_03]:/images/paasta-service/glusterfs/glusterfs_image_03.png
-[glusterfs_image_04]:/images/paasta-service/glusterfs/glusterfs_image_04.png
-[glusterfs_image_05]:/images/paasta-service/glusterfs/glusterfs_image_05.png
-[glusterfs_image_06]:/images/paasta-service/glusterfs/glusterfs_image_06.png
-[glusterfs_image_07]:/images/paasta-service/glusterfs/glusterfs_image_07.png
-[glusterfs_image_08]:/images/paasta-service/glusterfs/glusterfs_image_08.png
-[glusterfs_image_09]:/images/paasta-service/glusterfs/glusterfs_image_09.png
-[glusterfs_image_10]:/images/paasta-service/glusterfs/glusterfs_image_10.png
-[glusterfs_image_11]:/images/paasta-service/glusterfs/glusterfs_image_11.png
-[glusterfs_image_12]:/images/paasta-service/glusterfs/glusterfs_image_12.png
-[glusterfs_image_13]:/images/paasta-service/glusterfs/glusterfs_image_13.png
-[glusterfs_image_14]:/images/paasta-service/glusterfs/glusterfs_image_14.png
-[glusterfs_image_15]:/images/paasta-service/glusterfs/glusterfs_image_15.png
-[glusterfs_image_16]:/images/paasta-service/glusterfs/glusterfs_image_16.png
-[glusterfs_image_17]:/images/paasta-service/glusterfs/glusterfs_image_17.jpeg
+[glusterfs_image_01]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_01.png
+[glusterfs_image_02]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_02.png
+[glusterfs_image_03]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_03.png
+[glusterfs_image_04]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_04.png
+[glusterfs_image_05]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_05.png
+[glusterfs_image_06]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_06.png
+[glusterfs_image_07]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_07.png
+[glusterfs_image_08]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_08.png
+[glusterfs_image_09]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_09.png
+[glusterfs_image_10]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_10.png
+[glusterfs_image_11]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_11.png
+[glusterfs_image_12]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_12.png
+[glusterfs_image_13]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_13.png
+[glusterfs_image_14]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_14.png
+[glusterfs_image_15]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_15.png
+[glusterfs_image_16]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_16.png
+[glusterfs_image_17]:/Guide-2.0-Linguine-/images/paasta-service/glusterfs/glusterfs_image_17.jpeg
 
 

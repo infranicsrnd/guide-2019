@@ -683,4 +683,4 @@ scope "cloud_controller_service_permissions.read , openid , cloud_controller.rea
 --autoapprove="openid , cloud_controller_service_permissions.read"
 ```
 
-[source_controller_Service_Guide01]:/Service-Guide/images/source_control/source_controller_Service_Guide01.PNG
+[source_controller_Service_Guide01]:/Guide-3.0-Penne-/Service-Guide/images/source_control/source_controller_Service_Guide01.PNG

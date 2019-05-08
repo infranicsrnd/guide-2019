@@ -1747,4 +1747,4 @@ Context: admin, from client admin
    --autoapprove="openid , cloud_controller_service_permissions.read"
 ```
 
-[1-1-3]:/Service-Guide/images/pipeline/Delivery_Pipeline_Architecture.jpg
+[1-1-3]:./../images/pipeline/Delivery_Pipeline_Architecture.jpg

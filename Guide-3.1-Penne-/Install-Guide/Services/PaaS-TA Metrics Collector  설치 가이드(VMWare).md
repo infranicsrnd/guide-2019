@@ -1,15 +1,4 @@
-## Table of Contents
-1. [문서 개요](#1)
-     * [1.1. 목적](#2)
-     * [1.2. 범위](#3)
-     * [1.3. 전제조건](#4)
-     * [1.4. 참고](#5)
-2. [Metrics Collector Release 배포](#6)
-     * [2.1.  upload release](#7)
-     * [2.2.  manifest 파일 설정](#8)
-     * [2.3.  deploy](#9)
-     * [2.4.  확인](#10)
-
+## PaaS-TA Metrics Collector  설치 가이드(VMWare)
 
 
 # 1. 문서 개요

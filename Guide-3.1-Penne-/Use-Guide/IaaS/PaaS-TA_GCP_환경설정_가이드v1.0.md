@@ -1,22 +1,4 @@
 ## PaaS-TA_GCP_환경설정_가이드v1.0
-## Table of Contents
-
-1. [개요](#1)
-  * [목적](#2)
-  * [범위](#3)
-  * [참고자료](#4)
-2. [Google Cloud Platform 기본 환경 설정](#5)
-	* [Google Cloud Platform 기본 환경 설정 절차](#6)
-		* [Google Cloud Platform 프로젝트 생성](#7)
-		* [Google Cloud Platform API Enable 설정](#8)
-		* [Google Cloud Platform Service Account 생성](#9)
-		* [Google Cloud Platform Service Account Key 생성](#10)
-		* [Google Cloud Platform VPC networks 생성](#11)
-		* [Google Cloud Platform External IP Address 생성](#12)
-		* [Google Cloud Platform Firewall rules 설정](#13)
-		* [Google Cloud Platform Key pair 생성](#14)
-		* [Google Cloud Platform Meta Data 생성](#15)
-
 
 ## Executive Summary
 

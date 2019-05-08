@@ -1363,21 +1363,21 @@ path: target/hello-spring-glusterfs.war # 배포하는 App 파일 PATH
 
 > ![glusterfs_image_17]
 
-[glusterfs_image_01]:/Service-Guide/images/glusterfs/glusterfs_image_01.png
-[glusterfs_image_02]:/Service-Guide/images/glusterfs/glusterfs_image_02.png
-[glusterfs_image_03]:/Service-Guide/images/glusterfs/glusterfs_image_03.png
-[glusterfs_image_04]:/Service-Guide/images/glusterfs/glusterfs_image_04.png
-[glusterfs_image_05]:/Service-Guide/images/glusterfs/glusterfs_image_05.png
-[glusterfs_image_06]:/Service-Guide/images/glusterfs/glusterfs_image_06.png
-[glusterfs_image_07]:/Service-Guide/images/glusterfs/glusterfs_image_07.png
-[glusterfs_image_08]:/Service-Guide/images/glusterfs/glusterfs_image_08.png
-[glusterfs_image_09]:/Service-Guide/images/glusterfs/glusterfs_image_09.png
-[glusterfs_image_10]:/Service-Guide/images/glusterfs/glusterfs_image_10.png
-[glusterfs_image_11]:/Service-Guide/images/glusterfs/glusterfs_image_11.png
-[glusterfs_image_12]:/Service-Guide/images/glusterfs/glusterfs_image_12.png
-[glusterfs_image_13]:/Service-Guide/images/glusterfs/glusterfs_image_13.png
-[glusterfs_image_14]:/Service-Guide/images/glusterfs/glusterfs_image_14.png
-[glusterfs_image_15]:/Service-Guide/images/glusterfs/glusterfs_image_15.png
-[glusterfs_image_16]:/Service-Guide/images/glusterfs/glusterfs_image_16.png
-[glusterfs_image_17]:/Service-Guide/images/glusterfs/glusterfs_image_17.jpeg
+[glusterfs_image_01]:./../images/glusterfs/glusterfs_image_01.png
+[glusterfs_image_02]:./../images/glusterfs/glusterfs_image_02.png
+[glusterfs_image_03]:./../images/glusterfs/glusterfs_image_03.png
+[glusterfs_image_04]:./../images/glusterfs/glusterfs_image_04.png
+[glusterfs_image_05]:./../images/glusterfs/glusterfs_image_05.png
+[glusterfs_image_06]:./../images/glusterfs/glusterfs_image_06.png
+[glusterfs_image_07]:./../images/glusterfs/glusterfs_image_07.png
+[glusterfs_image_08]:./../images/glusterfs/glusterfs_image_08.png
+[glusterfs_image_09]:./../images/glusterfs/glusterfs_image_09.png
+[glusterfs_image_10]:./../images/glusterfs/glusterfs_image_10.png
+[glusterfs_image_11]:./../images/glusterfs/glusterfs_image_11.png
+[glusterfs_image_12]:./../images/glusterfs/glusterfs_image_12.png
+[glusterfs_image_13]:./../images/glusterfs/glusterfs_image_13.png
+[glusterfs_image_14]:./../images/glusterfs/glusterfs_image_14.png
+[glusterfs_image_15]:./../images/glusterfs/glusterfs_image_15.png
+[glusterfs_image_16]:./../images/glusterfs/glusterfs_image_16.png
+[glusterfs_image_17]:./../images/glusterfs/glusterfs_image_17.jpeg
 

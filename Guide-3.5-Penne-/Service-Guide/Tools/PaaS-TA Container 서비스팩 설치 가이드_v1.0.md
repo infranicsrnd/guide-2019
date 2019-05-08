@@ -2303,4 +2303,4 @@ $ sudo /var/vcap/jobs/docker/bin/ctl start
 ```
 
 
-[Architecture]:/Service-Guide/images/caas/CaaS_Architecture.png
+[Architecture]:./../images/caas/CaaS_Architecture.png

@@ -1,15 +1,4 @@
 ## PaaS-TA_플랫폼 설치 자동화 설치 가이드 v2.0
-## Table of Contents
-
-1. [개요](#1)
-  * [목적](#2)
-  * [범위](#3)
-  * [참고자료](#4)
-2. [플랫폼 설치 자동화 실행 환경 구성](#5)
-	* [실행 환경을 위한 패키지 설치](#6)
-	* [Ruby 및 BOSH 의존패키지 통합 설치](#7)
-3. [플랫폼 설치 자동화 메뉴얼](#8)
-	* [플랫폼 설치 자동화 실행](#9)
 
 
 ## Executive Summary
@@ -233,21 +222,3 @@ CF & Diego Document:
 
 [PaaSTa_Platform_Image00]:../images/PaaSTa_Platform/login.png
 
-### 4. 참고
-- 인프라 관리대시보드 활용
-  - [인프라 관리 대시보드 사용 가이드](../../Use-Guide/infra/PaaS-TA_인프라_관리_대시보드_사용가이드_v1.0.md)
-- 플랫폼 설치 자동화 활용
-  - [플랫폼 설치 자동화 사용 가이드](../../Use-Guide/platform/PaaS_TA_플랫폼_설치_자동화_사용_가이드v3.0.md)
-  
-### 5. 이전 버전 참고
-- 플랫폼 설치 (PaaS-TA v1.0)
-  - [플랫폼 설치 자동화](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/Platform%20Install%20System/OpenPaaS_PaaSTA_Platform_Install_System_install_guide.md)
-- 개인 환경 설치 (PaaS-TA v1.0)
-  - [BOSH-Lite](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/BOSH%20Lite/OpenPaaS_PaaSTA_BOSH_Lite_install_guide.md)
-- 운영 환경 설치 (PaaS-TA v1.0)
-  - BOSH 설치([AWS](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/BOSH/OpenPaaS_PaaSTA_BOSH_AWS_install_guide.md), [OpenStack](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/BOSH/OpenPaaS_PaaSTA_BOSH_Openstack_install_guide.md))
-  - Controller 설치([vSphere](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/Controller/Controller_vSphere_install_guide.md),
-[AWS](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/Controller/Controller_AWS_install_guide.md), [Openstack](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/Controller/Controller_Openstack_install_guide.md))
-  - Container 설치([vSphere](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/Container/Container_vSphere_install_guide.md),
-[AWS](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/Container/Container_AWS_install_guide.md),
-[Openstack](../../../../../Documents-PaaSTA-1.0/blob/master/Install-Guide/Container/Container_Openstack_install_guide.md))
