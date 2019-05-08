@@ -1053,17 +1053,17 @@ VCAP_SERVICES 정보를 확인하면 그림과 같이 각각의 서비스 별로
 
 화면의 좌측 하단 셀렉트 박스에서 지역을 선택해보면서 각각의 API들이 정상적으로 작동하는 것을 확인한다.
 
-![7-7-0-3]<br>
+![7-7-0-3]
+```
 
 
 
-
- [2-1-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-0.png
- [2-1-0-1]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-1.png
- [2-1-0-2]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-2.png
- [2-1-0-3]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-3.png
- [2-1-0-4]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-4.png
- [2-1-0-5]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-5.png
+[2-1-0-0]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-0.png
+[2-1-0-1]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-1.png
+[2-1-0-2]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-2.png
+[2-1-0-3]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-3.png
+[2-1-0-4]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-4.png
+[2-1-0-5]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-5.png
 [2-1-0-6]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-6.png
 [2-1-0-7]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-7.png
 [2-1-0-8]:/Guide-1.0-Spaghetti-/images/openpaas-service/publicapi/2-1-0-8.png
