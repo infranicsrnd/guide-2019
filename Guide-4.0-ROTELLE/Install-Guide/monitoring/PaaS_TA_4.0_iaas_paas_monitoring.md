@@ -877,9 +877,7 @@ member_info에는 사용자가 사용할 ID/PWD를 입력한다. iaas-info에는
 
  ![PaaSTa_monitoring_join]
 
-모니터링 main dashboard 화면
 
- ![PaaSTa_monitoring_main_dashboard]
 
 
 [iaas_paas_architecure]:./images/iaas-paas-archi.png
