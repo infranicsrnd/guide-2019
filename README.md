@@ -9,4 +9,4 @@
 - [PaaS-TA 4.0 Guide : Rotelle](Guide-4.0-ROTELLE/README.md)
 - [PaaS-TA 4.3 Guide : Rotelle](Guide-4.3-ROTELLE/README.md)
 - [PaaS-TA 4.6 Guide : Rotelle](Guide-4.6-ROTELLE/README.md)
-- [PaaS-TA 5.0 Guide : Ravioli](Guide-5.0-ROTELLE/README.md)
+- [PaaS-TA 5.0 Guide : Ravioli](Guide-5.0-Ravioli/README.md)
